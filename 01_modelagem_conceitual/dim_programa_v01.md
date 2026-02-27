@@ -9,7 +9,7 @@
 
 ## Nota metodológica
 
-Este catálogo foi extraído a partir de um levantamento documental cobrindo o primeiro e 2º semestre de 2023 e o 1º semestre de 2024, complementado pelas seções de Assistência Social, Direitos Humanos e Empregabilidade do mesmo documento.
+Este catálogo foi extraído a partir de um levantamento documental cobrindo o 2º semestre de 2023 e o 1º semestre de 2024, complementado pelas seções de Assistência Social, Direitos Humanos e Empregabilidade do mesmo documento.
 
 Os programas foram classificados em dois tipos funcionais:
 
@@ -53,13 +53,18 @@ observacoes
 - **Observações:** Principal serviço do CRAS. Escuta qualificada, encaminhamentos, fortalecimento de vínculos.
 
 ### Endereços dos CRAS
-| Unidade | Endereço | Telefone |
-|---|---|---|
-| CRAS Amanda | Av. Tarsila do Amaral, 540, Jd. Amanda | (19) 3909-3642 |
-| CRAS Santa Clara | Rua Estados Unidos, 217, Jd. Santa Clara do Lago II | (19) 3865-1133 |
-| CRAS Novo Ângulo | Rua Francisco Bereta, 330, Jd. Novo Ângulo | (19) 3845-7629 |
-| CRAS Jardim Brasil | Rua da Amizade, 240, Jd. Brasil | (19) 3909-1391 |
-| CRAS Primavera | Rua da Amoreira, 35, Jd. Primavera (inaugurado mai/2023) | (19) 3909-2292 |
+*(Fonte: Secretaria de Inclusão e Desenvolvimento Social — atualizado em 06/02/2026)*  
+*(⚠️ Loteamentos de abrangência por CRAS estão em processo de padronização — ver `dim_territorio_cras_v01.md`)*
+
+| # | Unidade | Homenageado | Endereço | Telefone |
+|---|---|---|---|---|
+| 1 | CRAS Jardim Santa Clara | — | Rua Estados Unidos, 217, Jd. Santa Clara do Lago II | 3865-1133 / 3897-2519 |
+| 2 | CRAS Jardim Amanda | — | Av. Tarsila do Amaral, 540, Jd. Amanda II | 3819-7619 / 3865-7276 |
+| 3 | CRAS Jardim Novo Ângulo | — | Rua Francisco Bereta, 330, Jd. Novo Ângulo | 3809-1945 / 3845-7629 |
+| 4 | CRAS Rosolém | Joel Alves Assunção | Rua Guido Rosolém, 177, Jardim Rosolém | 3809-3164 |
+| 5 | CRAS Primavera | Chico Vigilante | Rua Amoreira, 35, Jd. Primavera | 3865-1225 / 3819-6899 |
+| 6 | CRAS Jardim Brasil | Maria Humilde Antunes (Zuma) | Rua da Amizade, 240, Jardim Brasil | 3909-1398 |
+| 7 | CRAS Vila Real | — | Rua Ernesto Bergamasco, 185, Vila Real | 3865-4269 |
 
 ### CCS — Centro de Convivência Social (Jd. Rosolém)
 - **Tipo:** A — Serviço Direto
@@ -69,7 +74,7 @@ observacoes
 - **Nível de proteção:** Básica
 - **Origem:** Municipal
 - **Endereço:** Rua Guido Rosolen, 177, Jardim Rosolém
-- **Observações:** Transformado de CRAS para CCS em 2021. Ampliou foco para atividades socioeducativas, cultura, arte, esporte e inclusão digital. Não substitui o CRAS para benefícios.
+- **Observações:** Transformado de CRAS para CCS em 2021 com foco em atividades socioeducativas, cultura, arte, esporte e inclusão digital. ⚠️ O endereço (Rua Guido Rosolém, 177) consta na planilha oficial de 06/02/2026 como **CRAS Rosolém — Joel Alves Assunção**. Verificar se CCS permanece como equipamento distinto ou foi reintegrado ao CRAS.
 
 ---
 
@@ -397,7 +402,7 @@ observacoes
 2. **ACERTE** — confirmar secretaria responsável e se tem cadastro próprio ou usa o CadÚnico.
 3. **DECOLA Juventude** — mencionado no e-book como programa de inserção produtiva de jovens. Não apareceu no material de 2023–2024. Verificar status atual.
 4. **Programa Viva Mais** — atividades de bem-estar, massagem, liang gong. Confirmar secretaria e público-alvo formal.
-5. **Cobertura territorial dos CRAS** — os cinco CRAS cobrem os 131 loteamentos? Há bairros sem cobertura? Lista a cruzar com o arquivo `loteamentosregiao.xls`.
+5. **Cobertura territorial dos 7 CRAS** — os loteamentos de abrangência por CRAS estão listados em `dim_territorio_cras_v01.md` com grafia provisória. Cruzar com `loteamentosregiao.xls` para padronizar nomes e confirmar cobertura completa dos 131 loteamentos.
 6. **Conselho Tutelar x CRAS** — as listas de bairros dos CTs não coincidem com as áreas dos CRAS. Mapeamento territorial necessário.
 
 ---
