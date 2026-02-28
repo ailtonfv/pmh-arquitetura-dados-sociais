@@ -1,7 +1,9 @@
 # DIM_PROGRAMA — Catálogo de Programas Municipais de Hortolândia
-**Versão:** 01  
-**Data de extração:** 27/02/2026  
+**Versão:** 02  
+**Data de atualização:** 28/02/2026  
+**Versão anterior:** 01 (27/02/2026)  
 **Fonte primária:** Levantamento documental 2023–2024 (Ailton Vendramini)  
+**Atualizações v02:** Ciclo jornalístico — Tribuna Liberal, edições 21/02, 24/02 e 01/03/2026  
 **Responsável:** Ailton Vendramini / Claude (Anthropic)  
 **Repositório:** Projeto CadÚnico — Hortolândia
 
@@ -10,6 +12,8 @@
 ## Nota metodológica
 
 Este catálogo foi extraído a partir de um levantamento documental cobrindo o 2º semestre de 2023 e o 1º semestre de 2024, complementado pelas seções de Assistência Social, Direitos Humanos e Empregabilidade do mesmo documento.
+
+A partir da versão 02, o catálogo passa a incorporar atualizações obtidas por meio de leitura sistemática do jornal Tribuna Liberal (radar jornalístico), como método de mapeamento incremental de programas ativos, correção de metadados e identificação de pendências. Esse método não substitui fontes oficiais, mas orienta onde buscar informação com prioridade.
 
 Os programas foram classificados em dois tipos funcionais:
 
@@ -106,6 +110,19 @@ observacoes
 - **Nível de proteção:** Especial — Alta Complexidade
 - **Origem:** Municipal / parceria com Instituto Esperançar
 - **Observações:** Abrigo Institucional operado pelo Instituto Esperançar. Casa de Passagem vinculada ao Centro POP.
+
+### Atendimento Emergencial — Famílias em Situação de Risco (Chuvas/Desastres)
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (Dep. Assistência Social)
+- **Secretarias parceiras:** Fundo Social de Solidariedade, Dep. de Políticas Públicas para PCD, Saúde, Habitação, Serviços Urbanos, Defesa Civil
+- **Público-alvo:** Famílias desabrigadas ou afetadas por eventos climáticos
+- **Vínculo CadÚnico:** Sim (encaminhamento pós-emergência via CRAS)
+- **Nível de proteção:** Especial — Alta Complexidade / Intersetorial
+- **Origem:** Municipal
+- **Gatilho de acionamento:** Defesa Civil (199) aciona SUAS após evento
+- **Entregas documentadas:** Água potável, cestas básicas, cobertores, colchões, produtos de limpeza
+- **Evento de referência (v02):** Chuva de 26/02/2026 — 16 famílias acolhidas: Jd. Ricardo (8), Jd. Sumarezinho (5), Jd. Adelaide (2), Jd. Santa Clara do Lago (1)
+- **Observações:** *(Incluído na v02 — fonte: Tribuna Liberal 01/03/2026)* Atuação intersetorial documentada. CRAS oferece escuta qualificada e acompanhamento a médio/longo prazo pós-emergência. Estrutura de FATO_ATENDIMENTO aplicável com data, território e quantidade de famílias.
 
 ---
 
@@ -223,6 +240,18 @@ observacoes
 - **Vagas Hortolândia:** 28 unidades habitacionais anunciadas abr/2024
 - **Contrapartida municipal:** Indicação de beneficiários + doação de terrenos + gestão e manutenção
 
+### Minha Casa, Minha Vida — Hortolândia
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Habitação
+- **Público-alvo:** Famílias em vulnerabilidade habitacional, selecionadas por critério de pontuação (Portaria MCID nº 738/2024)
+- **Vínculo CadÚnico:** Sim — critério de elegibilidade federal
+- **Nível de proteção:** Habitação
+- **Origem:** Federal
+- **Status (v02):** 400 unidades em construção no **Jardim Amanda** desde início de 2026. Previsão de entrega: 18 meses. Próxima etapa prevista: mais 800 unidades.
+- **Processo seletivo:** 1.000 famílias pré-selecionadas → 520 selecionadas (400 titulares + 120 suplentes). Sem sorteio — sistema de pontuação por prioridade.
+- **Contato:** WhatsApp (19) 99635-4274 / Tel. (19) 3965-1400 ramais 7810, 7806, 7804, 7811
+- **Observações:** *(Atualizado na v02 — fonte: Tribuna Liberal 24/02/2026)* Primeira etapa do programa federal em Hortolândia. Território: Jardim Amanda → candidato a DIM_TERRITORIO.
+
 ### PHLIS — Plano Municipal de Habitação de Interesse Social
 - **Tipo:** B — Política Articuladora
 - **Secretaria responsável:** Habitação
@@ -235,12 +264,19 @@ observacoes
 
 ### ACERTE — Ação Cidadã de Requalificação, Trabalho e Educação
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** A confirmar (mencionado como vinculado à Inclusão)
-- **Público-alvo:** População em vulnerabilidade, incluindo egressos de programas sociais
-- **Vínculo CadÚnico:** Sim (requisito do Programa Ressignifica)
+- **Secretaria responsável:** ~~A confirmar (mencionado como vinculado à Inclusão)~~ **Secretaria de Governo** *(corrigido na v02 — fonte: Tribuna Liberal 01/03/2026)*
+- **Secretarias parceiras:** Inclusão e Desenvolvimento Social (encaminhadora via CRAS/CadÚnico)
+- **Público-alvo:** Pessoas em vulnerabilidade socioeconômica, incluindo egressos de programas sociais e população em situação de rua
+- **Faixa etária:** 18 anos ou mais
+- **Requisito de residência:** Mínimo 12 meses no município
+- **Vínculo CadÚnico:** Sim (requisito do Programa Ressignifica; inscrição aberta ao público geral)
 - **Nível de proteção:** Produtiva
 - **Origem:** Municipal
-- **Observações:** Aparece como requisito obrigatório do Ressignifica Hortolândia. Cursos de capacitação profissional e empregabilidade.
+- **Benefício:** Bolsa-auxílio R$ 710 + cesta básica
+- **Modalidades ativas (fev/2026):** Costura Industrial, Serviços Gerais
+- **Vagas:** Sem limite definido — banco de talentos contínuo
+- **Inscrições:** Formulário Google (prazo mais recente: até 31/03/2026)
+- **Observações:** Aparece como requisito obrigatório do Ressignifica Hortolândia. *(Pendência 2 da v01 resolvida na v02.)*
 
 ### PAT — Posto de Atendimento ao Trabalhador
 - **Tipo:** A — Serviço Direto
@@ -276,6 +312,20 @@ observacoes
 - **Espaço:** "Capacita Hortolândia" — Rua Estados Unidos, 217, Jd. Santa Clara do Lago II
 - **Observações:** ⚠️ Mesmo endereço do CRAS Santa Clara — verificar se são o mesmo espaço físico.
 
+### Projeto Escolinhas Esportivas
+- **Tipo:** B — Política Articuladora *(a confirmar — pode ter componente Tipo A)*
+- **Secretaria responsável:** Esporte e Lazer (Secretário: Gleguer Zorzin)
+- **Público-alvo:** População geral; destaque para **pessoas com deficiência** (quase 100 alunos PCD em 2026)
+- **Faixa etária:** Variada por modalidade
+- **Vínculo CadÚnico:** Indireto
+- **Nível de proteção:** N/A — Esporte / Inclusão Social
+- **Origem:** Municipal
+- **Modalidades disponíveis:** 25 (incluindo karatê, judô, basquete, capoeira, balé, natação, futebol, lutas)
+- **Alcance:** Mais de 7.000 atendimentos (treinos + alto rendimento)
+- **Localização de referência:** Academia Municipal "Jaime Pereira" — Rua Benedito Manduca de Souza, 85, Jardim das Paineiras. Tel: (19) 3897-1835
+- **Parcerias PCD:** "Nadando com Daniel Dias" e "Luta pela Vida"
+- **Observações:** *(Incluído na v02 — fonte: Tribuna Liberal 24/02/2026)* O atendimento de PCD via Esporte é transversal ao Departamento de PCD da Secretaria de Governo. Verificar se gera registro de atendimento próprio ou integra ao cadastro do Dep. PCD. Inscrições presenciais seg–sex, 8h–17h.
+
 ---
 
 ## Grupo 7 — Públicos Específicos / Direitos Humanos
@@ -287,7 +337,7 @@ observacoes
 - **Secretaria responsável:** Governo (Dep. Direitos Humanos)
 - **Público-alvo:** Pessoas com deficiência física, visual, auditiva, mental, motora, TEA, deficiências invisíveis
 - **Vínculo CadÚnico:** Indireto (mapeamento próprio iniciado ago/2023)
-- **Observações:** Cadastro municipal PCD iniciado ago/2023 (online e presencial). Objetivo: mapear quantidade e localização por bairro. Base para políticas específicas. Conselho Municipal da PCD (CMPD) biênio 2023-2025, 20 membros titulares.
+- **Observações:** Cadastro municipal PCD iniciado ago/2023 (online e presencial). Objetivo: mapear quantidade e localização por bairro. Base para políticas específicas. Conselho Municipal da PCD (CMPD) biênio 2023-2025, 20 membros titulares. ⚠️ **Pendência v02:** A Tribuna Liberal (01/03/2026) menciona o "Departamento de Políticas Públicas para Pessoas com Deficiência" atuando operacionalmente no atendimento emergencial de 26/02, ao lado do Dep. de Assistência Social. Isso sugere que é um departamento com capacidade de ação direta — não apenas articulador. Verificar estrutura organizacional e se possui programas próprios que gerem FATO_ATENDIMENTO.
 
 ### Políticas para Pessoa Idosa
 - **Tipo:** B — Política Articuladora
@@ -392,30 +442,56 @@ observacoes
 - **Classes E e D:** 26,1% das remunerações totais
 - **CadÚnico out/2022:** 29.698 famílias / 70.456 pessoas
 - **CadÚnico dez/2025:** ~73.000 pessoas (e-book ver_01)
-- **Populacao estimada:** ~240.000 habitantes
+- **População estimada:** ~240.000 habitantes
+
+---
+
+## Atores institucionais confirmados (v02)
+
+*(Fonte: Tribuna Liberal — fevereiro/2026)*
+
+| Pessoa | Cargo | Secretaria / Órgão |
+|---|---|---|
+| Maria dos Anjos Assis Barros | Secretária + Presidente do Fundo Social | Inclusão e Desenvolvimento Social / Fundo Social |
+| Jesus José Ribeiro da Costa | Diretor | Assistência Social |
+| Dimas Corrêa Pádua | Secretário | Desenvolvimento Econômico, Trabalho, Turismo e Inovação |
+| Eliane Nascimento | Secretária | Meio Ambiente e Desenvolvimento Sustentável |
+| Gleguer Zorzin | Secretário | Esporte e Lazer |
 
 ---
 
 ## Pendências e pontos a confirmar
 
 1. **Espaço Capacita Hortolândia** — mesmo endereço do CRAS Santa Clara (Rua Estados Unidos, 217). Verificar se são o mesmo espaço físico ou apenas o mesmo logradouro.
-2. **ACERTE** — confirmar secretaria responsável e se tem cadastro próprio ou usa o CadÚnico.
+2. ~~**ACERTE** — confirmar secretaria responsável e se tem cadastro próprio ou usa o CadÚnico.~~ **✅ RESOLVIDO na v02:** Secretaria de Governo. Detalhes operacionais atualizados na ficha do programa.
 3. **DECOLA Juventude** — mencionado no e-book como programa de inserção produtiva de jovens. Não apareceu no material de 2023–2024. Verificar status atual.
 4. **Programa Viva Mais** — atividades de bem-estar, massagem, liang gong. Confirmar secretaria e público-alvo formal.
 5. **Cobertura territorial dos 7 CRAS** — os loteamentos de abrangência por CRAS estão listados em `dim_territorio_cras_v01.md` com grafia provisória. Cruzar com `loteamentosregiao.xls` para padronizar nomes e confirmar cobertura completa dos 131 loteamentos.
 6. **Conselho Tutelar x CRAS** — as listas de bairros dos CTs não coincidem com as áreas dos CRAS. Mapeamento territorial necessário.
+7. *(v02)* **Departamento de PCD — natureza organizacional:** A Tribuna Liberal (01/03/2026) registra o "Dep. de Políticas Públicas para PCD" em ação operacional direta no atendimento emergencial. Verificar: é departamento dentro da Secretaria de Inclusão? Tem programas próprios com FATO_ATENDIMENTO? Como modelar no catálogo.
+8. *(v02)* **Escolinhas Esportivas x CadÚnico:** Verificar se o atendimento de PCD via Esporte tem integração formal com o cadastro municipal de PCD ou com o CadÚnico.
+9. *(v02)* **Fatec em Hortolândia:** Reunião realizada em 26/02/2026. Acompanhar definição dos cursos e data de início das operações para avaliação de inclusão no catálogo como programa de qualificação.
 
 ---
 
 ## Próximos passos sugeridos
 
-1. Salvar este arquivo no repositório GitHub como `dim_programa_v01.md`
-2. Revisar e completar campos em branco (especialmente secretaria responsável do ACERTE)
+1. ~~Salvar este arquivo no repositório GitHub como `dim_programa_v01.md`~~ **✅ Concluído**
+2. ~~Revisar e completar campos em branco (especialmente secretaria responsável do ACERTE)~~ **✅ Concluído na v02**
 3. Iniciar a modelagem formal da tabela `DIM_PROGRAMA` no SQLite com base nesta estrutura
 4. Cruzar lista de loteamentos (`loteamentosregiao.xls`) com áreas de cobertura dos CRAS → gerar `DIM_TERRITORIO` preliminar
-5. Verificar pendências listadas acima com a Secretaria de Inclusão
+5. Verificar pendências 1, 3, 4, 7 e 8 com a Secretaria de Inclusão
+6. Continuar ciclo de leitura do jornal Tribuna Liberal — periodicidade semanal recomendada
 
 ---
 
-*Documento gerado a partir de levantamento documental. Sujeito a revisão e atualização.*
+## Log de alterações
 
+| Versão | Data | Alteração |
+|---|---|---|
+| v01 | 27/02/2026 | Criação do catálogo — levantamento documental 2023–2024 |
+| v02 | 28/02/2026 | Correção do ACERTE (secretaria executora → Secretaria de Governo); inclusão de detalhes operacionais do ACERTE; inclusão do Atendimento Emergencial (Grupo 2) com evento de referência de 26/02/2026; atualização do Minha Casa Minha Vida com território (Jd. Amanda) e dados do processo seletivo; inclusão do Projeto Escolinhas Esportivas (Grupo 6) com destaque para público PCD; adição da tabela de atores institucionais confirmados; resolução da pendência 2 (ACERTE); inclusão das pendências 7, 8 e 9 |
+
+---
+
+*Documento gerado a partir de levantamento documental. Atualizado incrementalmente via ciclo jornalístico. Sujeito a revisão e atualização.*
