@@ -8,12 +8,19 @@ A modelagem conceitual responde à pergunta: quais são as entidades do mundo re
 
 ## Conteúdo atual
 
-### `dim_programa_v01.md`
-Catálogo dos programas municipais de assistência social, habitação, segurança alimentar, inserção produtiva e direitos humanos de Hortolândia.
+### `dim_programa_v03.md`
+Catálogo dos programas municipais de assistência social, habitação, segurança alimentar, inserção produtiva, direitos humanos e formação cultural de Hortolândia.
 
-Extraído a partir de levantamento documental cobrindo 2023–2024, organizado em 8 grupos com ~30 programas catalogados. Para cada programa registra: secretaria responsável, público-alvo, vínculo com o CadÚnico, tipo de intervenção (serviço direto ou política articuladora) e nível de proteção social.
+Extraído a partir de levantamento documental cobrindo 2023–2024, atualizado incrementalmente via ciclo jornalístico (Tribuna Liberal) e varredura do site oficial da Prefeitura. Organizado em 9 grupos com mais de 35 programas catalogados. Para cada programa registra: secretaria responsável, departamento executor, público-alvo, vínculo com o CadÚnico, tipo de intervenção (serviço direto ou política articuladora) e nível de proteção social.
 
 Este catálogo é a base para a futura tabela `DIM_PROGRAMA` no banco de dados.
+
+### `dim_gestor_v02.md`
+Catálogo dos gestores municipais de Hortolândia com relevância para o projeto de inteligência territorial da assistência social.
+
+Cobre prefeito, vice-prefeito, secretários titulares, secretários adjuntos, diretores de departamentos estratégicos e presidentes de conselhos municipais. Inclui campo `ativo` para rastreamento de substituições sem perda de histórico.
+
+Este catálogo é a base para a futura tabela `DIM_GESTOR` no banco de dados e alimenta o campo `secretaria_responsavel` do `DIM_PROGRAMA`.
 
 ### `dim_territorio_cras_v01.md`
 Mapeamento dos 7 CRAS de Hortolândia com seus respectivos loteamentos de abrangência.
@@ -27,7 +34,7 @@ Este documento é a base para a futura tabela `DIM_TERRITORIO` no banco de dados
 ## Os 7 CRAS de Hortolândia
 
 | CRAS | Homenageado | Endereço |
-|---|---|---|
+|------|------------|---------|
 | Jardim Santa Clara | — | Rua Estados Unidos, 217 |
 | Jardim Amanda | — | Av. Tarsila do Amaral, 540 |
 | Jardim Novo Ângulo | — | Rua Francisco Bereta, 330 |
@@ -49,4 +56,3 @@ Este documento é a base para a futura tabela `DIM_TERRITORIO` no banco de dados
 ## Relação com outras pastas
 
 Os documentos desta pasta alimentam diretamente a `02_modelagem_lógica`, onde as entidades conceituais se tornam tabelas com campos, tipos e relacionamentos definidos.
-
