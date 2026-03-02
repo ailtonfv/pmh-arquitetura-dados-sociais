@@ -75,6 +75,11 @@ observacoes
 | 017 | Antônio Agnelo Bonadio | Secretário | Finanças | A confirmar | — | S | Jornal (Tribuna Liberal) + Site Oficial (02/03/2026) |
 | 051 | Ieda Manzano de Oliveira | Secretária | Administração e Gestão de Pessoal | A confirmar | — | S | Site Oficial (02/03/2026) |
 | 052 | Silvania Anizio da Silva | Secretária | Assuntos Jurídicos | A confirmar | — | S | Site Oficial (02/03/2026) |
+| 056 | Atílio Andre Pereira | Secretário | Mobilidade Urbana | A confirmar | — | S | Site Oficial (02/03/2026) |
+| 057 | Sérgio Marasco Torrecillas | Secretário | Obras | A confirmar | — | S | Site Oficial (02/03/2026) |
+| 058 | Eduardo Marchetti Francisco | Secretário | Planejamento Urbano e Gestão Estratégica | A confirmar | — | S | Site Oficial (02/03/2026) |
+| 059 | Joldemar Nunes Corrêa | Secretário | Segurança Pública | A confirmar | — | S | Site Oficial (02/03/2026) |
+| 060 | Vicente Andreu Guillo | Secretário | Serviços Urbanos | A confirmar | — | S | Site Oficial (02/03/2026) |
 
 > 📌 **Nota — Simone Cristina Locatelli (id 015):** Nomeada em 14/11/2025 em substituição a Fernando Moraes, exonerado no mesmo dia em decorrência da Operação Coffee Break.
 
@@ -109,6 +114,12 @@ observacoes
 | 053 | Hortência Ribeiro Nunes | Secretária Adjunta | Administração e Gestão de Pessoal | A confirmar | — | S | Site Oficial (02/03/2026) |
 | 054 | Lenita Sostena de Souza | Secretária Adjunta | Assuntos Jurídicos | A confirmar | — | S | Site Oficial (02/03/2026) |
 | 055 | Eduardo Cesar Vaquero Marques | Secretário Adjunto | Finanças | A confirmar | — | S | Site Oficial (02/03/2026) |
+| 056 | Sandra Aparecida Zaith | Secretária Adjunta | Mobilidade Urbana | A confirmar | — | S | Site Oficial (02/03/2026) |
+| 057 | Renato Sarto | Secretário Adjunto | Obras | A confirmar | — | S | Site Oficial (02/03/2026) |
+| 058 | Andreia Missio | Secretária Adjunta | Planejamento Urbano e Gestão Estratégica | A confirmar | — | S | Site Oficial (02/03/2026) |
+| 059 | Adriana Elias de Carvalho | Secretária Adjunta | Segurança Pública | A confirmar | — | S | Site Oficial (02/03/2026) |
+| 060 | Marco Antonio Panício "Mercadão" | Secretário Adjunto | Serviços Urbanos | A confirmar | — | S | Site Oficial (02/03/2026) |
+| 061 | Sunne Teixeira dos Santos | Secretária Adjunta | Meio Ambiente e Desenvolvimento Sustentável | A confirmar | — | S | Site Oficial (02/03/2026) |
 
 > 📌 **Nota — Lenivaldo Pauliuki (id 018):** Identificado como "Leni" nos documentos internos do projeto (reunião de 30/01/2026, nota técnica de 02/02/2026, reunião de 02/03/2026). A titular da Secretaria de Inclusão é Maria dos Anjos Assis Barros (id 003) — Leni é o adjunto, interlocutor operacional do projeto. Antes de assumir a adjunção de Inclusão Social, ocupava a diretoria do Fundo Social de Solidariedade. A transição ocorreu em 14/11/2025, após Gerson Ferreira assumir a Secretaria de Governo.
 
@@ -199,14 +210,16 @@ observacoes
 | Administração e Gestão de Pessoal | Ieda Manzano de Oliveira | Hortência Ribeiro Nunes |
 | Assuntos Jurídicos | Silvania Anizio da Silva | Lenita Sostena de Souza |
 
-### ⏳ Pendentes (sem titular confirmado)
+| Mobilidade Urbana | Atílio Andre Pereira | Sandra Aparecida Zaith |
+| Obras | Sérgio Marasco Torrecillas | Renato Sarto |
+| Planejamento Urbano e Gestão Estratégica | Eduardo Marchetti Francisco | Andreia Missio |
+| Segurança Pública | Joldemar Nunes Corrêa | Adriana Elias de Carvalho |
+| Serviços Urbanos | Vicente Andreu Guillo | Marco Antonio Panício "Mercadão" |
+| Meio Ambiente e Desenvolvimento Sustentável | Eliane do Nascimento Nunes de Oliveira | Sunne Teixeira dos Santos ⚠️ |
 
-| Secretaria | Status |
-|---|---|
-| Segurança Pública | Pendente |
-| Obras | Pendente |
-| Mobilidade Urbana | Pendente |
-| Planejamento Urbano e Gestão Estratégica | Pendente |
+> ⚠️ **Sunne Teixeira dos Santos:** registrada como Secretária Adjunta de Meio Ambiente (id 061) e como Presidente do Conselho Municipal de Meio Ambiente (id 012). Verificar acúmulo de função ou mudança de cargo.
+
+### ✅ Cobertura: 17 de 17 secretarias — DIM_GESTOR COMPLETO
 
 ---
 
