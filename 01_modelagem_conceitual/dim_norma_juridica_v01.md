@@ -165,7 +165,7 @@ A cada nova norma capturada, avaliar:
 ---
 
 *Documento de registro interno. Uso restrito ao projeto.*
-Após colar no GitHub, o próximo arquivo natural é o dim_domicilio_v01.md — ou prefere fazer as tabelas FATO primeiro?
+
 
 
 
