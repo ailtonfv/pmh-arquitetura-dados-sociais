@@ -254,3 +254,275 @@ Centro POP → Casa de Passagem → Abrigo
 - **Nível de proteção:** Especial — Alta Complexidade
 - **Origem:** Municipal / Instituto Esperançar
 - **Base legal principal:** LOAS + CNAS 109/2009
+
+## Grupo 3 — Programas Municipais Específicos (Inclusão)
+
+### FUNDO SOCIAL — Atendimento Emergencial
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Fundo Social de Solidariedade
+- **Público-alvo:** Famílias em vulnerabilidade emergencial
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Básico / Alimentar
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+
+---
+
+### ACERTE — Ação Cidadã de Requalificação, Trabalho e Educação
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Governo (Dep. Relações Institucionais)
+- **Público-alvo:** Pessoas em vulnerabilidade, egressos de
+  programas sociais, população em situação de rua
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Produtivo
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+- **Benefício:** Bolsa-auxílio R$ 710 + cesta básica
+- **Modalidades ativas (fev/2026):** Costura Industrial,
+  Serviços Gerais
+- **Observações:** Requisito obrigatório do Programa
+  Ressignifica Hortolândia.
+
+---
+
+### Programa Cuidar
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Fundo Social de Solidariedade
+- **Público-alvo:** Gestantes a partir da 34ª semana que
+  realizam pré-natal na rede municipal
+- **Vínculo CadÚnico:** Parcial
+- **Nível de proteção:** Básico / Intersetorial
+- **Origem:** Municipal — lançado outubro/2022
+- **Base legal principal:** Municipal
+
+---
+
+### Programa de Apadrinhamento para Crianças e
+### Adolescentes em Situação de Acolhimento
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Público-alvo:** Crianças e adolescentes em acolhimento
+  institucional
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Especial — Alta Complexidade
+- **Origem:** Federal / Municipal
+- **Base legal principal:** ECA
+- **Observações:** Vinculado ao CMDCA. Apadrinhamento
+  afetivo e/ou financeiro.
+
+---
+
+### Programa de Enfrentamento ao Trabalho Infantil
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Público-alvo:** Crianças e adolescentes em situação
+  de trabalho infantil
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Especial
+- **Origem:** Federal / Municipal
+- **Base legal principal:** ECA
+- **Observações:** Interface direta com Conselho Tutelar
+  e CREAS.
+
+---
+
+### Projeto Capacita
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Público-alvo:** Pessoas em vulnerabilidade buscando
+  qualificação profissional
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Produtivo
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+- **Observações:** ⚠️ Verificar distinção em relação ao
+  "Capacita Hortolândia" do Fundo Social.
+
+---
+
+### Projeto Costura Industrial
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Público-alvo:** Pessoas em vulnerabilidade buscando
+  inserção no setor têxtil/industrial
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Produtivo
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+- **Observações:** Modalidade ativa do ACERTE (fev/2026).
+  Benefício: bolsa-auxílio R$ 710 + cesta básica.
+
+---
+
+### Farmácia Solidária
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Público-alvo:** Pessoas em vulnerabilidade socioeconômica
+- **Vínculo CadÚnico:** A confirmar
+- **Nível de proteção:** Básico / Saúde
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+- **Observações:** ⚠️ Detalhar critério de acesso e
+  integração com farmácia popular federal.
+
+---
+
+### Feiras de Empreendedores
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Público-alvo:** Empreendedores em vulnerabilidade /
+  economia solidária
+- **Vínculo CadÚnico:** Indireto
+- **Nível de proteção:** Produtivo
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+- **Observações:** Distinto das Feiras Livres
+  (Desenvolvimento Econômico) — foco em empreendedorismo
+  social.
+
+---
+
+### Programa Ressignifica Hortolândia
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Público-alvo:** Moradores em situação de rua
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Especial — Alta Complexidade /
+  Intersetorial
+- **Origem:** Municipal — lançado dezembro/2023
+- **Base legal principal:** Municipal + Decreto 7.053/2009
+- **Benefício:** Bolsa mensal R$ 700 + cesta básica +
+  auxílio aluguel
+
+---
+
+### Bolsa Creche
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Educação, Ciência e Tecnologia
+- **Público-alvo:** Crianças de 6 meses a 3 anos e 6 meses
+  sem vaga na rede pública
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Básica
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+
+---
+
+### Inscrição de OSCs no CMASH
+- **Tipo:** B — Política Articulada
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Público-alvo:** Organizações da Sociedade Civil
+- **Vínculo CadÚnico:** Não
+- **Origem:** Municipal
+- **Base legal principal:** LOAS
+
+---
+
+### Inscrição de OSCs no CMDCA
+- **Tipo:** B — Política Articulada
+- **Secretaria responsável:** Inclusão e Desenvolvimento
+  Social / CMDCA
+- **Público-alvo:** OSCs voltadas à criança e ao adolescente
+- **Vínculo CadÚnico:** Não
+- **Origem:** Municipal
+- **Base legal principal:** ECA
+
+---
+
+## Grupo 4 — Segurança Alimentar
+
+### Banco de Alimentos de Hortolândia (BAH)
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Educação, Ciência e Tecnologia
+  (Dep. Segurança Alimentar)
+- **Público-alvo:** Pessoas em insegurança alimentar
+  via 19 OSCs parceiras
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Municipal — criado em 2007
+- **Base legal principal:** Municipal
+- **Alcance:** 19 organizações / 1.762 pessoas (2024)
+
+---
+
+### PAA — Programa de Aquisição de Alimentos
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Educação, Ciência e Tecnologia
+- **Público-alvo:** Agricultores familiares (fornecedores) +
+  beneficiários do Banco de Alimentos
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Federal
+- **Base legal principal:** Outro (Lei 10.696/2003)
+
+---
+
+### Distribuição de Cestas Básicas
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento
+  Social / Fundo Social
+- **Vínculo CadÚnico:** Sim
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+
+---
+
+### CREAN — Centro de Referência em Educação
+### Alimentar e Nutricional
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Educação, Ciência e Tecnologia
+- **Origem:** Municipal — anunciado abr/2023
+- **Base legal principal:** Municipal
+- **Localização prevista:** Jd. Terras de Santa Maria
+
+---
+
+### Cozinha Comunitária
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Educação, Ciência e Tecnologia
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+- **Observações:** ⚠️ Verificar se é o mesmo equipamento
+  que a "Escola Comunitária" do Jd. Novo Ângulo.
+
+---
+
+## Grupo 5 — Habitação
+
+### Agora a Casa é Sua
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Habitação
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Municipal + parceria estadual (Cidade Legal)
+- **Base legal principal:** Municipal
+- **Alcance 2021–2024:** ~3.000 títulos entregues
+
+---
+
+### Programa Vida Longa (Estadual)
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Habitação
+- **Público-alvo:** Idosos em vulnerabilidade, residentes
+  há ≥ 2 anos no município
+- **Vínculo CadÚnico:** Sim — critério explícito
+- **Origem:** Estadual
+- **Base legal principal:** Estadual
+- **Vagas Hortolândia:** 28 unidades habitacionais
+
+---
+
+### Minha Casa, Minha Vida — Hortolândia
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Habitação
+- **Vínculo CadÚnico:** Sim — critério federal
+- **Origem:** Federal
+- **Base legal principal:** PBF / CadÚnico
+- **Status:** 400 unidades em construção no Jardim Amanda
+  (início 2026)
+
+---
+
+### PHLIS — Plano Municipal de Habitação de
+### Interesse Social
+- **Tipo:** B — Política Articulada
+- **Secretaria responsável:** Habitação
+- **Origem:** Municipal + consultoria Demacamp
+- **Base legal principal:** Municipal
