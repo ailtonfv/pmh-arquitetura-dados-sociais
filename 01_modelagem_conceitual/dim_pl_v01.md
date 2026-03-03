@@ -1,7 +1,7 @@
 # FATO_PL — Projetos de Lei com Interface Social
 **Versão:** 01
 **Data de criação:** 02/03/2026
-**Responsável:** Ailton Vendramini / Claude (Anthropic)
+**Responsável:** Ailton Vendramini / 
 **Repositório:** Projeto CadÚnico — Hortolândia
 
 ---
