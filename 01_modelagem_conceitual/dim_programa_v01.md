@@ -526,3 +526,289 @@ Centro POP → Casa de Passagem → Abrigo
 - **Secretaria responsável:** Habitação
 - **Origem:** Municipal + consultoria Demacamp
 - **Base legal principal:** Municipal
+
+- ## Grupo 6 — Inserção Produtiva e Qualificação
+
+### PAT — Posto de Atendimento ao Trabalhador
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Desenvolvimento Econômico,
+  Trabalho, Turismo e Inovação (Dep. do Trabalho)
+- **Público-alvo:** Desempregados em geral, incluindo PCD
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Estadual / Municipal
+- **Base legal principal:** Outro (Lei 7.998/1990)
+- **Contato:** pat@hortolandia.sp.gov.br /
+  (19) 3965-1400 ramais 8904 ou 8925
+
+---
+
+### Cadastro de Vagas de Trabalho por Empresa — PAT
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Desenvolvimento Econômico,
+  Trabalho, Turismo e Inovação
+- **Unidade executora:** PAT
+- **Público-alvo:** Empresas (oferta) +
+  trabalhadores cadastrados (demanda)
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Estadual / Municipal
+- **Base legal principal:** Outro (Lei 7.998/1990)
+- **Acesso:** Telefone ou e-mail
+- **Prazo:** Imediato
+- **⚠️ Nota arquitetural:** PAT é o ponto de cruzamento
+  entre CadÚnico e mercado formal. Cruzamento
+  CadÚnico × vagas PAT × CAGED fecha o triângulo
+  de transição produtiva.
+
+---
+
+### Cadastro no SINE e Encaminhamento para Vagas
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Desenvolvimento Econômico,
+  Trabalho, Turismo e Inovação
+- **Unidade executora:** PAT
+- **Operador:** Ministério do Trabalho (SINE / Emprega Brasil)
+  — município é ponto da rede
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Federal
+- **Base legal principal:** Outro (Lei 7.998/1990)
+- **Acesso:** Presencial no PAT ou online via
+  Emprega Brasil / app CTPS Digital
+- **Prazo:** Imediato
+- **⚠️ Nota arquitetural:** dados ficam no MTE federal.
+  Integração futura requer convênio ou API federal.
+
+---
+
+### Banco do Povo
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Desenvolvimento Econômico,
+  Trabalho, Turismo e Inovação
+  (Dep. Empreendedorismo e Microempresas)
+- **Operador:** Desenvolve SP — município é ponto
+  de atendimento
+- **Público-alvo:** MEI, ME, EPP, LTDA, EIRELI
+  — formais e informais
+- **Vínculo CadÚnico:** A confirmar
+- **Origem:** Estadual
+- **Base legal principal:** Outro (Lei 9.533/1997)
+- **Acesso:** Presencial — documentação obrigatória
+- **Prazo:** 15 dias
+- **Contato:** bancodopovo@hortolandia.sp.gov.br /
+  WhatsApp (19) 9 9919-5984
+- **⚠️ Nota arquitetural:** dados de crédito ficam
+  na Desenvolve SP. Cruzamento CadÚnico × Banco do Povo
+  responderia: "Quantos beneficiários acessaram crédito
+  produtivo após saírem de transferência de renda?"
+
+---
+
+### Orientação ao MEI
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Desenvolvimento Econômico,
+  Trabalho, Turismo e Inovação
+  (Dep. Empreendedorismo e Microempresas)
+- **Público-alvo:** MEIs — abertura, regularização
+  e obrigações fiscais
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Municipal
+- **Base legal principal:** Outro (LC 128/2008)
+- **Acesso:** Presencial — documentos + senha GOV.BR
+- **Prazo:** Imediato
+- **⚠️ Nota arquitetural:** formalização via MEI não
+  aparece no CAGED — só na Receita Federal. Ponto cego
+  no monitoramento de transição produtiva.
+
+---
+
+### SEBRAE Aqui
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Desenvolvimento Econômico,
+  Trabalho, Turismo e Inovação
+- **Operador:** SEBRAE-SP — município é ponto
+  de atendimento
+- **Público-alvo:** Empreendedores e futuros
+  empreendedores
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Estadual (SEBRAE-SP)
+- **Base legal principal:** Outro
+- **Acesso:** Presencial com RG/CNH + CNPJ se já empresa
+- **Prazo:** Imediato
+- **⚠️ Nota arquitetural:** dados ficam nos sistemas
+  do SEBRAE. Integração futura dependeria de convênio.
+
+---
+
+### Seguro Desemprego
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Desenvolvimento Econômico,
+  Trabalho, Turismo e Inovação
+- **Unidade executora:** PAT
+- **Operador:** Ministério do Trabalho (Gov.br)
+  — município apoia casos judiciais
+- **Público-alvo:** Trabalhador formal dispensado
+  sem justa causa
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Federal
+- **Base legal principal:** Outro (Lei 7.998/1990)
+- **Acesso:** Digital (app CTPS ou Gov.br) ou
+  presencial no PAT para casos judiciais
+- **Prazo:** Imediato
+- **Contato:** pat@hortolandia.sp.gov.br /
+  ramais 8904 ou 8925
+- **⚠️ Nota estratégica:** Seguro Desemprego é porta
+  de entrada previsível para o CadÚnico — quando o
+  benefício se esgota sem recolocação, a tendência é
+  buscar assistência social.
+
+---
+
+### Feiras Livres e Noturnas
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Desenvolvimento Econômico,
+  Trabalho, Turismo e Inovação
+- **Público-alvo:** Feirantes + população em geral
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+- **Cobertura territorial:** Santa Clara, Nova Hortolândia,
+  Parque Ortolândia, São Sebastião, Santo André,
+  Vila Real, Amanda
+- **Frequência:** Quarta a domingo — rotatividade por bairro
+- **⚠️ Nota para DIM_TERRITORIO:** 5 territórios coincidem
+  com áreas de abrangência de CRAS.
+
+---
+
+### Fundo Social — Cursos Profissionalizantes
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Governo
+  (Fundo Social de Solidariedade)
+- **Público-alvo:** Pessoas a partir de 16 anos,
+  foco em vulnerabilidade socioeconômica
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+- **Espaço base:** "Capacita Hortolândia" —
+  Rua Estados Unidos, 217, Jd. Santa Clara do Lago II
+- **Cursos jan/2026:** Alvenaria Estrutural (SENAI,
+  20 vagas, Remanso Campineiro); Assistente de RH
+  (SENAI, CRAS Amanda)
+
+---
+
+### Programa Meu Emprego — Trabalho em Equipe
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento
+  Social (DIPGR)
+- **Público-alvo:** Jovens 16–20 anos + desempregados
+  +3 meses + beneficiários do seguro-desemprego
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Estadual + Municipal
+- **Base legal principal:** Outro
+
+---
+
+## Grupo 7 — Públicos Específicos / Direitos Humanos
+
+### Cadastro e Políticas para PCD
+- **Tipo:** B — Política Articulada
+- **Secretaria responsável:** Governo
+  (DPCD — Dep. Políticas Públicas para a PCD)
+- **Gestora:** Quézia Garcia
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Municipal
+- **Base legal principal:** Outro (Lei 13.146/2015
+  — Estatuto da PCD)
+
+---
+
+### Políticas para Pessoa Idosa
+- **Tipo:** B — Política Articulada
+- **Secretaria responsável:** Governo
+  (Dep. Direitos Humanos e Políticas Públicas)
+- **Público-alvo:** Idosos, especialmente em vulnerabilidade
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Municipal
+- **Base legal principal:** Outro (Lei 10.741/2003
+  — Estatuto do Idoso)
+
+---
+
+### CCMI — Centro de Convivência da Melhor Idade
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Governo
+  (Dep. Direitos Humanos e Políticas Públicas)
+- **Público-alvo:** Idosos 60+
+- **Coordenação:** Psicóloga Fernanda Fadiga
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+
+---
+
+### Políticas para a Juventude
+- **Tipo:** B — Política Articulada
+- **Secretaria responsável:** Governo
+  (Dep. Direitos Humanos e Políticas Públicas)
+- **Público-alvo:** Jovens de 15 a 29 anos
+- **Origem:** Municipal
+- **Base legal principal:** Outro (Lei 12.852/2013
+  — Estatuto da Juventude)
+
+---
+
+### Políticas de Igualdade Racial
+- **Tipo:** B — Política Articulada
+- **Secretaria responsável:** Governo
+  (Dep. Direitos Humanos e Políticas Públicas)
+- **Público-alvo:** População negra, indígena,
+  comunidades tradicionais
+- **Origem:** Municipal
+- **Base legal principal:** Outro (Lei 12.288/2010
+  — Estatuto da Igualdade Racial)
+
+---
+
+### CRAM — Centro de Referência de Atendimento à Mulher
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Governo
+  (Departamento de Mulheres)
+- **Público-alvo:** Mulheres em situação de violência
+  ou vulnerabilidade
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Municipal
+- **Base legal principal:** Outro (Lei 11.340/2006
+  — Lei Maria da Penha)
+
+---
+
+### Viva Mais
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Governo
+  (Dep. Relações Institucionais)
+- **Público-alvo:** Comunidade geral
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+
+---
+
+### Ambulatório Trans
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Saúde
+- **Público-alvo:** População transexual
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+- **Início:** Janeiro/2024
+
+---
+
+### Comitê Intersetorial de Políticas para
+### a Primeira Infância
+- **Tipo:** B — Política Articulada
+- **Secretaria responsável:** Educação (coordenação)
+- **Público-alvo:** Crianças de 0 a 6 anos
+- **Origem:** Municipal
+- **Base legal principal:** Outro (Lei 13.257/2016
+  — Marco Legal da Primeira Infância)
