@@ -2,7 +2,7 @@
 **Versão:** 01  
 **Data de criação:** 01/03/2026  
 **Fonte primária:** SAPL — Câmara Municipal de Hortolândia (sapl.hortolandia.sp.leg.br)  
-**Responsável:** Ailton Vendramini / Claude (Anthropic)  
+**Responsável:** Ailton Vendramini / 
 **Repositório:** Projeto CadÚnico — Hortolândia
 
 ---
