@@ -166,21 +166,21 @@ observacoes
 |----|---------------|---------------|---------|-----------|---------------|-----------------|-------|
 | 031 | Aldemir Clemente | Aldemir Clemente da Silva | PODE | S | — | A mapear | SAPL (01/03/2026) |
 | 032 | Ananias | Ananias José Barbosa | REPUBLICANOS | S | — | A mapear | SAPL (01/03/2026) |
-| 033 | Carrão da Nova Europa | Carlos Rodrigues de Oliveira | PV | S | — | A mapear | SAPL (01/03/2026) |
+| 033 | Carlão do Nova Europa | Carlos Rodrigues de Oliveira | PV | S | — | A mapear | SAPL (01/03/2026) |
 | 034 | Cesinha Brasil | Cícero César Brasil | PSB | S | — | A mapear | SAPL (01/03/2026) |
 | 035 | Nei Prazeres | Claudinei Prazeres de Barros | PP | S | — | A mapear | SAPL (01/03/2026) |
 | 036 | Clemilton Silva | Clemilton Alves da Silva | PL | S | — | A mapear | SAPL (01/03/2026) |
 | 037 | Clodoaldo | Clodoaldo Santos da Silva | PODE | S | — | A mapear | SAPL (01/03/2026) |
 | 038 | Daniel Laranjeira | Daniel Laranjeira | PSD | S | — | A mapear | SAPL (01/03/2026) |
-| 039 | Derli | Derli de Jesus Athanazio Bueno | PCdoB | S | Pres. Comissão Social | A mapear | SAPL (01/03/2026) |
+| 039 | Derli | Derli de Jesus Athanazio Bueno | PCdoB | S | Pres. Comissão Social | A mapear | SAPL (01/03/2026) — cod_autor: 97 |
 | 040 | Dionatan Domingues | Dionata Domingues | PP | S | — | A mapear | SAPL (01/03/2026) |
 | 041 | Zaca | Edimilson Marcelo Afonso | REPUBLICANOS | S | — | A mapear | SAPL (01/03/2026) |
-| 042 | Edivildo | Edivaldo Sousa Araújo | PP | S | — | A mapear | SAPL (01/03/2026) |
+| 042 | Edivildo | Edivaldo Sousa Araújo | PP | S | Presidente da Câmara | A mapear | SAPL (01/03/2026) |
 | 043 | Ceará | Edivam Campos de Albuquerque | União | S | — | A mapear | SAPL (01/03/2026) |
 | 044 | Luiz Regional | Luiz Carlos Silva Meira | REPUBLICANOS | S | — | A mapear | SAPL (01/03/2026) |
 | 045 | Paulão | Paulo Pereira Filho | REPUBLICANOS | S | — | A mapear | SAPL (01/03/2026) |
 | 046 | Régis da Serralheria | Reginaldo Roberto Rodrigues da Costa | PSB | S | — | A mapear | SAPL (01/03/2026) |
-| 047 | Professora Roberta Diniz | Roberta Morais Diniz | PT | S | Vice-Pres. Comissão Social | A mapear | SAPL (01/03/2026) |
+| 047 | Professora Roberta Diniz | Roberta Morais Diniz | PT | S | Vice-Pres. Comissão Social | A mapear | SAPL (01/03/2026) — cod_autor: 111 |
 | 048 | Sidney Cabrito | Sidney Eloi Vianna | PSB | S | — | A mapear | SAPL (01/03/2026) |
 | 049 | Negociar | Valdecir Alves Pereira | PSD | S | — | A mapear | SAPL (01/03/2026) |
 | 050 | Léo do LM | Leonardo Martins Moreira | PSB | N (fora de exercício) | — | mandato sob judice | SAPL (01/03/2026) |
@@ -248,7 +248,7 @@ observacoes
 | v02 | 01/03/2026 | Varredura site oficial e Tribuna Liberal: registro 002 atualizado (Cafú, ativo=N); 11 novos registros (ids 013–023); 4 pendências de titulares resolvidas; Lenivaldo Pauliuki identificado como "Leni" dos documentos internos |
 | v03 | 01/03/2026 | Ciclo jornalístico jan/2026: 2 novos registros (ids 024–025) — Quézia Garcia (DPCD) e Renato Lopes Machado (SAMU Regional) |
 | v04 | 01/03/2026 | Operação Coffee Break (nov/2025): nomes completos corrigidos (ids 001 e 002); data_fim Cafú confirmado (14/11/2025); registros históricos exonerados (ids 026, 027, 030); nova categoria Vereadores com 20 registros (ids 031–050) — 9ª Legislatura via SAPL |
-| v05 | 02/03/2026 | Varredura sistemática do site oficial — páginas individuais de cada secretaria: 2 novos titulares (ids 051–052: Administração e Assuntos Jurídicos); 3 novos adjuntos (ids 053–055: Administração, Assuntos Jurídicos e Finanças); correção de nome id 017 (Agnelo, não Agnel); confirmação da titular de Inclusão (Maria dos Anjos Assis Barros, id 003) — "Leni" é o adjunto (id 018); Habitação: adjunto vago confirmado; pendências 11 e 12 abertas; 2 secretarias retiradas da lista de pendentes (Administração e Assuntos Jurídicos) |
+| v05 | 02/03/2026 | Varredura sistemática do site oficial — páginas individuais de cada secretaria: 11 novos registros (ids 051–061): titulares e adjuntos de Administração, Assuntos Jurídicos, Mobilidade Urbana, Obras, Planejamento, Segurança Pública, Serviços Urbanos e Meio Ambiente; cobertura 17/17 secretarias; adjunto Habitação vago confirmado; pendências 11 e 12 abertas. Correções 03/03/2026: "Carrão" → "Carlão do Nova Europa" (id 033); Edivaldo = Presidente da Câmara (id 042); cod_autor SAPL adicionados: Derli=97, Roberta Diniz=111 |
 
 ---
 
