@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Registrar a estrutura territorial do município de Hortolândia
+Registrar a estrutura do município de Hortolândia
 em seus diferentes níveis hierárquicos, permitindo análises
 espaciais, cobertura de serviços e concentração de
 vulnerabilidade por território.
