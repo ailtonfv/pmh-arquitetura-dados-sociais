@@ -4,7 +4,7 @@ markdown
 # DIM_NORMA_JURIDICA — Marco Legal da Assistência Social
 **Versão:** 01
 **Data de criação:** 03/03/2026
-**Responsável:** Ailton Vendramini / Claude (Anthropic)
+**Responsável:** Ailton Vendramini / 
 **Repositório:** Projeto CadÚnico — Hortolândia
 
 ---
