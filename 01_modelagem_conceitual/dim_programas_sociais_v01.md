@@ -1,4 +1,4 @@
-# DIM_PROGRAMA — Catálogo de Programas Municipais de Hortolândia
+# DIM_PROGRAMA — Catálogo de Programas Sociais
 **Versão:** 06
 **Data de atualização:** 03/03/2026
 **Versão anterior:** 05 (03/03/2026)
