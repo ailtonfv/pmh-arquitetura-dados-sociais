@@ -812,3 +812,86 @@ Centro POP → Casa de Passagem → Abrigo
 - **Origem:** Municipal
 - **Base legal principal:** Outro (Lei 13.257/2016
   — Marco Legal da Primeira Infância)
+
+  ## Grupo 8 — Formação Cultural
+
+### Formações Culturais — Secretaria de Cultura (bloco)
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Cultura
+  (Dep. Cidadania Cultural)
+- **Público-alvo:** Comunidade geral, acesso universal
+  e gratuito
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Municipal
+- **Base legal principal:** Municipal
+- **Modalidades:** Música, Artes Cênicas, Artes Visuais,
+  Artes Urbanas, Literatura, Audiovisual, Cursos Livres
+- **Observações:** ⚠️ Verificar se existe registro de
+  matrículas para modelagem em FATO_ATENDIMENTO.
+
+---
+
+## Grupo 9 — Serviços de Saúde com Interface SUAS
+
+### SAMU Regional Hortolândia e Sumaré
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Saúde
+- **Gestor:** Renato Lopes Machado
+- **Público-alvo:** População geral em urgência
+  e emergência
+- **Vínculo CadÚnico:** Indireto
+- **Origem:** Federal / Municipal
+- **Base legal principal:** Outro (Lei 8.080/1990)
+- **Abrangência:** Hortolândia + Sumaré
+
+---
+
+### Vila da Saúde *(em planejamento)*
+- **Tipo:** A — Serviço Direto (em planejamento)
+- **Secretaria responsável:** A confirmar
+- **Público-alvo:** População geral de Hortolândia
+- **Vínculo CadÚnico:** A confirmar
+- **Origem:** Municipal
+- **Base legal principal:** A confirmar
+- **Status:** Intenção declarada publicamente pelo
+  prefeito Zezé Gomes (jan/2026). Sem endereço,
+  secretaria ou prazo confirmados.
+- **Observações:** Monitorar edições futuras da
+  Tribuna Liberal.
+
+---
+
+## Grupo 10 — Governança e Conselhos
+
+| Conselho | Sigla | Vínculo | Base legal principal |
+|----------|-------|---------|---------------------|
+| Conselho Municipal de Segurança Alimentar | COMSEA | Sec. Educação | Municipal |
+| Câmara Intersetorial de Seg. Alimentar | CAISAN | Intersetorial | Municipal |
+| Conselho Municipal da PCD | CMPD | Sec. Governo | Lei 13.146/2015 |
+| Conselho Municipal dos Direitos da Criança e Adolescente | CMDCA | Sec. Governo | ECA |
+| Conselho Municipal de Assistência Social | CMAS | Sec. Inclusão | LOAS |
+| Conselho Municipal do Idoso | CMI | Sec. Governo | Lei 10.741/2003 |
+| Conselho Municipal da Juventude | CMJ | Sec. Governo | Lei 12.852/2013 |
+| Fórum Municipal de Promoção da Igualdade Racial | FOMPIR | Sec. Governo | Lei 12.288/2010 |
+| Conselho Tutelar I | CT I | Sec. Governo / CMDCA | ECA |
+| Conselho Tutelar II | CT II | Sec. Governo / CMDCA | ECA |
+| Conselho Municipal de Assistência Social de Hortolândia | CMASH | Sec. Inclusão | LOAS |
+
+---
+
+## Notas arquiteturais consolidadas (v06)
+
+| # | Nota | Impacto no modelo |
+|---|------|------------------|
+| 1 | Centro POP atende sem documentação | Ponto cego no CadÚnico — CPF = PENDENTE |
+| 2 | Fluxo Centro POP → Casa de Passagem → Abrigo | Mesma pessoa gera múltiplos registros — CPF é âncora obrigatória |
+| 3 | Banco do Povo e SEBRAE: dados nos operadores externos | Integração futura requer convênio |
+| 4 | SINE / Seguro Desemprego: dados no MTE federal | Integração futura requer API federal |
+| 5 | MEI não aparece no CAGED | Ponto cego no monitoramento de transição produtiva |
+| 6 | Seguro Desemprego → CadÚnico | Fluxo de entrada previsível — a modelar |
+| 7 | Feiras Livres: renda informal não declarada | Impacto na classificação de vulnerabilidade |
+| 8 | `base_legal_principal` é atalho analítico | Não substitui REL_NORMA_PROGRAMA — complementa |
+
+---
+
+## Trajetória típica de transição produtiva
