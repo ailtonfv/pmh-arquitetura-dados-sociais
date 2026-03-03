@@ -89,7 +89,7 @@ Com esta modelagem é possível responder:
 - Quais vereadores mais propuseram PLs com impacto social?
 - Quantos PLs de cada vereador viraram lei?
 - Quais leis criaram programas ainda vigentes?
-- Qual partido teve maior influência normativa na assistência?
+- Qual partido teve maior influência normativa na assistência social?
 - Qual legislatura foi mais produtiva em políticas sociais?
 
 ---
