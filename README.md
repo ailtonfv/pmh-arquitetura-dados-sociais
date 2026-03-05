@@ -45,3 +45,121 @@ da política socioassistencial municipal.
 # Arquitetura analítica do projeto
 
 A lógica analítica do Atlas Social organiza a política pública na seguinte cadeia:
+
+Pessoa
+↓
+Família
+↓
+Domicílio
+↓
+Território
+↓
+Programa Social
+↓
+Serviço
+↓
+Resultado
+
+
+Essa estrutura permite compreender a política socioassistencial como um **processo territorial e longitudinal**, e não apenas como registros administrativos isolados.
+
+---
+
+# Estrutura do repositório
+
+| Diretório | Conteúdo |
+|-----------|----------|
+| `00_governanca` | princípios arquitetônicos, fundamentos institucionais e LGPD |
+| `01_modelagem_conceitual` | definição das entidades centrais da política social |
+| `02_modelagem_logica` | esquemas de tabelas e dicionários de dados |
+| `03_indicadores_mvp` | definição dos indicadores estruturantes do sistema |
+| `04_documento_tecnico` | documentação formal da arquitetura analítica |
+| `05_plano_evolutivo` | roteiro de evolução do projeto |
+
+---
+
+# Modelo de dados (visão simplificada)
+
+O modelo segue princípios clássicos de **modelagem analítica dimensional**.
+
+## Dimensões principais
+
+- Pessoa  
+- Família  
+- Território  
+- Programas sociais  
+- Unidades de atendimento  
+- Normas jurídicas  
+- Colegiados e governança  
+
+## Tabelas de fatos
+
+- Atendimentos  
+- Concessão de benefícios  
+- Participação em programas sociais  
+
+Essas estruturas permitem análises **territoriais, temporais e institucionais** da política pública.
+
+---
+
+# O que este repositório **não contém**
+
+Por razões legais e éticas, este repositório **não inclui**:
+
+- dados pessoais
+- microdados do CadÚnico
+- informações identificáveis de cidadãos
+- dados operacionais de sistemas municipais
+
+O conteúdo disponibilizado inclui apenas:
+
+- estruturas de dados
+- dicionários
+- esquemas analíticos
+- documentação metodológica
+- exemplos sintéticos
+
+---
+
+# Tecnologia utilizada no MVP
+
+| Camada | Tecnologia |
+|------|-------------|
+| Banco de dados | SQLite |
+| Ambiente | Debian 12 |
+| Versionamento | GitHub |
+| Próxima etapa | PostgreSQL + pipeline ELT |
+
+---
+
+# Contexto institucional
+
+Município: **Hortolândia – SP**
+
+Secretaria: **Inclusão e Desenvolvimento Social**
+
+Responsável técnico: **Ailton Vendramini**
+
+Ano de início: **2026**
+
+Fase atual: **MVP — validação técnica e estratégica**
+
+---
+
+# Objetivo de longo prazo
+
+Construir uma **arquitetura de dados sociais replicável para municípios brasileiros**, permitindo integrar:
+
+- Cadastro Único
+- rede socioassistencial
+- equipamentos públicos
+- organizações da sociedade civil
+- análise territorial da vulnerabilidade social
+
+---
+
+# Licença
+
+Projeto institucional público.
+
+Não contém dados pessoais e segue os princípios da **Lei Geral de Proteção de Dados (LGPD)** e boas práticas de **governança de dados no setor público**.
