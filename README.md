@@ -1,61 +1,125 @@
-# pmh-arquitetura-dados-sociais
+# Atlas Social de Hortolândia
+Arquitetura de Dados Sociais para Políticas Públicas Municipais
 
-Repositório de desenvolvimento do projeto de arquitetura analítica do CadÚnico municipal de Hortolândia — SP.
+Repositório do projeto **Atlas Social de Hortolândia**, iniciativa de arquitetura de dados sociais aplicada à política socioassistencial do município.
 
-## O que é este projeto
+O projeto desenvolve uma infraestrutura analítica mínima para compreender e acompanhar a dinâmica da vulnerabilidade social no território municipal, utilizando dados públicos já existentes e respeitando integralmente a legislação de proteção de dados.
 
-Hortolândia tem aproximadamente 240 mil habitantes e cerca de 73 mil pessoas inscritas no CadÚnico — quase 1 em cada 3 moradores. Apesar da escala, os dados disponíveis não permitem ainda responder perguntas básicas: quem está sendo atendido, onde estão os que não estão sendo atendidos, quanto tempo as famílias permanecem em situação de vulnerabilidade, quem conseguiu emancipação.
+---
 
-Este projeto constrói a infraestrutura analítica mínima para responder essas perguntas — partindo de dados já existentes, sem depender de convênios federais ou novos sistemas, e respeitando integralmente a LGPD.
+# Contexto
 
-## Princípio central
+Hortolândia possui aproximadamente **240 mil habitantes** e cerca de **73 mil pessoas inscritas no Cadastro Único** — quase **1 em cada 3 moradores**.
 
-> A arquitetura de dados deve refletir a política pública — nunca substituí-la.
+Apesar da escala da política social, os dados disponíveis ainda não permitem responder com precisão perguntas fundamentais para a gestão pública, como:
 
-A modelagem proposta não altera fluxos institucionais, não cria novos cadastros e não redefine competências administrativas. Ela organiza os dados já existentes para permitir leitura estratégica, territorial e longitudinal da política socioassistencial.
+- Quem está sendo atendido?
+- Onde estão as famílias que não estão sendo atendidas?
+- Quanto tempo as famílias permanecem em situação de vulnerabilidade?
+- Quantas conseguem alcançar emancipação social?
 
-## Cadeia analítica
+Este projeto busca estruturar uma **infraestrutura analítica mínima** para responder a essas perguntas.
 
-```
+---
+
+# Princípio central
+
+> **A arquitetura de dados deve refletir a política pública — nunca substituí-la.**
+
+A proposta de modelagem:
+
+- não altera fluxos institucionais
+- não cria novos cadastros
+- não redefine competências administrativas
+
+Ela organiza os **dados já existentes**, permitindo leitura:
+
+- estratégica
+- territorial
+- longitudinal
+
+da política socioassistencial municipal.
+
+---
+
+# Cadeia analítica do modelo
+
 Pessoa → Família → Território → Programa → Serviço → Resultado
-```
 
-## O que este repositório contém
+Esta cadeia estrutura a lógica analítica utilizada no projeto e orienta a modelagem dos dados.
 
-| Pasta | Conteúdo |
-|---|---|
-| `00_governança` | Princípios arquiteturais, LGPD, escopo do MVP |
-| `01_modelagem_conceitual` | Catálogo de programas municipais, territórios por CRAS |
-| `02_modelagem_lógica` | Esquemas das tabelas, dicionário de dados |
-| `03_indicadores_mvp` | Definição e fórmulas dos três indicadores estruturantes |
-| `04_documento_técnico` | Documentação formal do sistema |
-| `05_plano_evolutivo` | Roadmap e direção de longo prazo |
+---
 
-## O que este repositório não contém
+# Estrutura do repositório
 
-- Dados pessoais de nenhuma natureza
-- Microdados do CadÚnico ou de qualquer sistema municipal
-- Informações que permitam identificar pessoas ou famílias
+| Diretório | Conteúdo |
+|-----------|----------|
+| `00_governanca` | princípios arquitetônicos, LGPD e escopo institucional |
+| `01_modelagem_conceitual` | definição das entidades centrais da política social |
+| `02_modelagem_logica` | esquemas de tabelas e dicionários de dados |
+| `03_indicadores_mvp` | indicadores estruturantes da análise social |
+| `04_documento_tecnico` | documentação formal da arquitetura |
+| `05_plano_evolutivo` | roteiro de expansão do projeto |
 
-Apenas código, esquemas, dicionários e amostras sintéticas.
+---
 
-## Tecnologia do MVP
+# O que este repositório **não contém**
 
-- **Banco de dados:** SQLite (fase inicial — prototipagem)
-- **Ambiente de execução:** Debian 12 (máquina institucional)
-- **Versionamento:** GitHub
-- **Evolução futura:** PostgreSQL, pipeline ELT, integração via API
+Por razões legais e éticas, este repositório **não inclui**:
 
-## Contexto institucional
+- dados pessoais
+- microdados do CadÚnico
+- informações identificáveis de cidadãos
+- dados operacionais dos sistemas municipais
 
-- **Município:** Hortolândia — SP
-- **Secretaria:** Inclusão e Desenvolvimento Social
-- **Responsável técnico:** Ailton Vendramini
-- **Início do projeto:** 2026
-- **Fase atual:** MVP — validação técnica e estratégica
+O conteúdo disponibilizado inclui apenas:
 
-## Licença
+- estruturas de dados
+- dicionários
+- esquemas analíticos
+- documentação metodológica
+- exemplos sintéticos.
 
-Projeto de uso institucional público. Sem dados pessoais. Alinhado à LGPD e às boas práticas de governança de dados do setor público.
+---
 
+# Tecnologia utilizada no MVP
 
+| Camada | Tecnologia |
+|------|-------------|
+| Banco de dados | SQLite |
+| Ambiente | Debian 12 |
+| Versionamento | GitHub |
+| Próxima etapa | PostgreSQL + pipeline ELT |
+
+---
+
+# Contexto institucional
+
+Município: **Hortolândia – SP**  
+Secretaria: **Inclusão e Desenvolvimento Social**
+
+Responsável técnico: **Ailton Vendramini**
+
+Ano de início: **2026**
+
+Fase atual: **MVP – validação técnica e estratégica**
+
+---
+
+# Licença
+
+Projeto institucional público.
+
+Não contém dados pessoais e segue os princípios da **Lei Geral de Proteção de Dados (LGPD)** e boas práticas de **governança de dados no setor público**.
+
+---
+
+# Objetivo de longo prazo
+
+Construir uma **arquitetura de dados sociais replicável para municípios brasileiros**, permitindo integração entre:
+
+- Cadastro Único
+- rede socioassistencial
+- equipamentos públicos
+- organizações da sociedade civil
+- análise territorial da vulnerabilidade social.
