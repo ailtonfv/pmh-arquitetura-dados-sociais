@@ -43,12 +43,12 @@ CMAS · CMDCA · CMI · COMSEA · CMPcD · CMDM · COMJUV · CMH
 | COL014 | COMSEA | Conselho Municipal de Segurança Alimentar e Nutricional | conselho | segurança alimentar | ✅ Alta | Interface com G4 — Segurança Alimentar |
 | COL015 | CMDCA | Conselho Municipal dos Direitos da Criança e do Adolescente | conselho | assistência social | ✅ Alta | Registra OSCs. Base: ECA |
 | COL016 | CMH | Conselho Municipal de Habitação | conselho | habitação | Sim | Interface com G5 — Habitação |
-| COL017 | CME | Conselho Municipal de Esportes | conselho | esportes | Não | — |
+| COL017 | CME-ESP | Conselho Municipal de Esportes | conselho | esportes | Não | Sigla original CME — diferenciada de COL022 |
 | COL018 | CMPC | Conselho Municipal de Política Cultural | conselho | cultura | Não | — |
 | COL019 | CAE | Conselho de Alimentação Escolar | conselho | educação | Sim | Interface com segurança alimentar |
 | COL020 | CMS | Conselho Municipal de Saúde | conselho | saúde | Sim | Interface intersetorial SUAS × SUS |
 | COL021 | COMSAB | Conselho Municipal de Saneamento Básico | conselho | saneamento | Não | — |
-| COL022 | CME | Conselho Municipal de Educação | conselho | educação | Indireta | Interface com evasão escolar |
+| COL022 | CME-EDU | Conselho Municipal de Educação | conselho | educação | Indireta | Sigla original CME — diferenciada de COL017. Interface com evasão escolar |
 | COL023 | COMTUR | Conselho Municipal de Turismo | conselho | turismo | Não | — |
 | COL024 | CACS FUNDEB | Conselho de Acompanhamento e Controle Social do FUNDEB | conselho | educação | Não | Fiscalização do FUNDEB |
 | COL025 | — | Conselho Municipal do Fundo Social de Solidariedade | conselho | assistência social | Sim | Interface com Fundo Social — Cuidar, cestas |
@@ -87,11 +87,12 @@ CMAS · CMDCA · CMI · COMSEA · CMPcD · CMDM · COMJUV · CMH
 
 | # | pendência | prioridade |
 |---|-----------|------------|
-| P01 | Confirmar siglas faltantes (COL002, COL003, COL025, COL026) | Baixa |
-| P02 | Identificar presidentes / coordenadores dos conselhos prioritários | Média |
-| P03 | Confirmar periodicidade de reuniões dos conselhos com interface SUAS | Média |
-| P04 | Verificar quais OSCs estão registradas no CMAS e no CMDCA | Alta |
+| P01 | Confirmar siglas oficiais de COL002, COL003, COL025 e COL026 | Baixa |
+| P02 | Confirmar siglas oficiais de CME-ESP (COL017) e CME-EDU (COL022) junto à Prefeitura | Média |
+| P03 | Identificar presidentes / coordenadores dos conselhos prioritários | Média |
+| P04 | Confirmar periodicidade de reuniões dos conselhos com interface SUAS | Média |
+| P05 | Verificar quais OSCs estão registradas no CMAS e no CMDCA — cruzar com dim_osc_v03 | Alta |
 
 ---
 
-*Documento de registro interno — Projeto de Inteligência Territorial — Hortolândia, março de 2026*
+*Documento de modelagem conceitual. Uso interno do projeto Atlas Social de Hortolândia.*
