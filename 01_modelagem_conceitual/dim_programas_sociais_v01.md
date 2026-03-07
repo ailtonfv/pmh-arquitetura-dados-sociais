@@ -1,12 +1,12 @@
 # DIM_PROGRAMA — Catálogo de Programas Sociais
-**Versão:** 07  
-**Data de atualização:** 05/03/2026  
-**Versão anterior:** 06 (03/03/2026)  
-**Atualizações v07:**
-- Adição do campo `esfera` (Federal | Estadual | Municipal | Intersetorial)
-- Adição dos campos `id_orgao_executor` e `nome_orgao_executor` (FK para JOIN futuro)
-- Adição do campo `base_legal_municipal` (complementa `base_legal_principal`)
-- Preservação integral do conteúdo do v06
+**Versão:** 08  
+**Data de atualização:** 07/03/2026  
+**Versão anterior:** 07 (05/03/2026)  
+**Atualizações v08:**
+- MCMV Jardim Amanda: documentações atualizadas para 576 (com ressalva — divergência entre edições 05/03 e 06/03/2026); status atualizado para EXECUÇÃO
+- Programa Vida Longa: status atualizado para NEGOCIAÇÃO ATIVA (negociação com Estado confirmada)
+- Adição do Closet Solidário (novo programa — Dep. da Mulher + Fundo Social, lançamento 09/03/2026)
+- UBS Animal: deliberadamente não incluída — equipamento de Meio Ambiente sem vínculo direto com cadeia SUAS
 
 **Responsável:** Ailton Vendramini / Claude (Anthropic)  
 **Repositório:** pmh-arquitetura-dados-sociais
@@ -20,7 +20,8 @@ e o 1º semestre de 2024. A partir da v02, incorpora atualizações via radar jo
 (Tribuna Liberal). A partir da v03, incorpora varredura do site oficial da Prefeitura. A v04
 consolida ciclo jornalístico dez/2025–jan/2026. A v05 detalha serviços das Secretarias de
 Inclusão e Desenvolvimento Econômico. A v06 adiciona `base_legal_principal`. A v07 adiciona
-`esfera`, `id_orgao_executor`, `nome_orgao_executor` e `base_legal_municipal`.
+`esfera`, `id_orgao_executor`, `nome_orgao_executor` e `base_legal_municipal`. A v08 incorpora
+correções e adições do ciclo jornalístico 04–08/03/2026.
 
 **Tipo funcional:**
 - **Tipo A — Serviço Direto:** gera atendimento registrável
@@ -342,7 +343,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Modalidades ativas (fev/2026):** Costura Industrial, Serviços Gerais
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
-- **Observações:** Requisito obrigatório do Programa Ressignifica Hortolândia.
+- **Observações:** Requisito obrigatório do Programa Ressignifica Hortolândia. Caso Suelen (Tribuna Liberal 08/03/2026): trajetória documentada CRAS → ACERTE → assistente administrativa → emprego no próprio CRAS — evidência empírica da cadeia de emancipação.
 
 ---
 
@@ -623,6 +624,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Idosos em vulnerabilidade, residentes há ≥ 2 anos no município
 - **Vínculo CadÚnico:** Sim — critério explícito
 - **Vagas Hortolândia:** 28 unidades habitacionais
+- **Status:** NEGOCIAÇÃO ATIVA — tratativas em andamento com o Governo do Estado (Tribuna Liberal, 04/03/2026)
 - **Base legal principal:** Estadual
 - **Base legal municipal:** A confirmar
 
@@ -636,7 +638,8 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **id_orgao_executor:** `SEC_HABITACAO`
 - **nome_orgao_executor:** Secretaria de Habitação
 - **Vínculo CadÚnico:** Sim — critério federal
-- **Status:** 400 unidades em construção no Jardim Amanda (início 2026)
+- **Status:** EXECUÇÃO — 400 unidades em construção no Jardim Amanda (início 2026)
+- **Documentações coletadas:** 576 ⚠️ *Número divergente entre edições de 05/03 e 06/03/2026 da Tribuna Liberal — confirmar junto à Secretaria de Habitação antes de usar em indicador*
 - **Base legal principal:** PBF / CadÚnico
 - **Base legal municipal:** Lei 14.620/2023 (federal)
 
@@ -899,11 +902,33 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Tipo:** A — Serviço Direto
 - **Secretaria responsável:** Governo (Departamento de Mulheres)
 - **id_orgao_executor:** `CRAM_01`
-- **nome_orgao_executor:** CRAM
+- **nome_orgao_executor:** CRAM "Débora Regina Leme dos Santos"
+- **Endereço:** Rua Alberto Gomes, 18, Jardim das Paineiras
 - **Público-alvo:** Mulheres em situação de violência ou vulnerabilidade
 - **Vínculo CadÚnico:** Indireto
+- **Atendimentos:** 293 no período jan–mar/2026; 101 casos novos
 - **Base legal principal:** Outro (Lei 11.340/2006)
 - **Base legal municipal:** A confirmar *(em operação desde 2017)*
+
+---
+
+### Closet Solidário *(novo — v08)*
+
+- **Esfera:** `Municipal`
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Governo (Dep. de Políticas Públicas para a Mulher)
+- **Secretarias parceiras:** Fundo Social de Solidariedade
+- **id_orgao_executor:** `CRAM_01` · `FUNDO_SOCIAL`
+- **nome_orgao_executor:** CRAM + Fundo Social de Solidariedade
+- **Endereço:** CRAM "Débora Regina Leme dos Santos", Rua Alberto Gomes, 18, Jardim das Paineiras
+- **Público-alvo:** Mulheres atendidas pelo CRAM
+- **Vínculo CadÚnico:** Indireto
+- **Nível de proteção:** Especial / Direitos das Mulheres
+- **Status:** EXECUÇÃO — lançamento 09/03/2026
+- **Acesso:** Encaminhamento via CRAM
+- **Base legal principal:** Municipal
+- **Base legal municipal:** A confirmar
+- **Observações:** Doação de roupas e itens pessoais para mulheres atendidas pelo CRAM. Diretora responsável: Josefa Teixeira (Dep. Políticas Públicas para a Mulher). Fonte: Tribuna Liberal, 06/03/2026 e 08/03/2026.
 
 ---
 
@@ -1019,6 +1044,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 | Fórum Municipal Igualdade Racial | COMPIR | `DEP_DIR_HUMANOS` | Municipal | Lei 12.288/2010 | A confirmar |
 | Conselho Tutelar I | CT I | `SEC_INCLUSAO` | Municipal | ECA | A confirmar |
 | Conselho Tutelar II | CT II | `SEC_INCLUSAO` | Municipal | ECA | A confirmar |
+| Cons. Municipal Direitos da Mulher | CMDM | `DEP_MULHERES` | Municipal | Municipal | A confirmar |
 
 > Cross-reference completo: `dim_colegiados_v01.md`
 
@@ -1037,7 +1063,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 | CRAS_VILA_REAL | CRAS Vila Real | Equipamento SUAS | DIM_UNIDADES_ATENDIMENTO |
 | CREAS_01 | CREAS Remanso Campineiro | Equipamento SUAS | DIM_UNIDADES_ATENDIMENTO |
 | CENTROPOP_01 | Centro POP Remanso Campineiro | Equipamento SUAS | DIM_UNIDADES_ATENDIMENTO |
-| CRAM_01 | CRAM | Equipamento municipal | DIM_UNIDADES_ATENDIMENTO |
+| CRAM_01 | CRAM "Débora Regina Leme dos Santos" | Equipamento municipal | DIM_UNIDADES_ATENDIMENTO |
 | CQP_I | CQP I — Capacita | Equipamento municipal | DIM_UNIDADES_ATENDIMENTO |
 | CQP_II | CQP II — Costura | Equipamento municipal | DIM_UNIDADES_ATENDIMENTO |
 | CESP | CESP — Empreendimentos Solidários | Equipamento municipal | DIM_UNIDADES_ATENDIMENTO |
@@ -1054,13 +1080,14 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 | DEP_DIR_HUMANOS | Dep. Direitos Humanos e Políticas Públicas | Departamento | DIM_GESTORES |
 | DEP_EMPREEND | Dep. Empreendedorismo e Microempresas | Departamento | DIM_GESTORES |
 | DEP_CULTURA | Dep. Cidadania Cultural | Departamento | DIM_GESTORES |
+| DEP_MULHERES | Dep. de Políticas Públicas para a Mulher | Departamento | DIM_GESTORES |
 | OSC_ESPERANCAR | Instituto Esperançar | OSC conveniada | DIM_OSC (futuro) |
 | EXT_DESENVOLVE_SP | Desenvolve SP | Operador externo estadual | — |
 | EXT_SEBRAE_SP | SEBRAE-SP | Operador externo estadual | — |
 
 ---
 
-## Notas Arquiteturais Consolidadas (v07)
+## Notas Arquiteturais Consolidadas (v08)
 
 | # | Nota | Impacto no modelo |
 |---|------|-----------------|
@@ -1074,6 +1101,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 | 8 | `base_legal_principal` é atalho analítico | Não substitui REL_NORMA_PROGRAMA — complementa |
 | 9 | `id_orgao_executor` é FK para JOIN | Liga DIM_PROGRAMA → DIM_UNIDADES_ATENDIMENTO e DIM_GESTORES |
 | 10 | Operadores externos (EXT_) sem dimensão interna | Integração futura via convênio ou API |
+| 11 | MCMV Amanda: divergência 421×576 documentações | Dado a validar junto à Secretaria de Habitação antes de uso em indicador |
 
 ---
 
@@ -1122,6 +1150,7 @@ Saída do perfil CadÚnico
 
 - Empregos formais: 49.100 (CAGED, jan–mar/2023)
 - Remuneração média formal: R$ 4.700
+- CAGED jan/2026: saldo +140 vagas em Hortolândia (+57,3% vs jan/2025)
 - CadÚnico out/2022: 29.698 famílias / 70.456 pessoas
 - CadÚnico dez/2025: ~73.000 pessoas
 - População estimada: ~240.000 habitantes
@@ -1144,6 +1173,10 @@ Saída do perfil CadÚnico
 | 10 | Levantar leis municipais de criação dos CRAS, Centro POP, ACERTE e Ressignifica | Alta |
 | 11 | Confirmar `id_orgao_executor` para ESPACO_INCLUIR e EMPORIO_JACUBA | Média |
 | 12 | Catalogar 12 OSCs parceiras dos CRAS individualmente | Média |
+| 13 | MCMV Amanda: confirmar número oficial de documentações (576?) junto à Secretaria de Habitação | Alta |
+| 14 | Closet Solidário: confirmar base legal municipal e critérios formais de acesso | Média |
+| 15 | Confirmar `id_orgao_executor` DEP_MULHERES — verificar se é departamento formal ou vinculado ao Dep. de Governo | Média |
+| 16 | Programa Vida Longa: monitorar resultado das negociações com o Estado | Média |
 
 ---
 
@@ -1158,6 +1191,7 @@ Saída do perfil CadÚnico
 | v05 | 03/03/2026 | Varredura Sec. Inclusão (22 serviços); Sec. Desenvolvimento Econômico (7 serviços); notas arquiteturais |
 | v06 | 03/03/2026 | Campo `base_legal_principal`; base legal dos conselhos (G10) |
 | v07 | 05/03/2026 | Campos `esfera`, `id_orgao_executor`, `nome_orgao_executor`, `base_legal_municipal`; glossário FK completo |
+| v08 | 07/03/2026 | Ciclo jornalístico 04–08/03/2026: MCMV Amanda → status EXECUÇÃO, 576 documentações (⚠️ divergência a confirmar); Programa Vida Longa → status NEGOCIAÇÃO ATIVA; adição Closet Solidário (novo programa, Dep. Mulheres + Fundo Social, lançamento 09/03/2026); ACERTE → nota caso Suelen (evidência empírica da cadeia de emancipação); nome oficial CRAM atualizado; DEP_MULHERES adicionado ao glossário FK; Cons. Direitos da Mulher adicionado ao G10; CAGED jan/2026 adicionado ao dado de contexto; pendências 13–16 abertas |
 
 ---
 
