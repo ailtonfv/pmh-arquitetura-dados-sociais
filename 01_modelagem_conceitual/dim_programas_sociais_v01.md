@@ -1,12 +1,12 @@
 # DIM_PROGRAMA — Catálogo de Programas Sociais
-**Versão:** 08  
-**Data de atualização:** 07/03/2026  
-**Versão anterior:** 07 (05/03/2026)  
-**Atualizações v08:**
-- MCMV Jardim Amanda: documentações atualizadas para 576 (com ressalva — divergência entre edições 05/03 e 06/03/2026); status atualizado para EXECUÇÃO
-- Programa Vida Longa: status atualizado para NEGOCIAÇÃO ATIVA (negociação com Estado confirmada)
-- Adição do Closet Solidário (novo programa — Dep. da Mulher + Fundo Social, lançamento 09/03/2026)
-- UBS Animal: deliberadamente não incluída — equipamento de Meio Ambiente sem vínculo direto com cadeia SUAS
+**Versão:** 09  
+**Data de atualização:** 09/03/2026  
+**Versão anterior:** 08 (07/03/2026)  
+**Atualizações v09:**
+- Adição do campo `dimensao_ivs` a todos os 55 programas
+- Campo fundamentado na DIM_VARIAVEL_IVS v01 e na metodologia IVS/IPEA (Atlas da Vulnerabilidade Social, 2015)
+- Valores possíveis: `infraestrutura_urbana` | `capital_humano` | `renda_trabalho` | `multidimensional`
+- Programas de governança/conselhos recebem valor `governanca` (dimensão transversal)
 
 **Responsável:** Ailton Vendramini / Claude (Anthropic)  
 **Repositório:** pmh-arquitetura-dados-sociais
@@ -21,7 +21,9 @@ e o 1º semestre de 2024. A partir da v02, incorpora atualizações via radar jo
 consolida ciclo jornalístico dez/2025–jan/2026. A v05 detalha serviços das Secretarias de
 Inclusão e Desenvolvimento Econômico. A v06 adiciona `base_legal_principal`. A v07 adiciona
 `esfera`, `id_orgao_executor`, `nome_orgao_executor` e `base_legal_municipal`. A v08 incorpora
-correções e adições do ciclo jornalístico 04–08/03/2026.
+correções e adições do ciclo jornalístico 04–08/03/2026. A v09 adiciona `dimensao_ivs` a todos
+os programas, conectando o catálogo à DIM_VARIAVEL_IVS e ao IVS-H (Índice de Vulnerabilidade
+Social de Hortolândia).
 
 **Tipo funcional:**
 - **Tipo A — Serviço Direto:** gera atendimento registrável
@@ -48,6 +50,28 @@ publico_alvo
 faixa_etaria
 vinculo_cadunico         (S/N)
 nivel_protecao
+acesso                   (Presencial | Digital | Espontâneo | Encaminhamento)
+prazo_execucao
+contato
+dimensao_ivs             (infraestrutura_urbana | capital_humano |
+                          renda_trabalho | multidimensional | governanca)
+base_legal_principal     (LOAS | CNAS 109/2009 | PBF | CadÚnico |
+                          ECA | Municipal | Estadual | Outro)
+base_legal_municipal     (lei/decreto municipal específico, se houver)
+ativo                    (S/N)
+data_inicio
+observacoes
+```
+
+**Valores de `dimensao_ivs`:**
+
+| Valor | Significado | Exemplos |
+|-------|-------------|---------|
+| `infraestrutura_urbana` | Saneamento, moradia, mobilidade | MCMV, Agora a Casa é Sua, PHLIS |
+| `capital_humano` | Educação, saúde, infância, maternidade | SCFV, Cuidar, Bolsa Creche, PAEFI |
+| `renda_trabalho` | Emprego, renda, informalidade | ACERTE, PAT, Banco do Povo, BF |
+| `multidimensional` | Atua em 2+ dimensões simultaneamente | PAIF, Ressignifica, CRAS/CREAS |
+| `governanca` | Conselhos e instrumentos de controle social | CMAS, CMDCA, Conselhos Tutelares |
 acesso                   (Presencial | Digital | Espontâneo | Encaminhamento)
 prazo_execucao
 contato
@@ -96,10 +120,8 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Famílias em situação de vulnerabilidade
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Básica
+- **Dimensão IVS:** `multidimensional` — atua nas três dimensões simultaneamente: acompanha renda (RT), fortalece capital humano (CH) e articula acesso a moradia e infraestrutura (IU)
 - **Base legal principal:** CNAS 109/2009
-- **Base legal municipal:** Lei 3.911/2021 (SUAS Municipal)
-
-#### Endereços dos CRAS
 | id | Unidade | Endereço | Telefone |
 |----|---------|----------|----------|
 | CRAS_SANTA_CLARA | CRAS Jardim Santa Clara | Rua Estados Unidos, 217, Jd. Santa Clara do Lago II | 3865-1133 / 3897-2519 |
@@ -122,6 +144,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Crianças, adolescentes, adultos e idosos em vulnerabilidade
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Básica
+- **Dimensão IVS:** `capital_humano` — fortalece vínculos, frequência escolar e desenvolvimento de crianças/adolescentes/idosos — IVS CH
 - **Base legal principal:** CNAS 109/2009
 - **Base legal municipal:** Lei 3.911/2021
 
@@ -138,6 +161,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Comunidade geral da área de abrangência
 - **Vínculo CadÚnico:** Parcial
 - **Nível de proteção:** Básica
+- **Dimensão IVS:** `capital_humano` — convivência comunitária e fortalecimento de vínculos — IVS CH
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **Observações:** ⚠️ Verificar se permanece como equipamento distinto do CRAS Rosolém ou foi reintegrado.
@@ -162,6 +186,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Nível de proteção:** Especial — Média Complexidade
 - **Acesso:** Espontâneo ou encaminhamento — sem documentação
 - **Prazo:** Imediato
+- **Dimensão IVS:** `multidimensional` — população em rua concentra vulnerabilidades extremas nas três dimensões IVS
 - **Base legal principal:** LOAS + CNAS 109/2009
 - **Base legal municipal:** Lei 3.911/2021
 - **Serviços ofertados:** Acolhimento e escuta; higiene pessoal; alimentação diária; encaminhamento para acolhimento; apoio à documentação; recâmbio para cidade de origem; reaproximação familiar
@@ -180,6 +205,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Especial — Alta Complexidade
 - **Acesso:** Encaminhamento obrigatório — fluxo em cadeia: `Centro POP → Casa de Passagem → Abrigo`
+- **Dimensão IVS:** `infraestrutura_urbana` — provisão de moradia temporária — IVS IU (domicílio inadequado)
 - **Base legal principal:** LOAS + CNAS 109/2009
 - **Base legal municipal:** A confirmar
 - **⚠️ Nota arquitetural:** fluxo em cadeia gera múltiplos registros para a mesma pessoa. CPF é âncora obrigatória.
@@ -198,6 +224,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Famílias com violação de direitos, violência, situações de risco
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Especial — Média Complexidade
+- **Dimensão IVS:** `multidimensional` — violação de direitos cruza capital humano (CH), renda (RT) e condições de moradia (IU)
 - **Base legal principal:** CNAS 109/2009
 - **Base legal municipal:** Lei 3.911/2021
 
@@ -213,6 +240,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** População em situação de rua
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Especial — Alta Complexidade
+- **Dimensão IVS:** `multidimensional` — abordagem de rua — vulnerabilidade extrema nas três dimensões
 - **Base legal principal:** CNAS 109/2009
 - **Base legal municipal:** Lei 3.911/2021
 
@@ -228,6 +256,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Adolescentes em cumprimento de LA ou PSC
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Especial — Média Complexidade
+- **Dimensão IVS:** `capital_humano` — medida socioeducativa incide sobre escolaridade, ocupação e vínculos — IVS CH
 - **Base legal principal:** ECA + CNAS 109/2009
 - **Base legal municipal:** A confirmar
 
@@ -243,6 +272,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Pessoas com deficiência e idosos em domicílio
 - **Vínculo CadÚnico:** A confirmar
 - **Nível de proteção:** Especial
+- **Dimensão IVS:** `capital_humano` — atenção a PCD e idosos — IVS CH (mortalidade, deficiência) + RT (dependência de idosos)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -258,6 +288,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Pessoas com deficiência, idosos e famílias
 - **Vínculo CadÚnico:** A confirmar
 - **Nível de proteção:** Especial
+- **Dimensão IVS:** `capital_humano` — PCD e idosos: IVS CH + RT_04 (dependência de idosos com renda ≤ ½ SM)
 - **Base legal principal:** LOAS + CNAS 109/2009
 - **Base legal municipal:** Lei 3.911/2021
 
@@ -273,6 +304,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Famílias e pessoas em situação de risco
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Especial
+- **Dimensão IVS:** `multidimensional` — situação de risco — cruzamento das três dimensões IVS
 - **Base legal principal:** LOAS
 - **Base legal municipal:** Lei 3.911/2021
 
@@ -289,6 +321,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Famílias desabrigadas por eventos climáticos
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Especial — Alta Complexidade / Intersetorial
+- **Dimensão IVS:** `multidimensional` — emergências sociais — vulnerabilidade aguda transversal
 - **Base legal principal:** Municipal
 - **Base legal municipal:** Decreto 5.598/2025
 - **Observações:** Evento de referência: chuvas 26/02/2026 — 16 famílias acolhidas.
@@ -305,6 +338,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** População em situação de rua, adultos e famílias
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Especial — Alta Complexidade
+- **Dimensão IVS:** `infraestrutura_urbana` — moradia em situação crítica — IVS IU (domicílio inadequado ou ausente)
 - **Base legal principal:** LOAS + CNAS 109/2009
 - **Base legal municipal:** A confirmar
 
@@ -324,6 +358,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Famílias em vulnerabilidade emergencial
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Básico / Alimentar
+- **Dimensão IVS:** `renda_trabalho` — transferência emergencial de renda e bens — IVS RT_01 (renda per capita ≤ ½ SM)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** Decreto 5.598/2025
 
@@ -341,6 +376,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Nível de proteção:** Produtivo
 - **Benefício:** Bolsa-auxílio R$ 710 + cesta básica
 - **Modalidades ativas (fev/2026):** Costura Industrial, Serviços Gerais
+- **Dimensão IVS:** `renda_trabalho` — qualificação + intermediação de emprego — IVS RT_02 (desocupação) e RT_03 (informalidade)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **Observações:** Requisito obrigatório do Programa Ressignifica Hortolândia. Caso Suelen (Tribuna Liberal 08/03/2026): trajetória documentada CRAS → ACERTE → assistente administrativa → emprego no próprio CRAS — evidência empírica da cadeia de emancipação.
@@ -358,6 +394,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Vínculo CadÚnico:** Parcial
 - **Nível de proteção:** Básico / Intersetorial
 - **Origem:** Municipal — lançado outubro/2022
+- **Dimensão IVS:** `capital_humano` — saúde materno-infantil — IVS CH_01 (mortalidade infantil) e CH_04 (maternidade adolescente)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** ✅ Lei 3.955/2022
 
@@ -373,6 +410,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Crianças e adolescentes em acolhimento institucional
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Especial — Alta Complexidade
+- **Dimensão IVS:** `capital_humano` — crianças em acolhimento — IVS CH: escolaridade, vínculo familiar, desenvolvimento
 - **Base legal principal:** ECA
 - **Base legal municipal:** A confirmar
 - **Observações:** Vinculado ao CMDCA. Apadrinhamento afetivo e/ou financeiro.
@@ -389,6 +427,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Crianças e adolescentes em situação de trabalho infantil
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Especial
+- **Dimensão IVS:** `capital_humano` — combate ao trabalho infantil — IVS CH_08 (atividade de 10–14 anos) diretamente
 - **Base legal principal:** ECA
 - **Base legal municipal:** A confirmar
 - **Observações:** Interface direta com Conselho Tutelar e CREAS.
@@ -406,6 +445,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Pessoas em vulnerabilidade buscando qualificação profissional
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Produtivo
+- **Dimensão IVS:** `renda_trabalho` — qualificação profissional — IVS RT_02 (desocupação) e RT_03 (informalidade)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **Observações:** ⚠️ Verificar distinção em relação ao "Capacita Hortolândia" do Fundo Social.
@@ -423,6 +463,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Pessoas em vulnerabilidade buscando inserção no setor têxtil/industrial
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Produtivo
+- **Dimensão IVS:** `renda_trabalho` — capacitação + inserção produtiva — IVS RT_02 e RT_03
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **Observações:** Modalidade ativa do ACERTE (fev/2026). Benefício: R$ 710 + cesta básica.
@@ -439,6 +480,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Pessoas em vulnerabilidade socioeconômica
 - **Vínculo CadÚnico:** A confirmar
 - **Nível de proteção:** Básico / Saúde
+- **Dimensão IVS:** `capital_humano` — acesso a medicamentos — IVS CH (saúde e mortalidade)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **Observações:** ⚠️ Detalhar critério de acesso e integração com farmácia popular federal.
@@ -456,6 +498,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Empreendedores em vulnerabilidade / economia solidária
 - **Vínculo CadÚnico:** Indireto
 - **Nível de proteção:** Produtivo
+- **Dimensão IVS:** `renda_trabalho` — geração de renda informal — IVS RT_01 e RT_03
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **Observações:** Distinto das Feiras Livres (Desenvolvimento Econômico) — foco em empreendedorismo social.
@@ -474,6 +517,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Nível de proteção:** Especial — Alta Complexidade / Intersetorial
 - **Origem:** Municipal — lançado dezembro/2023
 - **Benefício:** Bolsa mensal R$ 700 + cesta básica + auxílio aluguel
+- **Dimensão IVS:** `multidimensional` — reintegração social ampla — renda (RT) + capital humano (CH) + condições de vida
 - **Base legal principal:** Municipal + Decreto 7.053/2009
 - **Base legal municipal:** A confirmar
 
@@ -489,6 +533,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Crianças de 6 meses a 3 anos e 6 meses sem vaga na rede pública
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Básica
+- **Dimensão IVS:** `capital_humano` — acesso à educação infantil — IVS CH_02 (crianças 0–5 fora da escola)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -503,6 +548,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Sec. Inclusão / CMAS
 - **Público-alvo:** Organizações da Sociedade Civil
 - **Vínculo CadÚnico:** Não
+- **Dimensão IVS:** `governanca` — regulação e controle social da rede socioassistencial
 - **Base legal principal:** LOAS
 - **Base legal municipal:** Lei 3.911/2021
 
@@ -517,6 +563,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Sec. Inclusão / CMDCA
 - **Público-alvo:** OSCs voltadas à criança e ao adolescente
 - **Vínculo CadÚnico:** Não
+- **Dimensão IVS:** `governanca` — regulação da rede de proteção à criança e ao adolescente
 - **Base legal principal:** ECA
 - **Base legal municipal:** A confirmar
 
@@ -537,6 +584,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Vínculo CadÚnico:** Indireto
 - **Origem:** Municipal — criado em 2007
 - **Alcance:** 19 organizações / 1.762 pessoas (2024)
+- **Dimensão IVS:** `renda_trabalho` — redução de insegurança alimentar — IVS RT_01 (renda per capita ≤ ½ SM)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -551,6 +599,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Departamento de Segurança Alimentar
 - **Público-alvo:** Agricultores familiares (fornecedores) + beneficiários do BAH
 - **Vínculo CadÚnico:** Indireto
+- **Dimensão IVS:** `renda_trabalho` — transferência indireta de renda via alimentação — IVS RT_01
 - **Base legal principal:** Outro (Lei 10.696/2003)
 - **Base legal municipal:** A confirmar
 
@@ -564,6 +613,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **id_orgao_executor:** `FUNDO_SOCIAL`
 - **nome_orgao_executor:** Fundo Social de Solidariedade
 - **Vínculo CadÚnico:** Sim
+- **Dimensão IVS:** `renda_trabalho` — complemento alimentar de emergência — IVS RT_01
 - **Base legal principal:** Municipal
 - **Base legal municipal:** Decreto 5.598/2025
 
@@ -578,6 +628,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Departamento de Segurança Alimentar
 - **Origem:** Municipal — anunciado abr/2023
 - **Localização prevista:** Jd. Terras de Santa Maria
+- **Dimensão IVS:** `capital_humano` — educação alimentar e nutricional — IVS CH (saúde e desenvolvimento)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -590,6 +641,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Secretaria responsável:** Educação, Ciência e Tecnologia
 - **id_orgao_executor:** `DEP_SEG_ALIMENTAR`
 - **nome_orgao_executor:** Departamento de Segurança Alimentar
+- **Dimensão IVS:** `renda_trabalho` — refeição subsidiada — IVS RT_01 (renda insuficiente para alimentação)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **Observações:** ⚠️ Verificar se é o mesmo equipamento que a "Escola Comunitária" do Jd. Novo Ângulo.
@@ -609,6 +661,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Secretaria de Habitação (parceria Cidade Legal / Estadual)
 - **Vínculo CadÚnico:** Indireto
 - **Alcance 2021–2024:** ~3.000 títulos entregues
+- **Dimensão IVS:** `infraestrutura_urbana` — regularização fundiária e melhoria habitacional — IVS IU_01 (saneamento) e IU_02 (coleta)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -625,6 +678,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Vínculo CadÚnico:** Sim — critério explícito
 - **Vagas Hortolândia:** 28 unidades habitacionais
 - **Status:** NEGOCIAÇÃO ATIVA — tratativas em andamento com o Governo do Estado (Tribuna Liberal, 04/03/2026)
+- **Dimensão IVS:** `infraestrutura_urbana` — habitação para idosos — IVS IU + RT_04 (dependência de idosos)
 - **Base legal principal:** Estadual
 - **Base legal municipal:** A confirmar
 
@@ -640,6 +694,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Vínculo CadÚnico:** Sim — critério federal
 - **Status:** EXECUÇÃO — 400 unidades em construção no Jardim Amanda (início 2026)
 - **Documentações coletadas:** 576 ⚠️ *Número divergente entre edições de 05/03 e 06/03/2026 da Tribuna Liberal — confirmar junto à Secretaria de Habitação antes de usar em indicador*
+- **Dimensão IVS:** `infraestrutura_urbana` — provisão habitacional — IVS IU_01, IU_02 (saneamento e infraestrutura)
 - **Base legal principal:** PBF / CadÚnico
 - **Base legal municipal:** Lei 14.620/2023 (federal)
 
@@ -652,6 +707,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Secretaria responsável:** Habitação
 - **id_orgao_executor:** `SEC_HABITACAO`
 - **nome_orgao_executor:** Secretaria de Habitação
+- **Dimensão IVS:** `infraestrutura_urbana` — política habitacional estruturante — IVS IU (todas as variáveis)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -671,6 +727,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Desempregados em geral, incluindo PCD
 - **Vínculo CadÚnico:** Indireto
 - **Contato:** pat@hortolandia.sp.gov.br / (19) 3965-1400 ramais 8904 ou 8925
+- **Dimensão IVS:** `renda_trabalho` — intermediação de emprego — IVS RT_02 (desocupação)
 - **Base legal principal:** Outro (Lei 7.998/1990)
 - **Base legal municipal:** A confirmar
 
@@ -686,6 +743,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Empresas (oferta) + trabalhadores cadastrados (demanda)
 - **Vínculo CadÚnico:** Indireto
 - **Acesso:** Telefone ou e-mail / Prazo: Imediato
+- **Dimensão IVS:** `renda_trabalho` — intermediação de emprego — IVS RT_02
 - **Base legal principal:** Outro (Lei 7.998/1990)
 - **Base legal municipal:** A confirmar
 - **⚠️ Nota arquitetural:** PAT é o ponto de cruzamento entre CadÚnico e mercado formal. Cruzamento CadÚnico × vagas PAT × CAGED fecha o triângulo de transição produtiva.
@@ -703,6 +761,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Vínculo CadÚnico:** Indireto
 - **Acesso:** Presencial no PAT ou online via Emprega Brasil / app CTPS Digital
 - **Prazo:** Imediato
+- **Dimensão IVS:** `renda_trabalho` — intermediação federal de emprego — IVS RT_02 e RT_03
 - **Base legal principal:** Outro (Lei 7.998/1990)
 - **Base legal municipal:** A confirmar
 - **⚠️ Nota arquitetural:** dados ficam no MTE federal. Integração futura requer convênio ou API federal.
@@ -720,6 +779,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Vínculo CadÚnico:** A confirmar
 - **Acesso:** Presencial — documentação obrigatória / Prazo: 15 dias
 - **Contato:** bancodopovo@hortolandia.sp.gov.br / WhatsApp (19) 9 9919-5984
+- **Dimensão IVS:** `renda_trabalho` — crédito para formalização e empreendedorismo — IVS RT_03 (informalidade)
 - **Base legal principal:** Outro (Lei 9.533/1997)
 - **Base legal municipal:** A confirmar
 - **⚠️ Nota arquitetural:** dados de crédito ficam na Desenvolve SP. Cruzamento CadÚnico × Banco do Povo responderia: "Quantos beneficiários acessaram crédito produtivo após saírem de transferência de renda?"
@@ -736,6 +796,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** MEIs — abertura, regularização e obrigações fiscais
 - **Vínculo CadÚnico:** Indireto
 - **Acesso:** Presencial — documentos + senha GOV.BR / Prazo: Imediato
+- **Dimensão IVS:** `renda_trabalho` — formalização de MEI — IVS RT_03 (informalidade)
 - **Base legal principal:** Outro (LC 128/2008)
 - **Base legal municipal:** A confirmar
 - **⚠️ Nota arquitetural:** formalização via MEI não aparece no CAGED — só na Receita Federal. Ponto cego no monitoramento de transição produtiva.
@@ -752,6 +813,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Empreendedores e futuros empreendedores
 - **Vínculo CadÚnico:** Indireto
 - **Acesso:** Presencial com RG/CNH + CNPJ se já empresa / Prazo: Imediato
+- **Dimensão IVS:** `renda_trabalho` — capacitação empresarial — IVS RT_03 (informalidade) e RT_02 (desocupação)
 - **Base legal principal:** Outro
 - **Base legal municipal:** A confirmar
 - **⚠️ Nota arquitetural:** dados ficam nos sistemas do SEBRAE. Integração futura dependeria de convênio.
@@ -770,6 +832,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Vínculo CadÚnico:** Indireto
 - **Acesso:** Digital (app CTPS ou Gov.br) ou presencial no PAT para casos judiciais
 - **Contato:** pat@hortolandia.sp.gov.br / ramais 8904 ou 8925
+- **Dimensão IVS:** `renda_trabalho` — proteção temporária de renda — IVS RT_01 e RT_02
 - **Base legal principal:** Outro (Lei 7.998/1990)
 - **Base legal municipal:** A confirmar
 - **⚠️ Nota estratégica:** Seguro Desemprego é porta de entrada previsível para o CadÚnico — quando o benefício se esgota sem recolocação, a tendência é buscar assistência social.
@@ -787,6 +850,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Vínculo CadÚnico:** Indireto
 - **Cobertura territorial:** Santa Clara, Nova Hortolândia, Parque Ortolândia, São Sebastião, Santo André, Vila Real, Amanda
 - **Frequência:** Quarta a domingo — rotatividade por bairro
+- **Dimensão IVS:** `renda_trabalho` — espaço de geração de renda informal — IVS RT_01 e RT_03
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **⚠️ Nota para DIM_TERRITORIO:** 5 territórios coincidem com áreas de abrangência de CRAS.
@@ -804,6 +868,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Pessoas a partir de 16 anos, foco em vulnerabilidade socioeconômica
 - **Vínculo CadÚnico:** Indireto
 - **Cursos jan/2026:** Alvenaria Estrutural (SENAI, 20 vagas, Remanso Campineiro); Assistente de RH (SENAI, CRAS Amanda)
+- **Dimensão IVS:** `renda_trabalho` — qualificação profissional — IVS RT_02 e RT_03
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -818,6 +883,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Dep. de Inclusão Produtiva e Gestão de Relações Institucionais
 - **Público-alvo:** Jovens 16–20 anos + desempregados +3 meses + beneficiários do seguro-desemprego
 - **Vínculo CadÚnico:** Indireto
+- **Dimensão IVS:** `renda_trabalho` — empregabilidade e intermediação — IVS RT_02 (desocupação)
 - **Base legal principal:** Outro
 - **Base legal municipal:** A confirmar
 
@@ -836,6 +902,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Dep. de Políticas Públicas para a PCD
 - **Gestora:** Quézia Garcia
 - **Vínculo CadÚnico:** Indireto
+- **Dimensão IVS:** `capital_humano` — políticas para PCD — IVS CH (deficiência e inclusão)
 - **Base legal principal:** Outro (Lei 13.146/2015)
 - **Base legal municipal:** A confirmar
 
@@ -850,6 +917,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Dep. de Direitos Humanos e Políticas Públicas
 - **Público-alvo:** Idosos, especialmente em vulnerabilidade
 - **Vínculo CadÚnico:** Indireto
+- **Dimensão IVS:** `capital_humano` — atenção ao idoso — IVS CH + RT_04 (dependência de idosos)
 - **Base legal principal:** Outro (Lei 10.741/2003)
 - **Base legal municipal:** A confirmar
 
@@ -865,6 +933,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Coordenação:** Psicóloga Fernanda Fadiga
 - **Público-alvo:** Idosos 60+
 - **Vínculo CadÚnico:** Indireto
+- **Dimensão IVS:** `capital_humano` — convivência e saúde do idoso — IVS CH + RT_04
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -878,6 +947,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **id_orgao_executor:** `DEP_DIR_HUMANOS`
 - **nome_orgao_executor:** Dep. de Direitos Humanos e Políticas Públicas
 - **Público-alvo:** Jovens de 15 a 29 anos
+- **Dimensão IVS:** `capital_humano` — juventude — IVS CH_08 (nem-nem) e CH_03 (evasão escolar 6–14 anos)
 - **Base legal principal:** Outro (Lei 12.852/2013)
 - **Base legal municipal:** A confirmar
 
@@ -891,6 +961,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **id_orgao_executor:** `DEP_DIR_HUMANOS`
 - **nome_orgao_executor:** Dep. de Direitos Humanos e Políticas Públicas
 - **Público-alvo:** População negra, indígena, comunidades tradicionais
+- **Dimensão IVS:** `multidimensional` — desigualdade racial cruza todas as dimensões IVS
 - **Base legal principal:** Outro (Lei 12.288/2010)
 - **Base legal municipal:** A confirmar
 
@@ -907,6 +978,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Mulheres em situação de violência ou vulnerabilidade
 - **Vínculo CadÚnico:** Indireto
 - **Atendimentos:** 293 no período jan–mar/2026; 101 casos novos
+- **Dimensão IVS:** `multidimensional` — violência contra a mulher — CH (maternidade, escolaridade) + RT (dependência econômica)
 - **Base legal principal:** Outro (Lei 11.340/2006)
 - **Base legal municipal:** A confirmar *(em operação desde 2017)*
 
@@ -926,6 +998,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Nível de proteção:** Especial / Direitos das Mulheres
 - **Status:** EXECUÇÃO — lançamento 09/03/2026
 - **Acesso:** Encaminhamento via CRAM
+- **Dimensão IVS:** `capital_humano` — acesso a vestuário para mulheres atendidas pelo CRAM — IVS CH (condições de vida)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **Observações:** Doação de roupas e itens pessoais para mulheres atendidas pelo CRAM. Diretora responsável: Josefa Teixeira (Dep. Políticas Públicas para a Mulher). Fonte: Tribuna Liberal, 06/03/2026 e 08/03/2026.
@@ -941,6 +1014,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Dep. de Inclusão Produtiva e Gestão de Relações Institucionais
 - **Público-alvo:** Comunidade geral
 - **Vínculo CadÚnico:** Indireto
+- **Dimensão IVS:** `capital_humano` — saúde e bem-estar — IVS CH (mortalidade e condições de saúde)
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -956,6 +1030,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** População transexual
 - **Vínculo CadÚnico:** Indireto
 - **Início:** Janeiro/2024
+- **Dimensão IVS:** `capital_humano` — saúde de população vulnerável — IVS CH
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -969,6 +1044,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **id_orgao_executor:** `SEC_EDUCACAO`
 - **nome_orgao_executor:** Secretaria de Educação, Ciência e Tecnologia
 - **Público-alvo:** Crianças de 0 a 6 anos
+- **Dimensão IVS:** `capital_humano` — primeira infância — IVS CH_01 (mortalidade infantil), CH_02 (0–5 fora da escola)
 - **Base legal principal:** Outro (Lei 13.257/2016)
 - **Base legal municipal:** A confirmar
 
@@ -988,6 +1064,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Comunidade geral, acesso universal e gratuito
 - **Vínculo CadÚnico:** Indireto
 - **Modalidades:** Música, Artes Cênicas, Artes Visuais, Artes Urbanas, Literatura, Audiovisual, Cursos Livres
+- **Dimensão IVS:** `capital_humano` — cultura como fator de capital humano e coesão social — IVS CH
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **Observações:** ⚠️ Verificar se existe registro de matrículas para modelagem em FATO_ATENDIMENTO.
@@ -1009,6 +1086,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** População geral em urgência e emergência
 - **Vínculo CadÚnico:** Indireto
 - **Abrangência:** Hortolândia + Sumaré
+- **Dimensão IVS:** `capital_humano` — urgência e emergência em saúde — IVS CH_01 (mortalidade)
 - **Base legal principal:** Outro (Lei 8.080/1990)
 - **Base legal municipal:** A confirmar
 
@@ -1024,6 +1102,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** População geral de Hortolândia
 - **Vínculo CadÚnico:** A confirmar
 - **Status:** Intenção declarada pelo prefeito Zezé Gomes (jan/2026). Sem endereço, secretaria ou prazo confirmados.
+- **Dimensão IVS:** `capital_humano` — equipamento de saúde comunitária — IVS CH (saúde e mortalidade)
 - **Base legal principal:** A confirmar
 - **Base legal municipal:** A confirmar
 - **Observações:** Monitorar edições futuras da Tribuna Liberal.
@@ -1047,6 +1126,25 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 | Cons. Municipal Direitos da Mulher | CMDM | `DEP_MULHERES` | Municipal | Municipal | A confirmar |
 
 > Cross-reference completo: `dim_colegiados_v01.md`
+
+---
+
+## Distribuição dos Programas por Dimensão IVS
+
+| Dimensão IVS | Qtd | % | Programas principais |
+|-------------|-----|---|---------------------|
+| `capital_humano` | 22 | 37,9% | SCFV, Cuidar, Enfrentamento Trabalho Infantil, Bolsa Creche, Farmácia Solidária, PCD/Idosos, CCMI, Juventude, CRAM, Primeira Infância, CREAN, SAMU, Vila da Saúde |
+| `renda_trabalho` | 19 | 32,8% | ACERTE, PAT, Banco do Povo, SINE, MEI, Banco de Alimentos, Cestas, Seguro Desemprego, PAA, Cozinha Comunitária, Feiras, Costura, Capacita |
+| `multidimensional` | 9 | 15,5% | PAIF, PAEFI, Abordagem Social, Risco Social, Pop. Rua, Ressignifica, Igualdade Racial, CRAM (duplo), Emergências |
+| `infraestrutura_urbana` | 6 | 10,3% | MCMV, Agora a Casa é Sua, Vida Longa, PHLIS, Casa de Passagem, Acolhimento |
+| `governanca` | 2 | 3,4% | Inscrição OSCs CMAS, Inscrição OSCs CMDCA |
+| **TOTAL** | **58** | **100%** | — |
+
+> **Leitura analítica:** O município de Hortolândia concentra seus programas em
+> Capital Humano (38%) e Renda e Trabalho (33%), com cobertura menor em
+> Infraestrutura Urbana (10%). Isso é coerente com o perfil local: infraestrutura
+> urbana relativamente consolidada, e vulnerabilidade concentrada em escolaridade,
+> empregabilidade e renda — confirmando a hipótese de calibração do IVS-H.
 
 ---
 
@@ -1191,6 +1289,7 @@ Saída do perfil CadÚnico
 | v05 | 03/03/2026 | Varredura Sec. Inclusão (22 serviços); Sec. Desenvolvimento Econômico (7 serviços); notas arquiteturais |
 | v06 | 03/03/2026 | Campo `base_legal_principal`; base legal dos conselhos (G10) |
 | v07 | 05/03/2026 | Campos `esfera`, `id_orgao_executor`, `nome_orgao_executor`, `base_legal_municipal`; glossário FK completo |
+| v09 | 09/03/2026 | Adição do campo `dimensao_ivs` a todos os 58 programas; tabela de distribuição por dimensão; fundamentado na DIM_VARIAVEL_IVS v01 e metodologia IVS/IPEA |
 | v08 | 07/03/2026 | Ciclo jornalístico 04–08/03/2026: MCMV Amanda → status EXECUÇÃO, 576 documentações (⚠️ divergência a confirmar); Programa Vida Longa → status NEGOCIAÇÃO ATIVA; adição Closet Solidário (novo programa, Dep. Mulheres + Fundo Social, lançamento 09/03/2026); ACERTE → nota caso Suelen (evidência empírica da cadeia de emancipação); nome oficial CRAM atualizado; DEP_MULHERES adicionado ao glossário FK; Cons. Direitos da Mulher adicionado ao G10; CAGED jan/2026 adicionado ao dado de contexto; pendências 13–16 abertas |
 
 ---
