@@ -1,6 +1,6 @@
 # DIM_VARIAVEL_IVS — Variáveis do Índice de Vulnerabilidade Social
 **Versão:** v01  
-**Data de criação:**  09/03/2026  
+**Data de criação:** 09/03/2026  
 **Responsável:** Ailton Vendramini / Claude (Anthropic)  
 **Repositório:** pmh-arquitetura-dados-sociais / 02_modelagem_lógica
 
@@ -39,7 +39,7 @@ cod_variavel
 nome_variavel
 descricao
 dimensao_ivs          (Infraestrutura Urbana | Capital Humano | Renda e Trabalho)
-nivel_analise         (Pessoa | Família/Domicílio | Território)
+nivel_analise         (Pessoa | Família/Domicílio | Loteamento / RP)
 peso_ipea             (igual para todas = 1/16 ≈ 0,0625 — peso uniforme original)
 peso_h                (peso calibrado IVS-H — a definir com dados reais)
 fonte_municipal       (fonte de dado disponível em Hortolândia)
@@ -79,7 +79,7 @@ replicará o peso IPEA.
 | IVS008 | CH_05 | Percentual de mães chefes de família, sem fundamental completo e com pelo menos um filho menor de 15 anos | Família/Domicílio | CadÚnico | ✅ Sim | Imediato | **Totalmente disponível no CadÚnico** — escolaridade, composição familiar, chefe de família e idade dos filhos são campos padrão do cadastro. Indicador de alta relevância para Hortolândia. |
 | IVS009 | CH_06 | Taxa de analfabetismo da população de 15 anos ou mais | Pessoa | CadÚnico / IBGE Censo 2022 | ✅ Sim | Imediato | **Disponível no CadÚnico** — escolaridade é campo obrigatório. Censo 2022 permite validação e expansão para população fora do cadastro. |
 | IVS010 | CH_07 | Percentual de crianças que vivem em domicílios em que nenhum morador tem ensino fundamental completo | Família/Domicílio | CadÚnico | ✅ Sim | Imediato | **Totalmente disponível no CadÚnico** — escolaridade de todos os membros + composição por faixa etária. Um dos indicadores mais poderosos para detectar reprodução intergeracional da pobreza. |
-| IVS011 | CH_08 | Percentual de pessoas de 15 a 24 anos que não estudam, não trabalham e possuem renda per capita ≤ ½ SM | Pessoa | CadÚnico + CAGED | Parcial | Curto prazo | CadÚnico fornece renda e situação de estudo. Vínculo formal via CAGED. Jovens fora do CadÚnico são ponto cego. Indicador estratégico — captura "geração nem-nem" no território. |
+| IVS011 | CH_08 | Percentual de pessoas de 15 a 24 anos que não estudam, não trabalham e possuem renda per capita ≤ ½ SM | Pessoa | CadÚnico + CAGED | Parcial | Curto prazo | CadÚnico fornece renda e situação de estudo. Vínculo formal via CAGED. Jovens fora do CadÚnico são ponto cego. Indicador estratégico — captura "geração nem-nem" por loteamento e RP. |
 
 ---
 
@@ -119,7 +119,7 @@ replicará o peso IPEA.
 |-----------------|----------------------|
 | **Pessoa** | IVS003, IVS004, IVS005, IVS006, IVS007, IVS009, IVS011, IVS013, IVS014, IVS016 |
 | **Família/Domicílio** | IVS001, IVS002, IVS008, IVS010, IVS012, IVS015 |
-| **Território** | Todas — o IVS é calculado por setor censitário/loteamento |
+| **Loteamento / RP** | Todas — o IVS é calculado por loteamento e agregado por RP e Núcleo |
 
 ---
 
@@ -180,6 +180,7 @@ de R$ 4.700; 73.000 pessoas no CadÚnico):
 | Versão | Data | Alterações |
 |--------|------|------------|
 | v01 | 09/03/2026 | Criação — 16 variáveis IVS mapeadas; disponibilidade por fonte municipal; calibração IVS-H inicial; mapeamento por camada analítica e por programa |
+| v01r | 09/03/2026 | Revisão — substituída entidade "Território" pela hierarquia correta do modelo: Loteamento / RP / Núcleo |
 
 ---
 
