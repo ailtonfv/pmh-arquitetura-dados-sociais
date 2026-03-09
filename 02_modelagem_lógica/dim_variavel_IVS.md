@@ -1,6 +1,6 @@
 # DIM_VARIAVEL_IVS — Variáveis do Índice de Vulnerabilidade Social
 **Versão:** v01  
-**Data de criação:** 09/03/2026  
+**Data de criação:**  09/03/2026  
 **Responsável:** Ailton Vendramini / Claude (Anthropic)  
 **Repositório:** pmh-arquitetura-dados-sociais / 02_modelagem_lógica
 
