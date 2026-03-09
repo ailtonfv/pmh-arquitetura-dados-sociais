@@ -1,9 +1,10 @@
 # Legislação da Assistência Social — Federal, Estadual e Municipal
-**Arquivo:** `legislacao_assitência_social_fed_est_mun_v01.md`  
+**Arquivo:** `legislacao_assitência_social_fed_est_mun_v02.md`  
 **Pasta:** `00_governança`  
-**Versão:** v01 (gerada em 05/03/2026)  
+**Versão:** v02 (atualizada em 09/03/2026)  
+**Versão anterior:** v01 (gerada em 05/03/2026)  
 **Fonte primária:** `dim_norma_juridica_v01.md` (01_modelagem_conceitual)  
-**Cross-reference:** `dim_colegiados_v01.md` · `dim_programas_sociais_v07.md`  
+**Cross-reference:** `dim_colegiados_v02.md` · `dim_programas_sociais_v09.md`  
 **Responsável:** Ailton Vendramini / Claude (Anthropic)
 
 ---
@@ -85,10 +86,11 @@ Sua função no projeto é tripla:
 | programa/equipamento | tipo de norma esperada | situação | prioridade |
 |---------------------|----------------------|----------|------------|
 | CRAM | Decreto ou Portaria de criação | Em operação desde 2017 — base a confirmar | Alta |
-| ACERTE | Lei ou Decreto municipal | A confirmar | Média |
 | Ressignifica Hortolândia | Lei ou Decreto municipal | A confirmar | Média |
 | CCS — Centro de Convivência Social (Jd. Rosolém) | Ato normativo municipal | A confirmar | Baixa |
 | Casa de Passagem e Abrigo | Portaria ou instrumento de convênio | A confirmar | Baixa |
+
+> **Nota:** O programa ACERTE foi removido desta seção. Trata-se de programa da **Secretaria de Governo** (Ação Cidadã de Requalificação, Trabalho e Educação), não da Secretaria Municipal de Inclusão e Desenvolvimento Social. Não compõe o escopo direto do Atlas Social de Hortolândia.
 
 ---
 
@@ -112,7 +114,7 @@ Sua função no projeto é tripla:
 
 > *Como as normas se relacionam com colegiados e programas no modelo do projeto.*
 
-| norma | vincula → programa (dim_programas_sociais_v07) | vincula → colegiado (dim_colegiados_v01) |
+| norma | vincula → programa (dim_programas_sociais_v09) | vincula → colegiado (dim_colegiados_v02) |
 |-------|-----------------------------------------------|------------------------------------------|
 | Lei 8.742/1993 (LOAS) | PAIF, PAEFI, SCFV, Centro POP, benefícios eventuais | CMAS (COL013) |
 | ECA (Lei 8.069/1990) | Apadrinhamento, Medida Socioeducativa, Conselho Tutelar | CMDCA (COL015) |
@@ -144,7 +146,7 @@ Sua função no projeto é tripla:
 └────────────────────────────────────────┘
 ```
 
-O projeto RAJIS cruza as três camadas com o CadÚnico.
+O Atlas Social de Hortolândia cruza as três camadas com o CadÚnico.
 Isso é governança real.
 
 ---
@@ -154,10 +156,11 @@ Isso é governança real.
 | arquivo | pasta | relação |
 |---------|-------|---------|
 | `dim_norma_juridica_v01.md` | `01_modelagem_conceitual` | Fonte técnica deste arquivo |
-| `dim_programas_sociais_v07.md` | `01_modelagem_conceitual` | Vinculação programa ↔ norma |
-| `dim_colegiados_v01.md` | `01_modelagem_conceitual` | Vinculação norma ↔ colegiado |
-| `EVOLUCAO_NORMATIVA_SUAS_2006_2025.md` | `00_governança` | Contexto histórico normativo |
+| `dim_programas_sociais_v09.md` | `01_modelagem_conceitual` | Vinculação programa ↔ norma |
+| `dim_colegiados_v02.md` | `01_modelagem_conceitual` | Vinculação norma ↔ colegiado |
+| `EVOLUCAO_NORMATIVA_SUAS_2006_2025_v02.md` | `00_governança` | Contexto histórico normativo |
 
 ---
 
-*Documento de registro interno — Projeto de Inteligência Territorial — Hortolândia, março de 2026*
+*Documento de registro interno — Atlas Social de Hortolândia — março de 2026*  
+*Atualizado em 09/03/2026 (v02): correção do nome do projeto (Atlas Social de Hortolândia), atualização das versões dos arquivos referenciados (dim_colegiados v02, dim_programas_sociais v09), remoção do ACERTE da Seção 3.2 com nota explicativa.*
