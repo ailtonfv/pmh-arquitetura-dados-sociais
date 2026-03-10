@@ -34,6 +34,35 @@ Social de Hortolândia). A v10 incorpora ciclo jornalístico 10/03/2026: Fatec H
 
 ---
 
+
+## Fundamento Metodológico — IVS e IVS-H
+
+O campo `dimensao_ivs` presente em cada programa deste catálogo está 
+fundamentado no **Índice de Vulnerabilidade Social (IVS)**, desenvolvido 
+pelo **IPEA em parceria com o IBGE** e publicado no 
+**Atlas da Vulnerabilidade Social (2015)**. O IVS organiza a 
+vulnerabilidade social em três dimensões — **Infraestrutura Urbana**, 
+**Capital Humano** e **Renda e Trabalho** — calculadas a partir de 
+variáveis do Censo Demográfico por setor censitário.
+
+Para este projeto, as mesmas dimensões e variáveis do IVS nacional foram 
+aplicadas ao território de **Hortolândia**, gerando o que denominamos 
+**IVS-H (Índice de Vulnerabilidade Social de Hortolândia)**. Não há 
+alteração metodológica — o que muda é a escala geográfica: do Brasil 
+para os setores censitários do município.
+
+A classificação `dimensao_ivs` de cada programa não é arbitrária. 
+Ela registra **em qual dimensão do IVS-H o programa atua**, permitindo 
+futuramente cruzar a cobertura programática com a intensidade de 
+vulnerabilidade territorial — respondendo, por exemplo: 
+*"Os programas de renda e trabalho estão concentrados nos setores 
+censitários com maior vulnerabilidade nessa dimensão?"*
+
+A relação completa das variáveis IVS utilizadas está documentada em 
+`DIM_VARIAVEL_IVS v01`.
+
+```
+
 ## Estrutura do DIM_PROGRAMA
 
 ```
