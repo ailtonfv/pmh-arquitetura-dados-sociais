@@ -1,17 +1,19 @@
 # DIM_PROGRAMA — Catálogo de Programas Sociais
-**Versão:** 10  
-**Data de atualização:**  10/03/2026  
-**Versão anterior:**  09/03/2026  
-**Atualizações v10:**
-- Adição do programa **Fatec Hortolândia** (Grupo 6 — Inserção Produtiva e Qualificação) — status `ESTUDO DE VIABILIDADE`; reunião oficial realizada em 09/03/2026 na Câmara Municipal com Centro Paula Souza, prefeito Zezé Gomes e setor produtivo
-- Atualização do programa **Agora a Casa é Sua** (Grupo 5 — Habitação) — registro da conclusão do saneamento subterrâneo no Monte Sinai para ~650 famílias (cerimônia Sabesp/CDHU, 07/03/2026); 152 unidades habitacionais CDHU em construção
-- Atualização do **CRAM** (Grupo 7 — Públicos Específicos) — registro de dois casos de violência doméstica em 08/03/2026 (Dia da Mulher) em Hortolândia; fluxo CRAM → Conselho Tutelar → CREAS ativado em um dos casos
-- Adição da pendência #17 (Fatec — monitoramento de viabilidade)
-- Abertura da pendência #18 (Monte Sinai — número oficial de famílias beneficiadas pelo saneamento)
+**Versão:** 11
+**Data de atualização:** 10/03/2026
+**Versão anterior:** 10 (10/03/2026)
+**Atualizações v11:**
+- Adição do bloco **Fundamento Metodológico — IVS e IVS-H** (origem IPEA/IBGE, adaptação municipal, finalidade do campo `dimensao_ivs`)
+- Correção do local da reunião da Fatec: *Câmara Municipal* → **SMIDS** (Secretaria Municipal de Inclusão e Desenvolvimento Social) — fonte: Caio [RH PMH], 10/03/2026
+- Correção da **Casa de Passagem**: separação explícita entre a modalidade de Média Complexidade (triagem no Centro POP, até 30 dias) e a modalidade de Alta Complexidade (acolhimento via OSC conveniada) — fonte: Ata de Reunião Técnica SMIDS, 10/02/2026 v02
+- Adição das seis modalidades de **Alta Complexidade** documentadas na ata (SAICA, Abrigo adultos, Abrigo mulheres, Residência Inclusiva, ILPI/Casa-Lar idosos, República)
+- Adição do programa **DECOLA** (Grupo 6) com pendência de relação com Aprendiz Social
+- Adição do programa **Aprendiz Social** (Grupo 6) com pendência de distinção em relação ao DECOLA
+- Pendências #19, #20 e #21 abertas
 
-**Responsável:** Ailton Vendramini / Claude (Anthropic)  
-**Repositório:** pmh-arquitetura-dados-sociais  
-**Fonte das atualizações v10:** Tribuna Liberal, edição 10/03/2026
+**Responsável:** Ailton Vendramini / Claude (Anthropic)
+**Repositório:** pmh-arquitetura-dados-sociais
+**Fontes das atualizações v11:** Caio [RH PMH Lima], WhatsApp 10/03/2026; Ata de Reunião Técnica SMIDS, 10/02/2026 v02
 
 ---
 
@@ -24,9 +26,11 @@ consolida ciclo jornalístico dez/2025–jan/2026. A v05 detalha serviços das S
 Inclusão e Desenvolvimento Econômico. A v06 adiciona `base_legal_principal`. A v07 adiciona
 `esfera`, `id_orgao_executor`, `nome_orgao_executor` e `base_legal_municipal`. A v08 incorpora
 correções e adições do ciclo jornalístico 04–08/03/2026. A v09 adiciona `dimensao_ivs` a todos
-os programas, conectando o catálogo à DIM_VARIAVEL_IVS e ao IVS-H (Índice de Vulnerabilidade
-Social de Hortolândia). A v10 incorpora ciclo jornalístico 10/03/2026: Fatec Hortolândia
-(estudo de viabilidade), Monte Sinai (conclusão do saneamento) e atualização operacional do CRAM.
+os programas, conectando o catálogo à DIM_VARIAVEL_IVS e ao IVS-H. A v10 incorpora ciclo
+jornalístico 10/03/2026. A v11 incorpora correções e adições provenientes da Ata de Reunião
+Técnica SMIDS (10/02/2026 v02) e de comunicação direta com Caio [RH PMH], incluindo separação
+da Casa de Passagem por nível de complexidade, catalogação das modalidades de Alta Complexidade
+e adição de DECOLA e Aprendiz Social.
 
 **Tipo funcional:**
 - **Tipo A — Serviço Direto:** gera atendimento registrável
@@ -34,34 +38,34 @@ Social de Hortolândia). A v10 incorpora ciclo jornalístico 10/03/2026: Fatec H
 
 ---
 
-
 ## Fundamento Metodológico — IVS e IVS-H
 
-O campo `dimensao_ivs` presente em cada programa deste catálogo está 
-fundamentado no **Índice de Vulnerabilidade Social (IVS)**, desenvolvido 
-pelo **IPEA em parceria com o IBGE** e publicado no 
-**Atlas da Vulnerabilidade Social (2015)**. O IVS organiza a 
-vulnerabilidade social em três dimensões — **Infraestrutura Urbana**, 
-**Capital Humano** e **Renda e Trabalho** — calculadas a partir de 
+O campo `dimensao_ivs` presente em cada programa deste catálogo está
+fundamentado no **Índice de Vulnerabilidade Social (IVS)**, desenvolvido
+pelo **IPEA em parceria com o IBGE** e publicado no
+**Atlas da Vulnerabilidade Social (2015)**. O IVS organiza a
+vulnerabilidade social em três dimensões — **Infraestrutura Urbana**,
+**Capital Humano** e **Renda e Trabalho** — calculadas a partir de
 variáveis do Censo Demográfico por setor censitário.
 
-Para este projeto, as mesmas dimensões e variáveis do IVS nacional foram 
-aplicadas ao território de **Hortolândia**, gerando o que denominamos 
-**IVS-H (Índice de Vulnerabilidade Social de Hortolândia)**. Não há 
-alteração metodológica — o que muda é a escala geográfica: do Brasil 
+Para este projeto, as mesmas dimensões e variáveis do IVS nacional foram
+aplicadas ao território de **Hortolândia**, gerando o que denominamos
+**IVS-H (Índice de Vulnerabilidade Social de Hortolândia)**. Não há
+alteração metodológica — o que muda é a escala geográfica: do Brasil
 para os setores censitários do município.
 
-A classificação `dimensao_ivs` de cada programa não é arbitrária. 
-Ela registra **em qual dimensão do IVS-H o programa atua**, permitindo 
-futuramente cruzar a cobertura programática com a intensidade de 
-vulnerabilidade territorial — respondendo, por exemplo: 
-*"Os programas de renda e trabalho estão concentrados nos setores 
+A classificação `dimensao_ivs` de cada programa não é arbitrária.
+Ela registra **em qual dimensão do IVS-H o programa atua**, permitindo
+futuramente cruzar a cobertura programática com a intensidade de
+vulnerabilidade territorial — respondendo, por exemplo:
+*"Os programas de renda e trabalho estão concentrados nos setores
 censitários com maior vulnerabilidade nessa dimensão?"*
 
-A relação completa das variáveis IVS utilizadas está documentada em 
+A relação completa das variáveis IVS utilizadas está documentada em
 `DIM_VARIAVEL_IVS v01`.
 
 ---
+
 ## Estrutura do DIM_PROGRAMA
 
 ```
@@ -135,7 +139,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Federal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `CRAS_SANTA_CLARA` · `CRAS_AMANDA` · `CRAS_NOVO_ANGULO` · `CRAS_ROSOLEM` · `CRAS_PRIMAVERA` · `CRAS_BRASIL` · `CRAS_VILA_REAL`
 - **nome_orgao_executor:** 7 CRAS municipais
 - **Público-alvo:** Famílias em situação de vulnerabilidade
@@ -143,6 +147,8 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Nível de proteção:** Básica
 - **Dimensão IVS:** `multidimensional` — atua nas três dimensões simultaneamente: acompanha renda (RT), fortalece capital humano (CH) e articula acesso a moradia e infraestrutura (IU)
 - **Base legal principal:** CNAS 109/2009
+- **Observações:** Serviço central dos CRAS e porta de entrada da Proteção Social Básica. Tem caráter preventivo — atua junto a famílias em situação de vulnerabilidade antes que ocorra violação de direitos. Fonte: Ata SMIDS 10/02/2026.
+
 | id | Unidade | Endereço | Telefone |
 |----|---------|----------|----------|
 | CRAS_SANTA_CLARA | CRAS Jardim Santa Clara | Rua Estados Unidos, 217, Jd. Santa Clara do Lago II | 3865-1133 / 3897-2519 |
@@ -159,7 +165,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Federal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `CRAS_SANTA_CLARA` · `CRAS_AMANDA` · `CRAS_NOVO_ANGULO` · `CRAS_ROSOLEM` · `CRAS_PRIMAVERA` · `CRAS_BRASIL` · `CRAS_VILA_REAL`
 - **nome_orgao_executor:** 7 CRAS municipais
 - **Público-alvo:** Crianças, adolescentes, adultos e idosos em vulnerabilidade
@@ -175,7 +181,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Municipal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `CRAS_ROSOLEM`
 - **nome_orgao_executor:** CRAS Rosolém / CCS Jd. Rosolém
 - **Endereço:** Rua Guido Rosolém, 177, Jardim Rosolém
@@ -189,47 +195,10 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 ---
 
-## Grupo 2 — Proteção Social Especial
+## Grupo 2 — Proteção Social Especial — Média Complexidade
 
----
-
-### Atendimento Social / População em Situação de Rua (Centro POP)
-
-- **Esfera:** `Federal`
-- **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
-- **id_orgao_executor:** `CENTROPOP_01`
-- **nome_orgao_executor:** Centro POP — Remanso Campineiro
-- **Endereço:** Rua Maria Bernardes, 505, Remanso Campineiro
-- **Contato:** centropop.smids@hortolandia.sp.gov.br / WhatsApp (19) 9 9976-1742
-- **Público-alvo:** Adultos, adolescentes e famílias em situação de rua; vítimas de violação de direitos; uso de substâncias; sem moradia
-- **Vínculo CadÚnico:** Parcial — acesso sem exigência de documentação
-- **Nível de proteção:** Especial — Média Complexidade
-- **Acesso:** Espontâneo ou encaminhamento — sem documentação
-- **Prazo:** Imediato
-- **Dimensão IVS:** `multidimensional` — população em rua concentra vulnerabilidades extremas nas três dimensões IVS
-- **Base legal principal:** LOAS + CNAS 109/2009
-- **Base legal municipal:** Lei 3.911/2021
-- **Serviços ofertados:** Acolhimento e escuta; higiene pessoal; alimentação diária; encaminhamento para acolhimento; apoio à documentação; recâmbio para cidade de origem; reaproximação familiar
-- **⚠️ Nota arquitetural:** pessoas sem documentação não aparecem no CadÚnico — ponto cego estrutural.
-
----
-
-### Casa de Passagem e Abrigo
-
-- **Esfera:** `Intersetorial` (Federal/Municipal + OSC)
-- **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
-- **id_orgao_executor:** `OSC_ESPERANCAR`
-- **nome_orgao_executor:** Instituto Esperançar (conveniado)
-- **Público-alvo:** Pessoas em situação de rua ou vulnerabilidade social
-- **Vínculo CadÚnico:** Sim
-- **Nível de proteção:** Especial — Alta Complexidade
-- **Acesso:** Encaminhamento obrigatório — fluxo em cadeia: `Centro POP → Casa de Passagem → Abrigo`
-- **Dimensão IVS:** `infraestrutura_urbana` — provisão de moradia temporária — IVS IU (domicílio inadequado)
-- **Base legal principal:** LOAS + CNAS 109/2009
-- **Base legal municipal:** A confirmar
-- **⚠️ Nota arquitetural:** fluxo em cadeia gera múltiplos registros para a mesma pessoa. CPF é âncora obrigatória.
+> Destinada a casos em que já houve violação de direitos. Opera por meio do CREAS e do Centro POP.
+> Fonte: Ata de Reunião Técnica SMIDS, 10/02/2026 v02.
 
 ---
 
@@ -237,7 +206,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Federal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `CREAS_01`
 - **nome_orgao_executor:** CREAS — Remanso Campineiro
 - **Endereço:** Rua Francisco Castilho, 298, Remanso Campineiro
@@ -251,16 +220,39 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 ---
 
+### Centro POP — Centro de Referência Especializado para População em Situação de Rua
+
+- **Esfera:** `Federal`
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
+- **id_orgao_executor:** `CENTROPOP_01`
+- **nome_orgao_executor:** Centro POP — Remanso Campineiro
+- **Endereço:** Rua Maria Bernardes, 505, Remanso Campineiro
+- **Contato:** centropop.smids@hortolandia.sp.gov.br / WhatsApp (19) 9 9976-1742
+- **Público-alvo:** Adultos, adolescentes e famílias em situação de rua; vítimas de violação de direitos; uso de substâncias; sem moradia
+- **Vínculo CadÚnico:** Parcial — acesso sem exigência de documentação
+- **Nível de proteção:** Especial — Média Complexidade
+- **Acesso:** Espontâneo ou encaminhamento — sem documentação
+- **Prazo:** Imediato
+- **Dimensão IVS:** `multidimensional` — população em rua concentra vulnerabilidades extremas nas três dimensões IVS
+- **Base legal principal:** LOAS + CNAS 109/2009
+- **Base legal municipal:** Lei 3.911/2021
+- **Serviços ofertados:** Acolhimento e escuta; higiene pessoal; alimentação diária; encaminhamento para acolhimento; apoio à documentação; recâmbio para cidade de origem; reaproximação familiar
+- **Observações:** O Centro POP inclui como subcomponente operacional a **Casa de Passagem de Triagem** (permanência de até 30 dias), onde os técnicos identificam o perfil do usuário para encaminhamento adequado à modalidade de Alta Complexidade correspondente. Esta Casa de Passagem de triagem é distinta da modalidade de acolhimento de Alta Complexidade listada no Grupo 3. Fonte: Ata SMIDS 10/02/2026.
+- **⚠️ Nota arquitetural:** pessoas sem documentação não aparecem no CadÚnico — ponto cego estrutural.
+
+---
+
 ### Serviço Especializado em Abordagem Social
 
 - **Esfera:** `Federal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `CENTROPOP_01`
 - **nome_orgao_executor:** Centro POP
 - **Público-alvo:** População em situação de rua
 - **Vínculo CadÚnico:** Sim
-- **Nível de proteção:** Especial — Alta Complexidade
+- **Nível de proteção:** Especial — Média Complexidade
 - **Dimensão IVS:** `multidimensional` — abordagem de rua — vulnerabilidade extrema nas três dimensões
 - **Base legal principal:** CNAS 109/2009
 - **Base legal municipal:** Lei 3.911/2021
@@ -271,7 +263,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Federal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `CREAS_01`
 - **nome_orgao_executor:** CREAS
 - **Público-alvo:** Adolescentes em cumprimento de LA ou PSC
@@ -283,48 +275,16 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 ---
 
-### Serviço de Atendimento Domiciliar para PCD e Idosos
-
-- **Esfera:** `Municipal`
-- **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
-- **id_orgao_executor:** `SEC_INCLUSAO`
-- **nome_orgao_executor:** Secretaria de Inclusão e Desenvolvimento Social
-- **Público-alvo:** Pessoas com deficiência e idosos em domicílio
-- **Vínculo CadÚnico:** A confirmar
-- **Nível de proteção:** Especial
-- **Dimensão IVS:** `capital_humano` — atenção a PCD e idosos — IVS CH (mortalidade, deficiência) + RT (dependência de idosos)
-- **Base legal principal:** Municipal
-- **Base legal municipal:** A confirmar
-
----
-
-### Serviço de Proteção Social Especial para PCD, Idosos e suas Famílias
-
-- **Esfera:** `Intersetorial` (Federal/Municipal)
-- **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
-- **id_orgao_executor:** `CREAS_01`
-- **nome_orgao_executor:** CREAS
-- **Público-alvo:** Pessoas com deficiência, idosos e famílias
-- **Vínculo CadÚnico:** A confirmar
-- **Nível de proteção:** Especial
-- **Dimensão IVS:** `capital_humano` — PCD e idosos: IVS CH + RT_04 (dependência de idosos com renda ≤ ½ SM)
-- **Base legal principal:** LOAS + CNAS 109/2009
-- **Base legal municipal:** Lei 3.911/2021
-
----
-
 ### Serviço de Apoio a Famílias e Pessoas em Situação de Risco
 
 - **Esfera:** `Intersetorial` (Federal/Municipal)
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `SEC_INCLUSAO`
 - **nome_orgao_executor:** Secretaria de Inclusão e Desenvolvimento Social
 - **Público-alvo:** Famílias e pessoas em situação de risco
 - **Vínculo CadÚnico:** Sim
-- **Nível de proteção:** Especial
+- **Nível de proteção:** Especial — Média Complexidade
 - **Dimensão IVS:** `multidimensional` — situação de risco — cruzamento das três dimensões IVS
 - **Base legal principal:** LOAS
 - **Base legal municipal:** Lei 3.911/2021
@@ -335,13 +295,13 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Municipal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **Secretarias parceiras:** Defesa Civil, Habitação, Saúde
 - **id_orgao_executor:** `SEC_INCLUSAO`
 - **nome_orgao_executor:** Secretaria de Inclusão (coordenação intersetorial)
 - **Público-alvo:** Famílias desabrigadas por eventos climáticos
 - **Vínculo CadÚnico:** Sim
-- **Nível de proteção:** Especial — Alta Complexidade / Intersetorial
+- **Nível de proteção:** Especial — Média Complexidade / Intersetorial
 - **Dimensão IVS:** `multidimensional` — emergências sociais — vulnerabilidade aguda transversal
 - **Base legal principal:** Municipal
 - **Base legal municipal:** Decreto 5.598/2025
@@ -349,23 +309,191 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 ---
 
-### Acolhimento Institucional / Casa de Passagem
+## Grupo 3 — Proteção Social Especial — Alta Complexidade
+
+> Serviços de acolhimento institucional. Executados em sua maioria por Organizações da
+> Sociedade Civil (OSCs) conveniadas ao município. Abrangem seis públicos e modalidades
+> distintas. Fonte: Ata de Reunião Técnica SMIDS, 10/02/2026 v02.
+
+---
+
+### SAICA — Serviço de Acolhimento Institucional para Crianças e Adolescentes
+
+- **Esfera:** `Intersetorial` (Federal/Municipal + OSC)
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
+- **id_orgao_executor:** `OSC_A_CONFIRMAR`
+- **nome_orgao_executor:** OSC conveniada — a confirmar
+- **Público-alvo:** Crianças e adolescentes em situação de vulnerabilidade ou violação de direitos
+- **Modalidades:** Casa-Lar ou Abrigo Institucional
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Especial — Alta Complexidade
+- **Dimensão IVS:** `capital_humano` — acolhimento de crianças e adolescentes — IVS CH: escolaridade, vínculo familiar, desenvolvimento
+- **Base legal principal:** ECA + CNAS 109/2009
+- **Base legal municipal:** A confirmar
+- **Observações:** Objetivo principal: desenvolvimento de independência e autocuidado; vínculos de parentesco atendidos na mesma unidade. ⚠️ Pendência #19: identificar OSC executora e confirmar `id_orgao_executor`.
+
+---
+
+### Abrigo Institucional para Adultos e Famílias em Situação de Rua
 
 - **Esfera:** `Intersetorial` (Municipal + OSC)
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `OSC_ESPERANCAR`
 - **nome_orgao_executor:** Instituto Esperançar (conveniado)
-- **Público-alvo:** População em situação de rua, adultos e famílias
+- **Público-alvo:** Adultos de 24 a 59 anos em situação de rua
+- **Modalidades:** Abrigo (24–59 anos) + Casa de Passagem (até 30 dias — triagem via Centro POP)
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Especial — Alta Complexidade
-- **Dimensão IVS:** `infraestrutura_urbana` — moradia em situação crítica — IVS IU (domicílio inadequado ou ausente)
+- **Acesso:** Encaminhamento obrigatório via Centro POP
+- **Dimensão IVS:** `infraestrutura_urbana` — provisão de moradia temporária — IVS IU (domicílio inadequado)
 - **Base legal principal:** LOAS + CNAS 109/2009
+- **Base legal municipal:** A confirmar
+- **Observações:** Objetivo principal: acesso à qualificação profissional e inclusão produtiva. Fluxo operacional: `Centro POP (triagem) → Casa de Passagem (até 30 dias) → Abrigo`. ⚠️ Nota arquitetural: a mesma pessoa gera múltiplos registros ao longo do fluxo — CPF é âncora obrigatória.
+
+---
+
+### Abrigo Institucional para Mulheres em Situação de Violência
+
+- **Esfera:** `Intersetorial` (Municipal + OSC)
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
+- **Secretarias parceiras:** Dep. de Políticas Públicas para a Mulher
+- **id_orgao_executor:** `OSC_A_CONFIRMAR`
+- **nome_orgao_executor:** OSC conveniada — a confirmar
+- **Público-alvo:** Mulheres em situação de violência doméstica ou sexual
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Especial — Alta Complexidade
+- **Acesso:** Encaminhamento — aceito sem Boletim de Ocorrência
+- **Dimensão IVS:** `multidimensional` — violência contra a mulher — CH + RT (dependência econômica) + IU (ausência de moradia segura)
+- **Base legal principal:** Outro (Lei 11.340/2006) + CNAS 109/2009
+- **Base legal municipal:** A confirmar
+- **Observações:** Objetivo principal: proteção e prevenção de continuidade da violência. Acesso sem B.O. é critério explícito — reduz barreira de entrada. ⚠️ Pendência #19: identificar OSC executora.
+
+---
+
+### Residência Inclusiva para Jovens e Adultos com Deficiência
+
+- **Esfera:** `Intersetorial` (Federal/Municipal + OSC)
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
+- **id_orgao_executor:** `OSC_A_CONFIRMAR`
+- **nome_orgao_executor:** OSC conveniada — a confirmar
+- **Público-alvo:** Jovens e adultos com deficiência em situação de dependência ou vulnerabilidade
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Especial — Alta Complexidade
+- **Dimensão IVS:** `capital_humano` — PCD em acolhimento — IVS CH (deficiência e inclusão)
+- **Base legal principal:** LOAS + CNAS 109/2009 + Lei 13.146/2015
+- **Base legal municipal:** A confirmar
+- **Observações:** Objetivo principal: desenvolvimento de capacidades adaptativas para vida diária e inclusão produtiva. ⚠️ Pendência #19: identificar OSC executora.
+
+---
+
+### Casa-Lar e ILPI — Acolhimento para Idosos
+
+- **Esfera:** `Intersetorial` (Federal/Municipal + OSC)
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
+- **Secretarias parceiras:** Dep. Direitos Humanos e Políticas Públicas
+- **id_orgao_executor:** `OSC_A_CONFIRMAR`
+- **nome_orgao_executor:** OSC conveniada — a confirmar
+- **Público-alvo:** Idosos (60+) em situação de vulnerabilidade ou sem suporte familiar
+- **Modalidades:** Casa-Lar / ILPI (Instituição de Longa Permanência para Idosos)
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Especial — Alta Complexidade
+- **Dimensão IVS:** `capital_humano` — acolhimento de idosos — IVS CH + RT_04 (dependência de idosos com renda ≤ ½ SM)
+- **Base legal principal:** LOAS + CNAS 109/2009 + Lei 10.741/2003
+- **Base legal municipal:** A confirmar
+- **Observações:** Objetivo principal: protagonismo, independência e autocuidado. ⚠️ Pendência #19: identificar OSC executora.
+
+---
+
+### República — Acolhimento para Jovens e Adultos em Saída da Rua
+
+- **Esfera:** `Intersetorial` (Municipal + OSC)
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
+- **id_orgao_executor:** `OSC_A_CONFIRMAR`
+- **nome_orgao_executor:** OSC conveniada — a confirmar
+- **Público-alvo:** Jovens (18–21 anos) e adultos em processo de saída da situação de rua
+- **Modalidades:** República masculina / República feminina — modelo de autogestão
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Especial — Alta Complexidade
+- **Dimensão IVS:** `renda_trabalho` — autonomia e inserção produtiva — IVS RT_02 (desocupação) e RT_03 (informalidade)
+- **Base legal principal:** LOAS + CNAS 109/2009
+- **Base legal municipal:** A confirmar
+- **Observações:** Objetivo principal: autonomia — residentes gerenciam coletivamente a unidade. Perfil típico: já inseridos ou em vias de inserção no mercado de trabalho. Representa o estágio mais avançado da trajetória de saída da rua. ⚠️ Pendência #19: identificar OSC executora.
+
+---
+
+### Programa de Apadrinhamento para Crianças e Adolescentes em Acolhimento
+
+- **Esfera:** `Intersetorial` (Federal/Municipal)
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
+- **id_orgao_executor:** `SEC_INCLUSAO`
+- **nome_orgao_executor:** Sec. Inclusão / CMDCA
+- **Público-alvo:** Crianças e adolescentes em acolhimento institucional
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Especial — Alta Complexidade
+- **Dimensão IVS:** `capital_humano` — crianças em acolhimento — IVS CH: escolaridade, vínculo familiar, desenvolvimento
+- **Base legal principal:** ECA
+- **Base legal municipal:** A confirmar
+- **Observações:** Vinculado ao CMDCA. Apadrinhamento afetivo e/ou financeiro.
+
+---
+
+### Programa de Enfrentamento ao Trabalho Infantil
+
+- **Esfera:** `Intersetorial` (Federal/Municipal)
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
+- **id_orgao_executor:** `CREAS_01`
+- **nome_orgao_executor:** CREAS / Conselho Tutelar
+- **Público-alvo:** Crianças e adolescentes em situação de trabalho infantil
+- **Vínculo CadÚnico:** Sim
+- **Nível de proteção:** Especial — Alta Complexidade
+- **Dimensão IVS:** `capital_humano` — combate ao trabalho infantil — IVS CH_08 (atividade de 10–14 anos)
+- **Base legal principal:** ECA
+- **Base legal municipal:** A confirmar
+- **Observações:** Interface direta com Conselho Tutelar e CREAS.
+
+---
+
+### Serviço de Atendimento Domiciliar para PCD e Idosos
+
+- **Esfera:** `Municipal`
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
+- **id_orgao_executor:** `SEC_INCLUSAO`
+- **nome_orgao_executor:** Secretaria de Inclusão e Desenvolvimento Social
+- **Público-alvo:** Pessoas com deficiência e idosos em domicílio
+- **Vínculo CadÚnico:** A confirmar
+- **Nível de proteção:** Especial — Alta Complexidade
+- **Dimensão IVS:** `capital_humano` — atenção a PCD e idosos — IVS CH (mortalidade, deficiência) + RT (dependência de idosos)
+- **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
 ---
 
-## Grupo 3 — Programas Municipais Específicos (Inclusão)
+### Serviço de Proteção Social Especial para PCD, Idosos e suas Famílias
+
+- **Esfera:** `Intersetorial` (Federal/Municipal)
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
+- **id_orgao_executor:** `CREAS_01`
+- **nome_orgao_executor:** CREAS
+- **Público-alvo:** Pessoas com deficiência, idosos e famílias
+- **Vínculo CadÚnico:** A confirmar
+- **Nível de proteção:** Especial — Alta Complexidade
+- **Dimensão IVS:** `capital_humano` — PCD e idosos: IVS CH + RT_04
+- **Base legal principal:** LOAS + CNAS 109/2009
+- **Base legal municipal:** Lei 3.911/2021
+
+---
+
+## Grupo 4 — Programas Municipais Específicos (Inclusão)
 
 ---
 
@@ -379,7 +507,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Famílias em vulnerabilidade emergencial
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Básico / Alimentar
-- **Dimensão IVS:** `renda_trabalho` — transferência emergencial de renda e bens — IVS RT_01 (renda per capita ≤ ½ SM)
+- **Dimensão IVS:** `renda_trabalho` — transferência emergencial de renda e bens — IVS RT_01
 - **Base legal principal:** Municipal
 - **Base legal municipal:** Decreto 5.598/2025
 
@@ -397,10 +525,10 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Nível de proteção:** Produtivo
 - **Benefício:** Bolsa-auxílio R$ 710 + cesta básica
 - **Modalidades ativas (fev/2026):** Costura Industrial, Serviços Gerais
-- **Dimensão IVS:** `renda_trabalho` — qualificação + intermediação de emprego — IVS RT_02 (desocupação) e RT_03 (informalidade)
+- **Dimensão IVS:** `renda_trabalho` — qualificação + intermediação de emprego — IVS RT_02 e RT_03
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
-- **Observações:** Requisito obrigatório do Programa Ressignifica Hortolândia. Caso Suelen (Tribuna Liberal 08/03/2026): trajetória documentada CRAS → ACERTE → assistente administrativa → emprego no próprio CRAS — evidência empírica da cadeia de emancipação.
+- **Observações:** Requisito obrigatório do Programa Ressignifica Hortolândia. Caso Suelen (Tribuna Liberal 08/03/2026): trajetória documentada CRAS → ACERTE → assistente administrativa → emprego no próprio CRAS.
 
 ---
 
@@ -415,43 +543,9 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Vínculo CadÚnico:** Parcial
 - **Nível de proteção:** Básico / Intersetorial
 - **Origem:** Municipal — lançado outubro/2022
-- **Dimensão IVS:** `capital_humano` — saúde materno-infantil — IVS CH_01 (mortalidade infantil) e CH_04 (maternidade adolescente)
+- **Dimensão IVS:** `capital_humano` — saúde materno-infantil — IVS CH_01 e CH_04
 - **Base legal principal:** Municipal
 - **Base legal municipal:** ✅ Lei 3.955/2022
-
----
-
-### Programa de Apadrinhamento para Crianças e Adolescentes em Acolhimento
-
-- **Esfera:** `Intersetorial` (Federal/Municipal)
-- **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
-- **id_orgao_executor:** `SEC_INCLUSAO`
-- **nome_orgao_executor:** Sec. Inclusão / CMDCA
-- **Público-alvo:** Crianças e adolescentes em acolhimento institucional
-- **Vínculo CadÚnico:** Sim
-- **Nível de proteção:** Especial — Alta Complexidade
-- **Dimensão IVS:** `capital_humano` — crianças em acolhimento — IVS CH: escolaridade, vínculo familiar, desenvolvimento
-- **Base legal principal:** ECA
-- **Base legal municipal:** A confirmar
-- **Observações:** Vinculado ao CMDCA. Apadrinhamento afetivo e/ou financeiro.
-
----
-
-### Programa de Enfrentamento ao Trabalho Infantil
-
-- **Esfera:** `Intersetorial` (Federal/Municipal)
-- **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
-- **id_orgao_executor:** `CREAS_01`
-- **nome_orgao_executor:** CREAS / Conselho Tutelar
-- **Público-alvo:** Crianças e adolescentes em situação de trabalho infantil
-- **Vínculo CadÚnico:** Sim
-- **Nível de proteção:** Especial
-- **Dimensão IVS:** `capital_humano` — combate ao trabalho infantil — IVS CH_08 (atividade de 10–14 anos) diretamente
-- **Base legal principal:** ECA
-- **Base legal municipal:** A confirmar
-- **Observações:** Interface direta com Conselho Tutelar e CREAS.
 
 ---
 
@@ -459,14 +553,14 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Municipal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `CQP_I`
 - **nome_orgao_executor:** CQP I — Centro de Qualificação Pessoal e Profissional
 - **Endereço:** Rua Estados Unidos, 271, Jd. Santa Clara do Lago II
 - **Público-alvo:** Pessoas em vulnerabilidade buscando qualificação profissional
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Produtivo
-- **Dimensão IVS:** `renda_trabalho` — qualificação profissional — IVS RT_02 (desocupação) e RT_03 (informalidade)
+- **Dimensão IVS:** `renda_trabalho` — qualificação profissional — IVS RT_02 e RT_03
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **Observações:** ⚠️ Verificar distinção em relação ao "Capacita Hortolândia" do Fundo Social.
@@ -477,7 +571,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Municipal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `CQP_II`
 - **nome_orgao_executor:** CQP II — Centro de Qualificação — Costura e Moda
 - **Endereço:** Rua Eleusina Batista Silva, 14, Jd. Terras de Santo Antônio
@@ -495,13 +589,13 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Municipal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `SEC_INCLUSAO`
 - **nome_orgao_executor:** Secretaria de Inclusão e Desenvolvimento Social
 - **Público-alvo:** Pessoas em vulnerabilidade socioeconômica
 - **Vínculo CadÚnico:** A confirmar
 - **Nível de proteção:** Básico / Saúde
-- **Dimensão IVS:** `capital_humano` — acesso a medicamentos — IVS CH (saúde e mortalidade)
+- **Dimensão IVS:** `capital_humano` — acesso a medicamentos — IVS CH
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **Observações:** ⚠️ Detalhar critério de acesso e integração com farmácia popular federal.
@@ -512,7 +606,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Municipal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `CESP`
 - **nome_orgao_executor:** CESP — Centro de Empreendimentos Solidários e Popular
 - **Endereço:** Rua Zacarias Costa Camargo, 50, Remanso Campineiro
@@ -522,7 +616,6 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Dimensão IVS:** `renda_trabalho` — geração de renda informal — IVS RT_01 e RT_03
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
-- **Observações:** Distinto das Feiras Livres (Desenvolvimento Econômico) — foco em empreendedorismo social.
 
 ---
 
@@ -530,7 +623,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Municipal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `CENTROPOP_01`
 - **nome_orgao_executor:** Centro POP / Rede de Acolhimento
 - **Público-alvo:** Moradores em situação de rua
@@ -554,7 +647,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Crianças de 6 meses a 3 anos e 6 meses sem vaga na rede pública
 - **Vínculo CadÚnico:** Sim
 - **Nível de proteção:** Básica
-- **Dimensão IVS:** `capital_humano` — acesso à educação infantil — IVS CH_02 (crianças 0–5 fora da escola)
+- **Dimensão IVS:** `capital_humano` — acesso à educação infantil — IVS CH_02
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -564,12 +657,12 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Municipal`
 - **Tipo:** B — Política Articulada
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
 - **id_orgao_executor:** `SEC_INCLUSAO`
 - **nome_orgao_executor:** Sec. Inclusão / CMAS
 - **Público-alvo:** Organizações da Sociedade Civil
 - **Vínculo CadÚnico:** Não
-- **Dimensão IVS:** `governanca` — regulação e controle social da rede socioassistencial
+- **Dimensão IVS:** `governanca`
 - **Base legal principal:** LOAS
 - **Base legal municipal:** Lei 3.911/2021
 
@@ -579,18 +672,18 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Municipal`
 - **Tipo:** B — Política Articulada
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social / CMDCA
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS) / CMDCA
 - **id_orgao_executor:** `SEC_INCLUSAO`
 - **nome_orgao_executor:** Sec. Inclusão / CMDCA
 - **Público-alvo:** OSCs voltadas à criança e ao adolescente
 - **Vínculo CadÚnico:** Não
-- **Dimensão IVS:** `governanca` — regulação da rede de proteção à criança e ao adolescente
+- **Dimensão IVS:** `governanca`
 - **Base legal principal:** ECA
 - **Base legal municipal:** A confirmar
 
 ---
 
-## Grupo 4 — Segurança Alimentar
+## Grupo 5 — Segurança Alimentar
 
 ---
 
@@ -605,7 +698,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Vínculo CadÚnico:** Indireto
 - **Origem:** Municipal — criado em 2007
 - **Alcance:** 19 organizações / 1.762 pessoas (2024)
-- **Dimensão IVS:** `renda_trabalho` — redução de insegurança alimentar — IVS RT_01 (renda per capita ≤ ½ SM)
+- **Dimensão IVS:** `renda_trabalho` — redução de insegurança alimentar — IVS RT_01
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -630,7 +723,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Municipal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social / Fundo Social
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS) / Fundo Social
 - **id_orgao_executor:** `FUNDO_SOCIAL`
 - **nome_orgao_executor:** Fundo Social de Solidariedade
 - **Vínculo CadÚnico:** Sim
@@ -649,7 +742,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Departamento de Segurança Alimentar
 - **Origem:** Municipal — anunciado abr/2023
 - **Localização prevista:** Jd. Terras de Santa Maria
-- **Dimensão IVS:** `capital_humano` — educação alimentar e nutricional — IVS CH (saúde e desenvolvimento)
+- **Dimensão IVS:** `capital_humano` — educação alimentar e nutricional — IVS CH
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -662,14 +755,14 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Secretaria responsável:** Educação, Ciência e Tecnologia
 - **id_orgao_executor:** `DEP_SEG_ALIMENTAR`
 - **nome_orgao_executor:** Departamento de Segurança Alimentar
-- **Dimensão IVS:** `renda_trabalho` — refeição subsidiada — IVS RT_01 (renda insuficiente para alimentação)
+- **Dimensão IVS:** `renda_trabalho` — refeição subsidiada — IVS RT_01
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **Observações:** ⚠️ Verificar se é o mesmo equipamento que a "Escola Comunitária" do Jd. Novo Ângulo.
 
 ---
 
-## Grupo 5 — Habitação
+## Grupo 6 — Habitação
 
 ---
 
@@ -682,10 +775,10 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Secretaria de Habitação (parceria Cidade Legal / Estadual)
 - **Vínculo CadÚnico:** Indireto
 - **Alcance 2021–2024:** ~3.000 títulos entregues
-- **Dimensão IVS:** `infraestrutura_urbana` — regularização fundiária e melhoria habitacional — IVS IU_01 (saneamento) e IU_02 (coleta)
+- **Dimensão IVS:** `infraestrutura_urbana` — regularização fundiária e melhoria habitacional — IVS IU_01 e IU_02
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
-- **Observações — Monte Sinai (atualização v10):** Em 07/03/2026, durante cerimônia da Sabesp em Paulínia, o prefeito Zezé Gomes recebeu placa simbólica marcando a conclusão da implantação da rede de esgoto subterrânea no Monte Sinai — beneficiando aproximadamente 650 famílias. Em parceria com a CDHU, 152 unidades habitacionais encontram-se em construção para moradores de áreas de risco da região. A área doada pelo estado é de ~220 mil m². Infraestrutura complementar inclui iluminação LED (117 postes, 5.700m de cabos, implantados em 2022), kits cavaletes para hidrômetro e abertura de 7 vias. Parte da área será preservada como área ambiental. Fonte: Tribuna Liberal, 10/03/2026, p. 04. ⚠️ Pendência #18: confirmar número oficial de famílias beneficiadas (650 é estimativa da Secretaria de Habitação).
+- **Observações — Monte Sinai (v10):** Em 07/03/2026, cerimônia da Sabesp em Paulínia registrou conclusão da rede de esgoto subterrânea no Monte Sinai — ~650 famílias beneficiadas. Em parceria com CDHU, 152 unidades habitacionais em construção. Área doada ~220 mil m². Infraestrutura complementar: 117 postes LED, 5.700m de cabos, kits cavaletes, abertura de 7 vias. Fonte: Tribuna Liberal, 10/03/2026, p. 04. ⚠️ Pendência #18: confirmar número oficial de famílias.
 
 ---
 
@@ -695,12 +788,12 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Tipo:** A — Serviço Direto
 - **Secretaria responsável:** Habitação
 - **id_orgao_executor:** `SEC_HABITACAO`
-- **nome_orgao_executor:** Secretaria de Habitação (ponto municipal do programa estadual)
+- **nome_orgao_executor:** Secretaria de Habitação
 - **Público-alvo:** Idosos em vulnerabilidade, residentes há ≥ 2 anos no município
-- **Vínculo CadÚnico:** Sim — critério explícito
+- **Vínculo CadÚnico:** Sim
 - **Vagas Hortolândia:** 28 unidades habitacionais
-- **Status:** NEGOCIAÇÃO ATIVA — tratativas em andamento com o Governo do Estado (Tribuna Liberal, 04/03/2026)
-- **Dimensão IVS:** `infraestrutura_urbana` — habitação para idosos — IVS IU + RT_04 (dependência de idosos)
+- **Status:** NEGOCIAÇÃO ATIVA (Tribuna Liberal, 04/03/2026)
+- **Dimensão IVS:** `infraestrutura_urbana` — habitação para idosos — IVS IU + RT_04
 - **Base legal principal:** Estadual
 - **Base legal municipal:** A confirmar
 
@@ -713,10 +806,10 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Secretaria responsável:** Habitação
 - **id_orgao_executor:** `SEC_HABITACAO`
 - **nome_orgao_executor:** Secretaria de Habitação
-- **Vínculo CadÚnico:** Sim — critério federal
+- **Vínculo CadÚnico:** Sim
 - **Status:** EXECUÇÃO — 400 unidades em construção no Jardim Amanda (início 2026)
-- **Documentações coletadas:** 576 ⚠️ *Número divergente entre edições de 05/03 e 06/03/2026 da Tribuna Liberal — confirmar junto à Secretaria de Habitação antes de usar em indicador*
-- **Dimensão IVS:** `infraestrutura_urbana` — provisão habitacional — IVS IU_01, IU_02 (saneamento e infraestrutura)
+- **Documentações coletadas:** 576 ⚠️ *divergência a confirmar*
+- **Dimensão IVS:** `infraestrutura_urbana` — provisão habitacional — IVS IU_01, IU_02
 - **Base legal principal:** PBF / CadÚnico
 - **Base legal municipal:** Lei 14.620/2023 (federal)
 
@@ -729,13 +822,13 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Secretaria responsável:** Habitação
 - **id_orgao_executor:** `SEC_HABITACAO`
 - **nome_orgao_executor:** Secretaria de Habitação
-- **Dimensão IVS:** `infraestrutura_urbana` — política habitacional estruturante — IVS IU (todas as variáveis)
+- **Dimensão IVS:** `infraestrutura_urbana` — política habitacional estruturante — IVS IU
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
 ---
 
-## Grupo 6 — Inserção Produtiva e Qualificação
+## Grupo 7 — Inserção Produtiva e Qualificação
 
 ---
 
@@ -745,13 +838,14 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Tipo:** A — Serviço Direto
 - **Secretaria responsável:** Desenvolvimento Econômico, Trabalho, Turismo e Inovação
 - **id_orgao_executor:** `PAT_01`
-- **nome_orgao_executor:** PAT — Posto de Atendimento ao Trabalhador
+- **nome_orgao_executor:** PAT
 - **Público-alvo:** Desempregados em geral, incluindo PCD
 - **Vínculo CadÚnico:** Indireto
 - **Contato:** pat@hortolandia.sp.gov.br / (19) 3965-1400 ramais 8904 ou 8925
-- **Dimensão IVS:** `renda_trabalho` — intermediação de emprego — IVS RT_02 (desocupação)
+- **Dimensão IVS:** `renda_trabalho` — intermediação de emprego — IVS RT_02
 - **Base legal principal:** Outro (Lei 7.998/1990)
 - **Base legal municipal:** A confirmar
+- **⚠️ Nota arquitetural:** PAT é o ponto de cruzamento entre CadÚnico e mercado formal.
 
 ---
 
@@ -764,11 +858,9 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** PAT
 - **Público-alvo:** Empresas (oferta) + trabalhadores cadastrados (demanda)
 - **Vínculo CadÚnico:** Indireto
-- **Acesso:** Telefone ou e-mail / Prazo: Imediato
 - **Dimensão IVS:** `renda_trabalho` — intermediação de emprego — IVS RT_02
 - **Base legal principal:** Outro (Lei 7.998/1990)
 - **Base legal municipal:** A confirmar
-- **⚠️ Nota arquitetural:** PAT é o ponto de cruzamento entre CadÚnico e mercado formal. Cruzamento CadÚnico × vagas PAT × CAGED fecha o triângulo de transição produtiva.
 
 ---
 
@@ -781,12 +873,10 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** PAT (ponto da rede SINE federal)
 - **Operador:** Ministério do Trabalho (SINE / Emprega Brasil)
 - **Vínculo CadÚnico:** Indireto
-- **Acesso:** Presencial no PAT ou online via Emprega Brasil / app CTPS Digital
-- **Prazo:** Imediato
 - **Dimensão IVS:** `renda_trabalho` — intermediação federal de emprego — IVS RT_02 e RT_03
 - **Base legal principal:** Outro (Lei 7.998/1990)
 - **Base legal municipal:** A confirmar
-- **⚠️ Nota arquitetural:** dados ficam no MTE federal. Integração futura requer convênio ou API federal.
+- **⚠️ Nota arquitetural:** dados ficam no MTE federal — integração futura requer API federal.
 
 ---
 
@@ -796,15 +886,13 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Tipo:** A — Serviço Direto
 - **Secretaria responsável:** Desenvolvimento Econômico, Trabalho, Turismo e Inovação
 - **id_orgao_executor:** `EXT_DESENVOLVE_SP`
-- **nome_orgao_executor:** Desenvolve SP (ponto municipal de atendimento)
+- **nome_orgao_executor:** Desenvolve SP
 - **Público-alvo:** MEI, ME, EPP, LTDA, EIRELI — formais e informais
 - **Vínculo CadÚnico:** A confirmar
-- **Acesso:** Presencial — documentação obrigatória / Prazo: 15 dias
 - **Contato:** bancodopovo@hortolandia.sp.gov.br / WhatsApp (19) 9 9919-5984
-- **Dimensão IVS:** `renda_trabalho` — crédito para formalização e empreendedorismo — IVS RT_03 (informalidade)
+- **Dimensão IVS:** `renda_trabalho` — crédito para formalização e empreendedorismo — IVS RT_03
 - **Base legal principal:** Outro (Lei 9.533/1997)
 - **Base legal municipal:** A confirmar
-- **⚠️ Nota arquitetural:** dados de crédito ficam na Desenvolve SP. Cruzamento CadÚnico × Banco do Povo responderia: "Quantos beneficiários acessaram crédito produtivo após saírem de transferência de renda?"
 
 ---
 
@@ -817,11 +905,10 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Departamento de Empreendedorismo e Microempresas
 - **Público-alvo:** MEIs — abertura, regularização e obrigações fiscais
 - **Vínculo CadÚnico:** Indireto
-- **Acesso:** Presencial — documentos + senha GOV.BR / Prazo: Imediato
-- **Dimensão IVS:** `renda_trabalho` — formalização de MEI — IVS RT_03 (informalidade)
+- **Dimensão IVS:** `renda_trabalho` — formalização de MEI — IVS RT_03
 - **Base legal principal:** Outro (LC 128/2008)
 - **Base legal municipal:** A confirmar
-- **⚠️ Nota arquitetural:** formalização via MEI não aparece no CAGED — só na Receita Federal. Ponto cego no monitoramento de transição produtiva.
+- **⚠️ Nota arquitetural:** formalização via MEI não aparece no CAGED — ponto cego no monitoramento de transição produtiva.
 
 ---
 
@@ -831,14 +918,12 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Tipo:** A — Serviço Direto
 - **Secretaria responsável:** Desenvolvimento Econômico, Trabalho, Turismo e Inovação
 - **id_orgao_executor:** `EXT_SEBRAE_SP`
-- **nome_orgao_executor:** SEBRAE-SP (ponto municipal de atendimento)
+- **nome_orgao_executor:** SEBRAE-SP
 - **Público-alvo:** Empreendedores e futuros empreendedores
 - **Vínculo CadÚnico:** Indireto
-- **Acesso:** Presencial com RG/CNH + CNPJ se já empresa / Prazo: Imediato
-- **Dimensão IVS:** `renda_trabalho` — capacitação empresarial — IVS RT_03 (informalidade) e RT_02 (desocupação)
+- **Dimensão IVS:** `renda_trabalho` — capacitação empresarial — IVS RT_03 e RT_02
 - **Base legal principal:** Outro
 - **Base legal municipal:** A confirmar
-- **⚠️ Nota arquitetural:** dados ficam nos sistemas do SEBRAE. Integração futura dependeria de convênio.
 
 ---
 
@@ -848,16 +933,14 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Tipo:** A — Serviço Direto
 - **Secretaria responsável:** Desenvolvimento Econômico, Trabalho, Turismo e Inovação
 - **id_orgao_executor:** `PAT_01`
-- **nome_orgao_executor:** PAT (apoio a casos judiciais; operação federal via Gov.br)
+- **nome_orgao_executor:** PAT (apoio a casos judiciais)
 - **Operador:** Ministério do Trabalho
 - **Público-alvo:** Trabalhador formal dispensado sem justa causa
 - **Vínculo CadÚnico:** Indireto
-- **Acesso:** Digital (app CTPS ou Gov.br) ou presencial no PAT para casos judiciais
-- **Contato:** pat@hortolandia.sp.gov.br / ramais 8904 ou 8925
 - **Dimensão IVS:** `renda_trabalho` — proteção temporária de renda — IVS RT_01 e RT_02
 - **Base legal principal:** Outro (Lei 7.998/1990)
 - **Base legal municipal:** A confirmar
-- **⚠️ Nota estratégica:** Seguro Desemprego é porta de entrada previsível para o CadÚnico — quando o benefício se esgota sem recolocação, a tendência é buscar assistência social.
+- **⚠️ Nota estratégica:** quando o benefício se esgota sem recolocação, a tendência é buscar assistência social — fluxo de entrada previsível no CadÚnico.
 
 ---
 
@@ -872,7 +955,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Vínculo CadÚnico:** Indireto
 - **Cobertura territorial:** Santa Clara, Nova Hortolândia, Parque Ortolândia, São Sebastião, Santo André, Vila Real, Amanda
 - **Frequência:** Quarta a domingo — rotatividade por bairro
-- **Dimensão IVS:** `renda_trabalho` — espaço de geração de renda informal — IVS RT_01 e RT_03
+- **Dimensão IVS:** `renda_trabalho` — geração de renda informal — IVS RT_01 e RT_03
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 - **⚠️ Nota para DIM_TERRITORIO:** 5 territórios coincidem com áreas de abrangência de CRAS.
@@ -900,14 +983,48 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 - **Esfera:** `Estadual/Municipal`
 - **Tipo:** A — Serviço Direto
-- **Secretaria responsável:** Inclusão e Desenvolvimento Social (DIPGR)
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS — DIPGR)
 - **id_orgao_executor:** `DEP_DIPGR`
 - **nome_orgao_executor:** Dep. de Inclusão Produtiva e Gestão de Relações Institucionais
 - **Público-alvo:** Jovens 16–20 anos + desempregados +3 meses + beneficiários do seguro-desemprego
 - **Vínculo CadÚnico:** Indireto
-- **Dimensão IVS:** `renda_trabalho` — empregabilidade e intermediação — IVS RT_02 (desocupação)
+- **Dimensão IVS:** `renda_trabalho` — empregabilidade e intermediação — IVS RT_02
 - **Base legal principal:** Outro
 - **Base legal municipal:** A confirmar
+
+---
+
+### DECOLA *(novo — v11)*
+
+- **Esfera:** `Municipal`
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
+- **id_orgao_executor:** `DEP_DIPGR`
+- **nome_orgao_executor:** Dep. de Inclusão Produtiva e Gestão de Relações Institucionais
+- **Público-alvo:** A confirmar — foco em empregabilidade e inserção produtiva
+- **Vínculo CadÚnico:** A confirmar
+- **Nível de proteção:** Produtivo
+- **Dimensão IVS:** `renda_trabalho` — empregabilidade e inserção produtiva — IVS RT_02 e RT_03
+- **Base legal principal:** Municipal
+- **Base legal municipal:** A confirmar
+- **Observações:** Programa de empregabilidade e inserção produtiva identificado na Ata de Reunião Técnica SMIDS (10/02/2026). ⚠️ Pendência #20: verificar se "Aprendiz Social" é denominação atual do DECOLA Juventude ou programa distinto. Confirmar status operacional e público-alvo detalhado.
+
+---
+
+### Aprendiz Social *(novo — v11)*
+
+- **Esfera:** `Municipal`
+- **Tipo:** A — Serviço Direto
+- **Secretaria responsável:** Inclusão e Desenvolvimento Social (SMIDS)
+- **id_orgao_executor:** `DEP_DIPGR`
+- **nome_orgao_executor:** Dep. de Inclusão Produtiva e Gestão de Relações Institucionais
+- **Público-alvo:** Jovens — foco em formação para o mercado de trabalho
+- **Vínculo CadÚnico:** A confirmar
+- **Nível de proteção:** Produtivo
+- **Dimensão IVS:** `renda_trabalho` — formação de jovens para o mercado — IVS RT_02 (desocupação) e CH_08 (nem-nem)
+- **Base legal principal:** Municipal
+- **Base legal municipal:** A confirmar
+- **Observações:** Programa de formação para jovens identificado na Ata de Reunião Técnica SMIDS (10/02/2026). ⚠️ Pendência #20: confirmar se é programa distinto do DECOLA ou modalidade interna. Confirmar status operacional.
 
 ---
 
@@ -916,25 +1033,22 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Esfera:** `Estadual`
 - **Tipo:** B — Política Articulada *(fase atual: estudo de viabilidade)*
 - **Secretaria responsável:** Desenvolvimento Econômico, Trabalho, Turismo e Inovação
-- **Secretarias parceiras:** A confirmar
 - **id_orgao_executor:** `EXT_CENTRO_PAULA_SOUZA`
 - **nome_orgao_executor:** Centro Paula Souza — Governo do Estado de São Paulo
 - **Operador:** Centro Paula Souza (gestão das Fatecs e Etecs no Estado)
 - **Público-alvo:** Jovens e adultos buscando ensino superior tecnológico gratuito; demanda do setor produtivo local
 - **Vínculo CadÚnico:** Indireto
 - **Nível de proteção:** Produtivo / Educacional
-- **Status:** ESTUDO DE VIABILIDADE — reunião oficial realizada em 09/03/2026 na Câmara Municipal de Hortolândia; participaram o prefeito Zezé Gomes (Republicanos), o secretário de Desenvolvimento Econômico Dimas Corrêa Pádua, o deputado estadual Dirceu Dalben (Cidadania), o presidente do Centro Paula Souza Clóvis Dias e representantes do setor produtivo e da Etec local. Sem prazo definido para implantação.
+- **Status:** ESTUDO DE VIABILIDADE — reunião oficial realizada em 09/03/2026 na **SMIDS** (Secretaria Municipal de Inclusão e Desenvolvimento Social); participaram o prefeito Zezé Gomes, o secretário de Desenvolvimento Econômico Dimas Corrêa Pádua, o deputado estadual Dirceu Dalben, o presidente do Centro Paula Souza Clóvis Dias e representantes do setor produtivo e da Etec local. Sem prazo definido para implantação. Fonte: Tribuna Liberal 10/03/2026; correção do local: Caio [RH PMH], 10/03/2026.
 - **Possível localização:** Terreno ao lado da Etec de Hortolândia, região do Remanso Campineiro
-- **Cursos potenciais:** A definir — levantamento de demanda realizado junto ao setor produtivo em 09/03/2026
-- **Contexto territorial:** Hortolândia já conta com Instituto Federal, Etec e Univesp. A Fatec completaria o ciclo de ensino superior público presencial com foco tecnológico, alinhando formação à demanda das 400+ empresas instaladas no município
-- **Dimensão IVS:** `renda_trabalho` — ensino superior tecnológico gratuito como vetor de mobilidade social — IVS RT_02 (desocupação qualificada) e RT_03 (informalidade por falta de qualificação)
+- **Dimensão IVS:** `renda_trabalho` — ensino superior tecnológico gratuito como vetor de mobilidade social — IVS RT_02 e RT_03
 - **Base legal principal:** Estadual
 - **Base legal municipal:** A confirmar
-- **Observações:** ⚠️ Pendência #17: monitorar edições futuras da Tribuna Liberal e comunicados oficiais da Prefeitura para acompanhar evolução do estudo. Nota de conexão com o modelo: a Fatec, quando implantada, gerará demanda de cruzamento entre CadÚnico × matrículas Fatec — potencial indicador de mobilidade social via ensino superior.
+- **Observações:** ⚠️ Pendência #17: monitorar evolução do estudo de viabilidade.
 
 ---
 
-## Grupo 7 — Públicos Específicos / Direitos Humanos
+## Grupo 8 — Públicos Específicos / Direitos Humanos
 
 ---
 
@@ -947,7 +1061,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Dep. de Políticas Públicas para a PCD
 - **Gestora:** Quézia Garcia
 - **Vínculo CadÚnico:** Indireto
-- **Dimensão IVS:** `capital_humano` — políticas para PCD — IVS CH (deficiência e inclusão)
+- **Dimensão IVS:** `capital_humano` — políticas para PCD — IVS CH
 - **Base legal principal:** Outro (Lei 13.146/2015)
 - **Base legal municipal:** A confirmar
 
@@ -962,7 +1076,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Dep. de Direitos Humanos e Políticas Públicas
 - **Público-alvo:** Idosos, especialmente em vulnerabilidade
 - **Vínculo CadÚnico:** Indireto
-- **Dimensão IVS:** `capital_humano` — atenção ao idoso — IVS CH + RT_04 (dependência de idosos)
+- **Dimensão IVS:** `capital_humano` — atenção ao idoso — IVS CH + RT_04
 - **Base legal principal:** Outro (Lei 10.741/2003)
 - **Base legal municipal:** A confirmar
 
@@ -992,7 +1106,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **id_orgao_executor:** `DEP_DIR_HUMANOS`
 - **nome_orgao_executor:** Dep. de Direitos Humanos e Políticas Públicas
 - **Público-alvo:** Jovens de 15 a 29 anos
-- **Dimensão IVS:** `capital_humano` — juventude — IVS CH_08 (nem-nem) e CH_03 (evasão escolar 6–14 anos)
+- **Dimensão IVS:** `capital_humano` — juventude — IVS CH_08 e CH_03
 - **Base legal principal:** Outro (Lei 12.852/2013)
 - **Base legal municipal:** A confirmar
 
@@ -1023,10 +1137,10 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** Mulheres em situação de violência ou vulnerabilidade
 - **Vínculo CadÚnico:** Indireto
 - **Atendimentos:** 293 no período jan–mar/2026; 101 casos novos
-- **Dimensão IVS:** `multidimensional` — violência contra a mulher — CH (maternidade, escolaridade) + RT (dependência econômica)
+- **Dimensão IVS:** `multidimensional` — violência contra a mulher — CH + RT
 - **Base legal principal:** Outro (Lei 11.340/2006)
 - **Base legal municipal:** A confirmar *(em operação desde 2017)*
-- **Observações — atualização v10:** Em 08/03/2026 (Dia Internacional da Mulher) foram registrados dois casos de violência doméstica em Hortolândia, nos bairros Jardim Novo Ângulo e Recanto do Sol. Caso 1: mulher de 47 anos com ferimentos na cabeça; filho do casal ficou sob acompanhamento do **Conselho Tutelar** — fluxo CRAM → CT_I/CT_II ativado. Caso 2: mulher agredida e ameaçada de morte; companheiro preso em flagrante (Lei Maria da Penha); filhos menores sob cuidado de familiares; vítima manifestou interesse em medida protetiva — fluxo CRAM → CREAS ativado. Fonte: Tribuna Liberal, 10/03/2026, p. 06. ⚠️ Nota arquitetural: esses casos confirmam o fluxo CRAM → Conselho Tutelar → CREAS como cadeia operacional real — a modelar em FATO_ATENDIMENTO com campo `id_encaminhamento_destino`.
+- **Observações — atualização v10:** Em 08/03/2026 registrados dois casos de violência doméstica em Hortolândia (Jd. Novo Ângulo e Recanto do Sol). Caso 1: filho do casal sob acompanhamento do Conselho Tutelar — fluxo CRAM → CT ativado. Caso 2: companheiro preso em flagrante (Lei Maria da Penha); vítima buscou medida protetiva — fluxo CRAM → CREAS ativado. ⚠️ Nota arquitetural: confirma o fluxo CRAM → Conselho Tutelar → CREAS como cadeia operacional real — modelar campo `id_encaminhamento_destino` em FATO_ATENDIMENTO.
 
 ---
 
@@ -1041,13 +1155,11 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Endereço:** CRAM "Débora Regina Leme dos Santos", Rua Alberto Gomes, 18, Jardim das Paineiras
 - **Público-alvo:** Mulheres atendidas pelo CRAM
 - **Vínculo CadÚnico:** Indireto
-- **Nível de proteção:** Especial / Direitos das Mulheres
 - **Status:** EXECUÇÃO — lançamento 09/03/2026
 - **Acesso:** Encaminhamento via CRAM
-- **Dimensão IVS:** `capital_humano` — acesso a vestuário para mulheres atendidas pelo CRAM — IVS CH (condições de vida)
+- **Dimensão IVS:** `capital_humano` — acesso a vestuário para mulheres atendidas — IVS CH
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
-- **Observações:** Doação de roupas e itens pessoais para mulheres atendidas pelo CRAM. Diretora responsável: Josefa Teixeira (Dep. Políticas Públicas para a Mulher). Fonte: Tribuna Liberal, 06/03/2026 e 08/03/2026.
 
 ---
 
@@ -1060,7 +1172,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **nome_orgao_executor:** Dep. de Inclusão Produtiva e Gestão de Relações Institucionais
 - **Público-alvo:** Comunidade geral
 - **Vínculo CadÚnico:** Indireto
-- **Dimensão IVS:** `capital_humano` — saúde e bem-estar — IVS CH (mortalidade e condições de saúde)
+- **Dimensão IVS:** `capital_humano` — saúde e bem-estar — IVS CH
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
 
@@ -1090,13 +1202,13 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **id_orgao_executor:** `SEC_EDUCACAO`
 - **nome_orgao_executor:** Secretaria de Educação, Ciência e Tecnologia
 - **Público-alvo:** Crianças de 0 a 6 anos
-- **Dimensão IVS:** `capital_humano` — primeira infância — IVS CH_01 (mortalidade infantil), CH_02 (0–5 fora da escola)
+- **Dimensão IVS:** `capital_humano` — primeira infância — IVS CH_01, CH_02
 - **Base legal principal:** Outro (Lei 13.257/2016)
 - **Base legal municipal:** A confirmar
 
 ---
 
-## Grupo 8 — Formação Cultural
+## Grupo 9 — Formação Cultural
 
 ---
 
@@ -1113,11 +1225,11 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Dimensão IVS:** `capital_humano` — cultura como fator de capital humano e coesão social — IVS CH
 - **Base legal principal:** Municipal
 - **Base legal municipal:** A confirmar
-- **Observações:** ⚠️ Verificar se existe registro de matrículas para modelagem em FATO_ATENDIMENTO.
+- **Observações:** ⚠️ Verificar registro de matrículas para FATO_ATENDIMENTO.
 
 ---
 
-## Grupo 9 — Serviços de Saúde com Interface SUAS
+## Grupo 10 — Serviços de Saúde com Interface SUAS
 
 ---
 
@@ -1132,7 +1244,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Público-alvo:** População geral em urgência e emergência
 - **Vínculo CadÚnico:** Indireto
 - **Abrangência:** Hortolândia + Sumaré
-- **Dimensão IVS:** `capital_humano` — urgência e emergência em saúde — IVS CH_01 (mortalidade)
+- **Dimensão IVS:** `capital_humano` — urgência e emergência em saúde — IVS CH_01
 - **Base legal principal:** Outro (Lei 8.080/1990)
 - **Base legal municipal:** A confirmar
 
@@ -1144,18 +1256,17 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 - **Tipo:** A — Serviço Direto *(em planejamento)*
 - **Secretaria responsável:** A confirmar
 - **id_orgao_executor:** A confirmar
-- **nome_orgao_executor:** A confirmar
 - **Público-alvo:** População geral de Hortolândia
 - **Vínculo CadÚnico:** A confirmar
 - **Status:** Intenção declarada pelo prefeito Zezé Gomes (jan/2026). Sem endereço, secretaria ou prazo confirmados.
-- **Dimensão IVS:** `capital_humano` — equipamento de saúde comunitária — IVS CH (saúde e mortalidade)
+- **Dimensão IVS:** `capital_humano` — equipamento de saúde comunitária — IVS CH
 - **Base legal principal:** A confirmar
 - **Base legal municipal:** A confirmar
 - **Observações:** Monitorar edições futuras da Tribuna Liberal.
 
 ---
 
-## Grupo 10 — Governança e Conselhos
+## Grupo 11 — Governança e Conselhos
 
 | Conselho | Sigla | id_orgao_executor | Esfera | Base legal principal | Base legal municipal |
 |----------|-------|-------------------|--------|---------------------|---------------------|
@@ -1179,18 +1290,42 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 
 | Dimensão IVS | Qtd | % | Programas principais |
 |-------------|-----|---|---------------------|
-| `capital_humano` | 22 | 36,7% | SCFV, Cuidar, Enfrentamento Trabalho Infantil, Bolsa Creche, Farmácia Solidária, PCD/Idosos, CCMI, Juventude, CRAM, Primeira Infância, CREAN, SAMU, Vila da Saúde |
-| `renda_trabalho` | 20 | 33,3% | ACERTE, PAT, Banco do Povo, SINE, MEI, Banco de Alimentos, Cestas, Seguro Desemprego, PAA, Cozinha Comunitária, Feiras, Costura, Capacita, **Fatec Hortolândia** |
-| `multidimensional` | 9 | 15,0% | PAIF, PAEFI, Abordagem Social, Risco Social, Pop. Rua, Ressignifica, Igualdade Racial, CRAM (duplo), Emergências |
-| `infraestrutura_urbana` | 6 | 10,0% | MCMV, Agora a Casa é Sua, Vida Longa, PHLIS, Casa de Passagem, Acolhimento |
-| `governanca` | 2 | 3,3% | Inscrição OSCs CMAS, Inscrição OSCs CMDCA |
-| **TOTAL** | **59** | **100%** | — |
+| `capital_humano` | 22 | 34,4% | SCFV, Cuidar, SAICA, Residência Inclusiva, ILPI, Bolsa Creche, CCMI, CRAM, Primeira Infância, CREAN, SAMU, Vila da Saúde |
+| `renda_trabalho` | 22 | 34,4% | ACERTE, PAT, Banco do Povo, SINE, MEI, BAH, Cestas, Seguro Desemprego, PAA, Cozinha, Feiras, Costura, Capacita, **DECOLA**, **Aprendiz Social**, **Fatec**, República |
+| `multidimensional` | 10 | 15,6% | PAIF, PAEFI, Abordagem Social, Risco Social, Pop. Rua, Ressignifica, Igualdade Racial, CRAM (duplo), Emergências, Abrigo Mulheres |
+| `infraestrutura_urbana` | 6 | 9,4% | MCMV, Agora a Casa é Sua, Vida Longa, PHLIS, Abrigo Adultos/Rua, Acolhimento |
+| `governanca` | 2 | 3,1% | Inscrição OSCs CMAS, Inscrição OSCs CMDCA |
+| **TOTAL** | **62** | **100%** | — |
 
-> **Leitura analítica:** O município de Hortolândia concentra seus programas em
-> Capital Humano (37%) e Renda e Trabalho (33%), com cobertura menor em
-> Infraestrutura Urbana (10%). A adição da Fatec (ainda em estudo de viabilidade)
-> reforça a trajetória estratégica do município em `renda_trabalho` — articulando
-> qualificação formal ao tecido produtivo local de 400+ empresas instaladas.
+> **Leitura analítica:** A v11 equilibra as dimensões Capital Humano e Renda e Trabalho
+> (ambas em 34%), reflexo da incorporação das modalidades de Alta Complexidade e dos
+> programas de inclusão produtiva identificados na ata SMIDS. A cobertura em
+> Infraestrutura Urbana permanece em 9–10%, confirmando a dependência de parceiros
+> estaduais e federais nessa dimensão.
+
+---
+
+## Fluxo Institucional do SUAS em Hortolândia
+
+```
+Entrada (3 vias):
+  Busca Ativa | Demanda Espontânea | Encaminhamento
+       ↓
+🟢 PROTEÇÃO BÁSICA (CRAS × 7)
+   PAIF · SCFV · BPC · Bolsa Família · Cesta Básica
+       ↓ (violação de direitos)
+🟡 PROTEÇÃO ESPECIAL — MÉDIA COMPLEXIDADE (CREAS / Centro POP)
+   PAEFI · Medida Socioeducativa · Abordagem Social
+   Centro POP → Casa de Passagem Triagem (até 30 dias)
+       ↓ (acolhimento necessário)
+🔴 PROTEÇÃO ESPECIAL — ALTA COMPLEXIDADE (OSCs conveniadas)
+   SAICA (crianças/adolescentes)
+   Abrigo Adultos / Famílias em situação de rua
+   Abrigo Mulheres em situação de violência
+   Residência Inclusiva (PCD)
+   Casa-Lar / ILPI (idosos)
+   República (jovens/adultos em saída da rua)
+```
 
 ---
 
@@ -1213,7 +1348,7 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 | CESP | CESP — Empreendimentos Solidários | Equipamento municipal | DIM_UNIDADES_ATENDIMENTO |
 | PAT_01 | PAT | Equipamento municipal | DIM_UNIDADES_ATENDIMENTO |
 | FUNDO_SOCIAL | Fundo Social de Solidariedade | Órgão municipal | DIM_GESTORES |
-| SEC_INCLUSAO | Sec. Inclusão e Desenvolvimento Social | Secretaria | DIM_GESTORES |
+| SEC_INCLUSAO | Sec. Inclusão e Desenvolvimento Social (SMIDS) | Secretaria | DIM_GESTORES |
 | SEC_EDUCACAO | Sec. Educação, Ciência e Tecnologia | Secretaria | DIM_GESTORES |
 | SEC_HABITACAO | Secretaria de Habitação | Secretaria | DIM_GESTORES |
 | SEC_SAUDE | Secretaria Municipal de Saúde | Secretaria | DIM_GESTORES |
@@ -1226,29 +1361,31 @@ A relação completa norma × programa está em REL_NORMA_PROGRAMA.
 | DEP_CULTURA | Dep. Cidadania Cultural | Departamento | DIM_GESTORES |
 | DEP_MULHERES | Dep. de Políticas Públicas para a Mulher | Departamento | DIM_GESTORES |
 | OSC_ESPERANCAR | Instituto Esperançar | OSC conveniada | DIM_OSC (futuro) |
+| OSC_A_CONFIRMAR | OSC executora Alta Complexidade — a identificar | OSC conveniada | DIM_OSC (futuro) |
 | EXT_DESENVOLVE_SP | Desenvolve SP | Operador externo estadual | — |
 | EXT_SEBRAE_SP | SEBRAE-SP | Operador externo estadual | — |
 | EXT_CENTRO_PAULA_SOUZA | Centro Paula Souza — Gov. Estado de SP | Operador externo estadual | — |
 
 ---
 
-## Notas Arquiteturais Consolidadas (v10)
+## Notas Arquiteturais Consolidadas (v11)
 
 | # | Nota | Impacto no modelo |
 |---|------|-----------------|
 | 1 | Centro POP atende sem documentação | Ponto cego no CadÚnico — CPF = PENDENTE |
-| 2 | Fluxo Centro POP → Casa de Passagem → Abrigo | Mesma pessoa gera múltiplos registros — CPF é âncora obrigatória |
+| 2 | Fluxo Centro POP → Casa de Passagem (triagem) → Alta Complexidade | Mesma pessoa gera múltiplos registros — CPF é âncora obrigatória |
 | 3 | Banco do Povo e SEBRAE: dados nos operadores externos | Integração futura requer convênio |
 | 4 | SINE / Seguro Desemprego: dados no MTE federal | Integração futura requer API federal |
 | 5 | MEI não aparece no CAGED | Ponto cego no monitoramento de transição produtiva |
 | 6 | Seguro Desemprego → CadÚnico | Fluxo de entrada previsível — a modelar |
 | 7 | Feiras Livres: renda informal não declarada | Impacto na classificação de vulnerabilidade |
-| 8 | `base_legal_principal` é atalho analítico | Não substitui REL_NORMA_PROGRAMA — complementa |
+| 8 | `base_legal_principal` é atalho analítico | Não substitui REL_NORMA_PROGRAMA |
 | 9 | `id_orgao_executor` é FK para JOIN | Liga DIM_PROGRAMA → DIM_UNIDADES_ATENDIMENTO e DIM_GESTORES |
 | 10 | Operadores externos (EXT_) sem dimensão interna | Integração futura via convênio ou API |
-| 11 | MCMV Amanda: divergência 421×576 documentações | Dado a validar junto à Secretaria de Habitação antes de uso em indicador |
-| 12 | Fluxo CRAM → Conselho Tutelar → CREAS (atualização v10) | Confirmado operacionalmente em 08/03/2026 — modelar campo `id_encaminhamento_destino` em FATO_ATENDIMENTO |
+| 11 | MCMV Amanda: divergência 421×576 documentações | Validar junto à Secretaria de Habitação |
+| 12 | Fluxo CRAM → Conselho Tutelar → CREAS confirmado (08/03/2026) | Modelar campo `id_encaminhamento_destino` em FATO_ATENDIMENTO |
 | 13 | Fatec: dados de matrícula ficam no Centro Paula Souza | Cruzamento CadÚnico × matrículas Fatec futuro — requer convênio estadual |
+| 14 | Alta Complexidade executada por OSCs — maioria sem `id_orgao_executor` definido | Pendência #19: identificar e cadastrar OSCs executoras |
 
 ---
 
@@ -1259,7 +1396,7 @@ CadÚnico (entrada)
     ↓
 PAIF — acompanhamento familiar (CRAS)
     ↓
-Projeto Capacita / Costura Industrial — qualificação
+Projeto Capacita / Costura Industrial / DECOLA — qualificação
     ↓
 [futuro] Fatec Hortolândia — ensino superior tecnológico
     ↓
@@ -1273,6 +1410,31 @@ Banco do Povo — crédito produtivo (opcional)
     ↓
 Saída do perfil CadÚnico
 (resultado_final = Emancipado em FATO_PARTICIPACAO_PROGRAMA)
+```
+
+---
+
+## Trajetória Típica de Saída da Situação de Rua
+
+```
+Busca Ativa / Demanda Espontânea
+    ↓
+Centro POP — acolhimento, higiene, alimentação, documentação
+    ↓
+Casa de Passagem Triagem (até 30 dias) — identificação de perfil
+    ↓
+BIFURCAÇÃO por perfil:
+  → Adulto 24–59 anos         → Abrigo Institucional (OSC)
+  → Mulher em violência       → Abrigo Mulheres (OSC)
+  → PCD                       → Residência Inclusiva (OSC)
+  → Idoso 60+                 → Casa-Lar / ILPI (OSC)
+  → Jovem/adulto com trabalho → República masc./fem. (OSC)
+    ↓
+Programa Ressignifica — bolsa + cesta + auxílio aluguel
+    ↓
+ACERTE / DECOLA — qualificação e inserção produtiva
+    ↓
+Autonomia
 ```
 
 ---
@@ -1291,7 +1453,9 @@ Saída do perfil CadÚnico
 | OSC_LUTA_VIDA | Luta pela Vida Hortolândia | PCD / esporte |
 | OSC_PATRULHEIROS | Assoc. Patrulheiros e Guarda Mirim | Juventude |
 
-> ⚠️ 12 OSCs parceiras dos CRAS ainda sem id individual — catalogação pendente (aguarda Mapa OSC completo).
+> ⚠️ OSCs executoras das modalidades de Alta Complexidade (SAICA, Abrigo Mulheres,
+> Residência Inclusiva, ILPI, República) ainda não identificadas — Pendência #19.
+> 12 OSCs parceiras dos CRAS ainda sem id individual — Pendência #12.
 
 ---
 
@@ -1316,18 +1480,21 @@ Saída do perfil CadÚnico
 | 4 | Detalhar critério de acesso da Farmácia Solidária — vínculo CadÚnico? | Média |
 | 5 | Verificar registro de matrículas nas Formações Culturais para FATO_ATENDIMENTO | Baixa |
 | 6 | Confirmar vínculo CadÚnico para acesso ao Banco do Povo | Média |
-| 7 | DECOLA Juventude — verificar status atual | Média |
+| 7 | DECOLA Juventude — confirmar relação com Aprendiz Social (ver #20) | Alta |
 | 8 | Vila da Saúde — monitorar confirmação de secretaria e prazo | Baixa |
 | 9 | Cruzar cobertura territorial dos 7 CRAS com loteamentosregiao.xls | Alta |
 | 10 | Levantar leis municipais de criação dos CRAS, Centro POP, ACERTE e Ressignifica | Alta |
 | 11 | Confirmar `id_orgao_executor` para ESPACO_INCLUIR e EMPORIO_JACUBA | Média |
 | 12 | Catalogar 12 OSCs parceiras dos CRAS individualmente | Média |
-| 13 | MCMV Amanda: confirmar número oficial de documentações (576?) junto à Secretaria de Habitação | Alta |
+| 13 | MCMV Amanda: confirmar número oficial de documentações (576?) | Alta |
 | 14 | Closet Solidário: confirmar base legal municipal e critérios formais de acesso | Média |
-| 15 | Confirmar `id_orgao_executor` DEP_MULHERES — verificar se é departamento formal ou vinculado ao Dep. de Governo | Média |
-| 16 | Programa Vida Longa: monitorar resultado das negociações com o Estado | Média |
-| 17 | Fatec Hortolândia: monitorar evolução do estudo de viabilidade junto ao Centro Paula Souza e à Prefeitura | Alta |
-| 18 | Monte Sinai — saneamento: confirmar número oficial de famílias beneficiadas (~650) junto à Secretaria de Habitação | Média |
+| 15 | Confirmar `id_orgao_executor` DEP_MULHERES | Média |
+| 16 | Programa Vida Longa: monitorar negociações com o Estado | Média |
+| 17 | Fatec Hortolândia: monitorar evolução do estudo de viabilidade | Alta |
+| 18 | Monte Sinai: confirmar número oficial de famílias beneficiadas (~650) | Média |
+| 19 | Identificar OSCs executoras das 5 modalidades de Alta Complexidade (SAICA, Abrigo Mulheres, Residência Inclusiva, ILPI, República) e atualizar `id_orgao_executor` | Alta |
+| 20 | Confirmar se Aprendiz Social é denominação atual do DECOLA Juventude ou programa distinto; confirmar status operacional de ambos | Alta |
+| 21 | Sistemas de registro de Alta Complexidade: confirmar quais dados vão ao SIGAS e quais ao CadÚnico | Alta |
 
 ---
 
@@ -1340,12 +1507,13 @@ Saída do perfil CadÚnico
 | v03 | 01/03/2026 | Varredura site oficial: Viva Mais, PCD/Idosos, Banco do Povo, Cozinha Comunitária, Formações Culturais |
 | v04 | 01/03/2026 | Ciclo jornalístico dez/2025–jan/2026: Vila da Saúde, SAMU Regional, Fundo Social cursos jan/2026 |
 | v05 | 03/03/2026 | Varredura Sec. Inclusão (22 serviços); Sec. Desenvolvimento Econômico (7 serviços); notas arquiteturais |
-| v06 | 03/03/2026 | Campo `base_legal_principal`; base legal dos conselhos (G10) |
+| v06 | 03/03/2026 | Campo `base_legal_principal`; base legal dos conselhos (G11) |
 | v07 | 05/03/2026 | Campos `esfera`, `id_orgao_executor`, `nome_orgao_executor`, `base_legal_municipal`; glossário FK completo |
-| v08 | 07/03/2026 | Ciclo jornalístico 04–08/03/2026: MCMV Amanda → status EXECUÇÃO; Programa Vida Longa → NEGOCIAÇÃO ATIVA; adição Closet Solidário; ACERTE → caso Suelen; CRAM atualizado; DEP_MULHERES adicionado; CMDM adicionado ao G10; CAGED jan/2026; pendências 13–16 |
-| v09 | 09/03/2026 | Adição do campo `dimensao_ivs` a todos os 58 programas; tabela de distribuição por dimensão; fundamentado na DIM_VARIAVEL_IVS v01 e metodologia IVS/IPEA |
-| v10 | 10/03/2026 | Ciclo jornalístico 10/03/2026 (Tribuna Liberal): adição Fatec Hortolândia (G6, status ESTUDO DE VIABILIDADE, EXT_CENTRO_PAULA_SOUZA); atualização Monte Sinai em Agora a Casa é Sua (G5) — saneamento concluído ~650 famílias, 152 unidades CDHU em construção; atualização CRAM (G7) — dois casos violência doméstica 08/03/2026, fluxo CRAM→CT e CRAM→CREAS confirmados; nota arquitetural #12 e #13 adicionadas; EXT_CENTRO_PAULA_SOUZA adicionado ao glossário FK; trajetória de transição produtiva atualizada com Fatec; tabela IVS atualizada (59 programas); pendências #17 e #18 abertas |
+| v08 | 07/03/2026 | Ciclo jornalístico 04–08/03/2026: MCMV Amanda, Vida Longa, Closet Solidário, ACERTE caso Suelen, CRAM, DEP_MULHERES, CMDM, CAGED jan/2026; pendências 13–16 |
+| v09 | 09/03/2026 | Campo `dimensao_ivs` em todos os programas; tabela de distribuição por dimensão; DIM_VARIAVEL_IVS v01 |
+| v10 | 10/03/2026 | Fatec Hortolândia (G7, ESTUDO DE VIABILIDADE); Monte Sinai em Agora a Casa é Sua; CRAM 08/03/2026; notas arquiteturais #12 e #13; pendências #17 e #18 |
+| v11 | 10/03/2026 | Bloco Fundamento Metodológico IVS/IVS-H adicionado; correção local reunião Fatec: Câmara → SMIDS (fonte: Caio [RH PMH]); separação Casa de Passagem: triagem (Média Complexidade, Centro POP) vs acolhimento (Alta Complexidade, OSC); adição das 6 modalidades de Alta Complexidade (SAICA, Abrigo Adultos, Abrigo Mulheres, Residência Inclusiva, ILPI/Casa-Lar, República); adição DECOLA e Aprendiz Social (G7); Fluxo Institucional SUAS adicionado; Trajetória de Saída da Rua adicionada; OSC_A_CONFIRMAR adicionado ao glossário FK; total 62 programas; pendências #19, #20, #21 abertas. Fonte: Ata Reunião Técnica SMIDS 10/02/2026 v02; Caio [RH PMH Lima], 10/03/2026 |
 
 ---
 
-*Documento de registro interno — Projeto de Inteligência Territorial — Hortolândia, março de 2026*
+*Documento de registro interno — Projeto Atlas Social de Hortolândia — março de 2026*
