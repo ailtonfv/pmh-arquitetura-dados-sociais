@@ -13,7 +13,7 @@
 
 Este documento registra a estrutura narrativa e o argumento institucional
 da palestra proposta para março de 2026, destinada a apresentar o projeto
-Atlas Social de Hortolândia ao prefeito e às secretarias municipais.
+Atlas Social de Hortolândia.
 
 A palestra tem dois objetivos simultâneos:
 
