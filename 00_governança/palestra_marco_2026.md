@@ -267,7 +267,7 @@ Saúde      Assistência  Habitação
 Assistência
 ```
 
-Quando o foco passa a ser o **território e a vulnerabilidade**, as
+Quando o foco passa a ser o **núcleo e a vulnerabilidade**, as
 secretarias deixam de atuar isoladamente e passam a cooperar em torno
 de famílias, territórios prioritários e problemas sociais concretos.
 
@@ -292,7 +292,7 @@ não com Big Data. Começa com **dados confiáveis**, não com promessa.
 Um sistema capaz de apoiar decisões como:
 
 - Onde concentrar políticas sociais
-- Quais territórios precisam de maior atenção
+- Quais núcleos precisam de maior atenção
 - Quais programas estão gerando impacto
 - Como comprovar redução de vulnerabilidade ao longo do tempo
 
@@ -303,7 +303,7 @@ Um sistema capaz de apoiar decisões como:
 **Slide 19 — Visão de futuro**
 
 Hortolândia pode construir um sistema de **Inteligência Social
-Territorial** capaz de integrar:
+do Município** capaz de integrar:
 
 - Dados sociais (CadÚnico, SIGAS)
 - Políticas públicas (programas mapeados)
@@ -312,7 +312,7 @@ Territorial** capaz de integrar:
 
 ---
 
-**Slide 20 — O argumento para o prefeito**
+**Slide 20 — O argumento**
 
 Com menos de 3 anos de mandato, há uma janela de oportunidade:
 
