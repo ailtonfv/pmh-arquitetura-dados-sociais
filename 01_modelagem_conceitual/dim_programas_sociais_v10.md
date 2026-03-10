@@ -1,7 +1,7 @@
 # DIM_PROGRAMA — Catálogo de Programas Sociais
 **Versão:** 10  
 **Data de atualização:**  10/03/2026  
-**Versão anterior:** (09/03/2026)  
+**Versão anterior:** 09/03/2026  
 **Atualizações v10:**
 - Adição do programa **Fatec Hortolândia** (Grupo 6 — Inserção Produtiva e Qualificação) — status `ESTUDO DE VIABILIDADE`; reunião oficial realizada em 09/03/2026 na Câmara Municipal com Centro Paula Souza, prefeito Zezé Gomes e setor produtivo
 - Atualização do programa **Agora a Casa é Sua** (Grupo 5 — Habitação) — registro da conclusão do saneamento subterrâneo no Monte Sinai para ~650 famílias (cerimônia Sabesp/CDHU, 07/03/2026); 152 unidades habitacionais CDHU em construção
