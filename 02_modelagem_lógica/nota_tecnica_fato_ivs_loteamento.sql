@@ -1,9 +1,13 @@
 -- =============================================================================
--- nota_tecnica_fato_ivs_temporal.sql
--- Nota técnica: modelagem da dimensão temporal em FATO_IVS_TERRITORIAL
--- Versão: v01 — 2026-03-10
--- Responsável: Ailton Vendramini / Claude (Anthropic)
+-- nota_tecnica_fato_ivs_loteamento.sql
+-- Nota técnica: modelagem da dimensão temporal em FATO_IVS_LOTEAMENTO
+-- Versão: v02 — 2026-03-10
+-- Responsável: Ailton Vendramini
 -- Repositório: Atlas-Social-de-Hortolândia / 02_modelagem_lógica
+-- =============================================================================
+-- v01 — 2026-03-10 — Criação
+-- v02 — 2026-03-10 — Renomeação: fato_ivs_territorial → fato_ivs_loteamento
+--                    Alinhamento com hierarquia Loteamento → Núcleo → RP
 -- =============================================================================
 
 -- =============================================================================
@@ -31,14 +35,24 @@
 --   - O mesmo vale para variáveis do CadÚnico (atualização contínua)
 --     e do CAGED (mensal)
 --   - A DIM_VARIAVEL_IVS define O QUE medir — não QUANDO nem QUANTO
---   - Os valores reais, por território e por período, pertencem a
---     FATO_IVS_TERRITORIAL
+--   - Os valores reais, por loteamento e por período, pertencem a
+--     FATO_IVS_LOTEAMENTO
 --
 -- =============================================================================
--- ESTRUTURA PROPOSTA — FATO_IVS_TERRITORIAL
+-- HIERARQUIA ANALÍTICA DO PROJETO
+-- =============================================================================
+--
+--   Loteamento → Núcleo (área de abrangência CRAS) → Região de Planejamento
+--
+--   id_loteamento  = unidade mínima de análise (141 loteamentos oficiais)
+--   id_nucleo      = agregação por CRAS (7 núcleos)
+--   id_rp          = agregação por Região de Planejamento (6 RPs)
+--
+-- =============================================================================
+-- ESTRUTURA — FATO_IVS_LOTEAMENTO
 -- =============================================================================
 
-CREATE TABLE IF NOT EXISTS fato_ivs_territorial (
+CREATE TABLE IF NOT EXISTS fato_ivs_loteamento (
 
     -- Chaves de dimensão
     id_fato             INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -70,7 +84,7 @@ CREATE TABLE IF NOT EXISTS fato_ivs_territorial (
     -- Integridade referencial
     FOREIGN KEY (id_variavel) REFERENCES dim_variavel_ivs(id_variavel),
 
-    -- Unicidade: uma variável, um território, um período, uma fonte
+    -- Unicidade: uma variável, um loteamento, um período, uma fonte
     UNIQUE (id_variavel, id_loteamento, periodo_referencia, fonte_dado)
 );
 
@@ -79,16 +93,16 @@ CREATE TABLE IF NOT EXISTS fato_ivs_territorial (
 -- =============================================================================
 
 CREATE INDEX IF NOT EXISTS idx_fato_variavel
-    ON fato_ivs_territorial (id_variavel);
+    ON fato_ivs_loteamento (id_variavel);
 
 CREATE INDEX IF NOT EXISTS idx_fato_loteamento
-    ON fato_ivs_territorial (id_loteamento);
+    ON fato_ivs_loteamento (id_loteamento);
 
 CREATE INDEX IF NOT EXISTS idx_fato_periodo
-    ON fato_ivs_territorial (periodo_referencia);
+    ON fato_ivs_loteamento (periodo_referencia);
 
 CREATE INDEX IF NOT EXISTS idx_fato_fonte
-    ON fato_ivs_territorial (fonte_dado);
+    ON fato_ivs_loteamento (fonte_dado);
 
 -- =============================================================================
 -- TABELA DE FONTES — DIM_FONTE_DADO
@@ -109,24 +123,29 @@ CREATE TABLE IF NOT EXISTS dim_fonte_dado (
 
 -- Carga inicial de fontes conhecidas
 INSERT OR IGNORE INTO dim_fonte_dado VALUES
-    ('SNIS_2022',       'Sistema Nacional de Informações sobre Saneamento',
-     'Ministério das Cidades',    'Anual',
+    ('SNIS_2022',
+     'Sistema Nacional de Informações sobre Saneamento',
+     'Ministério das Cidades', 'Anual',
      'https://app4.mdr.gov.br/serieHistorica/', '2026-03-10',
      'Indicadores de água e esgoto por município. IU_01 e IU_02.'),
-    ('CADUNICO_DEZ2025','Cadastro Único para Programas Sociais',
+    ('CADUNICO_DEZ2025',
+     'Cadastro Único para Programas Sociais',
      'Ministério do Desenvolvimento e Assistência Social', 'Contínua',
      NULL, '2026-03-10',
      'Fonte principal de CH e RT. 72.424 pessoas cadastradas em Hortolândia (dez/2025).'),
-    ('CENSO2022_SETOR', 'Censo Demográfico 2022 — Agregados por Setores Censitários',
+    ('CENSO2022_SETOR',
+     'Censo Demográfico 2022 — Agregados por Setores Censitários',
      'IBGE', 'Decenal',
      'https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/', '2026-03-10',
      'Script de extração: 03_indicadores_mvp/scripts/ibge_censo2022_hortolandia.py'),
-    ('CAGED_MENSAL',    'Cadastro Geral de Empregados e Desempregados',
+    ('CAGED_MENSAL',
+     'Cadastro Geral de Empregados e Desempregados',
      'Ministério do Trabalho', 'Mensal',
      'https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/estatisticas-trabalho/caged',
      '2026-03-10',
      'Vínculo formal. RT_02 e RT_03. MEI não aparece no CAGED.'),
-    ('SABESP_SNIS',     'SABESP — indicadores SNIS Hortolândia',
+    ('SABESP_SNIS',
+     'SABESP — indicadores SNIS Hortolândia',
      'SABESP / Instituto Trata Brasil', 'Anual',
      'https://tratabrasil.org.br', '2026-03-10',
      'Água 100% (2015–2020), esgoto 96,4% (2020), tratamento 89,7% (2020). '
@@ -142,7 +161,7 @@ INSERT OR IGNORE INTO dim_fonte_dado VALUES
 --   revisados periodicamente conforme:
 --
 --   1. Novas obras de infraestrutura (IU_01, IU_02):
---      - Se cobertura de esgoto cair abaixo de 90% em algum território,
+--      - Se cobertura de esgoto cair abaixo de 90% em algum loteamento,
 --        IU_01 readquire poder discriminatório
 --      - Monitorar via SNIS (publicação anual)
 --
@@ -154,29 +173,28 @@ INSERT OR IGNORE INTO dim_fonte_dado VALUES
 --      - Até lá, Censo 2022 é a referência estática para IU
 --
 --   FLUXO DE REVISÃO DE PESOS:
---   fato_ivs_territorial (novos valores)
---       → análise de variância por território
+--   fato_ivs_loteamento (novos valores)
+--       → análise de variância por loteamento
 --       → revisão de peso_h em dim_variavel_ivs
 --       → versionamento no log do arquivo dim_variavel_IVS.md
 --
 -- =============================================================================
--- EXEMPLO DE CARGA — IU_01 com dado histórico SNIS
+-- EXEMPLO DE CARGA — IU_02 com dado histórico SNIS
 -- =============================================================================
 
--- INSERT INTO fato_ivs_territorial (
+-- INSERT INTO fato_ivs_loteamento (
 --     id_variavel, id_loteamento, periodo_referencia,
 --     data_extracao, fonte_dado, versao_fonte,
 --     valor_percentual, cobertura_cadastral, observacoes
 -- ) VALUES
---     ('IVS001', 'MUNICIPIO_HORTOLANDIA', '2020',
+--     ('IU_02', 'MUNICIPIO_HORTOLANDIA', '2020',
 --      '2026-03-10', 'SABESP_SNIS', 'SNIS_2020',
---      3.6,   -- 100% - 96,4% = 3,6% sem coleta de esgoto
---      100.0, -- SNIS cobre 100% da população servida pela SABESP
+--      3.6,    -- 100% - 96,4% = 3,6% sem coleta de esgoto
+--      100.0,  -- SNIS cobre 100% da população servida pela SABESP
 --      'Dado municipal agregado. Desagregação por loteamento requer Censo 2022.');
 
 -- =============================================================================
 -- FIM DA NOTA TÉCNICA
 -- Próximo passo: criar dim_loteamento e dim_nucleo para habilitar
--- o cálculo do IVS-H por território (não apenas por município).
+-- o cálculo do IVS-H por loteamento (não apenas por município).
 -- =============================================================================
-
