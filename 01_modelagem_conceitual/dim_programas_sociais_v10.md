@@ -61,8 +61,7 @@ censitários com maior vulnerabilidade nessa dimensão?"*
 A relação completa das variáveis IVS utilizadas está documentada em 
 `DIM_VARIAVEL_IVS v01`.
 
-```
-
+---
 ## Estrutura do DIM_PROGRAMA
 
 ```
