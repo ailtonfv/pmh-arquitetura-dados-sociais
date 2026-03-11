@@ -1,13 +1,15 @@
 # IVS × IVS-H — Comparativo das 16 Variáveis de Vulnerabilidade Social
 
 **Arquivo:** `00_governanca/ivs_vs_ivsh_comparativo.md`  
-**Versão:** v02  
+**Versão:** v03  
 **Data:** 2026-03-11  
 **Responsável:** Ailton Vendramini  
 **Repositório:** Atlas-Social-de-Hortolândia
 
 > **Fonte metodológica:** COSTA, M. A.; MARGUTI, B. O. *Atlas da Vulnerabilidade Social
 > nos Municípios Brasileiros*. Brasília: IPEA, 2015.  
+> **Referência metodológica adicional:** NARDO, M. et al. *Handbook on Constructing
+> Composite Indicators*. Paris: OECD, 2008.  
 > **IVS-H:** calibração local — hipótese inicial, a validar com dados reais do CadÚnico
 > dez/2025 e Censo 2022.
 
@@ -43,7 +45,7 @@
 |---|---|---|---|---|---|---|
 | 1 | IU_01 | % pessoas em domicílios com água e esgoto inadequados | IBGE Censo 2022 / SAAE | 6,25% | ~4% | Cobertura elevada em Hortolândia — baixo poder discriminatório. Peso reduzido no IVS-H. |
 | 2 | IU_02 | % população em domicílios sem coleta de lixo | IBGE Censo 2022 / Serviços Urbanos | 6,25% | ~4% | Mesmo raciocínio da IU_01. |
-| 3 | IU_03 | % pessoas com renda ≤ ½ SM e deslocamento > 1h até o trabalho | CadÚnico (renda) + Censo 2022 (mobilidade) | 6,25% | ~7% | Hortolândia é polo de emprego — mobilidade é estratégica. Peso levemente elevado no IVS-H. |
+| 3 | IU_03 | % pessoas com renda ≤ ½ SM e deslocamento > 1h até o trabalho | CadÚnico (renda) + Censo 2022 (mobilidade) | 6,25% | ~7% | Indicador híbrido que combina restrição de renda com dificuldade de mobilidade urbana. Hortolândia é polo de emprego — mobilidade é estratégica. Peso levemente elevado no IVS-H. |
 
 ---
 
@@ -69,7 +71,7 @@
 | # | Código | Variável | Fonte Municipal | Peso IPEA | Peso IVS-H | Observação |
 |---|---|---|---|---|---|---|
 | 12 | RT_01 | % pessoas com renda domiciliar per capita ≤ ½ SM | **CadÚnico ✅** | 6,25% | **~9%** | **Disponível imediato.** Ponto de entrada natural do IVS-H. |
-| 13 | RT_02 | Taxa de desocupação — população de 18 anos ou mais | CadÚnico + CAGED | 6,25% | ~8% | CadÚnico: situação declarada. CAGED: vínculo formal. MEI é ponto cego. |
+| 13 | RT_02 | Taxa de desocupação — população de 18 anos ou mais | CadÚnico + CAGED | 6,25% | ~8% | CadÚnico: situação declarada. CAGED registra vínculos formais de emprego. Trabalhadores informais e parte dos MEI não aparecem nessa base. |
 | 14 | RT_03 | % pessoas 18+ sem fund. completo em ocupação informal | CadÚnico | 6,25% | ~7% | Subestimação provável — cruzar com CAGED para identificar vínculo formal. |
 | 15 | RT_04 | % pessoas em domicílios com renda ≤ ½ SM dependentes de idosos | **CadÚnico ✅** | 6,25% | **~8%** | **Disponível imediato.** Captura fragilidade da renda do idoso como sustentáculo familiar. |
 | 16 | RT_05 | Taxa de atividade das pessoas de 10 a 14 anos (trabalho infantil) | CadÚnico / IBGE Censo 2022 | 6,25% | ~3% | Interface direta com CREAS e Conselho Tutelar. Censo 2022 é fonte mais robusta. |
@@ -109,6 +111,7 @@
 |---|---|---|
 | v01 | 2026-03-10 | Criação — comparativo das 16 variáveis IVS × IVS-H; resumo executivo por dimensão; tabela de disponibilidade municipal |
 | v02 | 2026-03-11 | Correção: "3 variáveis" → "5 variáveis" disponíveis no CadÚnico (resumo executivo); padronização de ½ SM; redação CH_08 (geração nem-nem); nota territorial explicitada; nota de limitação do CadÚnico; nota metodológica da dimensão Renda e Trabalho expandida |
+| v03 | 2026-03-11 | RT_02: precisão sobre CAGED e MEI; IU_03: caracterizado como indicador híbrido (renda + mobilidade); referência Nardo et al. (OECD, 2008) adicionada |
 
 ---
 
