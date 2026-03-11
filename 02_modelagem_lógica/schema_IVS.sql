@@ -1,295 +1,257 @@
 -- =============================================================================
--- schema_IVS.sql
--- Modelagem lógica da DIM_VARIAVEL_IVS
--- Gerado a partir de: dim_variavel_IVS.md (v01r2 — 2026-03-09)
--- Responsável: Ailton Vendramini / Claude (Anthropic)
+-- nota_tecnica_fato_ivs_loteamento.sql
+-- Nota técnica: modelagem da dimensão temporal em FATO_IVS_LOTEAMENTO
+-- Versão: v03 — 2026-03-11
+-- Responsável: Ailton Vendramini
 -- Repositório: Atlas-Social-de-Hortolândia / 02_modelagem_lógica
--- SGBD alvo: SQLite (fase MVP)
+-- =============================================================================
+-- v01 — 2026-03-10 — Criação
+-- v02 — 2026-03-10 — Renomeação: fato_ivs_territorial → fato_ivs_loteamento
+--                    Alinhamento com hierarquia Loteamento → Núcleo → RP
+-- v03 — 2026-03-11 — FKs territoriais declaradas (id_loteamento, id_nucleo, id_rp)
+--                    Campo unidade_medida adicionado a FATO_IVS_LOTEAMENTO
+--                    Nota sobre DIM_TEMPO adicionada (roadmap)
+--                    Nota de revisão de pesos com preservação de comparabilidade temporal
+--                    periodicidade CadÚnico: 'Contínua' → 'Mensal (extrações administrativas)'
 -- =============================================================================
 
-PRAGMA foreign_keys = ON;
+-- =============================================================================
+-- MOTIVAÇÃO
+-- =============================================================================
+--
+-- As variáveis do IVS não são estáticas.
+--
+-- Exemplo concreto — Hortolândia, dimensão Infraestrutura Urbana:
+--
+--   Ano  | Cobertura água | Coleta esgoto | Esgoto tratado
+--   -----+----------------+---------------+---------------
+--   2014 | 99,9%          | 99,8%         | 82,0%
+--   2015 | 100,0%         | 100,0%        | 82,5%
+--   2016 | 100,0%         | 99,4%         | 96,9%
+--   2017 | 100,0%         | 99,2%         | 96,3%
+--   2018 | 100,0%         | 99,5%         | 96,3%
+--   2019 | 100,0%         | 99,7%         | 96,4%
+--   2020 | 100,0%         | 96,4%         | 89,7%
+--
+--   Fonte: SNIS / SABESP — Instituto Trata Brasil, 2022
+--
+-- Implicação arquitetural:
+--   - IU_01 e IU_02 variam conforme novas obras são implantadas
+--   - O mesmo vale para variáveis do CadÚnico (atualização contínua)
+--     e do CAGED (mensal)
+--   - A DIM_VARIAVEL_IVS define O QUE medir — não QUANDO nem QUANTO
+--   - Os valores reais, por loteamento e por período, pertencem a
+--     FATO_IVS_LOTEAMENTO
+--
+-- =============================================================================
+-- HIERARQUIA ANALÍTICA DO PROJETO
+-- =============================================================================
+--
+--   Loteamento → Núcleo (área de abrangência CRAS) → Região de Planejamento
+--
+--   id_loteamento  = unidade mínima de análise (141 loteamentos oficiais)
+--   id_nucleo      = agregação por CRAS (7 núcleos)
+--   id_rp          = agregação por Região de Planejamento (6 RPs)
+--
+-- =============================================================================
+-- ROADMAP — DIM_TEMPO
+-- =============================================================================
+--
+-- No MVP, o período é registrado como texto (periodo_referencia TEXT).
+-- Em evolução futura, recomenda-se substituir por uma dimensão de tempo:
+--
+--   CREATE TABLE dim_tempo (
+--       id_tempo        INTEGER PRIMARY KEY,
+--       ano             INTEGER NOT NULL,
+--       semestre        INTEGER,   -- 1 | 2
+--       mes             INTEGER,   -- 1–12
+--       tipo_periodo    TEXT       -- 'Anual' | 'Semestral' | 'Mensal'
+--   );
+--
+-- Benefícios:
+--   - Facilita análise temporal e séries históricas
+--   - Melhora desempenho analítico (filtros e agregações)
+--   - Segue padrão de esquema estrela (Data Warehouse)
+--
+-- Essa evolução não requer migração destrutiva — basta adicionar a tabela
+-- e um campo id_tempo como FK opcional em FATO_IVS_LOTEAMENTO.
+--
+-- =============================================================================
+-- ESTRUTURA — FATO_IVS_LOTEAMENTO
+-- =============================================================================
 
--- -----------------------------------------------------------------------------
--- TABELA: dim_variavel_ivs
--- Registra as 16 variáveis do IVS (IPEA/2015) com disponibilidade municipal
--- e pesos calibrados para o IVS-H (Hortolândia).
--- -----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS fato_ivs_loteamento (
 
-CREATE TABLE IF NOT EXISTS dim_variavel_ivs (
+    -- Chaves de dimensão
+    id_fato             INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_variavel         TEXT    NOT NULL,   -- FK → dim_variavel_ivs
+    id_loteamento       TEXT    NOT NULL,   -- FK → dim_loteamento (unidade mínima)
+    id_nucleo           TEXT,               -- FK → dim_nucleo (agregação por CRAS)
+    id_rp               TEXT,               -- FK → dim_regiao_planejamento
 
-    -- Identificação
-    id_variavel         TEXT    NOT NULL,   -- PK semântica: IVS001 … IVS016
-    cod_variavel        TEXT    NOT NULL,   -- Código da dimensão: IU_01, CH_01, RT_01…
+    -- Dimensão temporal — OBRIGATÓRIA para variáveis dinâmicas
+    periodo_referencia  TEXT    NOT NULL,   -- Ex: '2022', '2025-S1', '2025-12'
+                                            -- Formato ISO: YYYY | YYYY-SN | YYYY-MM
+    data_extracao       TEXT    NOT NULL,   -- Data em que o dado foi coletado (ISO 8601)
+    fonte_dado          TEXT    NOT NULL,   -- SNIS | CadÚnico | Censo2022 | CAGED | Saúde | Educação
+    versao_fonte        TEXT,               -- Ex: 'SNIS_2022', 'CadUnico_dez2025'
 
-    -- Conteúdo
-    nome_variavel       TEXT    NOT NULL,
-    descricao           TEXT,
+    -- Valor
+    valor_absoluto      REAL,               -- Numerador (ex: domicílios sem esgoto)
+    valor_denominador   REAL,               -- Denominador (ex: total de domicílios)
+    valor_percentual    REAL,               -- valor_absoluto / valor_denominador * 100
+                                            -- OU diretamente % quando fonte já agrega
+    unidade_medida      TEXT,               -- Ex: '%' | 'taxa por 1000' | 'anos'
+                                            -- Evita ambiguidade entre variáveis de natureza distinta
 
-    -- Classificação metodológica
-    dimensao_ivs        TEXT    NOT NULL,   -- infraestrutura_urbana | capital_humano | renda_trabalho
-    nivel_analise       TEXT    NOT NULL,   -- Pessoa | Família/Domicílio | Loteamento / RP
-
-    -- Pesos
-    peso_ipea           REAL    NOT NULL DEFAULT 0.0625,  -- 1/16 — peso uniforme IPEA
-    peso_h              REAL,                             -- peso IVS-H — a calibrar com dados reais
-
-    -- Disponibilidade municipal
-    fonte_municipal     TEXT,
-    disponivel          TEXT    NOT NULL,   -- S | N | Parcial
-    prazo_obtencao      TEXT    NOT NULL,   -- Imediato | Curto prazo | Médio prazo | Roadmap
-
-    -- Metadados
+    -- Qualidade do dado
+    cobertura_cadastral REAL,               -- % da população coberta pela fonte
+                                            -- Ex: CadÚnico cobre ~30% da pop. total
+    flag_estimado       INTEGER DEFAULT 0,  -- 1 = valor estimado / interpolado
+    flag_revisado       INTEGER DEFAULT 0,  -- 1 = dado revisado após publicação inicial
     observacoes         TEXT,
 
-    -- Constraints
-    PRIMARY KEY (id_variavel),
+    -- Integridade referencial
+    FOREIGN KEY (id_variavel)   REFERENCES dim_variavel_ivs(id_variavel),
+    FOREIGN KEY (id_loteamento) REFERENCES dim_loteamento(id_loteamento),
+    FOREIGN KEY (id_nucleo)     REFERENCES dim_nucleo(id_nucleo),
+    FOREIGN KEY (id_rp)         REFERENCES dim_regiao_planejamento(id_rp),
 
-    CHECK (dimensao_ivs IN (
-        'infraestrutura_urbana',
-        'capital_humano',
-        'renda_trabalho'
-    )),
-
-    CHECK (nivel_analise IN (
-        'Pessoa',
-        'Família/Domicílio',
-        'Loteamento / RP'
-    )),
-
-    CHECK (disponivel IN ('S', 'N', 'Parcial')),
-
-    CHECK (prazo_obtencao IN (
-        'Imediato',
-        'Curto prazo',
-        'Médio prazo',
-        'Roadmap'
-    )),
-
-    CHECK (peso_ipea BETWEEN 0.0 AND 1.0),
-    CHECK (peso_h IS NULL OR peso_h BETWEEN 0.0 AND 1.0)
+    -- Unicidade: uma variável, um loteamento, um período, uma fonte
+    UNIQUE (id_variavel, id_loteamento, periodo_referencia, fonte_dado)
 );
 
 -- =============================================================================
--- CARGA INICIAL — 16 variáveis IVS (IPEA/2015)
--- Pesos IVS-H deixados NULL — a calibrar após análise empírica dos dados reais
+-- ÍNDICES
 -- =============================================================================
 
--- -----------------------------------------------------------------------
--- DIMENSÃO 1 — Infraestrutura Urbana (3 variáveis)
--- -----------------------------------------------------------------------
+CREATE INDEX IF NOT EXISTS idx_fato_variavel
+    ON fato_ivs_loteamento (id_variavel);
 
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS001', 'IU_01',
-    'Percentual de pessoas em domicílios com abastecimento de água e esgotamento sanitário inadequados',
-    'Variável de infraestrutura básica — acesso a saneamento no domicílio.',
-    'infraestrutura_urbana', 'Família/Domicílio',
-    0.0625, NULL,
-    'IBGE Censo 2022 / SAAE Hortolândia',
-    'Parcial', 'Curto prazo',
-    'Cobertura de água em Hortolândia é razoável — variável pode ter baixo poder discriminatório local. Confirmar com SAAE.'
-);
+CREATE INDEX IF NOT EXISTS idx_fato_loteamento
+    ON fato_ivs_loteamento (id_loteamento);
 
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS002', 'IU_02',
-    'Percentual da população que vive em domicílios urbanos sem serviço de coleta de lixo',
-    'Variável de infraestrutura básica — acesso ao serviço de coleta domiciliar.',
-    'infraestrutura_urbana', 'Família/Domicílio',
-    0.0625, NULL,
-    'IBGE Censo 2022 / Secretaria de Serviços Urbanos',
-    'Parcial', 'Curto prazo',
-    'Cobertura de coleta também elevada — mesmo raciocínio da IU_01. Peso local pode ser reduzido no IVS-H.'
-);
+CREATE INDEX IF NOT EXISTS idx_fato_periodo
+    ON fato_ivs_loteamento (periodo_referencia);
 
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS003', 'IU_03',
-    'Percentual de pessoas em domicílios com renda per capita inferior a 1/2 SM e que gastam mais de 1 hora até o trabalho',
-    'Variável que combina restrição de renda com dificuldade de mobilidade urbana.',
-    'infraestrutura_urbana', 'Pessoa',
-    0.0625, NULL,
-    'CadÚnico (renda) + IBGE Censo 2022 (tempo de deslocamento)',
-    'Parcial', 'Médio prazo',
-    'Renda disponível no CadÚnico. Tempo de deslocamento requer Censo 2022 ou pesquisa local. Hortolândia tem polo de emprego próprio — variável estratégica.'
-);
-
--- -----------------------------------------------------------------------
--- DIMENSÃO 2 — Capital Humano (8 variáveis)
--- -----------------------------------------------------------------------
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS004', 'CH_01',
-    'Mortalidade até 1 ano de idade',
-    'Taxa de mortalidade infantil — proxy de acesso e qualidade dos serviços de saúde.',
-    'capital_humano', 'Pessoa',
-    0.0625, NULL,
-    'Secretaria Municipal de Saúde / DATASUS',
-    'Parcial', 'Curto prazo',
-    'Dado disponível no DATASUS. Secretaria de Saúde pode fornecer série histórica local. Solicitar via interlocução intersetorial.'
-);
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS005', 'CH_02',
-    'Percentual de crianças de 0 a 5 anos que não frequentam a escola',
-    'Acesso à educação infantil — exclusão precoce do sistema educacional.',
-    'capital_humano', 'Pessoa',
-    0.0625, NULL,
-    'Secretaria de Educação / CadÚnico',
-    'Parcial', 'Curto prazo',
-    'CadÚnico registra frequência escolar das crianças do cadastro. Secretaria de Educação tem dados de matrícula. Cruzamento possível.'
-);
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS006', 'CH_03',
-    'Percentual de crianças de 6 a 14 anos que não frequentam a escola',
-    'Evasão escolar na faixa do ensino fundamental — risco de reprodução intergeracional da pobreza.',
-    'capital_humano', 'Pessoa',
-    0.0625, NULL,
-    'Secretaria de Educação / CadÚnico',
-    'Parcial', 'Curto prazo',
-    'Idem CH_02. Evasão escolar é dado estratégico — interface direta com CRAS e Conselho Tutelar.'
-);
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS007', 'CH_04',
-    'Percentual de mulheres de 10 a 17 anos que tiveram filhos',
-    'Gravidez na adolescência — marcador de vulnerabilidade e ruptura do ciclo educacional.',
-    'capital_humano', 'Pessoa',
-    0.0625, NULL,
-    'Secretaria de Saúde (registros de parto) / CadÚnico',
-    'Parcial', 'Médio prazo',
-    'CadÚnico registra composição familiar e idade dos membros. Dado de parto adolescente disponível na Saúde.'
-);
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS008', 'CH_05',
-    'Percentual de mães chefes de família, sem fundamental completo e com pelo menos um filho menor de 15 anos',
-    'Indicador composto de chefia feminina vulnerável — combina escolaridade, renda e dependência infantil.',
-    'capital_humano', 'Família/Domicílio',
-    0.0625, NULL,
-    'CadÚnico',
-    'S', 'Imediato',
-    'Totalmente disponível no CadÚnico — escolaridade, composição familiar, chefe de família e idade dos filhos são campos padrão. Indicador de alta relevância para Hortolândia.'
-);
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS009', 'CH_06',
-    'Taxa de analfabetismo da população de 15 anos ou mais',
-    'Analfabetismo adulto — barreira estrutural à inserção produtiva e ao exercício da cidadania.',
-    'capital_humano', 'Pessoa',
-    0.0625, NULL,
-    'CadÚnico / IBGE Censo 2022',
-    'S', 'Imediato',
-    'Disponível no CadÚnico — escolaridade é campo obrigatório. Censo 2022 permite validação e expansão para população fora do cadastro.'
-);
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS010', 'CH_07',
-    'Percentual de crianças que vivem em domicílios em que nenhum morador tem ensino fundamental completo',
-    'Ambiente educacional domiciliar — captura reprodução intergeracional da baixa escolaridade.',
-    'capital_humano', 'Família/Domicílio',
-    0.0625, NULL,
-    'CadÚnico',
-    'S', 'Imediato',
-    'Totalmente disponível no CadÚnico — escolaridade de todos os membros + composição por faixa etária. Um dos indicadores mais poderosos para detectar reprodução intergeracional da pobreza.'
-);
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS011', 'CH_08',
-    'Percentual de pessoas de 15 a 24 anos que não estudam, não trabalham e possuem renda per capita igual ou inferior a 1/2 SM',
-    'Indicador de geração nem-nem em situação de vulnerabilidade econômica — exclusão simultânea do sistema educacional e produtivo.',
-    'capital_humano', 'Pessoa',
-    0.0625, NULL,
-    'CadÚnico + CAGED',
-    'Parcial', 'Curto prazo',
-    'CadÚnico fornece renda e situação de estudo. Vínculo formal via CAGED. Jovens fora do CadÚnico são ponto cego. Indicador estratégico — captura geração nem-nem por loteamento e RP.'
-);
-
--- -----------------------------------------------------------------------
--- DIMENSÃO 3 — Renda e Trabalho (5 variáveis)
--- -----------------------------------------------------------------------
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS012', 'RT_01',
-    'Proporção de pessoas com renda domiciliar per capita igual ou inferior a 1/2 SM',
-    'Pobreza de renda — indicador central de privação econômica no domicílio.',
-    'renda_trabalho', 'Família/Domicílio',
-    0.0625, NULL,
-    'CadÚnico',
-    'S', 'Imediato',
-    'Totalmente disponível no CadÚnico — renda per capita é campo central do cadastro. Ponto de entrada natural para o IVS-H.'
-);
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS013', 'RT_02',
-    'Taxa de desocupação da população de 18 anos ou mais',
-    'Desemprego adulto — ausência de vínculo ocupacional como indicador de vulnerabilidade estrutural.',
-    'renda_trabalho', 'Pessoa',
-    0.0625, NULL,
-    'CadÚnico + CAGED',
-    'Parcial', 'Curto prazo',
-    'CadÚnico registra situação ocupacional declarada. CAGED fornece vínculo formal. Informalidade é ponto cego estrutural — MEI não aparece no CAGED.'
-);
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS014', 'RT_03',
-    'Percentual de pessoas de 18 anos ou mais sem fundamental completo e em ocupação informal',
-    'Intersecção entre baixa escolaridade e precariedade do vínculo de trabalho.',
-    'renda_trabalho', 'Pessoa',
-    0.0625, NULL,
-    'CadÚnico',
-    'Parcial', 'Curto prazo',
-    'Escolaridade disponível no CadÚnico. Informalidade depende de declaração — subestimação provável. Cruzamento com CAGED identifica quem tem vínculo formal.'
-);
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS015', 'RT_04',
-    'Percentual de pessoas em domicílios com renda per capita igual ou inferior a 1/2 SM e dependentes de idosos',
-    'Fragilidade da renda do idoso como sustentáculo familiar — captura famílias em situação de dependência invertida.',
-    'renda_trabalho', 'Família/Domicílio',
-    0.0625, NULL,
-    'CadÚnico',
-    'S', 'Imediato',
-    'Totalmente disponível no CadÚnico — renda per capita + composição familiar por faixa etária. Captura fragilidade da renda do idoso como sustentáculo familiar.'
-);
-
-INSERT INTO dim_variavel_ivs VALUES (
-    'IVS016', 'RT_05',
-    'Taxa de atividade das pessoas de 10 a 14 anos de idade',
-    'Trabalho infantil — inserção precoce no mercado de trabalho como marcador de violação de direitos.',
-    'renda_trabalho', 'Pessoa',
-    0.0625, NULL,
-    'CadÚnico / IBGE Censo 2022',
-    'Parcial', 'Curto prazo',
-    'Trabalho infantil — CadÚnico pode capturar via declaração de ocupação de crianças. Censo 2022 é fonte mais robusta. Interface direta com CREAS e Conselho Tutelar.'
-);
+CREATE INDEX IF NOT EXISTS idx_fato_fonte
+    ON fato_ivs_loteamento (fonte_dado);
 
 -- =============================================================================
--- VERIFICAÇÃO DE INTEGRIDADE
--- Execute após a carga para confirmar 16 registros e distribuição correta
+-- TABELA DE FONTES — DIM_FONTE_DADO
+-- Registra as fontes de dados usadas no cálculo do IVS-H,
+-- com periodicidade e URL de acesso.
+-- Referência: DAMA-DMBOK — gestão centralizada de metadados de fontes.
 -- =============================================================================
 
--- SELECT COUNT(*) AS total_variaveis FROM dim_variavel_ivs;
--- -- Esperado: 16
+CREATE TABLE IF NOT EXISTS dim_fonte_dado (
 
--- SELECT dimensao_ivs, COUNT(*) AS qtd
--- FROM dim_variavel_ivs
--- GROUP BY dimensao_ivs
--- ORDER BY dimensao_ivs;
--- -- Esperado: capital_humano=8 | infraestrutura_urbana=3 | renda_trabalho=5
+    id_fonte            TEXT    PRIMARY KEY,  -- Ex: 'SNIS_2022', 'CADUNICO_DEZ2025'
+    nome_fonte          TEXT    NOT NULL,
+    orgao_responsavel   TEXT,
+    periodicidade       TEXT,     -- Anual | Semestral | Mensal | Decenal | Eventual
+    url_acesso          TEXT,
+    data_ultima_carga   TEXT,     -- ISO 8601
+    observacoes         TEXT
+);
 
--- SELECT disponivel, COUNT(*) AS qtd
--- FROM dim_variavel_ivs
--- GROUP BY disponivel;
--- -- Esperado: S=5 | Parcial=11
-
--- SELECT prazo_obtencao, COUNT(*) AS qtd
--- FROM dim_variavel_ivs
--- GROUP BY prazo_obtencao
--- ORDER BY prazo_obtencao;
--- -- Esperado: Imediato=5 | Curto prazo=8 | Médio prazo=2 (IVS003 + IVS007)
+-- Carga inicial de fontes conhecidas
+INSERT OR IGNORE INTO dim_fonte_dado VALUES
+    ('SNIS_2022',
+     'Sistema Nacional de Informações sobre Saneamento',
+     'Ministério das Cidades', 'Anual',
+     'https://app4.mdr.gov.br/serieHistorica/', '2026-03-10',
+     'Indicadores de água e esgoto por município. IU_01 e IU_02.'),
+    ('CADUNICO_DEZ2025',
+     'Cadastro Único para Programas Sociais',
+     'Ministério do Desenvolvimento e Assistência Social',
+     'Mensal (extrações administrativas)',
+     NULL, '2026-03-10',
+     'Fonte principal de CH e RT. 72.424 pessoas cadastradas em Hortolândia (dez/2025).'),
+    ('CENSO2022_SETOR',
+     'Censo Demográfico 2022 — Agregados por Setores Censitários',
+     'IBGE', 'Decenal',
+     'https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/', '2026-03-10',
+     'Script de extração: 03_indicadores_mvp/scripts/ibge_censo2022_hortolandia.py'),
+    ('CAGED_MENSAL',
+     'Cadastro Geral de Empregados e Desempregados',
+     'Ministério do Trabalho', 'Mensal',
+     'https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/estatisticas-trabalho/caged',
+     '2026-03-10',
+     'Vínculo formal. RT_02 e RT_03. Trabalhadores informais e parte dos MEI não aparecem nessa base.'),
+    ('SABESP_SNIS',
+     'SABESP — indicadores SNIS Hortolândia',
+     'SABESP / Instituto Trata Brasil', 'Anual',
+     'https://tratabrasil.org.br', '2026-03-10',
+     'Água 100% (2015–2020), esgoto 96,4% (2020), tratamento 89,7% (2020). '
+     'Fonte empírica para calibração do peso IU no IVS-H.');
 
 -- =============================================================================
--- FIM DO ARQUIVO
--- Próximo passo: vincular esta tabela a FATO_IVS_TERRITORIAL
--- quando o cálculo por loteamento estiver modelado.
+-- NOTA SOBRE DINAMISMO DO IVS-H
+-- =============================================================================
+--
+-- PRINCÍPIO ARQUITETURAL:
+--
+--   Os pesos do IVS-H (campo peso_h em dim_variavel_ivs) devem ser
+--   revisados periodicamente conforme:
+--
+--   1. Novas obras de infraestrutura (IU_01, IU_02):
+--      - Se cobertura de esgoto cair abaixo de 90% em algum loteamento,
+--        IU_01 readquire poder discriminatório
+--      - Monitorar via SNIS (publicação anual)
+--
+--   2. Atualização do CadÚnico (variáveis CH e RT):
+--      - Recomendado: recalcular IVS-H a cada extração semestral
+--
+--   3. Novos dados do Censo IBGE:
+--      - Próximo Censo: ~2032
+--      - Até lá, Censo 2022 é a referência estática para IU
+--
+--   FLUXO DE REVISÃO DE PESOS:
+--   fato_ivs_loteamento (novos valores)
+--       → análise de variância por loteamento
+--       → revisão de peso_h em dim_variavel_ivs
+--       → versionamento no log do arquivo dim_variavel_IVS.md
+--
+--   PRINCÍPIO DE COMPARABILIDADE TEMPORAL:
+--   A revisão de pesos deve preservar a comparabilidade temporal do índice.
+--   Alterações de peso afetam toda a série histórica — devem ser justificadas,
+--   documentadas e versionadas. Pesos não devem ser revisados anualmente
+--   sem evidência empírica suficiente.
+--   Referência: NARDO, M. et al. Handbook on Constructing Composite
+--   Indicators. Paris: OECD, 2008.
+--
+-- =============================================================================
+-- EXEMPLO DE CARGA — IU_02 com dado histórico SNIS
 -- =============================================================================
 
+-- INSERT INTO fato_ivs_loteamento (
+--     id_variavel, id_loteamento, periodo_referencia,
+--     data_extracao, fonte_dado, versao_fonte,
+--     valor_percentual, unidade_medida, cobertura_cadastral, observacoes
+-- ) VALUES
+--     ('IU_02', 'MUNICIPIO_HORTOLANDIA', '2020',
+--      '2026-03-10', 'SABESP_SNIS', 'SNIS_2020',
+--      3.6, '%',   -- 100% - 96,4% = 3,6% sem coleta de esgoto
+--      100.0,      -- SNIS cobre 100% da população servida pela SABESP
+--      'Dado municipal agregado. Desagregação por loteamento requer Censo 2022.');
+
+-- =============================================================================
+-- ESQUEMA ESTRELA TERRITORIAL — VISÃO GERAL
+-- =============================================================================
+--
+--   DIM_VARIAVEL_IVS          — O QUE medir (16 variáveis, pesos, fontes)
+--   DIM_LOTEAMENTO            — Unidade mínima de análise (141 loteamentos)
+--   DIM_NUCLEO                — Agregação por CRAS (7 núcleos)
+--   DIM_REGIAO_PLANEJAMENTO   — Agregação por RP (6 regiões)
+--   DIM_FONTE_DADO            — Rastreabilidade de origem e versão dos dados
+--   FATO_IVS_LOTEAMENTO       — Valores reais por variável, loteamento e período
+--
+--   Evolução futura: DIM_TEMPO (id_tempo INTEGER) para análise de séries
+--   históricas e comparações interperiódicas.
+--
+-- =============================================================================
+-- FIM DA NOTA TÉCNICA
+-- Próximo passo: criar dim_loteamento e dim_nucleo para habilitar
+-- o cálculo do IVS-H por loteamento (não apenas por município).
+-- =============================================================================
