@@ -1,4 +1,4 @@
-# Registro de Ideias — 12/03/2026
+# Registro de Ideias — "12/03/2026"
 
 **Projeto:** Atlas Social de Hortolândia
 **Repositório:** `ailtonfv/Atlas-Social-de-Hortolandia`
