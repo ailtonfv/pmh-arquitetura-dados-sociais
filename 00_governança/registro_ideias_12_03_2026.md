@@ -61,7 +61,7 @@ Violência urbana é variável latente de vulnerabilidade territorial. Em metodo
 - **CNPJ:** 06.871.886/0001-25
 - **Endereço:** Estrada Municipal de Hortolândia, 4183 — Bairro Sabina B. Camargo — CEP 13.185-576
 - **Presidente:** Cleuza Grilanda Vicente
-- **Assembleia Geral Ordinária:** 23/03/2026 às 15h
+- **Assembleia Geral Ordinária:** "23/03/2026" às 15h
 
 **Relevância para o projeto:**
 Cooperativa **não mapeada** nas OSCs do projeto. Localização em Hortolândia confirmada. Possível interface com:
@@ -76,4 +76,4 @@ Cooperativa **não mapeada** nas OSCs do projeto. Localização em Hortolândia 
 ---
 
 *Atlas Social de Hortolândia — uso interno*
-*Registro gerado em: 12/03/2026*
+*Registro gerado em: "12/03/2026"*
