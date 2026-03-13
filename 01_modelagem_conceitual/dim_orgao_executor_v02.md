@@ -16,7 +16,7 @@
 
 ## Nota Estrutural
 
-O município de referência é exclusivamente **Hortolândia-SP (IBGE 3519070)**.
+O município de referência é exclusivamente **Hortolândia-SP (IBGE 3519071)**.
 O código IBGE não é campo analítico — é constante estrutural do projeto.
 
 ---
