@@ -1,5 +1,3 @@
----
-
 *Documento de governança — 00_governanca/*  
 *Atlas Social de Hortolândia — uso interno*
 
