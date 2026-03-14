@@ -1,6 +1,6 @@
 # DIM_ORGAO_EXECUTOR
-**Versão:** v03  
-**Data:** 2026-03-13  
+**Versão:** v04  
+**Data:** 2026-03-15  
 **Responsável:** Ailton Vendramini  
 **Repositório:** Atlas-Social-de-Hortolândia / 01_modelagem_conceitual
 
@@ -86,13 +86,13 @@ EXT_{NOME}         → operadores externos (SEBRAE, Desenvolve SP etc.)
 
 ## Bloco 2 — Equipamentos Municipais de Apoio
 
-| id_orgao_executor | nome_completo | tipo | secretaria_mae | esfera | endereço | telefone | email | coordenador | nucleo_referencia | ativo |
-|---|---|---|---|---|---|---|---|---|---|---|
-| CRAM_01 | CRAM "Débora Regina Leme dos Santos" | Equipamento Municipal | Dep. de Políticas Públicas para a Mulher | Municipal | Rua Alberto Gomes, 18, Jardim das Paineiras | A confirmar | — | A confirmar | NULL | S |
-| CQP_I | CQP I — Centro de Qualificação Pessoal e Profissional | Equipamento Municipal | SMIDS | Municipal | Rua Estados Unidos, 271, Jd. Santa Clara do Lago II | A confirmar | — | A confirmar | NUCLEO_SANTA_CLARA | S |
-| CQP_II | CQP II — Centro de Qualificação — Costura e Moda | Equipamento Municipal | SMIDS | Municipal | Rua Eleusina Batista Silva, 14, Jd. Terras de Santo Antônio | A confirmar | — | A confirmar | NULL | S |
-| CESP | CESP — Centro de Empreendimentos Solidários e Popular | Equipamento Municipal | SMIDS | Municipal | Rua Zacarias Costa Camargo, 50, Remanso Campineiro | A confirmar | — | A confirmar | NULL | S |
-| PAT_01 | Posto de Atendimento ao Trabalhador | Equipamento Municipal | Sec. Desenvolvimento Econômico | Municipal | A confirmar | (19) 3965-1400 r. 8904/8925 | pat@hortolandia.sp.gov.br | A confirmar | NULL | S |
+| id_orgao_executor | nome_completo | tipo | secretaria_mae | esfera | endereço | telefone | email | coordenador | nucleo_referencia | ativo | observações |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| CRAM_01 | CRAM "Débora Regina Leme dos Santos" | Equipamento Municipal | Dep. de Políticas Públicas para a Mulher | Municipal | Rua Alberto Gomes, 18, Jardim das Paineiras | A confirmar | — | A confirmar | NULL | S | Hortolândia registrou 94 medidas protetivas em jan-fev/2026, maior volume absoluto entre 6 municípios da região (+11,9% em relação ao mesmo período de 2025). Fonte: TJ-SP a pedido do Tribuna Liberal, 15/03/2026. Dado de contexto para dimensionamento da demanda pelo equipamento. |
+| CQP_I | CQP I — Centro de Qualificação Pessoal e Profissional | Equipamento Municipal | SMIDS | Municipal | Rua Estados Unidos, 271, Jd. Santa Clara do Lago II | A confirmar | — | A confirmar | NUCLEO_SANTA_CLARA | S | — |
+| CQP_II | CQP II — Centro de Qualificação — Costura e Moda | Equipamento Municipal | SMIDS | Municipal | Rua Eleusina Batista Silva, 14, Jd. Terras de Santo Antônio | A confirmar | — | A confirmar | NULL | S | — |
+| CESP | CESP — Centro de Empreendimentos Solidários e Popular | Equipamento Municipal | SMIDS | Municipal | Rua Zacarias Costa Camargo, 50, Remanso Campineiro | A confirmar | — | A confirmar | NULL | S | — |
+| PAT_01 | Posto de Atendimento ao Trabalhador | Equipamento Municipal | Sec. Desenvolvimento Econômico | Municipal | A confirmar | (19) 3965-1400 r. 8904/8925 | pat@hortolandia.sp.gov.br | A confirmar | NULL | S | — |
 
 ---
 
@@ -197,6 +197,7 @@ EXT_{NOME}         → operadores externos (SEBRAE, Desenvolve SP etc.)
 | v01 | 2026-03-11 | Criação — consolida dim_osc, dim_gestores e dim_unidades; 7 blocos |
 | v02 | 2026-03-11 | Campo `nucleo_referencia` adicionado à estrutura e a todos os blocos; campo `esfera` explicitado em todos os blocos; classificação por IVS e pendências metodológicas de programas removidas |
 | v03 | 2026-03-13 | Correção crítica: código IBGE corrigido de 3519070 para 3519071 na Nota Estrutural |
+| v04 | 2026-03-15 | CRAM_01: campo `observacoes` preenchido com dado de contexto publicado — 94 medidas protetivas em jan-fev/2026, maior volume absoluto da região, +11,9% em relação a 2025 (Fonte: TJ-SP / Tribuna Liberal, 15/03/2026); coluna `observacoes` adicionada ao Bloco 2 |
 
 ---
 
