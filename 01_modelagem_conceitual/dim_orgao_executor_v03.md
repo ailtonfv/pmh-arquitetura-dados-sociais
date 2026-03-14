@@ -3,13 +3,13 @@ Versão: v03
 Data: 2026-03-13  
 Responsável: Ailton Vendramini  
 Repositório: Atlas-Social-de-Hortolândia / 01_modelagem_conceitual
-> Este documento consolida `dim\_osc\_v01.md`, `dim\_gestores\_municipais\_v06.md` e
-> `dim\_unidades\_de\_atendimento\_v01.md` numa dimensão única e consultável,
-> referenciada por FK em `DIM\_PROGRAMA` e em `FATO\_ATENDIMENTO`.
+> Este documento consolida `dim_osc_v01.md`, `dim_gestores_municipais_v06.md` e
+> `dim_unidades_de_atendimento_v01.md` numa dimensão única e consultável,
+> referenciada por FK em `DIM_PROGRAMA` e em `FATO_ATENDIMENTO`.
 >
-> \*\*Não contém:\*\*
-> - Classificação por IVS — em `02\_modelagem\_lógica/rel\_programa\_dimensao\_ivs.md`
-> - Pendências metodológicas de programas — em `00\_governanca/notas\_arquiteturais\_programas\_sociais.md`
+> **Não contém:**
+> - Classificação por IVS — em `02_modelagem_lógica/rel_programa_dimensao_ivs.md`
+> - Pendências metodológicas de programas — em `00_governanca/notas_arquiteturais_programas_sociais.md`
 ---
 Nota Estrutural
 O município de referência é exclusivamente Hortolândia-SP (IBGE 3519071).
@@ -17,43 +17,43 @@ O código IBGE não é campo analítico — é constante estrutural do projeto.
 ---
 Estrutura da DIM_ORGAO_EXECUTOR
 ```
-id\_orgao\_executor      PK — padrão: TIPO\_NOME (ex: CRAS\_AMANDA, OSC\_ESPERANCAR)
-nome\_completo          nome oficial completo
+id_orgao_executor      PK — padrão: TIPO_NOME (ex: CRAS_AMANDA, OSC_ESPERANCAR)
+nome_completo          nome oficial completo
 sigla                  sigla operacional, se houver
 tipo                   Equipamento SUAS | Equipamento Municipal | Secretaria |
                        Departamento | OSC Conveniada | Operador Externo |
                        Fundo | Conselho
-secretaria\_mae         secretaria à qual o órgão está subordinado
+secretaria_mae         secretaria à qual o órgão está subordinado
 esfera                 Municipal | Estadual | Federal
 endereco               endereço completo
 telefone
 email
 coordenador            nome do responsável atual
-nucleo\_referencia      id\_nucleo do Atlas Social — liga o equipamento à sua
-                       área de abrangência territorial (ex: NUCLEO\_ROSOLEM)
+nucleo_referencia      id_nucleo do Atlas Social — liga o equipamento à sua
+                       área de abrangência territorial (ex: NUCLEO_ROSOLEM)
                        Nulo para secretarias, departamentos e operadores externos
 ativo                  S | N
 observacoes
 ```
-Nota sobre `nucleo\_referencia`:
+Nota sobre `nucleo_referencia`:
 Campo introduzido na v02. Cada CRAS é a sede de um núcleo territorial.
 Equipamentos vinculados a um CRAS (ex: CCS Rosolém → CRAS Rosolém)
-recebem o mesmo `nucleo\_referencia`. Secretarias e operadores externos
+recebem o mesmo `nucleo_referencia`. Secretarias e operadores externos
 recebem NULL — sua atuação é municipal, não territorial.
-Convenção de `id\_orgao\_executor`:
+Convenção de `id_orgao_executor`:
 ```
-CRAS\_{NOME}        → unidades CRAS
-CREAS\_{N}          → CREAS
-CENTROPOP\_{N}      → Centro POP
-CRAM\_{N}           → CRAM
-CQP\_{N}            → Centros de Qualificação
+CRAS_{NOME}        → unidades CRAS
+CREAS_{N}          → CREAS
+CENTROPOP_{N}      → Centro POP
+CRAM_{N}           → CRAM
+CQP_{N}            → Centros de Qualificação
 CESP               → Centro de Empreendimentos Solidários
-PAT\_{N}            → PAT
-SEC\_{SIGLA}        → secretarias municipais
-DEP\_{NOME}         → departamentos
-FUNDO\_{NOME}       → fundos municipais
-OSC\_{NOME}         → OSCs conveniadas
-EXT\_{NOME}         → operadores externos (SEBRAE, Desenvolve SP etc.)
+PAT_{N}            → PAT
+SEC_{SIGLA}        → secretarias municipais
+DEP_{NOME}         → departamentos
+FUNDO_{NOME}       → fundos municipais
+OSC_{NOME}         → OSCs conveniadas
+EXT_{NOME}         → operadores externos (SEBRAE, Desenvolve SP etc.)
 ```
 ---
 Bloco 1 — Equipamentos SUAS
@@ -110,7 +110,7 @@ OSC_TODOS_AUTISMO	Todos Pelo Autismo	OSC Conveniada	Municipal	Autismo	NULL	A con
 OSC_LUTA_VIDA	Luta pela Vida Hortolândia	OSC Conveniada	Municipal	PCD / esporte	NULL	A confirmar	Parceira dos CRAS
 OSC_PATRULHEIROS	Assoc. Patrulheiros e Guarda Mirim	OSC Conveniada	Municipal	Juventude	NULL	A confirmar	Parceira dos CRAS
 OSC_A_CONFIRMAR	OSC executora Alta Complexidade — a identificar	OSC Conveniada	Municipal	SAICA / Abrigo Mulheres / Residência Inclusiva / ILPI / República	NULL	A confirmar	⚠️ Pendência #19
-> ⚠️ 12 OSCs parceiras dos CRAS ainda sem `id\_orgao\_executor` individual — Pendência #12.
+> ⚠️ 12 OSCs parceiras dos CRAS ainda sem `id_orgao_executor` individual — Pendência #12.
 ---
 Bloco 7 — Operadores Externos (Estaduais e Federais)
 id_orgao_executor	nome_completo	tipo	esfera	contato	nucleo_referencia	observações
@@ -138,13 +138,14 @@ P04	Confirmar endereço e telefone do CESP	Média
 P05	Confirmar endereço e contato do PAT_01	Média
 P06	Catalogar 12 OSCs parceiras dos CRAS individualmente	Média
 P07	Identificar OSCs executoras das 5 modalidades de Alta Complexidade (Pendência #19)	Alta
-P08	Confirmar `id\_orgao\_executor` definitivo para o PEI (hoje DEP_PCD provisório)	Alta
-P09	Definir `nucleo\_referencia` para CREAS_01, CENTROPOP_01, CESP e CQP_II	Média
+P08	Confirmar `id_orgao_executor` definitivo para o PEI (hoje DEP_PCD provisório)	Alta
+P09	Definir `nucleo_referencia` para CREAS_01, CENTROPOP_01, CESP e CQP_II	Média
 ---
 Log de Alterações
 Versão	Data	Alterações
 v01	2026-03-11	Criação — consolida dim_osc, dim_gestores e dim_unidades; 7 blocos
-v02	2026-03-11	Campo `nucleo\_referencia` adicionado à estrutura e a todos os blocos; campo `esfera` explicitado em todos os blocos; classificação por IVS e pendências metodológicas de programas removidas
+v02	2026-03-11	Campo `nucleo_referencia` adicionado à estrutura e a todos os blocos; campo `esfera` explicitado em todos os blocos; classificação por IVS e pendências metodológicas de programas removidas
 v03	2026-03-13	Correção crítica: código IBGE corrigido de 3519070 para 3519071 na Nota Estrutural
 ---
-Documento de modelagem conceitual — 01_modelagem_c
+Documento de modelagem conceitual — 01_modelagem_conceitual/  
+Atlas Social de Hortolândia — uso interno
