@@ -1,6 +1,7 @@
 # DIM_VARIAVEL_IVS — Variáveis do Índice de Vulnerabilidade Social
-**Versão:** v01r3  
+**Versão:** v01r4  
 **Data de criação:** 2026-03-09  
+**Última atualização:** 2026-03-13  
 **Responsável:** Ailton Vendramini  
 **Repositório:** Atlas-Social-de-Hortolândia / 02_modelagem_lógica
 
@@ -96,7 +97,7 @@ replicará o peso IPEA.
 
 | id | cod | nome da variável | nível | fonte do dado | disponível | prazo | observações |
 |----|-----|-----------------|-------|----------------|------------|-------|-------------|
-| IVS012 | RT_01 | Proporção de pessoas com renda domiciliar per capita ≤ ½ SM | Família/Domicílio | CadÚnico | ✅ Sim | Imediato | **Totalmente disponível no CadÚnico** — renda per capita é campo central do cadastro. Ponto de entrada natural para o IVS-H. |
+| IVS012 | RT_01 | Proporção de pessoas com renda domiciliar per capita ≤ ½ SM | Família/Domicílio | CadÚnico | ✅ Sim | Imediato | **Totalmente disponível no CadÚnico** — renda per capita é campo central do cadastro. Ponto de entrada natural para o IVS-H. **Confirmado em 13/03/2026:** a renda domiciliar per capita por setor censitário não está publicada pelo IBGE no Censo 2022. O arquivo disponível contém apenas V06004 (rendimento médio do responsável), que não equivale à renda per capita familiar. CadÚnico confirmado como fonte primária de RT_01 até publicação futura do IBGE. |
 | IVS013 | RT_02 | Taxa de desocupação da população de 18 anos ou mais | Pessoa | CadÚnico + CAGED | Parcial | Curto prazo | CadÚnico registra situação ocupacional declarada. CAGED registra vínculo formal de emprego. Trabalhadores informais e parte dos MEI não aparecem nessa base. |
 | IVS014 | RT_03 | Percentual de pessoas de 18 anos ou mais sem fundamental completo e em ocupação informal | Pessoa | CadÚnico | Parcial | Curto prazo | Escolaridade disponível no CadÚnico. Informalidade depende de declaração — subestimação provável. Cruzamento com CAGED identifica quem tem vínculo formal. |
 | IVS015 | RT_04 | Percentual de pessoas em domicílios com renda per capita ≤ ½ SM e dependentes de idosos | Família/Domicílio | CadÚnico | ✅ Sim | Imediato | **Totalmente disponível no CadÚnico** — renda per capita + composição familiar por faixa etária. Captura fragilidade da renda do idoso como sustentáculo familiar. |
@@ -219,6 +220,7 @@ de R$ 4.700; 72.424 pessoas no CadÚnico dez/2025):
 | v01r | 2026-03-09 | Revisão — substituída entidade "Território" pela hierarquia correta do modelo: Loteamento / RP / Núcleo |
 | v01r2 | 2026-03-09 | Revisão — substituída referência "Modelo RAJIS" por "Atlas Social de Hortolândia"; número CadÚnico padronizado para 72.424; ACERTE removido do mapeamento de programas; datas em ISO 8601 |
 | v01r3 | 2026-03-11 | Correção: curto prazo 8→9 variáveis (IVS016 estava omitida na contagem); médio prazo 3→2; IVS003 caracterizado como indicador híbrido (renda + mobilidade); `nivel_analise` "Loteamento/RP" → "Agregação Territorial" com nota explicativa; `fonte_municipal` → `fonte_dado`; Fluxo Analítico IVS-H adicionado; quadro Capacidade Analítica adicionado; referência Nardo et al. (OECD, 2008) incluída; precisão CAGED/MEI em IVS011 e IVS013 |
+| v01r4 | 2026-03-13 | RT_01 (IVS012): confirmação empírica registrada — renda domiciliar per capita por setor censitário não publicada pelo IBGE no Censo 2022 (disponível apenas V06004); CadÚnico confirmado como fonte primária de RT_01 até publicação futura do IBGE |
 
 ---
 
