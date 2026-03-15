@@ -1,9 +1,9 @@
 # DIM_PROGRAMA — Catálogo de Programas Sociais
-**Versão:** v02  
-**Data:** 2026-03-11  
+**Versão:** v03  
+**Data:** 2026-03-15  
 **Responsável:** Ailton Vendramini  
-**Repositório:** Atlas-Social-de-Hortolândia / 02_modelagem_lógica  
-**Origem:** Extraído e revisado de `dim_programas_sociais_v12.md`
+**Repositório:** Atlas-Social-de-Hortolândia / 01_modelagem_conceitual  
+**Origem:** Atualizado a partir de `dim_programa_v02.md` com base em pesquisa no Diário Oficial do Município (edições 2691, 2712, 2715) e atas do CMASH (jan–mar/2026)
 
 > Este arquivo contém exclusivamente o **núcleo cadastral** de cada programa.
 > Destina-se à modelagem relacional e à carga em banco de dados.
@@ -57,8 +57,8 @@ observacoes              nota curta — detalhes em notas_arquiteturais
 
 | id_programa | cod_programa | nome_programa | tipo | categoria | esfera | secretaria_responsavel | departamento_executor | id_orgao_executor | publico_alvo | faixa_etaria | vinculo_cadunico | nivel_protecao | acesso | prazo_execucao | contato | dimensao_ivs | base_legal_principal | base_legal_municipal | status_programa | data_inicio | observacoes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| PAIF | — | Serviço de Proteção e Atendimento Integral às Famílias | A | assistencia_social | Federal | SMIDS | — | CRAS_* (7) | Famílias em vulnerabilidade | Todas | S | Básica | Espontâneo / Encaminhamento | Continuado | Ver tabela CRAS | multidimensional | CNAS 109/2009 | Lei 3.911/2021 | ativo | — | Serviço central dos CRAS; caráter preventivo |
-| SCFV | — | Serviço de Convivência e Fortalecimento de Vínculos | A | assistencia_social | Federal | SMIDS | — | CRAS_* (7) | Crianças, adolescentes, adultos e idosos em vulnerabilidade | 0-17 / 60+ | S | Básica | Encaminhamento | Continuado | Ver tabela CRAS | capital_humano | CNAS 109/2009 | Lei 3.911/2021 | ativo | — | — |
+| PAIF | — | Serviço de Proteção e Atendimento Integral às Famílias | A | assistencia_social | Federal | SMIDS | — | CRAS_* (7) | Famílias em vulnerabilidade | Todas | S | Básica | Espontâneo / Encaminhamento | Continuado | Ver tabela CRAS | multidimensional | CNAS 109/2009 | Lei 3.911/2021 | ativo | — | Serviço central dos CRAS; caráter preventivo. FEAS 2026: R$ 94.947,37 reservados para lanches PAIF |
+| SCFV | — | Serviço de Convivência e Fortalecimento de Vínculos | A | assistencia_social | Federal | SMIDS | — | CRAS_* (7) | Crianças, adolescentes, adultos e idosos em vulnerabilidade | 0-17 / 60+ | S | Básica | Encaminhamento | Continuado | Ver tabela CRAS | capital_humano | CNAS 109/2009 | Lei 3.911/2021 | ativo | — | Chamamento Público 01/2026: Instituto Recrie classificado em 1º (84 pts); gaps territoriais questionados formalmente pelo CMDCA (Ofício 001/2026). OSC_SAO_PEDRO também executor. |
 | CCS | — | Centro de Convivência Social — Jd. Rosolém | A | assistencia_social | Municipal | SMIDS | — | CRAS_ROSOLEM | Comunidade da área de abrangência | Todas | Parcial | Básica | Espontâneo | Continuado | (19) 3809-3164 | capital_humano | Municipal | A confirmar | ativo | — | ⚠️ Verificar se permanece equipamento distinto do CRAS Rosolém |
 
 ---
@@ -80,12 +80,12 @@ observacoes              nota curta — detalhes em notas_arquiteturais
 
 | id_programa | cod_programa | nome_programa | tipo | categoria | esfera | secretaria_responsavel | departamento_executor | id_orgao_executor | publico_alvo | faixa_etaria | vinculo_cadunico | nivel_protecao | acesso | prazo_execucao | contato | dimensao_ivs | base_legal_principal | base_legal_municipal | status_programa | data_inicio | observacoes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| SAICA | — | Serviço de Acolhimento Institucional para Crianças e Adolescentes | A | assistencia_social | Intersetorial | SMIDS | — | OSC_A_CONFIRMAR | Crianças e adolescentes com direitos violados | 0-18 | S | Especial-Alta | Encaminhamento | Continuado | A confirmar | capital_humano | ECA + CNAS 109/2009 | A confirmar | ativo | — | ⚠️ Pendência #19 |
-| ABRIGO_ADULTOS | — | Abrigo Institucional para Adultos e Famílias em Situação de Rua | A | assistencia_social | Intersetorial | SMIDS | — | OSC_ESPERANCAR | Adultos em situação de rua | 24-59 | S | Especial-Alta | Encaminhamento (via Centro POP) | Continuado | A confirmar | infraestrutura_urbana | LOAS + CNAS 109/2009 | A confirmar | ativo | — | — |
-| ABRIGO_MULHERES | — | Abrigo Institucional para Mulheres em Situação de Violência | A | assistencia_social | Intersetorial | SMIDS | DEP_MULHERES | OSC_A_CONFIRMAR | Mulheres em violência doméstica ou sexual | 18+ | S | Especial-Alta | Encaminhamento (sem B.O.) | Continuado | A confirmar | multidimensional | Lei 11.340/2006 + CNAS | A confirmar | ativo | — | ⚠️ Pendência #19 |
+| SAICA | — | Serviço de Acolhimento Institucional para Crianças e Adolescentes | A | assistencia_social | Intersetorial | SMIDS | — | OSC_SAO_PEDRO | Crianças e adolescentes com direitos violados | 0-18 | S | Especial-Alta | Encaminhamento | Continuado | A confirmar | capital_humano | ECA + CNAS 109/2009 | A confirmar | ativo | — | Executor transferido da OSC I.E. Esperançar (encerrada fev/2026) para Centro Comunitário São Pedro — Res. CMAS 007/2026. Saldo reprogramado: R$ 964.288,20 |
+| ABRIGO_ADULTOS | — | Abrigo Institucional para Adultos e Famílias em Situação de Rua | A | assistencia_social | Intersetorial | SMIDS | — | OSC_SAO_PEDRO | Adultos em situação de rua | 24-59 | S | Especial-Alta | Encaminhamento (via Centro POP) | Continuado | A confirmar | infraestrutura_urbana | LOAS + CNAS 109/2009 | A confirmar | ativo | — | Executor atualizado: OSC I.E. Esperançar encerrou atividades fev/2026 — Res. CMAS 007/2026. Confirmar se CCSP assumiu também este serviço |
+| ABRIGO_MULHERES | — | Abrigo Institucional para Mulheres em Situação de Violência | A | assistencia_social | Intersetorial | SMIDS | DEP_MULHERES | OSC_A_CONFIRMAR | Mulheres em violência doméstica ou sexual | 18+ | S | Especial-Alta | Encaminhamento (sem B.O.) | Continuado | A confirmar | multidimensional | Lei 11.340/2006 + CNAS | A confirmar | ativo | — | Interface com Comissão Intersetorial VD — Decreto 5.810/2026 |
 | RESIDENCIA_INCLUSIVA | — | Residência Inclusiva para Jovens e Adultos com Deficiência | A | assistencia_social | Intersetorial | SMIDS | — | OSC_A_CONFIRMAR | Jovens e adultos com deficiência | 18+ | S | Especial-Alta | Encaminhamento | Continuado | A confirmar | capital_humano | LOAS + CNAS + Lei 13.146/2015 | A confirmar | ativo | — | ⚠️ Pendência #19 |
 | ILPI | — | Casa-Lar e ILPI — Acolhimento para Idosos | A | assistencia_social | Intersetorial | SMIDS | DEP_DIR_HUMANOS | OSC_A_CONFIRMAR | Idosos sem suporte familiar | 60+ | S | Especial-Alta | Encaminhamento | Continuado | A confirmar | capital_humano | LOAS + CNAS + Lei 10.741/2003 | A confirmar | ativo | — | ⚠️ Pendência #19 |
-| REPUBLICA | — | República — Acolhimento para Jovens e Adultos em Saída da Rua | A | assistencia_social | Intersetorial | SMIDS | — | OSC_A_CONFIRMAR | Jovens e adultos em saída da situação de rua | 18-35 | S | Especial-Alta | Encaminhamento | Continuado | A confirmar | renda_trabalho | LOAS + CNAS 109/2009 | A confirmar | ativo | — | Modelo de autogestão — ⚠️ Pendência #19 |
+| REPUBLICA | — | República — Acolhimento para Jovens e Adultos em Saída da Rua | A | assistencia_social | Intersetorial | SMIDS | — | OSC_SAO_PEDRO | Jovens e adultos em saída da situação de rua | 18-35 | S | Especial-Alta | Encaminhamento | Continuado | A confirmar | renda_trabalho | LOAS + CNAS 109/2009 | A confirmar | ativo | — | Executor transferido da OSC I.E. Esperançar (encerrada fev/2026) para Centro Comunitário São Pedro — Res. CMAS 007/2026 |
 | APADRINHAMENTO | — | Programa de Apadrinhamento para Crianças e Adolescentes em Acolhimento | A | assistencia_social | Intersetorial | SMIDS | — | SEC_INCLUSAO | Crianças e adolescentes em acolhimento | 0-18 | S | Especial-Alta | Encaminhamento | Continuado | A confirmar | capital_humano | ECA | A confirmar | ativo | — | Vinculado ao CMDCA |
 | TRAB_INFANTIL | — | Programa de Enfrentamento ao Trabalho Infantil | A | assistencia_social | Intersetorial | SMIDS | — | CREAS_01 | Crianças e adolescentes em trabalho infantil | 10-16 | S | Especial-Alta | Encaminhamento | Continuado | (19) 3909-4546 | capital_humano | ECA | A confirmar | ativo | — | Interface Conselho Tutelar |
 | ATEND_DOMICILIAR | — | Serviço de Atendimento Domiciliar para PCD e Idosos | A | assistencia_social | Municipal | SMIDS | — | SEC_INCLUSAO | PCD e idosos em domicílio | 60+ / Todas (PCD) | A confirmar | Especial-Alta | Encaminhamento | Continuado | A confirmar | capital_humano | Municipal | A confirmar | ativo | — | — |
@@ -108,6 +108,7 @@ observacoes              nota curta — detalhes em notas_arquiteturais
 | BOLSA_CRECHE | — | Bolsa Creche | A | educacao | Municipal | Educação | — | SEC_EDUCACAO | Crianças sem vaga na rede pública | 6 meses–3a6m | S | Básica | Encaminhamento | Continuado | A confirmar | capital_humano | Municipal | A confirmar | ativo | — | — |
 | INSCRICAO_CMAS | — | Inscrição de OSCs no CMAS | B | governanca | Municipal | SMIDS | — | SEC_INCLUSAO | Organizações da Sociedade Civil | — | N | — | Presencial | — | A confirmar | governanca | LOAS | Lei 3.911/2021 | ativo | — | — |
 | INSCRICAO_CMDCA | — | Inscrição de OSCs no CMDCA | B | governanca | Municipal | SMIDS | — | SEC_INCLUSAO | OSCs voltadas à criança e adolescente | — | N | — | Presencial | — | A confirmar | governanca | ECA | A confirmar | ativo | — | — |
+| CRIANCA_FELIZ | — | Programa Criança Feliz | A | educacao | Federal | SMIDS | — | OSC_A_CONFIRMAR | Gestantes, crianças 0–6 anos e famílias em vulnerabilidade | 0-6 | S | Básica/Intersetorial | Encaminhamento | Continuado | A confirmar | capital_humano | Decreto Federal 8.869/2016 | A confirmar | ativo | — | Atendimento domiciliar à primeira infância; executado por OSC (a identificar). CMDCA solicitou dados operacionais via ofício (mar/2026) — número de atendimentos e condições de execução |
 
 ---
 
@@ -116,7 +117,7 @@ observacoes              nota curta — detalhes em notas_arquiteturais
 | id_programa | cod_programa | nome_programa | tipo | categoria | esfera | secretaria_responsavel | departamento_executor | id_orgao_executor | publico_alvo | faixa_etaria | vinculo_cadunico | nivel_protecao | acesso | prazo_execucao | contato | dimensao_ivs | base_legal_principal | base_legal_municipal | status_programa | data_inicio | observacoes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | BAH | — | Banco de Alimentos de Hortolândia | A | seguranca_alimentar | Municipal | Educação | DEP_SEG_ALIMENTAR | DEP_SEG_ALIMENTAR | Pop. em insegurança via 19 OSCs parceiras | Todas | Indireto | Alimentar | Encaminhamento | Continuado | A confirmar | renda_trabalho | Municipal | A confirmar | ativo | 2007-00-00 | 19 org / 1.762 pessoas (2024) |
-| PAA | — | Programa de Aquisição de Alimentos | A | seguranca_alimentar | Federal | Educação | DEP_SEG_ALIMENTAR | DEP_SEG_ALIMENTAR | Agricultores familiares + beneficiários BAH | Todas | Indireto | Alimentar | Encaminhamento | Continuado | A confirmar | renda_trabalho | Lei 10.696/2003 | A confirmar | ativo | — | — |
+| PAA | — | Programa de Aquisição de Alimentos | A | seguranca_alimentar | Federal | Educação | DEP_SEG_ALIMENTAR | DEP_SEG_ALIMENTAR | Agricultores familiares + beneficiários BAH | Todas | Indireto | Alimentar | Encaminhamento | Continuado | A confirmar | renda_trabalho | Lei 10.696/2003 | A confirmar | ativo | — | Resultado credenciamento publicado DO MAR06/2026 — ciclo ativo |
 | CESTAS | — | Distribuição de Cestas Básicas | A | seguranca_alimentar | Municipal | SMIDS / Fundo Social | — | FUNDO_SOCIAL | Famílias em vulnerabilidade | Todas | S | Alimentar | Encaminhamento | Imediato | A confirmar | renda_trabalho | Municipal | Decreto 5.598/2025 | ativo | — | — |
 | CREAN | — | Centro de Referência em Educação Alimentar e Nutricional | A | seguranca_alimentar | Municipal | Educação | DEP_SEG_ALIMENTAR | DEP_SEG_ALIMENTAR | Comunidade | Todas | — | Alimentar | Presencial | Continuado | A confirmar | capital_humano | Municipal | A confirmar | planejamento | 2023-04-00 | Previsto para Jd. Terras de Santa Maria |
 | COZINHA_COM | — | Cozinha Comunitária | A | seguranca_alimentar | Municipal | Educação | DEP_SEG_ALIMENTAR | DEP_SEG_ALIMENTAR | Comunidade | Todas | — | Alimentar | Espontâneo | Continuado | A confirmar | renda_trabalho | Municipal | A confirmar | ativo | — | ⚠️ Verificar distinção vs Escola Comunitária Jd. Novo Ângulo |
@@ -159,7 +160,7 @@ observacoes              nota curta — detalhes em notas_arquiteturais
 
 | id_programa | cod_programa | nome_programa | tipo | categoria | esfera | secretaria_responsavel | departamento_executor | id_orgao_executor | publico_alvo | faixa_etaria | vinculo_cadunico | nivel_protecao | acesso | prazo_execucao | contato | dimensao_ivs | base_legal_principal | base_legal_municipal | status_programa | data_inicio | observacoes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| POL_PCD | — | Cadastro e Políticas para PCD | B | direitos_humanos | Municipal | Gov. (DPCD) | DEP_PCD | DEP_PCD | Pessoas com deficiência | Todas | Indireto | — | Presencial | Continuado | A confirmar | capital_humano | Lei 13.146/2015 | A confirmar | ativo | — | — |
+| POL_PCD | — | Cadastro e Políticas para PCD | B | direitos_humanos | Municipal | Gov. (DPCD) | DEP_PCD | DEP_PCD | Pessoas com deficiência | Todas | Indireto | — | Presencial | Continuado | A confirmar | capital_humano | Lei 13.146/2015 | A confirmar | ativo | — | Res. de Consolidação e Ampliação das Ações PCD em análise na comissão do CMAS (mar/2026) |
 | POL_IDOSO | — | Políticas para Pessoa Idosa | B | direitos_humanos | Municipal | Gov. (Dep. Dir. Humanos) | DEP_DIR_HUMANOS | DEP_DIR_HUMANOS | Idosos em vulnerabilidade | 60+ | Indireto | — | — | Continuado | A confirmar | capital_humano | Lei 10.741/2003 | A confirmar | ativo | — | — |
 | CCMI | — | Centro de Convivência da Melhor Idade | A | direitos_humanos | Municipal | Gov. (Dep. Dir. Humanos) | DEP_DIR_HUMANOS | DEP_DIR_HUMANOS | Idosos 60+ | 60+ | Indireto | — | Presencial | Continuado | A confirmar | capital_humano | Municipal | A confirmar | ativo | — | Coord.: psicóloga Fernanda Fadiga |
 | POL_JUVENTUDE | — | Políticas para a Juventude | B | direitos_humanos | Municipal | Gov. (Dep. Dir. Humanos) | DEP_DIR_HUMANOS | DEP_DIR_HUMANOS | Jovens 15–29 anos | 15-29 | — | — | — | Continuado | A confirmar | capital_humano | Lei 12.852/2013 | A confirmar | ativo | — | — |
@@ -204,6 +205,8 @@ observacoes              nota curta — detalhes em notas_arquiteturais
 | CT_I | — | Conselho Tutelar I | C | governanca | Municipal | SEC_INCLUSAO | SMIDS | N | — | governanca | ECA | A confirmar | ativo |
 | CT_II | — | Conselho Tutelar II | C | governanca | Municipal | SEC_INCLUSAO | SMIDS | N | — | governanca | ECA | A confirmar | ativo |
 | CMDM | — | Conselho Municipal Direitos da Mulher | B | governanca | Municipal | DEP_MULHERES | Gov. (Dep. Mulheres) | N | — | governanca | Municipal | A confirmar | ativo |
+| PMAS | — | Plano Municipal de Assistência Social 2026–2029 | B | governanca | Municipal | SEC_INCLUSAO | SMIDS | N | — | governanca | LOAS | Lei 3.911/2021 | ativo |
+| COMISSAO_VD | — | Comissão Intersetorial — Plano Municipal de Metas de Enfrentamento à Violência Doméstica | B | governanca | Municipal | SEC_INCLUSAO | SMIDS | N | — | governanca | Lei 11.340/2006 + Lei Federal 14.899/2024 | Decreto 5.810/2026 | ativo |
 
 ---
 
@@ -213,8 +216,9 @@ observacoes              nota curta — detalhes em notas_arquiteturais
 |---|---|---|
 | v01 | 2026-03-11 | Criação — extraído de `dim_programas_sociais_v12.md`; tipo_programa A/B/C/D; campo categoria; status_programa; data_inicio ISO 8601 |
 | v02 | 2026-03-11 | Adição dos campos ausentes: cod_programa, departamento_executor, faixa_etaria, acesso, prazo_execucao, contato — estrutura alinhada à especificação completa da DIM_PROGRAMA |
+| v03 | 2026-03-15 | Atualizações com base em pesquisa no DO (edições 2691, 2712, 2715) e atas CMASH jan–mar/2026: (1) SAICA, REPUBLICA → executor atualizado para OSC_SAO_PEDRO após encerramento da I.E. Esperançar (Res. CMAS 007/2026); (2) ABRIGO_ADULTOS → executor atualizado para OSC_SAO_PEDRO, pendência de confirmação; (3) SCFV → observação sobre Chamamento 01/2026 e Instituto Recrie (1º lugar); (4) CRIANCA_FELIZ → novo programa Grupo 4 (atendimento domiciliar primeira infância); (5) PMAS → novo registro Grupo 11 (PMAS 2026–2029 aprovado Res. CMAS 006/2026 em 06/02/2026); (6) COMISSAO_VD → novo registro Grupo 11 (Decreto 5.810/2026); (7) PAA → observação de execução ativa confirmada em mar/2026; (8) POL_PCD → nota sobre Res. de Consolidação PCD em análise no CMAS; (9) PAIF → nota sobre FEAS reservado para custeio |
 
 ---
 
-*Documento de modelagem relacional — 02_modelagem_lógica/*  
-*Atlas Social de Hortolândia — uso in
+*Documento de modelagem relacional — 01_modelagem_conceitual/*  
+*Atlas Social de Hortolândia — uso institucional interno*
