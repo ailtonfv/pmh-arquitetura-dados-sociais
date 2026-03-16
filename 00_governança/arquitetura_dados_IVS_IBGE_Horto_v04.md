@@ -1,9 +1,10 @@
+[arquitetura_dados_IVS_IBGE_Horto_v05.md](https://github.com/user-attachments/files/26024741/arquitetura_dados_IVS_IBGE_Horto_v05.md)
 *Documento de governança — 00_governanca/*  
 *Atlas Social de Hortolândia — uso interno*
 
 Arquitetura de Obtenção de Dados — IVS / IBGE / Hortolândia
-Versão: v04  
-Data: 2026-03-15  
+Versão: v05  
+Data: 2026-03-16  
 Responsável: Ailton Vendramini  
 Repositório: Atlas-Social-de-Hortolândia / 00_governanca  
 Origem: Pesquisa documental — `arquitetura_obtenção_de_dados_IVS.docx`
@@ -99,6 +100,23 @@ codigo_municipio = 3519071
 > ⚠️ Atenção: este é o código correto, confirmado pela base do IBGE.
 > Qualquer script de filtro deve usar exatamente este valor.
 > Código incorreto resulta em dados de outro município sem aviso de erro.
+
+**Confirmação oficial — BET/IBGE 2024:**
+
+Fonte: IBGE. *Banco de Estruturas Territoriais (BET) — Relatório de Divisão Territorial Brasileira*. Data base: 31/12/2024.
+
+| campo | valor |
+|-------|-------|
+| UF | 35 — São Paulo |
+| Região Geográfica Intermediária | 3510 — Campinas |
+| Região Geográfica Imediata | 350038 — Campinas |
+| Código Município Completo | **3519071** — Hortolândia |
+
+> Esta é a referência oficial mais recente disponível (data base 31/12/2024).
+> Confirma o código utilizado em todos os scripts e filtros do projeto.
+> A Região Geográfica Intermediária de Campinas (3510) é o equivalente
+> moderno — metodologia IBGE 2017 — da área de influência do
+> Arranjo Populacional de Campinas documentado na Seção 0.1.
 ---
 2. O que o Censo 2022 fornece para o IVS-H
 O Censo Demográfico fornece os insumos primários para a maioria dos indicadores
@@ -270,6 +288,7 @@ v01	2026-03-12	Criação — baseado em `arquitetura_obtenção_de_dados_IVS.doc
 v02	2026-03-12	Seção 0 adicionada: escopo territorial em três escalas (Brasil / Município / Território). Frase sobre "9 a 12 variáveis" substituída por formulação metodologicamente mais cautelosa. Nota sobre domicilio1/2/3 adicionada na Seção 3.4. "mini Data Lake" substituído por "pipeline analítico estruturado em camadas". Frase sobre dados administrativos e monitoramento contínuo adicionada na Seção 1.2. Trecho de posicionamento estratégico reforçado na Seção 7. Passo 4 adicionado na Seção 8.
 v03	2026-03-13	Seção 3.5: confirmação empírica de que renda per capita por setor censitário não está publicada pelo IBGE — CadÚnico definido como fonte primária de RT_01. Seção 5: pastas `referencias_ipea/` e `pesos/` registradas na estrutura do pipeline; 7 arquivos filtrados confirmados. Seção 6: dados IVS IPEA 2000/2010 obtidos via Google BigQuery (basedosdados) — tabela de resultados incluída; arquivo CSV registrado. Seção 8: passos 1, 2 e 3 marcados como concluídos; passo 6 adicionado (definir pesos IVS-H).
 v04	2026-03-15	Seção 0.1 adicionada: contexto territorial de Hortolândia no Arranjo Populacional de Campinas/SP (IBGE, 2016). Índice de integração 0,42 documentado com suas três implicações para o IVS-H: mobilidade estrutural da população, herança do desmembramento de 1991 e posicionamento em concentração urbana regional. Fonte: Tabela 1.1, p. 78 do estudo IBGE.
+v05	2026-03-16	Seção 1.3: adição da confirmação oficial BET/IBGE 2024 (data base 31/12/2024) — tabela com UF, Região Geográfica Intermediária (3510 — Campinas), Região Geográfica Imediata (350038 — Campinas) e código município completo (3519071). Referência mais recente disponível para o código IBGE do projeto.
 ---
 Documento de governança — 00_governanca/  
 Atlas Social de Hortolândia — uso interno
