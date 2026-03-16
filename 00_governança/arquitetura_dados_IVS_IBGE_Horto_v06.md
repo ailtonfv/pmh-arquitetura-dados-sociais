@@ -1,9 +1,9 @@
-[arquitetura_dados_IVS_IBGE_Horto_v06.md](https://github.com/user-attachments/files/26032744/arquitetura_dados_IVS_IBGE_Horto_v06.md)
+[arquitetura_dados_IVS_IBGE_Horto_v07.md](https://github.com/user-attachments/files/26034544/arquitetura_dados_IVS_IBGE_Horto_v07.md)
 *Documento de governança — 00_governanca/*  
 *Atlas Social de Hortolândia — uso interno*
 
 Arquitetura de Obtenção de Dados — IVS / IBGE / Hortolândia
-Versão: v06  
+Versão: v07  
 Data: 2026-03-16  
 Responsável: Ailton Vendramini  
 Repositório: Atlas-Social-de-Hortolândia / 00_governanca  
@@ -357,6 +357,81 @@ Script pronto: `busca_ivs_hortolandia_v2.py` (disponível no projeto)
 > Requer cruzamento com base geográfica do Censo 2022 (setores censitários).
 
 ---
+6.2 Diagnóstico da População com TEA — Censo 2022
+
+**Fonte:** IBGE. *Censo Demográfico 2022*. Sistema IBGE de Recuperação Automática — SIDRA. Tabelas 10145, 10148, 10150, 10153 e 10154. Acesso em 16/03/2026.
+
+> O Censo 2022 foi o primeiro levantamento nacional a perguntar diretamente se a pessoa
+> possuía diagnóstico médico de autismo, gerando estatísticas territoriais inéditas sobre TEA.
+> O TEA não integra o cálculo do IVS-H — é uma **camada analítica complementar** que
+> amplia o diagnóstico de vulnerabilidade ao incorporar condições específicas de
+> desenvolvimento e inclusão, conectando-se ao modelo Pessoa → Família → Território.
+
+**6.2.1 Prevalência demográfica (Tabela 10145)**
+
+| indicador | total | homens | mulheres |
+|-----------|-------|--------|----------|
+| Pessoas diagnosticadas com TEA | **2.806** | 1.577 (56%) | 1.229 (44%) |
+| % da população total (236.641) | **1,2%** | 1,3% | 1,0% |
+
+Distribuição por faixa etária — maiores prevalências:
+
+| faixa etária | pessoas | % da faixa |
+|--------------|---------|------------|
+| 0–4 anos | 288 | 2,0% |
+| 5–9 anos | 347 | 2,1% |
+| 10–14 anos | 272 | 1,7% |
+| 20–24 anos | 291 | 1,6% |
+| 65–69 anos | 123 | 1,5% |
+
+> Padrão esperado: concentração nas faixas infantis (diagnóstico recente) e um pico
+> inesperado nos adultos jovens (20–24 anos). A razão homem/mulher de 1,28:1 é
+> coerente com a literatura científica sobre TEA.
+
+**6.2.2 Dimensão educacional (Tabelas 10148 e 10150)**
+
+| indicador | valor |
+|-----------|-------|
+| Estudantes com TEA (6+ anos) | **836** de 51.315 (1,6%) |
+| Estudantes com TEA — 6–14 anos | 522 (2,7% dos meninos, 1,0% das meninas) |
+| Taxa de escolarização TEA — 15–17 anos | **100%** |
+| Taxa de escolarização geral — 15–17 anos | 84,5% |
+| Taxa de escolarização TEA — 18–24 anos | 26,9% |
+| Taxa de escolarização geral — 18–24 anos | 19,8% |
+
+> Dado notável: a taxa de escolarização de adolescentes com TEA (15–17 anos) é
+> **100%** — acima da média geral (84,5%). Isso pode refletir maior engajamento
+> familiar com a escolarização como estratégia terapêutica, ou viés de
+> autodeclaração em famílias com maior acesso a diagnóstico.
+
+**6.2.3 Dimensão socioeconômica — domicílios (Tabela 10154)**
+
+| indicador | valor | % |
+|-----------|-------|---|
+| Domicílios com pelo menos 1 morador com TEA | **2.347** | 2,9% dos 80.802 |
+| Moradores nesses domicílios | **8.060** | 3,5% da população |
+
+> Cada domicílio com TEA abriga em média **3,4 moradores** — dado relevante para
+> dimensionar o impacto familiar do transtorno e a demanda por serviços de suporte.
+
+**6.2.4 Conexão com políticas públicas e o Atlas Social**
+
+O diagnóstico de TEA orienta ações em três secretarias já mapeadas no projeto:
+
+| secretaria / equipamento | interface com TEA |
+|--------------------------|-------------------|
+| DEP_PCD (Quézia Garcia) | cadastro, empregabilidade e políticas PCD |
+| OSC_AMAAH, OSC_APAE | atendimento especializado TEA |
+| SEC_EDUCACAO | inclusão educacional, formação de professores |
+| SEC_SAUDE (Renato Machado) | diagnóstico precoce, terapias, acompanhamento |
+| CRAS (PAIF) | suporte às famílias — 2.347 domicílios com TEA no território |
+
+> Os **2.347 domicílios com TEA** representam um universo concreto para o PAIF.
+> Cruzado com o IVS-H por núcleo (Produto 3), permitirá identificar quais núcleos
+> concentram simultaneamente alta vulnerabilidade social e alta prevalência de TEA —
+> informação que hoje nenhum sistema municipal possui.
+
+---
 7. IVS Nacional × IVS-H — Posicionamento Estratégico
 Dimensão	IVS Nacional (IPEA)	IVS-H (este projeto)
 Escala	Brasil — setores censitários	Hortolândia — loteamentos
@@ -388,6 +463,7 @@ v03	2026-03-13	Seção 3.5: confirmação empírica de que renda per capita por 
 v04	2026-03-15	Seção 0.1 adicionada: contexto territorial de Hortolândia no Arranjo Populacional de Campinas/SP (IBGE, 2016). Índice de integração 0,42 documentado com suas três implicações para o IVS-H: mobilidade estrutural da população, herança do desmembramento de 1991 e posicionamento em concentração urbana regional. Fonte: Tabela 1.1, p. 78 do estudo IBGE.
 v05	2026-03-16	Seção 1.3: adição da confirmação oficial BET/IBGE 2024 (data base 31/12/2024) — tabela com UF, Região Geográfica Intermediária (3510 — Campinas), Região Geográfica Imediata (350038 — Campinas) e código município completo (3519071). Referência mais recente disponível para o código IBGE do projeto.
 v06	2026-03-16	Seção 6.1 adicionada: dados empíricos SIDRA/Censo 2022 coletados em 16/03/2026. Subseções: 6.1.1 base domiciliar (236.641 hab., 80.802 domicílios); 6.1.2 IU_esgoto confirmada (96,4% cobertura adequada — Tab. 10105); 6.1.3 IU_lixo confirmada (99,9% coleta adequada — Tab. 10109); 6.1.4 IU_banheiro confirmada (99,96% — Tab. 10107); 6.1.5 diagnóstico completo da população quilombola: 6 pessoas, 6 domicílios urbanos dispersos, sem território delimitado, 100% alfabetizados, pendência de geolocalização por loteamento.
+v07	2026-03-16	Seção 6.2 adicionada: diagnóstico da população com TEA — Censo 2022 (Tabs. 10145, 10148, 10150, 10153, 10154). 2.806 pessoas diagnosticadas (1,2% da população); 2.347 domicílios afetados (2,9%); taxa de escolarização TEA 15–17 anos = 100% vs 84,5% geral; conexão com DEP_PCD, AMAAH, APAE, Educação e Saúde documentada; potencial de cruzamento com IVS-H por núcleo registrado.
 ---
 Documento de governança — 00_governanca/  
 Atlas Social de Hortolândia — uso interno
