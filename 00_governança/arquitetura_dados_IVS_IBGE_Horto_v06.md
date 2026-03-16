@@ -1,9 +1,9 @@
-[arquitetura_dados_IVS_IBGE_Horto_v05.md](https://github.com/user-attachments/files/26024741/arquitetura_dados_IVS_IBGE_Horto_v05.md)
+[arquitetura_dados_IVS_IBGE_Horto_v06.md](https://github.com/user-attachments/files/26032744/arquitetura_dados_IVS_IBGE_Horto_v06.md)
 *Documento de governança — 00_governanca/*  
 *Atlas Social de Hortolândia — uso interno*
 
 Arquitetura de Obtenção de Dados — IVS / IBGE / Hortolândia
-Versão: v05  
+Versão: v06  
 Data: 2026-03-16  
 Responsável: Ailton Vendramini  
 Repositório: Atlas-Social-de-Hortolândia / 00_governanca  
@@ -259,6 +259,104 @@ API IPEADATA: `http://www.ipeadata.gov.br/api/odata4/`
 Google BigQuery (Base dos Dados): `basedosdados.br_ipea_avs.municipio`
 Script pronto: `busca_ivs_hortolandia_v2.py` (disponível no projeto)
 ---
+6.1 Dados SIDRA / Censo 2022 — Variáveis de Infraestrutura Urbana e População Quilombola
+
+**Fonte:** IBGE. *Censo Demográfico 2022*. Sistema IBGE de Recuperação Automática — SIDRA. Acesso em 16/03/2026.
+
+> Esta seção registra dados empíricos coletados diretamente no SIDRA em 16/03/2026,
+> relevantes para as variáveis de Infraestrutura Urbana do IVS-H e para o diagnóstico
+> da população quilombola municipal. Os dados confirmam e refinam as premissas
+> estabelecidas nas seções anteriores.
+
+**6.1.1 Base domiciliar do município (Tabela 10089 e 10107)**
+
+| indicador | valor | fonte SIDRA |
+|-----------|-------|-------------|
+| População total residente | 236.641 | Tab. 10089 |
+| Domicílios particulares permanentes ocupados | 80.802 | Tab. 10107 |
+| Moradores em domicílios particulares | 232.196 | Tab. 10107 |
+| Domicílios urbanos | 80.561 | Tab. 10107 |
+| Domicílios rurais | 241 | Tab. 10107 |
+
+**6.1.2 Variável IU_esgoto — confirmada (Tabela 10105)**
+
+| tipo de esgotamento | domicílios | % |
+|---------------------|-----------|---|
+| Rede geral, rede pluvial ou fossa ligada à rede | 77.858 | 96,4% |
+| Outros (fossa não ligada, céu aberto, etc.) | 2.944 | 3,6% |
+
+> Cobertura de esgotamento adequado: **96,4%** — indicador IU_esgoto do IVS-H
+> diretamente extraível desta tabela. Os 2.944 domicílios sem cobertura adequada
+> são o universo prioritário para a dimensão Infraestrutura Urbana.
+
+**6.1.3 Variável IU_lixo — confirmada (Tabela 10109)**
+
+| destino do lixo | domicílios | % |
+|-----------------|-----------|---|
+| Coletado no domicílio por serviço de limpeza | 75.116 | 92,9% |
+| Depositado em caçamba de serviço de limpeza | 5.658 | 7,0% |
+| Queimado na propriedade | 10 | 0,01% |
+| Jogado em terreno baldio, encosta ou área pública | 5 | 0,01% |
+| Outro destino | 13 | 0,02% |
+
+> Cobertura de coleta adequada (domicílio + caçamba): **99,9%** — praticamente universal.
+> Indicador IU_lixo do IVS-H confirmado como não-discriminatório para Hortolândia
+> (variação intraurbana muito baixa). Coerente com IVS-IU de 2010 estável (0,354).
+
+**6.1.4 Variável IU_banheiro — confirmada (Tabela 10107)**
+
+| indicador | domicílios | % |
+|-----------|-----------|---|
+| Com banheiro de uso exclusivo | 80.773 | 99,96% |
+| Sem banheiro de uso exclusivo | 29 | 0,04% |
+
+> Cobertura praticamente universal. Confirma que IU de Hortolândia é impulsionado
+> principalmente por outras variáveis (tempo de deslocamento, renda).
+
+**6.1.5 Diagnóstico da população quilombola — Censo 2022**
+
+> **Premissa do projeto:** populações quilombolas e indígenas devem ser catalogadas
+> independentemente do tamanho. Este é requisito institucional — o município foi
+> formalmente notificado pelo IBGE sobre a existência desta população.
+
+| indicador | valor | fonte SIDRA |
+|-----------|-------|-------------|
+| Pessoas quilombolas residentes | **6** | Tab. 10089 |
+| Domicílios com pelo menos 1 quilombola | **6** | Tab. 10099 / 10107 |
+| Total de moradores nesses 6 domicílios | **14** | Tab. 10107 |
+| Localização | todos urbanos | Tab. 10089 |
+| Quilombolas em área rural | 0 | Tab. 10089 |
+| Território quilombola oficialmente delimitado | nenhum | Tab. 10105 |
+| Taxa de alfabetização quilombola (15+) | 100% | Tab. 10091 |
+
+**Perfil etário dos 6 quilombolas:**
+
+| faixa etária | pessoas |
+|--------------|---------|
+| 25–29 anos | 1 |
+| 30–34 anos | 1 |
+| 35–39 anos | 2 |
+| 40–44 anos | 1 |
+| 65–69 anos | 1 |
+
+**Estrutura domiciliar:**
+
+| indicador | valor |
+|-----------|-------|
+| Média de moradores por domicílio quilombola | 2,33 pessoas |
+| Domicílios onde responsável é quilombola | média 1,50 moradores |
+| Domicílios onde responsável não é quilombola | média 2,75 moradores |
+
+> **Interpretação territorial:** os 6 indivíduos estão dispersos em 6 domicílios
+> urbanos distintos — não formam comunidade coabitante. Não há território quilombola
+> formalmente delimitado em Hortolândia. Os quilombolas são invisíveis
+> administrativamente no CadÚnico, a menos que tenham se autodeclarado no cadastro.
+>
+> **Pendência:** identificar em qual(is) loteamento(s) esses domicílios estão
+> localizados — permitirá vincular ao modelo territorial do Atlas Social.
+> Requer cruzamento com base geográfica do Censo 2022 (setores censitários).
+
+---
 7. IVS Nacional × IVS-H — Posicionamento Estratégico
 Dimensão	IVS Nacional (IPEA)	IVS-H (este projeto)
 Escala	Brasil — setores censitários	Hortolândia — loteamentos
@@ -289,6 +387,7 @@ v02	2026-03-12	Seção 0 adicionada: escopo territorial em três escalas (Brasil
 v03	2026-03-13	Seção 3.5: confirmação empírica de que renda per capita por setor censitário não está publicada pelo IBGE — CadÚnico definido como fonte primária de RT_01. Seção 5: pastas `referencias_ipea/` e `pesos/` registradas na estrutura do pipeline; 7 arquivos filtrados confirmados. Seção 6: dados IVS IPEA 2000/2010 obtidos via Google BigQuery (basedosdados) — tabela de resultados incluída; arquivo CSV registrado. Seção 8: passos 1, 2 e 3 marcados como concluídos; passo 6 adicionado (definir pesos IVS-H).
 v04	2026-03-15	Seção 0.1 adicionada: contexto territorial de Hortolândia no Arranjo Populacional de Campinas/SP (IBGE, 2016). Índice de integração 0,42 documentado com suas três implicações para o IVS-H: mobilidade estrutural da população, herança do desmembramento de 1991 e posicionamento em concentração urbana regional. Fonte: Tabela 1.1, p. 78 do estudo IBGE.
 v05	2026-03-16	Seção 1.3: adição da confirmação oficial BET/IBGE 2024 (data base 31/12/2024) — tabela com UF, Região Geográfica Intermediária (3510 — Campinas), Região Geográfica Imediata (350038 — Campinas) e código município completo (3519071). Referência mais recente disponível para o código IBGE do projeto.
+v06	2026-03-16	Seção 6.1 adicionada: dados empíricos SIDRA/Censo 2022 coletados em 16/03/2026. Subseções: 6.1.1 base domiciliar (236.641 hab., 80.802 domicílios); 6.1.2 IU_esgoto confirmada (96,4% cobertura adequada — Tab. 10105); 6.1.3 IU_lixo confirmada (99,9% coleta adequada — Tab. 10109); 6.1.4 IU_banheiro confirmada (99,96% — Tab. 10107); 6.1.5 diagnóstico completo da população quilombola: 6 pessoas, 6 domicílios urbanos dispersos, sem território delimitado, 100% alfabetizados, pendência de geolocalização por loteamento.
 ---
 Documento de governança — 00_governanca/  
 Atlas Social de Hortolândia — uso interno
