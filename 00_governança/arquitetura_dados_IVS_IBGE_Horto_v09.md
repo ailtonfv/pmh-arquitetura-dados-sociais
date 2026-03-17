@@ -1,9 +1,9 @@
-[arquitetura_dados_IVS_IBGE_Horto_v08.md](https://github.com/user-attachments/files/26057346/arquitetura_dados_IVS_IBGE_Horto_v08.md)
+[arquitetura_dados_IVS_IBGE_Horto_v09.md](https://github.com/user-attachments/files/26057814/arquitetura_dados_IVS_IBGE_Horto_v09.md)
 *Documento de governança — 00_governanca/*
 *Atlas Social de Hortolândia — uso interno*
 
 # Arquitetura de Obtenção de Dados — IVS / IBGE / Hortolândia
-**Versão:** v08
+**Versão:** v09
 **Data:** "17/03/2026"
 **Responsável:** Ailton Vendramini
 **Repositório:** Atlas-Social-de-Hortolândia / 00_governanca
@@ -29,6 +29,22 @@ Este projeto opera em três escalas territoriais distintas, cada uma com finalid
 > A escala territorial (loteamento / núcleo / CRAS) é o diferencial
 > estratégico do IVS-H. É nela que a política pública opera —
 > e é nela que o Atlas Social de Hortolândia entrega valor.
+
+### Unidade primária de análise
+
+O IVS-H adota a seguinte hierarquia de granularidade territorial:
+
+| prioridade | unidade | quando usar |
+|------------|---------|-------------|
+| 1 (primária) | **loteamento** | quando os dados permitem desagregação por loteamento |
+| 2 (fallback) | setor censitário | quando o dado vem do IBGE e não há correspondência direta com loteamento |
+| 3 (fallback) | território de CRAS | para análise de cobertura de serviços socioassistenciais |
+
+> O loteamento é a unidade oficial do modelo porque é o menor território
+> com identidade administrativa reconhecida pela PMH e pelo CadÚnico.
+> Setores censitários são unidades IBGE — podem cruzar loteamentos.
+> A correspondência entre setores censitários e loteamentos será resolvida
+> na etapa de geolocalização (Produto 3).
 
 ---
 
@@ -110,6 +126,24 @@ codigo_municipio = 3519071
 | Região Geográfica Intermediária | 3510 — Campinas |
 | Região Geográfica Imediata | 350038 — Campinas |
 | Código Município Completo | **3519071** — Hortolândia |
+
+---
+
+## 1.4 Função do IVS-H
+
+O IVS-H é um índice composto destinado a:
+
+- **Identificar territórios prioritários** para intervenção pública — apontando onde a
+  vulnerabilidade é mais intensa e onde os recursos devem ser concentrados
+- **Monitorar a evolução da vulnerabilidade social ao longo do tempo** — produzindo
+  séries históricas comparáveis entre ciclos anuais e entre anos censitários
+- **Avaliar o impacto de políticas públicas municipais** — mensurando se as intervenções
+  de Assistência Social, Saúde, Educação e Desenvolvimento Econômico reduzem efetivamente
+  a vulnerabilidade nos territórios onde atuam
+
+> O IVS-H não é apenas diagnóstico — é instrumento de gestão.
+> Ele transforma dados dispersos em secretarias num único indicador territorial
+> que permite ao prefeito e às secretarias convergirem em torno da mesma realidade.
 
 ---
 
@@ -196,6 +230,38 @@ pesos/
   ├─ pesos_IVS_oficial/
   └─ pesos_IVS_H/
 ```
+
+---
+
+## 5.1 Fórmula do IVS-H
+
+```
+IVS_H = w1 * IU + w2 * CH + w3 * RT
+```
+
+Onde:
+
+| símbolo | significado | peso IPEA (referência) | peso IVS-H (hipótese local) |
+|---------|-------------|------------------------|------------------------------|
+| IU | Infraestrutura Urbana | 33% | ~15-20% |
+| CH | Capital Humano | 33% | ~40-45% |
+| RT | Renda e Trabalho | 33% | ~35-40% |
+| w1, w2, w3 | pesos das dimensões | — | definidos em `pesos/pesos_IVS_H/` |
+
+> Os pesos do IVS-H são calibrados à realidade local de Hortolândia.
+> A justificativa empírica para cada peso está em `ivs_vs_ivsh_comparativo_v04.md`.
+> Os pesos do IPEA (1/3 cada) são preservados na pasta `pesos/pesos_IVS_oficial/`
+> como referência para garantir comparabilidade nacional.
+
+**Cada dimensão é calculada como média ponderada das variáveis que a compõem:**
+
+```
+IU = média ponderada (IU_agua, IU_esgoto, IU_lixo, IU_mobilidade)
+CH = média ponderada (CH_analfabetismo, CH_criancas, CH_gravidez, CH_maes_chefes, ...)
+RT = média ponderada (RT_renda_pc, RT_ocupacao, RT_informalidade, RT_idosos, RT_mobilidade_pendular)
+```
+
+> Especificação completa das variáveis: `dim_variavel_IVS_v01r4.md` (a produzir).
 
 ---
 
@@ -291,7 +357,7 @@ Dados obtidos em "13/03/2026" via Google BigQuery:
 |-------|------------|----------------------|
 | Quilombola | 6 pessoas | Invisível no CadÚnico, sem território |
 | Indígena | **255 pessoas** | Invisível no CadÚnico, sem terra demarcada |
-| TEA - Transtorno do Expectro Altista | 2.806 pessoas | Diagnóstico médico — CadÚnico parcial |
+| TEA | 2.806 pessoas | Diagnóstico médico — CadÚnico parcial |
 
 ### 6.1.7 Aglomerados subnormais — IU_esgoto discrimina no território
 
@@ -432,6 +498,7 @@ pode ser comprovado.
 | v06 | "16/03/2026" | Seção 6.1: dados SIDRA Censo 2022 — base domiciliar, IU_esgoto, IU_lixo, IU_banheiro, quilombola |
 | v07 | "16/03/2026" | Seção 6.2: diagnóstico TEA — 2.806 pessoas, 2.347 domicílios, escolarização 100% (15-17 anos) |
 | v08 | "17/03/2026" | Seção 6.1.6: população indígena — 255 pessoas (vs 6 quilombolas); 10 em aglomerados; Camada 3 atualizada. Seção 6.1.7 (nova): aglomerados subnormais — IU_esgoto discrimina no território (29% cobertura vs 97,6% municipal); decisão de manter variável com nota de poder discriminatório territorial. Seção 8 (nova): Decisão Arquitetural — Dimensão Temporal das Tabelas Fato; 5 campos obrigatórios nas tabelas fato (data_referencia, ano_referencia, fonte_calculo, tipo_ivs, versao_calculo); nota metodológica sobre microdados Censo 2022 registrada formalmente. Seção 8 anterior renomeada para Seção 9; passo 8 adicionado. |
+| v09 | "17/03/2026" | Seção 1.4 (nova): Função do IVS-H — identificar territórios prioritários, monitorar evolução, avaliar impacto de políticas públicas. Seção 5.1 (nova): fórmula formal IVS_H = w1*IU + w2*CH + w3*RT com tabela de pesos e referência a dim_variavel_IVS_v01r4.md. Seção 0: unidade primária de análise declarada — loteamento (primária), setor censitário (fallback 1), território CRAS (fallback 2). Seção 3.3.1 (nova): mobilidade pendular formalizada como variável RT (RT_mobilidade_pendular_saida e RT_mobilidade_pendular_longa) com valores disponíveis. Seção 6.2: posicionamento TEA reforçado — indicador estratégico de demanda por políticas especializadas; diferencial político do projeto explicitado formalmente. |
 
 ---
 
