@@ -1,7 +1,7 @@
-[dim_dinamica_metropolitana_v02.md](https://github.com/user-attachments/files/26024469/dim_dinamica_metropolitana_v02.md)
+[dim_dinamica_metropolitana_v03.md](https://github.com/user-attachments/files/26057021/dim_dinamica_metropolitana_v03.md)
 # DIM_DINAMICA_METROPOLITANA — Dinâmica Metropolitana do Trabalho
-**Versão:** v02  
-**Data:** 2026-03-16  
+**Versão:** v03  
+**Data:** "17/03/2026"  
 **Responsável:** Ailton Vendramini  
 **Repositório:** Atlas-Social-de-Hortolândia / 01_modelagem_conceitual
 
@@ -10,7 +10,7 @@
 > econômica regional de Hortolândia.
 >
 > **Não contém:**
-> - Cálculo do IVS-H → `dim_variavel_IVS_v01r3.md`
+> - Cálculo do IVS-H → `dim_variavel_IVS_v01r4.md`
 > - Cobertura de serviços por núcleo → `REL_PROGRAMA_NUCLEO` (a criar)
 > - Vínculos empregatícios individuais → `FATO_INSERCAO_PRODUTIVA` (a criar)
 
@@ -59,8 +59,8 @@ O saldo pendular sozinho não distingue situações economicamente opostas.
 
 | cidade | saídas | entradas | saldo | tipo real |
 |--------|--------|----------|-------|-----------|
-| A | 60 mil | 10 mil | −50 mil | Dormitório |
-| B | 60 mil | 50 mil | −10 mil | Integrado |
+| A | 60 mil | 10 mil | -50 mil | Dormitório |
+| B | 60 mil | 50 mil | -10 mil | Integrado |
 
 O saldo é negativo nas duas — mas a estrutura econômica é totalmente diferente.
 A taxa de entrada é essencial para classificar corretamente o município.
@@ -128,7 +128,7 @@ tipo_municipio    derivado dos indicadores acima
 
 ---
 
-## 4. Dado Já Disponível no Projeto
+## 4. Dados Disponíveis no Projeto
 
 | indicador | valor | ano | fonte |
 |-----------|-------|-----|-------|
@@ -136,24 +136,16 @@ tipo_municipio    derivado dos indicadores acima
 | indice_integracao | 0,42 | 2010 | IBGE — Arranjos Populacionais 2016, Tabela 1.1, p. 78 |
 | nome_arranjo | Campinas/SP | — | IBGE |
 | municipio_desmembrado_apos_1988 | Sim (Sumaré, 1991) | — | IBGE |
+| proporcao_ate_30min | 59,8% (56.072 trabalhadores) | 2022 | IBGE — Censo Demográfico 2022, SIDRA Tabela 10330 |
+| proporcao_30_60min | 27,1% (25.419 trabalhadores) | 2022 | IBGE — Censo Demográfico 2022, SIDRA Tabela 10330 |
+| proporcao_mais_1hora | 12,7% (11.909 trabalhadores) | 2022 | IBGE — Censo Demográfico 2022, SIDRA Tabela 10330 |
+| total_trabalhadores_deslocamento | 93.791 | 2022 | IBGE — Censo Demográfico 2022, SIDRA Tabela 10330 |
 
-> Dado registrado em `arquitetura_dados_IVS_IBGE_Horto_v04.md`, Seção 0.1.
-
-**Posição territorial oficial — BET/IBGE 2024:**
-
-Fonte: IBGE. *Banco de Estruturas Territoriais (BET) — Relatório de Divisão Territorial Brasileira*. Data base: 31/12/2024.
-
-| campo | valor |
-|-------|-------|
-| UF | 35 — São Paulo |
-| Região Geográfica Intermediária | 3510 — Campinas |
-| Região Geográfica Imediata | 350038 — Campinas |
-| Código Município Completo | 3519071 — Hortolândia |
-
-> A Região Geográfica Intermediária de Campinas (3510 — metodologia IBGE 2017)
-> é a referência territorial oficial mais atual para o arranjo regional
-> ao qual Hortolândia pertence. Equivale funcionalmente ao Arranjo Populacional
-> de Campinas documentado na Seção 1 deste arquivo.
+> **Interpretação:** 40,2% dos trabalhadores de Hortolândia levam mais de 30 minutos
+> para chegar ao trabalho. Esse dado, combinado com o índice de integração 0,42,
+> caracteriza Hortolândia como município de **integração regional elevada** —
+> com pressão estrutural sobre famílias vulneráveis que dependem de transporte
+> intermunicipal para acessar emprego.
 
 **Posição territorial oficial — BET/IBGE 2024:**
 
@@ -177,17 +169,45 @@ Fonte: IBGE. *Banco de Estruturas Territoriais (BET) — Relatório de Divisão 
 
 | indicador | fonte primária | disponibilidade |
 |-----------|---------------|-----------------|
-| saidas_trabalho, indice_integracao | IBGE — Arranjos Populacionais (2016) | ✅ 2010 disponível |
-| entradas_trabalho | Censo Demográfico — matriz origem-destino | ⏳ Requer extração |
-| taxa_saida_pendular | Calculado a partir do Censo | ⏳ Requer cálculo |
-| taxa_entrada_pendular | Calculado a partir do Censo / RAIS municipal | ⏳ Requer cálculo |
-| saldo_pendular | Calculado | ⏳ Requer cálculo |
-| tempo_medio_deslocamento_min | Censo Demográfico 2022 | ⏳ A verificar |
-| tipo_municipio | Derivado dos indicadores acima | ⏳ A calcular |
+| saidas_trabalho, indice_integracao | IBGE — Arranjos Populacionais (2016) | disponível — 2010 |
+| tempo de deslocamento por faixa | IBGE — Censo Demográfico 2022, SIDRA 10330 | disponível — 2022 |
+| entradas_trabalho | Censo Demográfico — matriz origem-destino (microdados) | indisponível — ver Nota Metodológica |
+| taxa_saida_pendular | Calculado a partir do Censo | pendente — requer cálculo |
+| taxa_entrada_pendular | Calculado a partir do Censo / RAIS municipal | pendente — requer cálculo |
+| saldo_pendular | Calculado | pendente — requer cálculo |
+| municipios_destino_trabalhadores | Microdados da amostra — Censo 2022 | indisponível — ver Nota Metodológica |
+| tipo_municipio | Derivado dos indicadores acima | pendente — após entradas disponíveis |
 
 ---
 
-## 6. Uso Analítico — Cruzamento com IVS-H por Núcleo
+## 6. Nota Metodológica — Limitação de Dados de Fluxo Origem-Destino
+
+> Consulta formal ao IBGE realizada em "17/03/2026" confirmou que os
+> **microdados da amostra do Censo Demográfico 2022** não têm previsão
+> de liberação.
+
+A indisponibilidade dos microdados da amostra do Censo 2022 impede a construção
+de matrizes origem-destino detalhadas. O modelo IVS-H adota proxies validados
+de mobilidade (tempo de deslocamento e proporção de trabalhadores fora do
+município), mantendo robustez analítica e aderência à literatura.
+
+**Implicações para o modelo:**
+
+- O indicador `entradas_trabalho` permanece pendente até liberação dos microdados
+  ou uso alternativo de RAIS (município de vínculo empregatício)
+- A classificação `tipo_municipio` será estimada com base nos dados disponíveis
+  (saídas 2010 + proxies de tempo de deslocamento 2022), com nota de limitação
+- O saldo pendular completo (entradas − saídas) não pode ser calculado no ciclo atual
+
+**Alternativa disponível sem microdados:**
+
+A RAIS/CAGED permite identificar vínculos empregatícios por município de trabalho,
+oferecendo proxy para `entradas_trabalho` (trabalhadores com vínculo em Hortolândia
+residentes em outros municípios). Essa extração está no roadmap do Produto 2.
+
+---
+
+## 7. Uso Analítico — Cruzamento com IVS-H por Núcleo
 
 Quando o IVS-H por núcleo estiver calculado (Produto 3), o cruzamento
 com a Dinâmica Metropolitana revela padrões de vulnerabilidade estrutural:
@@ -206,7 +226,7 @@ com a Dinâmica Metropolitana revela padrões de vulnerabilidade estrutural:
 
 ---
 
-## 7. Relação com Outros Componentes do Modelo
+## 8. Relação com Outros Componentes do Modelo
 
 ```
 DIM_DINAMICA_METROPOLITANA
@@ -220,7 +240,7 @@ DIM_DINAMICA_METROPOLITANA
 
 ---
 
-## 8. Posição no Roadmap
+## 9. Posição no Roadmap
 
 > Esta dimensão **não é requisito para o MVP (Produto 1)**.
 > O dado de 2010 já disponível pode ser carregado como registro histórico a qualquer momento.
@@ -228,23 +248,25 @@ DIM_DINAMICA_METROPOLITANA
 
 | etapa | ação | fonte | status |
 |-------|------|-------|--------|
-| 1 | Registrar dados já disponíveis (saídas e índice 2010) | IBGE Arranjos Populacionais | ✅ Dado disponível |
-| 2 | Extrair matriz OD do Censo 2010 para calcular entradas | IBGE Censo 2010 | ⏳ A fazer |
-| 3 | Verificar disponibilidade de deslocamento no Censo 2022 | IBGE Censo 2022 | ⏳ A verificar |
-| 4 | Calcular indicadores derivados e classificar tipo_municipio | — | ⏳ Após etapa 2 |
-| 5 | Cruzar com IVS-H por núcleo | IVS-H + DIM_NUCLEO | ⏳ Produto 3 |
+| 1 | Registrar dados já disponíveis (saídas e índice 2010) | IBGE Arranjos Populacionais | dado disponível |
+| 2 | Registrar dados de tempo de deslocamento 2022 | IBGE Censo 2022, SIDRA 10330 | concluído — "17/03/2026" |
+| 3 | Confirmar disponibilidade dos microdados do Censo 2022 | IBGE | concluído — indisponível, sem previsão |
+| 4 | Explorar RAIS como proxy para entradas_trabalho | MTE/RAIS | roadmap Produto 2 |
+| 5 | Calcular indicadores derivados e classificar tipo_municipio | — | pendente — após etapa 4 |
+| 6 | Cruzar com IVS-H por núcleo | IVS-H + DIM_NUCLEO | Produto 3 |
 
 ---
 
 ## Pendências
 
-| # | pendência | prioridade |
-|---|-----------|------------|
-| P01 | Extrair matriz origem-destino do Censo 2010 para obter entradas_trabalho | Média |
-| P02 | Verificar se Censo 2022 publica quesito de deslocamento por município | Média |
-| P03 | Calcular taxa_saida_pendular com dados populacionais do Censo 2010 | Média |
-| P04 | Classificar tipo_municipio após P01 e P03 concluídos | Baixa |
-| P05 | Cruzar com IVS-H por núcleo quando Produto 3 estiver disponível | Baixa |
+| # | pendência | prioridade | status |
+|---|-----------|------------|--------|
+| P01 | Extrair matriz origem-destino do Censo 2010 para obter entradas_trabalho | Média | aberta |
+| P02 | Microdados Censo 2022 — matriz município de destino | Média | **encerrada** — IBGE confirmou indisponibilidade em "17/03/2026" |
+| P03 | Calcular taxa_saida_pendular com dados populacionais | Média | parcialmente atendida — proxy via SIDRA 10330 |
+| P04 | Classificar tipo_municipio | Baixa | pendente após P01 |
+| P05 | Cruzar com IVS-H por núcleo quando Produto 3 estiver disponível | Baixa | aberta |
+| P06 | Avaliar RAIS como alternativa para entradas_trabalho | Média | roadmap Produto 2 |
 
 ---
 
@@ -252,8 +274,9 @@ DIM_DINAMICA_METROPOLITANA
 
 | versão | data | alterações |
 |--------|------|------------|
-| v01 | 2026-03-15 | Criação — bloco Dinâmica Metropolitana do Trabalho; 4 indicadores pendulares; tipologia de município (4 tipos); dado IBGE 2010 já disponível registrado; cruzamento com IVS-H por núcleo definido; posição no roadmap (Produto 3) |
-| v02 | 2026-03-16 | Seção 4: adição do BET/IBGE 2024 (data base 31/12/2024) confirmando posição territorial oficial de Hortolândia — RG Intermediária Campinas (3510), RG Imediata Campinas (350038), código 3519071. Cabeçalho corrigido: pasta `02_modelagem_lógica` → `01_modelagem_conceitual` (conteúdo é conceitual — sem DDL/SQL). |
+| v01 | "15/03/2026" | Criação — bloco Dinâmica Metropolitana do Trabalho; 4 indicadores pendulares; tipologia de município; dado IBGE 2010 registrado; cruzamento com IVS-H por núcleo definido; posição no roadmap (Produto 3) |
+| v02 | "16/03/2026" | Seção 4: BET/IBGE 2024 (data base 31/12/2024) confirmando posição territorial oficial. Cabeçalho corrigido: pasta `02_modelagem_lógica` → `01_modelagem_conceitual` |
+| v03 | "17/03/2026" | Seção 4: dados de tempo de deslocamento por faixa (SIDRA 10330, Censo 2022) — 93.791 trabalhadores, 59,8% ate 30min, 27,1% 30-60min, 12,7% mais de 1h. Seção 5: status atualizado. Seção 6 (nova): Nota Metodológica — limitação de dados de fluxo origem-destino; consulta formal ao IBGE em "17/03/2026" confirmou indisponibilidade dos microdados sem previsão de liberação; texto de proxy adotado registrado; alternativa RAIS documentada. Pendência P02 encerrada; P06 adicionada. Roadmap atualizado. |
 
 ---
 
