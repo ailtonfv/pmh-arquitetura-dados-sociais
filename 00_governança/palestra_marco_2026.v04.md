@@ -1,10 +1,10 @@
-[palestra_marco_2026_v04.md](https://github.com/user-attachments/files/26052926/palestra_marco_2026_v04.md)
+[palestra_marco_2026_v05.md](https://github.com/user-attachments/files/26085145/palestra_marco_2026_v05.md)
 # Palestra — Março de 2026
 ## Vulnerabilidade Social e Integração de Políticas Públicas em Hortolândia
 
 **Arquivo:** `00_governanca/palestra_marco_2026.md`  
-**Versão:** v04  
-**Data:** "17/03/2026"  
+**Versão:** v05  
+**Data:** "18/03/2026"  
 **Responsável:** Ailton Vendramini  
 **Repositório:** Atlas-Social-de-Hortolândia
 
@@ -97,6 +97,51 @@ bullet — não há texto prescrito.*
   O Atlas Social não esperou o orçamento. Ele provou que é possível
   começar agora — com método, sem promessa.
 
+- **Ponto focal na Secretaria de Inclusão**
+  O Atlas Social de Hortolândia é desenvolvido na Secretaria de
+  Planejamento Estratégico, mas sua matéria-prima central — as famílias
+  em vulnerabilidade social — pertence ao cotidiano da Secretaria de
+  Inclusão e Desenvolvimento Social. Para que o projeto avance com
+  consistência e representatividade institucional, é necessário que a
+  Secretaria de Inclusão designe formalmente um ponto focal: um
+  profissional com autonomia para validar dados, contribuir com a
+  leitura territorial e participar das decisões metodológicas que
+  afetam a política socioassistencial. Sem esse vínculo formal, o
+  projeto corre o risco de produzir análises tecnicamente corretas
+  mas institucionalmente desconectadas da realidade operacional.
+  Solicita-se ao prefeito que institua esse arranjo por ato formal.
+
+- **Convênios institucionais para acesso a dados**
+  O poder analítico do Atlas Social depende diretamente da qualidade
+  e abrangência das bases de dados disponíveis. O modelo atual opera
+  com o que já existe no município. Para avançar às próximas fases —
+  IVS-H Expandido e IVS-H Consolidado Territorial — é necessário que
+  a Prefeitura de Hortolândia celebre convênios formais com os
+  seguintes órgãos:
+
+  *Federais:*
+  | Órgão | Dado almejado |
+  | --- | --- |
+  | MTE / SINE | CAGED — admissões e desligamentos por município de residência |
+  | INSS / DATAPREV | CNIS — vínculos previdenciários; BPC — beneficiários por território |
+  | IBGE | Microdados do Censo 2022; malha de setores censitários georreferenciada |
+  | INEP / MEC | Censo Escolar — matrículas, evasão e distorção idade-série |
+  | MS / RNDS | e-SUS — indicadores de saúde pública por território |
+
+  *Estaduais (SP):*
+  | Órgão | Dado almejado |
+  | --- | --- |
+  | SEADE | Indicadores socioeconômicos municipais e projeções populacionais |
+  | SEDS-SP | SUAS estadual — dados de CRAS e CREAS regionais |
+  | Secretaria de Educação SP | Matrículas e evasão da rede estadual no município |
+  | SES-SP | Indicadores de saúde pública e mortalidade por município |
+
+  Esses convênios não são pré-requisito para o MVP — o primeiro produto
+  já está em produção sem eles. Mas são condição para que o Atlas Social
+  evolua de diagnóstico parcial para inteligência territorial integrada.
+  Solicita-se que a assessoria jurídica da Prefeitura inicie os
+  procedimentos formais de conveniamento.
+
 ---
 
 ### Bloco 1 — O Problema (Slides 1–5)
@@ -118,7 +163,7 @@ A resposta exige três elementos:
 Os dados existem. Mas estão espalhados:
 
 | Secretaria | Dados que possui |
-|---|---|
+| --- | --- |
 | Assistência Social | CadÚnico, atendimentos CRAS/CREAS |
 | Saúde | Mortalidade, gravidez adolescente, e-SUS |
 | Educação | Matrículas, evasão escolar |
@@ -142,7 +187,7 @@ Resultado: **diagnóstico fragmentado da realidade social**.
 **Slide 4 — A vulnerabilidade social não pertence a uma secretaria**
 
 | Problema social | Secretarias envolvidas |
-|---|---|
+| --- | --- |
 | Evasão escolar | Educação + Assistência Social |
 | Gravidez adolescente | Saúde + Educação |
 | Desemprego juvenil | Desenvolvimento + Assistência |
@@ -179,7 +224,7 @@ compartilhada.
 Desenvolvido pelo IPEA. Mede vulnerabilidade a partir de três dimensões:
 
 | Dimensão | Exemplos de variáveis |
-|---|---|
+| --- | --- |
 | Infraestrutura Urbana | Saneamento, coleta de lixo, mobilidade |
 | Capital Humano | Educação, saúde, infância, maternidade |
 | Renda e Trabalho | Emprego, renda, informalidade |
@@ -205,7 +250,7 @@ Todos analisam a mesma **vulnerabilidade territorial**.
 Os dados de saneamento básico de Hortolândia são excepcionais:
 
 | Indicador | Valor (2020) | Fonte |
-|---|---|---|
+| --- | --- | --- |
 | Cobertura de abastecimento de água | **100%** | SNIS / SABESP |
 | Coleta de esgoto | **96,4%** | SNIS / SABESP |
 | Esgoto tratado por água consumida | **89,7%** | SNIS / SABESP |
@@ -238,10 +283,10 @@ Utilizar o IVS como **referência nacional**, mas construir também um
 Mesmas variáveis. Mesmas dimensões. **Pesos calibrados à realidade local.**
 
 | Dimensão | Peso IPEA | Peso IVS-H (hipótese) |
-|---|---|---|
-| Infraestrutura Urbana | 33% | ~15–20% |
-| Capital Humano | 33% | ~40–45% |
-| Renda e Trabalho | 33% | ~35–40% |
+| --- | --- | --- |
+| Infraestrutura Urbana | 33% | ~15-20% |
+| Capital Humano | 33% | ~40-45% |
+| Renda e Trabalho | 33% | ~35-40% |
 
 ---
 
@@ -254,7 +299,7 @@ Mesmas variáveis. Mesmas dimensões. **Pesos calibrados à realidade local.**
 #### O que e igual
 
 | Elemento | IVS-IPEA | IVS-H |
-|---|---|---|
+| --- | --- | --- |
 | Numero de variaveis | 16 | 16 |
 | Dimensoes | 3 (IU / CH / RT) | 3 (IU / CH / RT) |
 | Base cientifica | IPEA, 2015 | IPEA, 2015 |
@@ -265,7 +310,7 @@ Mesmas variáveis. Mesmas dimensões. **Pesos calibrados à realidade local.**
 #### O que muda
 
 | Elemento | IVS-IPEA | IVS-H |
-|---|---|---|
+| --- | --- | --- |
 | Peso por dimensao | 33% cada | Calibrado a realidade local |
 | Peso por variavel | 6,25% cada (uniforme) | Ajustado por poder discriminatorio local |
 | Territorio de referencia | Nacional / municipal agregado | Loteamento -> RP -> Nucleo |
@@ -277,7 +322,7 @@ Mesmas variáveis. Mesmas dimensões. **Pesos calibrados à realidade local.**
 #### Calibracao hipotetica — por que esses pesos?
 
 | Dimensao | Peso IPEA | Peso IVS-H | Justificativa |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Infraestrutura Urbana | 33% | ~15-20% | Agua: 100% de cobertura; esgoto coletado: 96,4% (SNIS 2020 / SABESP). Variancia entre territorios proxima de zero — baixo poder discriminatorio. Peso revisavel se obras futuras alterarem a cobertura. |
 | Capital Humano | 33% | ~40-45% | Reproducao intergeracional da pobreza e o desafio central — maes chefes, analfabetismo, criancas fora da escola |
 | Renda e Trabalho | 33% | ~35-40% | Tensao entre polo de emprego formal e 72.424 no CadUnico — desemprego e informalidade sao determinantes locais |
@@ -289,7 +334,7 @@ Mesmas variáveis. Mesmas dimensões. **Pesos calibrados à realidade local.**
 Das 16 variaveis, **5 ja estao disponiveis no CadUnico dez/2025**:
 
 | Codigo | Variavel | Dimensao |
-|---|---|---|
+| --- | --- | --- |
 | CH_05 | % maes chefes de familia, sem fund. completo e filho < 15 anos | Capital Humano |
 | CH_06 | Taxa de analfabetismo — 15 anos ou mais | Capital Humano |
 | CH_07 | % criancas em domicilios sem nenhum morador com fund. completo | Capital Humano |
@@ -351,7 +396,7 @@ Uma etapa fundamental e relacionar programas publicos as dimensoes
 da vulnerabilidade:
 
 | Dimensao | Exemplos de programas em Hortolandia |
-|---|---|
+| --- | --- |
 | Capital Humano | Programa Cuidar, Bolsa Creche, SCFV, Enfrentamento Trabalho Infantil |
 | Renda e Trabalho | PAT, Banco do Povo, Bolsa Familia, BPC, DECOLA |
 | Infraestrutura | Agora a Casa e Sua, PHLIS, MCMV |
@@ -455,7 +500,7 @@ Depois: todas convergem para reduzir o mesmo indice.
 Resultado: cidade mais justa — e **comprovadamente** mais justa.
 
 **Nota institucional:** Em marco de 2025, a Prefeitura de Hortolandia
-assumiu publicamente, em documento bilингue de diagnostico PPA 2026-2029
+assumiu publicamente, em documento bilIngue de diagnostico PPA 2026-2029
 destinado a investidores, o compromisso de implantar *"Data Lakehouse
 Municipal e uso de IA na gestao publica"*. O Atlas Social nao esperou
 o orcamento nem a infraestrutura. Ele entregou o primeiro produto desse
@@ -494,7 +539,7 @@ Quando a vulnerabilidade passa a orientar o planejamento:
 ## Cross-references
 
 | Documento | Localizacao no repositorio |
-|---|---|
+| --- | --- |
 | DIM_VARIAVEL_IVS v01r4 | `01_modelagem_conceitual/dim_variavel_IVS_v01r4.md` |
 | DIM_DINAMICA_METROPOLITANA v02 | `01_modelagem_conceitual/dim_dinamica_metropolitana_v02.md` |
 | arquitetura_dados_IVS_IBGE_Horto_v07 | `00_governanca/arquitetura_dados_IVS_IBGE_Horto_v07.md` |
@@ -507,11 +552,12 @@ Quando a vulnerabilidade passa a orientar o planejamento:
 ## Log de Alteracoes
 
 | Versao | Data | Alteracoes |
-|---|---|---|
+| --- | --- | --- |
 | v01 | "10/03/2026" | Criacao — estrutura de 21 slides a partir do Registro de Ideias de 08/03/2026 |
 | v02 | "10/03/2026" | Adicao do Slide 10a — lamina comparativa IVS-IPEA x IVS-H |
 | v03 | "10/03/2026" | Slide 9: dados reais SNIS/SABESP; Slide 10a: justificativa IU com fonte empirica |
-| v04 | "17/03/2026" | Novo Slide 0 (Condicoes de Contorno): GitHub, IVS, loteamentos/regioes/nucleos, mobilidade pendular, o que o projeto e e nao e. Slide 20: nota institucional com referencia ao compromisso PPA bilíngue marco/2025. Cross-references atualizados. |
+| v04 | "17/03/2026" | Novo Slide 0 (Condicoes de Contorno): GitHub, IVS, loteamentos/regioes/nucleos, mobilidade pendular, o que o projeto e e nao e. Slide 20: nota institucional com referencia ao compromisso PPA bilIngue marco/2025. Cross-references atualizados. |
+| v05 | "18/03/2026" | Slide 0: dois novos bullets — (1) Ponto focal na Secretaria de Inclusao: solicitacao formal ao prefeito de nomeacao de responsavel para interface com o projeto; (2) Convenios institucionais: solicitacao de convenios com orgaos federais (MTE/CAGED, INSS/DATAPREV, IBGE, INEP/MEC, MS/RNDS) e estaduais SP (SEADE, SEDS-SP, Sec. Educacao SP, SES-SP). |
 
 ---
 
