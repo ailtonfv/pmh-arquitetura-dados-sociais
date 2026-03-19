@@ -1,790 +1,653 @@
-[palestra_marco_2026_v10.md](https://github.com/user-attachments/files/26114016/palestra_marco_2026_v10.md)
-# Palestra — Março de 2026
-## Vulnerabilidade Social e Integração de Políticas Públicas em Hortolândia
+[palestra_marco_2026_v07.docx](https://github.com/user-attachments/files/26122565/palestra_marco_2026_v07.docx)
+**ATLAS SOCIAL DE HORTOLÂNDIA**
 
-**Arquivo:** `00_governanca/palestra_marco_2026.md`  
-**Versão:** v10  
-**Data:** "19/03/2026"  
-**Responsável:** Ailton Vendramini  
-**Repositório:** Atlas-Social-de-Hortolândia
+Vulnerabilidade Social e Integração de Políticas Públicas
 
----
+*Palestra --- Março de 2026*
 
-## Contexto e Finalidade
+Versão v06 --- Pré-visualização para revisão
 
-Este documento registra a estrutura narrativa e o argumento institucional
-da palestra proposta para março de 2026, destinada a apresentar o projeto
-Atlas Social de Hortolândia ao prefeito e às secretarias municipais.
+Ailton Vendramini \| Secretaria de Planejamento Estratégico \|
+Hortolândia-SP
 
-A palestra tem dois objetivos simultâneos:
+**Argumento Central**
 
-1. **Técnico** — apresentar o IVS como metodologia de diagnóstico territorial
-2. **Institucional** — propor o IVS-H como instrumento de coordenação
-   intersecretarial e eixo de planejamento municipal
+> *\"Nenhuma secretaria sozinha consegue reduzir a vulnerabilidade
+> social. O IVS municipal não é apenas um indicador --- é uma ferramenta
+> de integração do governo.\"*
 
-> **Argumento central:**
-> Nenhuma secretaria sozinha consegue reduzir a vulnerabilidade social.
-> O IVS municipal não é apenas um indicador — é uma ferramenta de
-> integração do governo.
+**Frase de abertura:**
 
----
+> *\"Como uma cidade de 236 mil habitantes identifica, com precisão,
+> onde está a vulnerabilidade social?\"*
 
-## Frase de Abertura (gancho)
+*A resposta exige três elementos: dados, integração institucional e
+visão territorial.*
 
-> *"Como uma cidade de 236 mil habitantes identifica, com precisão,
-> onde está a vulnerabilidade social?"*
+**Slide 0 --- Condições de Contorno**
 
-A resposta exige três elementos: **dados**, **integração institucional**
-e **visão territorial**.
+*Este slide abre a palestra antes de qualquer argumento técnico. Seu
+papel é calibrar expectativas, apresentar vocabulário e situar o público
+no projeto.*
 
----
+> **O que é o GitHub e por que ele importa aqui**
+>
+> O projeto vive em um repositório público, versionado e auditável. Cada
+> decisão técnica e cada arquivo têm data, autor e histórico. GitHub é o
+> caderno de campo do projeto, aberto ao mundo.
+>
+> **O que é o IVS --- e o que ele não é**
+>
+> O IVS não é um ranking de pobreza. É uma medida multidimensional que
+> identifica onde as condições de vida mais limitam as escolhas das
+> pessoas. O IVS-H é a versão calibrada para Hortolândia.
+>
+> **O que são loteamentos, regiões de planejamento e núcleos**
+>
+> Hortolândia tem 141 loteamentos, agrupados em RPs, organizados em
+> núcleos (Amanda, Rosolém, Novo Ângulo, Centro, Vila Real).
+> Vulnerabilidade é sobre onde, não apenas quantos.
+>
+> **A população de Hortolândia e o movimento pendular**
+>
+> 236.641 habitantes (Censo 2022). 58.472 pessoas fazem deslocamento
+> intermunicipal diário. Integração com Campinas: 0,42. 40% dos
+> trabalhadores levam mais de 30 minutos ao trabalho.
+>
+> **O que este projeto é --- e o que não é**
+>
+> Não é TI operacional. A TI da prefeitura automatiza processos --- e
+> faz isso bem. O Atlas Social atua em outra camada: inteligência
+> territorial para decisão estratégica. Esse nicho ainda não existe
+> formalmente no município.
+>
+> **Ponto focal na Secretaria de Inclusão**
+>
+> Solicita-se ao prefeito que designe formalmente um ponto focal na
+> Secretaria de Inclusão para interface com o projeto, com autonomia
+> para validar dados e participar das decisões metodológicas.
+>
+> **Convênios institucionais para acesso a dados**
+>
+> Federais: MTE/CAGED, INSS/DATAPREV, IBGE, INEP/MEC, MS/RNDS. Estaduais
+> SP: SEADE, SEDS-SP, Secretaria de Educação SP, SES-SP. Solicita-se que
+> a assessoria jurídica inicie os procedimentos formais.
 
-## Estrutura da Palestra — 32 Slides + 1 Backup
+**Bloco 1 --- O Problema (Slides 1--5)**
 
-*(31 slides principais + 1 slide de suporte backup — não entra no fluxo principal)*
+**Slide 1 --- A pergunta central**
 
----
-
-### Slide 0 — Linguagem e Contexto
-
-*Calibrar vocabulário antes de qualquer argumento técnico.*
-
-- **O que é o GitHub e por que ele importa aqui**
-  Repositório público, versionado e auditável. Cada arquivo tem data,
-  autor e histórico. GitHub é o caderno de campo do projeto, aberto
-  ao mundo.
-
-- **O que é o IVS — e o que ele não é**
-  Não é ranking de pobreza. É medida multidimensional desenvolvida pelo
-  IPEA. O IVS-H é a versão calibrada para Hortolândia — mesmas
-  dimensões, pesos ajustados à realidade local.
-
-- **O que este projeto é — e o que não é**
-  Não é TI operacional. A TI da prefeitura automatiza processos — e
-  faz isso bem. O Atlas Social atua em outra camada: inteligência
-  territorial para decisão estratégica. Esse nicho ainda não existe
-  formalmente no município. Este é o primeiro produto concreto.
-
----
-
-### Slide 0A — O Território de Hortolândia
-
-- **O que são loteamentos, regiões de planejamento e núcleos**
-  141 loteamentos → Regiões de Planejamento → Núcleos (Amanda,
-  Rosolém, Novo Ângulo, Centro, Vila Real). Vulnerabilidade é sobre
-  *onde*, não apenas *quantos*.
-
-- **A população e o movimento pendular**
-  236.641 habitantes (Censo 2022). 58.472 pessoas com deslocamento
-  intermunicipal diário. Integração com Campinas: índice 0,42.
-  40% levam mais de 30 minutos ao trabalho.
-
-- **Por que o território importa para a política social**
-  A vulnerabilidade se concentra em loteamentos específicos, em
-  famílias que não aparecem nos relatórios agregados. O Atlas Social
-  foi construído para torná-las visíveis.
-
----
-
-### Slide 0B — Governança e Pedidos Institucionais
-
-- **Ponto focal na Secretaria de Inclusão**
-  O projeto é desenvolvido na Secretaria de Planejamento Estratégico,
-  mas sua matéria-prima pertence ao cotidiano da Inclusão. Solicita-se
-  que a liderança institucional designe formalmente um ponto focal —
-  com autonomia para validar dados e participar das decisões
-  metodológicas.
-
-- **Convênios institucionais para acesso a dados**
-  Não são pré-requisito para o MVP — já está em produção sem eles.
-  Condição para evoluir de diagnóstico parcial para inteligência
-  territorial integrada.
-
-  *Federais:*
-  | Órgão | Dado almejado |
-  | --- | --- |
-  | MTE / SINE | CAGED — admissões e desligamentos por município de residência |
-  | INSS / DATAPREV | CNIS e BPC — beneficiários por território |
-  | IBGE | Microdados Censo 2022; setores censitários georreferenciados |
-  | INEP / MEC | Censo Escolar — matrículas, evasão, distorção idade-série |
-  | MS / RNDS | e-SUS — indicadores de saúde pública por território |
-
-  *Estaduais (SP):*
-  | Órgão | Dado almejado |
-  | --- | --- |
-  | SEADE | Indicadores socioeconômicos e projeções populacionais |
-  | SEDS-SP | SUAS estadual — CRAS e CREAS regionais |
-  | Secretaria de Educação SP | Matrículas e evasão da rede estadual |
-  | SES-SP | Indicadores de saúde pública e mortalidade |
-
----
-
-### Bloco 1 — O Problema (Slides 1–5)
-
-**Slide 1 — A pergunta central**
-
-Como uma cidade de 236 mil habitantes identifica, com precisão, onde
-está a vulnerabilidade social?
+> *\"Como uma cidade de 236 mil habitantes identifica, com precisão,
+> onde está a vulnerabilidade social?\"*
 
 A resposta exige: dados, integração institucional e visão territorial.
 
----
-
-**Slide 2 — O desafio das cidades modernas**
+**Slide 2 --- O desafio das cidades modernas**
 
 Os dados existem. Mas estão espalhados:
 
-| Secretaria | Dados que possui |
-| --- | --- |
-| Assistência Social | CadÚnico, atendimentos CRAS/CREAS |
-| Saúde | Mortalidade, gravidez adolescente, e-SUS |
-| Educação | Matrículas, evasão escolar |
-| Habitação | Favelas, regularização fundiária |
-| Desenvolvimento Econômico | Emprego formal, capacitação |
+  ------------------------------- ---------------------------------------
+  **Secretaria**                  **Dados que possui**
 
-Cada secretaria possui uma parte do diagnóstico.
-Nenhuma possui o quadro completo.
+  Assistência Social              CadÚnico, atendimentos CRAS/CREAS
 
----
+  Saúde                           Mortalidade, gravidez adolescente,
+                                  e-SUS
 
-**Slide 3 — O problema estrutural da gestão pública**
+  Educação                        Matrículas, evasão escolar
 
-Governos funcionam por secretarias setoriais — cada uma com seus
-programas, indicadores, relatórios.
+  Habitação                       Favelas, regularização fundiária
 
-Resultado: **diagnóstico fragmentado da realidade social**.
+  Desenvolvimento Econômico       Emprego formal, capacitação
+  ------------------------------- ---------------------------------------
 
----
+**Cada secretaria possui uma parte do diagnóstico. Nenhuma possui o
+quadro completo.**
 
-**Slide 4 — A vulnerabilidade não pertence a uma secretaria**
+**Slide 3 --- O problema estrutural da gestão pública**
 
-| Problema social | Secretarias envolvidas |
-| --- | --- |
-| Evasão escolar | Educação + Assistência Social |
-| Gravidez adolescente | Saúde + Educação |
-| Desemprego juvenil | Desenvolvimento + Assistência |
-| Pobreza familiar | Assistência + Desenvolvimento |
+Historicamente, os governos funcionam por secretarias setoriais. Cada
+uma possui seus programas, seus indicadores, seus relatórios.
 
-Conclusão: **a vulnerabilidade é intersetorial por natureza**.
+**Resultado: diagnóstico fragmentado da realidade social.**
 
----
+**Slide 4 --- A vulnerabilidade social não pertence a uma secretaria**
 
-**Slide 5 — A consequência**
+  ------------------------------- ---------------------------------------
+  **Problema social**             **Secretarias envolvidas**
+
+  Evasão escolar                  Educação + Assistência Social
+
+  Gravidez adolescente            Saúde + Educação
+
+  Desemprego juvenil              Desenvolvimento + Assistência
+
+  Pobreza familiar                Assistência + Desenvolvimento
+  ------------------------------- ---------------------------------------
+
+**Conclusão: a vulnerabilidade é intersetorial por natureza.**
+
+**Slide 5 --- A consequência**
 
 Quando cada secretaria analisa apenas seus próprios dados:
-- Perde-se a visão do território
-- Políticas podem se sobrepor ou se dispersar
-- Áreas críticas podem permanecer **invisíveis**
 
----
+-   Perde-se a visão do território
 
-**Slide "Duas Hortolândias" — Impacto**
+-   Políticas podem se sobrepor ou se dispersar
 
-*[IMAGEM — fotografia de território vulnerável em Hortolândia — a inserir]*
+-   Áreas críticas podem permanecer invisíveis
 
-> **96,4%**
-> dos domicílios têm esgoto coletado — referência nacional em saneamento.
-> *(Fonte: SNIS / SABESP, 2020)*
+**Bloco 2 --- A Solução Metodológica (Slides 6--10)**
 
-> **100%**
-> de presença de esgoto a céu aberto no entorno — em 9 setores
-> censitários do município.
-> *(Fonte: IBGE Censo 2022, v05215 — ~5.272 domicílios)*
+**Slide 6 --- A necessidade de um diagnóstico comum**
 
-**Essas duas Hortolândias coexistem.**
+> *\"Todos os setores do governo devem enxergar a mesma realidade
+> social.\"*
 
-A média municipal esconde o que acontece dentro do território.
-9 setores. Mais de 5 mil domicílios. Invisíveis nos relatórios agregados.
+Isso exige: indicadores comuns, bases integradas, leitura territorial
+compartilhada.
 
-> *"A média esconde o território.*
-> *O Atlas Social foi construído para encontrá-lo."*
+**Slide 7 --- O Índice de Vulnerabilidade Social (IVS)**
 
-> **Nota metodológica:** dado auditável — IBGE Censo 2022, variável v05215
-> (% de domicílios com esgoto a céu aberto no entorno), nível de setor
-> censitário. Não é erro de medição. É análise de distribuição
-> intraurbana. Metodologia completa: Slide de Suporte Técnico (backup)
-> e `00_governanca/nota_tecnica_ibge_censo2022_entorno.md`.
+Desenvolvido pelo IPEA. 16 variáveis. Metodologia reconhecida nacional e
+internacionalmente.
 
----
+  --------------------------- -------------------------------------------
+  **Dimensão**                **Exemplos de variáveis**
 
-### Bloco 2 — A Solução Metodológica (Slides 6–10)
+  Infraestrutura Urbana       Saneamento, coleta de lixo, mobilidade
 
-**Slide 6 — A necessidade de um diagnóstico comum**
+  Capital Humano              Educação, saúde, infância, maternidade
 
-> Todos os setores do governo devem enxergar a mesma realidade social.
+  Renda e Trabalho            Emprego, renda, informalidade
+  --------------------------- -------------------------------------------
 
-Indicadores comuns, bases integradas, leitura territorial compartilhada.
+**Slide 8 --- O IVS como linguagem comum**
 
----
+-   Educação observa capital humano
 
-**Slide 7 — O Índice de Vulnerabilidade Social (IVS)**
+-   Assistência Social observa família
 
-Desenvolvido pelo IPEA. 16 variáveis. Metodologia reconhecida nacional
-e internacionalmente.
+-   Desenvolvimento Econômico observa renda e trabalho
 
-| Dimensão | Exemplos de variáveis |
-| --- | --- |
-| Infraestrutura Urbana | Saneamento, coleta de lixo, mobilidade |
-| Capital Humano | Educação, saúde, infância, maternidade |
-| Renda e Trabalho | Emprego, renda, informalidade |
+**Todos analisam a mesma vulnerabilidade territorial.**
 
----
+**Slide 9 --- A realidade de Hortolândia**
 
-**Slide 8 — O IVS como linguagem comum**
+  ------------------------------------ ------------------ ----------------
+  **Indicador**                        **Valor (2020)**   **Fonte**
 
-- Educação observa **capital humano**
-- Assistência Social observa **família**
-- Desenvolvimento Econômico observa **renda e trabalho**
+  Cobertura de abastecimento de água   100%               SNIS / SABESP
 
-Todos analisam a mesma **vulnerabilidade territorial**.
+  Coleta de esgoto                     96,4%              SNIS / SABESP
 
----
+  Esgoto tratado por água consumida    89,7%              SNIS / SABESP
+  ------------------------------------ ------------------ ----------------
 
-**Slide 9 — A realidade de Hortolândia**
+*Hortolândia foi destaque nacional no evento Casos de Sucesso em
+Saneamento Básico --- Instituto Trata Brasil (2019).*
 
-| Indicador | Valor (2020) | Fonte |
-| --- | --- | --- |
-| Cobertura de abastecimento de água | 100% | SNIS / SABESP |
-| Coleta de esgoto | 96,4% | SNIS / SABESP |
-| Esgoto tratado por água consumida | 89,7% | SNIS / SABESP |
+**49.100 empregos formais (remuneração média R\$ 4.700) convivem com
+72.424 pessoas no CadÚnico (dez/2025). Essa tensão é o desafio central
+do município.**
 
-> Hortolândia foi destaque nacional — Instituto Trata Brasil (2019).
+**Slide 10 --- A proposta: IVS-H**
 
-**Em média, o saneamento apresenta alta cobertura municipal.**
-Mas a análise por setor censitário revela desigualdades significativas:
-9 setores registram 100% de esgoto a céu aberto no entorno dos
-domicílios — invisíveis na média municipal. Isso reforça a necessidade
-de calibração local do IVS-H: **a média não captura a vulnerabilidade
-territorial real**.
+> *\"IVS-H --- Índice de Vulnerabilidade Social de Hortolândia\"*
 
-49.100 empregos formais (R$ 4.700/mês) convivem com
-72.424 pessoas no CadÚnico (dez/2025).
-Essa tensão é o desafio central do município.
+Mesmas variáveis. Mesmas dimensões. Pesos calibrados à realidade local.
 
----
+  --------------------------------- ----------------- --------------------
+  **Dimensão**                      **Peso IPEA**     **Peso IVS-H
+                                                      (hipótese)**
 
-**Slide 10 — A proposta: IVS-H**
+  Infraestrutura Urbana             33%               \~15--20%
 
-> **IVS-H — Índice de Vulnerabilidade Social de Hortolândia**
+  Capital Humano                    33%               \~40--45%
 
-Mesmas variáveis. Mesmas dimensões.
-**Pesos calibrados com base em evidência empírica local.**
+  Renda e Trabalho                  33%               \~35--40%
+  --------------------------------- ----------------- --------------------
 
-| Dimensão | Peso IPEA | Peso IVS-H (hipótese) |
-| --- | --- | --- |
-| Infraestrutura Urbana | 33% | ~15-20% |
-| Capital Humano | 33% | ~40-45% |
-| Renda e Trabalho | 33% | ~35-40% |
+**Slide 10a --- IVS-IPEA × IVS-H: o que muda e por que**
 
-> **Nota metodológica:** pesos em processo de validação empírica com
-> dados reais (CadÚnico dez/2025 + Censo 2022). Calibração baseada em
-> evidência empírica local, seguindo diretrizes OECD —
-> *Handbook on Constructing Composite Indicators* (2008).
+*Lâmina de referência --- pode ser impressa como material de apoio.*
 
----
+**O que é igual:**
 
-**Slide 10a — IVS-IPEA x IVS-H: o que muda e por que**
+  --------------------------- --------------------- ----------------------
+  **Elemento**                **IVS-IPEA**          **IVS-H**
 
-*Lâmina de referência — pode ser impressa como material de apoio*
+  Número de variáveis         16                    16
 
-#### O que é igual
+  Dimensões                   3 (IU / CH / RT)      3 (IU / CH / RT)
 
-| Elemento | IVS-IPEA | IVS-H |
-| --- | --- | --- |
-| Numero de variaveis | 16 | 16 |
-| Dimensoes | 3 (IU / CH / RT) | 3 (IU / CH / RT) |
-| Base cientifica | IPEA, 2015 | IPEA, 2015 |
-| Comparabilidade | Sim | Sim (via ancora IPEA) |
+  Base científica             IPEA, 2015            IPEA, 2015
 
-#### O que muda
+  Comparabilidade             Sim                   Sim (via âncora IPEA)
+  intermunicipal                                    
+  --------------------------- --------------------- ----------------------
 
-| Elemento | IVS-IPEA | IVS-H |
-| --- | --- | --- |
-| Peso por dimensao | 33% cada | Calibrado com evidencia local |
-| Territorio | Nacional / municipal | Loteamento -> RP -> Nucleo |
-| Fonte de dados | Censo IBGE (decenal) | CadUnico + Censo + CAGED |
-| Atualizacao | Decenal | Continua (CadUnico) |
+**O que muda:**
 
-#### 5 variaveis disponiveis imediatamente no CadUnico dez/2025
+  --------------------------- --------------------- ----------------------
+  **Elemento**                **IVS-IPEA**          **IVS-H**
 
-| Codigo | Variavel | Dimensao |
-| --- | --- | --- |
-| CH_05 | % maes chefes de familia, sem fund. completo e filho < 15 anos | Capital Humano |
-| CH_06 | Taxa de analfabetismo — 15 anos ou mais | Capital Humano |
-| CH_07 | % criancas em domicilios sem nenhum morador com fund. completo | Capital Humano |
-| RT_01 | % pessoas com renda per capita menor ou igual a 1/2 SM | Renda e Trabalho |
-| RT_04 | % domicilios com renda menor ou igual a 1/2 SM dependentes de idosos | Renda e Trabalho |
+  Peso por dimensão           33% cada              Calibrado à realidade
+                                                    local
 
----
+  Território de referência    Nacional / municipal  Loteamento → RP →
+                                                    Núcleo
 
-### Bloco 3 — O Modelo Territorial (Slides 11–15)
+  Fonte de dados              Censo IBGE (decenal)  CadÚnico + Censo +
+                                                    CAGED
 
-**Slide 11 — Por que adaptar o indice?**
+  Atualização                 Decenal               Contínua (CadÚnico)
+  --------------------------- --------------------- ----------------------
 
-- Em media, saneamento com alta cobertura — mas analise por setor revela desigualdades significativas
-- Reproducao intergeracional da pobreza e o desafio central
-- Polo de emprego formal convive com alta populacao em vulnerabilidade
+**5 variáveis já disponíveis no CadÚnico dez/2025:**
 
-A calibracao local **preserva a credibilidade cientifica do IPEA**
-e **aumenta a relevancia politica para o municipio**.
+  ------------ ----------------------------------------- ------------------
+  **Código**   **Variável**                              **Dimensão**
 
----
+  CH_05        \% mães chefes de família, sem fund.      Capital Humano
+               completo, filho \< 15 anos                
 
-**Slide 12 — O que o IVS-H permite identificar**
+  CH_06        Taxa de analfabetismo --- 15 anos ou mais Capital Humano
 
-- Onde estao as familias mais vulneraveis?
-- Quais regioes apresentam maior risco social?
-- Quais politicas publicas atuam nesses territorios?
-- Onde ha gap entre vulnerabilidade e atendimento?
+  CH_07        \% crianças em domicílios sem nenhum      Capital Humano
+               morador com fund. completo                
 
----
+  RT_01        \% pessoas com renda per capita menor ou  Renda e Trabalho
+               igual a 1/2 SM                            
 
-**Slide 13 — Do indicador ao territorio**
+  RT_04        \% domicílios com renda menor ou igual a  Renda e Trabalho
+               1/2 SM dependentes de idosos              
+  ------------ ----------------------------------------- ------------------
 
-```
-Pessoa -> Familia -> Territorio
-```
-Loteamento → Nucleo (CRAS) → Regiao de Planejamento
+**Slide 10b --- Estrutura da Cidade e Funcionamento da Rede de Atendimento**
 
----
+*[SLIDE VISUAL GERADO --- arquivo: slide_v3_final.pptx]*
 
-**Slide 14 — Programas publicos e vulnerabilidade**
+> Subtítulo: "Uma mesma base de loteamentos --- múltiplas formas de organização e atendimento"
 
-| Dimensao | Exemplos de programas em Hortolandia |
-| --- | --- |
-| Capital Humano | Programa Cuidar, Bolsa Creche, SCFV, Enfrentamento Trabalho Infantil |
-| Renda e Trabalho | PAT, Banco do Povo, Bolsa Familia, BPC, DECOLA |
-| Infraestrutura | Agora a Casa e Sua, PHLIS, MCMV |
-| Multidimensional | PAIF, PAEFI, CRAS, CREAS |
+> Frase central: "Os loteamentos são a base comum. As formas de organização e atendimento variam conforme o serviço público."
 
----
+**Estrutura visual do slide (dois painéis):**
 
-**Slide 15 — Um novo olhar sobre a gestao publica**
+Painel esquerdo --- Organização Administrativa:
 
-Em vez de organizar politicas apenas por secretaria, passamos a
-analisa-las por dimensao da vulnerabilidade:
+-   Caixa superior: REGIÃO DE PLANEJAMENTO (6 RPs · ex: RP\_Centro)
+-   Descendentes: LOT\_A, LOT\_B, LOT\_C (loteamentos exemplares)
+-   LOT\_B destacado com borda tracejada âmbar: indica sobreposição de RPs
+-   Caixa de atenção: "Um mesmo loteamento pode estar associado a mais de uma Região de Planejamento, especialmente em áreas de fronteira."
 
-- Identificar sobreposicoes
-- Detectar lacunas
-- Priorizar territorios
-- Medir impacto
+Painel direito --- Cobertura da Rede de Assistência Social:
 
----
+-   CRAS 1 e CRAS 2 convergindo para caixa NÚCLEO
+-   Núcleo: "Agrupamento de loteamentos definido pela lógica de cobertura da unidade de atendimento"
+-   Tabela CRAS x Loteamento: CRAS 1 → LOT\_A; CRAS 1 → LOT\_B; CRAS 2 → LOT\_B; CRAS 2 → LOT\_C
+-   LOT\_B aparece em ambos os CRAS: destaque em âmbar
+-   Frase de impacto: "A cobertura dos serviços públicos é compartilhada e não exclusiva."
 
-### Bloco 4 — A Proposta Institucional (Slides 15A–18)
+Rodapé: 6 Regiões de Planejamento · 141 Loteamentos · Cobertura compartilhada entre unidades
 
-**Slide 15A — Como o sistema funciona hoje**
+Nota de tensão (rodapé discreto, itálico): "Essa estrutura torna invisíveis as lacunas quando analisada só por recortes administrativos."
 
-*Diagnóstico de campo — SMIDS, março de 2026.*
-*Fonte: entrevista técnica com equipe de gestão.*
+**Notas de apresentação:**
 
-> O sistema atual funciona com grande esforço técnico, mas sem
-> instrumentos estruturados de priorização e integração.
+"A cidade possui uma base única de loteamentos. A partir dessa base, existem diferentes formas de organização. Do lado esquerdo, mostramos a organização administrativa. Do lado direito, mostramos como o atendimento realmente acontece. E aqui está o ponto central: um mesmo loteamento pode estar em mais de uma região e ser atendido por mais de uma unidade --- CRAS, Escola, UPA, UBS. Por isso, não modelamos a cidade como uma hierarquia rígida, mas como uma rede de relações."
 
-**Como funciona:**
-- Não existe classificação formal de prioridade entre famílias
-- Técnicos escolhem os casos a serem acompanhados — decisão descentralizada
-- Encaminhamentos entre secretarias são feitos por e-mail — sem identificador comum
-- Não há integração de sistemas com Saúde e Educação
-- Territórios com demanda superior à capacidade instalada (Amanda, Primavera)
-- Busca ativa inexistente por falta de pessoal — demanda reprimida não mensurável
+**Nota arquitetural (banco de dados):** A tabela de cobertura CRAS--Loteamento requer os campos `data\_inicio` e `data\_fim` para preservar histórico quando a abrangência de uma unidade mudar (ex: abertura de novo CRAS para atender demanda reprimida).
 
-**Consequência — a prefeitura hoje não sabe:**
-- Quem é mais vulnerável dentro de cada território
-- Onde priorizar com os recursos disponíveis
-- Quem ficou de fora — a demanda reprimida é invisível
+________________________________________
 
-> **Hoje, a prefeitura atende.**
-> **Com o Atlas Social, a prefeitura passa a priorizar.**
+**Bloco 3 --- O Modelo Territorial (Slides 11--15)**
 
-*Não é falta de dados. Não é falta de esforço.*
-*É falta de integração e priorização estruturada.*
+**Slide 11 --- Por que adaptar o índice?**
 
----
+-   Saneamento relativamente desenvolvido → baixo poder discriminatório
 
-**Slide 16 — Rompendo a logica dos feudos administrativos**
+-   Reprodução intergeracional da pobreza é o desafio central
+
+-   Polo de emprego formal convive com alta população em vulnerabilidade
+
+-   A calibração local preserva a credibilidade científica do IPEA e
+    aumenta a relevância política para o município.
+
+**Slide 12 --- O que o IVS-H permite identificar**
+
+-   Onde estão as famílias mais vulneráveis?
+
+-   Quais regiões apresentam maior risco social?
+
+-   Quais políticas públicas atuam nesses territórios?
+
+-   Onde há gap entre vulnerabilidade e atendimento?
+
+**Slide 13 --- Do indicador ao território**
+
+-   A análise parte da cadeia: Pessoa → Família → Território
+
+-   Permite compreender como vulnerabilidades individuais se concentram
+    em loteamentos, RPs e áreas de CRAS.
+
+**Slide 15 --- Um novo olhar sobre a gestão pública**
+
+-   Identificar sobreposições
+
+-   Detectar lacunas
+
+-   Priorizar territórios
+
+-   Medir impacto
+
+**Slide 14 --- Programas públicos e vulnerabilidade**
+
+  --------------------------- -------------------------------------------
+  **Dimensão**                **Exemplos de programas em Hortolândia**
+
+  Capital Humano              Programa Cuidar, Bolsa Creche, SCFV,
+                              Enfrentamento Trabalho Infantil
+
+  Renda e Trabalho            PAT, Banco do Povo, Bolsa Família, BPC,
+                              DECOLA
+
+  Infraestrutura              Agora a Casa é Sua, PHLIS, MCMV
+
+  Multidimensional            PAIF, PAEFI, CRAS, CREAS
+  --------------------------- -------------------------------------------
+
+**Bloco 4 --- A Proposta Institucional (Slides 16--18)**
+
+**Slide 16 --- Rompendo a lógica dos feudos administrativos**
 
 Modelo tradicional: cada secretaria com seus programas e seus dados.
 
 Modelo orientado por vulnerabilidade: IVS-H como eixo comum de
-coordenacao intersecretarial — secretarias cooperam em torno de
-familias e territorios prioritarios.
+coordenação intersecretarial.
 
----
+*Quando o foco passa a ser o território e a vulnerabilidade, as
+secretarias cooperam em torno de famílias e territórios prioritários.*
 
-**Slide 17 — O papel da tecnologia**
+**Slide 17 --- O papel da tecnologia**
 
-- Integrar bases de dados
-- Organizar informacoes sociais
-- Gerar indicadores territoriais
-- Tornar o diagnostico auditavel e reproduzivel
+A tecnologia não é o objetivo. Ela é a infraestrutura que permite:
 
-O Atlas Social comeca com SQLite e scripts versionados.
-**Dados confiaveis, nao promessa.**
+-   Integrar bases de dados
 
----
+-   Organizar informações sociais
 
-**Slide 18 — O resultado esperado**
+-   Gerar indicadores territoriais
 
-- Onde concentrar politicas sociais
-- Quais territorios precisam de maior atencao
-- Quais programas estao gerando impacto
-- Como comprovar reducao de vulnerabilidade ao longo do tempo
+-   Tornar o diagnóstico auditável e reproduzível
 
----
+**O Atlas Social começa com SQLite e scripts versionados --- não com Big
+Data. Começa com dados confiáveis, não com promessa.**
 
-### Bloco 5 — Visao de Futuro e Conclusao (Slides 19–28)
+**Slide 18 --- O resultado esperado**
 
-**Slide 19 — Visao de futuro**
+Um sistema capaz de apoiar decisões como:
 
-Hortolandia pode construir um sistema de **Inteligencia Social Territorial**
-capaz de integrar dados sociais, politicas publicas, planejamento municipal
-e fontes externas em uma unica leitura territorial.
+-   Onde concentrar políticas sociais
 
----
+-   Quais territórios precisam de maior atenção
 
-**Slide 20 — O argumento para a lideranca**
+-   Quais programas estão gerando impacto
 
-> Construir um indice que mostra que Hortolandia **reduziu vulnerabilidade
-> de forma mensuravel, com metodologia reconhecida pelo IPEA**.
+-   Como comprovar redução de vulnerabilidade ao longo do tempo
 
-Isso e **legado**. Um legado que pertence a cidade — nao a uma secretaria.
+**Bloco 5 --- Visão de Futuro e Conclusão (Slides 19--27)**
 
-Antes: cada secretaria trabalha no seu quadrado.
-Depois: todas convergem para reduzir o mesmo indice.
+**Slide 19 --- Visão de futuro**
 
-**Nota institucional:** Em marco de 2025, a Prefeitura assumiu publicamente,
-em diagnostico PPA 2026-2029 destinado a investidores, o compromisso de
-implantar *"Data Lakehouse Municipal e uso de IA na gestao publica"*.
-O Atlas Social nao esperou o orcamento. Ele entregou o primeiro produto
-com CadUnico, SQLite e metodo — antes que qualquer contrato fosse assinado.
+Hortolândia pode construir um sistema de Inteligência Social Territorial
+capaz de integrar:
 
----
+-   Dados sociais (CadÚnico, SIGAS)
 
-**Slide 21 — Conclusao parcial**
+-   Políticas públicas (programas mapeados)
 
-> O IVS municipal nao e apenas um indicador.
-> Ele pode se tornar uma ferramenta de integracao do governo.
+-   Planejamento municipal (territórios, loteamentos, regiões)
 
-- As secretarias deixam de competir por agendas
-- Passam a cooperar por territorios
-- O governo fala a mesma lingua sobre a mesma realidade
+-   Fontes externas (IBGE, CAGED, Saúde, Educação)
 
----
+**Slide 20 --- O argumento para o prefeito**
 
-**Slide 22 — Do diagnostico a capacidade de acao do Estado**
+> *\"Construir um índice que mostra que Hortolândia reduziu
+> vulnerabilidade de forma mensurável, com metodologia reconhecida pelo
+> IPEA.\"*
 
-*Inspirado em: JANNUZZI, P. M. Indicadores Sociais no Brasil. 2012. p. 157.*
+**Isso é legado. Um legado que pertence à cidade --- não a uma
+secretaria.**
 
-> A maioria dos sistemas responde onde esta a vulnerabilidade.
-> Poucos conseguem responder se o Estado esta preparado para agir.
+*Nota institucional: Em março de 2025, a Prefeitura assumiu
+publicamente, em diagnóstico PPA 2026--2029 destinado a investidores, o
+compromisso de implantar \'Data Lakehouse Municipal e uso de IA na
+gestão pública\'. O Atlas Social não esperou o orçamento. Ele entregou o
+primeiro produto desse compromisso --- com CadÚnico, SQLite e método ---
+antes que qualquer contrato fosse assinado.*
 
-| Camada | O que responde | Fonte principal |
-| --- | --- | --- |
-| Camada 1 — IVS-H | Onde esta a vulnerabilidade e qual e sua intensidade | CadUnico + IBGE |
-| Camada 2 — Capacidade | O Estado tem estrutura para responder? | Sistemas municipais / CRAS |
-| Camada 3 — Lacuna | Onde ha vulnerabilidade sem resposta proporcional? | Cruzamento das duas camadas |
+**Slide 21 --- Conclusão**
 
-> "Nao basta saber onde esta a vulnerabilidade.
-> E preciso saber se o Estado esta presente — e se tem capacidade de agir."
+> *\"O IVS municipal não é apenas um indicador. Ele pode se tornar uma
+> ferramenta de integração do governo.\"*
 
----
+Quando a vulnerabilidade passa a orientar o planejamento:
 
-**Slide 23 — Exemplo territorial: tres camadas em acao**
+-   As secretarias deixam de competir por agendas
 
-> **AVISO METODOLOGICO:** Estrutura ILUSTRATIVA. Os valores do Jardim Amanda
-> NAO foram calculados com microdados do IBGE — esses dados ainda nao estao
-> disponiveis publicamente para o Censo 2022. O exemplo demonstra a logica
-> analitica do modelo, nao um resultado empirico validado.
+-   Passam a cooperar por territórios
 
-*[IMAGEM — fotografia do territorio — a inserir]*
+-   O governo fala a mesma língua sobre a mesma realidade
 
-| Camada | Situacao | Resultado |
-| --- | --- | --- |
-| IVS-H | Alta proporcao de baixa renda, chefia feminina, baixa escolaridade | Alta vulnerabilidade (hipotetica) |
-| Capacidade | CRAS Amanda com demanda elevada, programas ativos (PAIF, BF) | Cobertura parcial |
-| Lacuna | Familias elegiveis sem acompanhamento regular | Alta vulnerab. + cobertura insuficiente |
+**Slide 22 --- Do diagnóstico à capacidade de ação do Estado**
 
-Decisao que passa a ser possivel: realocar equipe, priorizar visitas,
-redirecionar programas, acionar Desenvolvimento Economico.
+*Referência: JANNUZZI, P. M. Indicadores Sociais no Brasil. 5. ed.
+Campinas: Alínea, 2012. p. 157.*
 
----
+O problema clássico da gestão pública:
 
-**Slide 24 — Arquitetura do Atlas Social**
+> *\"A maioria dos sistemas responde onde está a vulnerabilidade. Poucos
+> conseguem responder se o Estado está preparado para agir.\"*
 
-> **Este modelo permite responder perguntas que hoje nenhum sistema
-> municipal consegue responder.**
+  --------------------- -------------------------------- ----------------
+  **Camada**            **O que responde**               **Fonte
+                                                         principal**
 
-Como: quem esta ficando de fora? Em qual loteamento? Ha quanto tempo?
-Qual programa deveria chegar e nao chega?
+  Camada 1 --- IVS-H    Onde está a vulnerabilidade e    CadÚnico + IBGE
+                        qual é sua intensidade           
 
-```
-FONTES DE DADOS
-(CadUnico | IBGE | CAGED | Sistemas municipais)
-        |
-INGESTAO E PADRONIZACAO
-        |
-MODELO ANALITICO
-(Pessoa / Familia / Loteamento / Programa / Variavel IVS)
-        |
-INDICADORES
-(IVS-H | cobertura por territorio | lacunas operacionais)
-        |
-VISUALIZACAO E DECISAO
-```
+  Camada 2 ---          O Estado tem estrutura para      Sistemas
+  Capacidade            responder?                       municipais /
+                                                         CRAS
 
-Principio: **Pessoa → Familia → Loteamento → CRAS / Nucleo / RP**
+  Camada 3 --- Lacuna   Onde há vulnerabilidade sem      Cruzamento das
+                        resposta proporcional?           duas camadas
+  --------------------- -------------------------------- ----------------
 
-| Fase | Descricao |
-| --- | --- |
-| Hoje — MVP | IVS-H parcial (5 variaveis CadUnico) |
-| Proximo passo | 17 variaveis + IBGE / CAGED / Saude / Educacao |
-| Futuro | Data Lakehouse municipal + monitoramento continuo |
+> *\"Não basta saber onde está a vulnerabilidade. É preciso saber se o
+> Estado está presente --- e se tem capacidade de agir.\"*
 
----
+**Slide 23 --- Exemplo territorial: três camadas em ação**
 
-**Slide 25 — O que muda na pratica**
+**AVISO METODOLÓGICO: Este slide apresenta estrutura ILUSTRATIVA. Os
+valores de vulnerabilidade do Jardim Amanda NÃO foram calculados com
+microdados do IBGE --- esses dados ainda não estão disponíveis
+publicamente para o Censo 2022. O exemplo demonstra a lógica analítica
+do modelo, não um resultado empírico validado.**
 
-| Dimensao | Antes | Com o Atlas Social |
-| --- | --- | --- |
-| Base da decisao | Percepcao | Evidencia territorial mensuravel |
-| Visao do territorio | Agregada por secretaria | Por loteamento, nucleo e RP |
-| Integracao de dados | Cada secretaria isolada | Visao unificada por pessoa e familia |
-| Lacunas | Invisiveis | Calculadas e rastreaveis |
-| Prestacao de contas | Relatorio narrativo | Indicador auditavel com fonte |
-| Ciclo de melhoria | Eventual | Continuo — a cada atualizacao do CadUnico |
+*Loteamento de referência: Jardim Amanda (estrutura real, valores
+ilustrativos)*
 
-> "Nao e apenas um painel.
-> E uma infraestrutura de dados para governar com precisao."
+  ------------------- ------------------------------- -------------------
+  **Camada**          **Situação identificada**       **Resultado**
 
----
+  Camada 1 --- IVS-H  Alta proporção de baixa renda,  Alta
+                      chefia feminina, baixa          vulnerabilidade
+                      escolaridade                    (hipotética)
 
-**Slide 26 — Duas camadas territoriais: administrativa x censitaria**
+  Camada 2 ---        CRAS Amanda com demanda         Cobertura parcial
+  Capacidade          territorial elevada, programas  
+                      ativos (PAIF, BF)               
 
-*O modelo hibrido IBGE + gestao municipal*
+  Camada 3 --- Lacuna Famílias elegíveis sem          Alta
+                      acompanhamento regular,         vulnerabilidade +
+                      possível fila invisível         cobertura
+                                                      insuficiente
+  ------------------- ------------------------------- -------------------
 
-| Camada | Base | Fonte | Funcao |
-| --- | --- | --- | --- |
-| Administrativa | Loteamento / Nucleo / RP | PMH / CRAS | Gestao operacional de politicas |
-| Estatistica | Setor censitario IBGE | IBGE Censo 2022 | Precisao cientifica e comparabilidade |
+**Decisão que passa a ser possível:**
 
-A integracao dessas duas camadas e o diferencial metodologico do Atlas Social.
-A camada IBGE revela o que a gestao operacional nao ve.
-A camada administrativa transforma o diagnostico em acao.
+*\"Precisamos reforçar a atuação neste território?\" → realocar equipe,
+priorizar visitas, redirecionar programas, acionar Desenvolvimento
+Econômico.*
 
-Esse modelo hibrido permite:
-- Identificar bolsoes dentro de um mesmo loteamento
-- Validar com rigor cientifico percepcoes locais dos tecnicos
-- Gerar evidencia auditavel para prestacao de contas
+**Slide 24 --- Arquitetura do Atlas Social**
 
-**Limitacao atual:** microdados Censo 2022 ainda nao liberados pelo
-IBGE, sem previsao de data. O que ja e possivel: dados agregados por
-setor — suficientes para mapear infraestrutura e heterogeneidade
-territorial (demonstrado no Slide "Duas Hortolandias").
+Como os dados chegam até a decisão:
 
-> "O Atlas Social operara com duas camadas territoriais complementares:
-> a camada administrativa, baseada em loteamentos e nucleos, e a camada
-> estatistica, baseada em setores censitarios do IBGE —
-> um modelo hibrido de inteligencia territorial."
+  --------------------------- -------------------------------------------
+  **Camada**                  **Conteúdo**
 
----
+  Fontes de dados             CadÚnico \| IBGE \| CAGED \| Sistemas
+                              municipais
 
-**Slide 27 — O que esta em jogo**
+  Ingestão e padronização     Limpeza \| deduplicação \| padronização
+                              territorial
 
-Hortolandia ja tem:
-- Dados — CadUnico com 72.424 pessoas cadastradas
-- Programas — 67 catalogados no Atlas Social
-- Estrutura — rede de CRAS, CREAS, equipamentos sociais
+  Modelo analítico            Dimensões: Pessoa / Família / Loteamento /
+                              Programa / Variável IVS
 
-**O que falta:**
-> Integracao orientada por territorio.
+  Indicadores                 IVS-H \| cobertura por território \|
+                              lacunas operacionais
 
-Sem isso:
-- A vulnerabilidade continua invisivel nos dados agregados
-- Politicas se sobrepoem ou se dispersam sem que ninguem veja
-- Familias ficam de fora sem que nenhum sistema registre
+  Visualização e decisão      Painéis \| relatórios \| alertas
+                              territoriais
+  --------------------------- -------------------------------------------
 
-Com isso:
-- A vulnerabilidade passa a ser mensuravel
-- Localizavel — por loteamento, por familia, por pessoa
-- Enfrentavel — com evidencia, com precisao, com responsabilidade
+**Princípio central: a unidade mínima de análise é a Pessoa.**
 
-> *"Sem integracao, os dados existem mas nao falam.*
-> *Com o Atlas Social, eles passam a contar uma historia —*
-> *e a apontar onde o Estado precisa agir."*
+Pessoa → Família → Loteamento → CRAS / Núcleo / RP
 
----
+  --------------------- -------------------------------------------------
+  **Fase**              **Descrição**
 
-**Slide 28 — Uma nova camada de inteligencia para Hortolandia**
+  Hoje --- MVP          IVS-H parcial (5 variáveis CadÚnico) + primeiros
+                        indicadores territoriais
 
-A TI municipal faz bem o que faz: camada operacional.
-O Atlas Social ocupa outra camada: **inteligencia territorial estrategica**.
+  Próximo passo         17 variáveis + integração IBGE / CAGED / Saúde /
+                        Educação
 
-Essa camada ainda nao existe formalmente em Hortolandia.
-O ponto de partida ja existe. O Atlas Social e a prova de conceito.
+  Futuro                Data Lakehouse municipal + monitoramento contínuo
+                        de políticas públicas
+  --------------------- -------------------------------------------------
 
-> *"Nao precisamos esperar a infraestrutura ideal.*
-> *Ja provamos que e possivel comecar —*
-> *com metodo, sem promessa,*
-> *e com resultados que podem ser verificados*
-> *por qualquer pessoa, a qualquer momento."*
-
----
+**Slide 25 --- O que muda na prática**
 
-### Slide de Suporte — Backup Tecnico (nao entra no fluxo principal)
-
-**Como identificamos os setores com 100% de esgoto a ceu aberto no entorno**
+  --------------------- ------------------------ -------------------------
+  **Dimensão**          **Antes do Atlas         **Com o Atlas Social**
+                        Social**                 
 
-*Este slide e backup cirurgico — nao entra na apresentacao principal,
-mas protege tecnicamente contra qualquer questionamento.*
+  Base da decisão       Percepção e experiência  Evidência territorial
+                                                 mensurável
 
-**Base de dados**
-- Fonte: IBGE — Instituto Brasileiro de Geografia e Estatistica
-- Base: Censo Demografico 2022
-- Nivel: Setor censitario (361 setores em Hortolandia)
-- Tipo: Caracteristicas urbanisticas do entorno dos domicilios
+  Visão do território   Agregada por secretaria  Por loteamento, núcleo e
+                                                 RP
 
-**Caminho exato para reproduzir o dado — passo a passo:**
+  Integração de dados   Cada secretaria no seu   Visão unificada por
+                        sistema                  pessoa e família
 
-```
-1. Acessar o FTP publico do IBGE:
-   https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/
-            Agregados_por_Setores_Censitarios/SP/
-
-2. Baixar o arquivo:
-   Entorno_SP.zip
-
-3. Extrair o arquivo CSV:
-   Entorno_SP.csv
-
-4. Abrir o dicionario ANTES de qualquer analise (obrigatorio):
-   Dicionario_de_dados_Agregados_por_Setores_Censitarios_2022.xlsx
-   (mesma pasta do FTP)
-
-5. No dicionario, localizar o grupo v052xx:
-   Sao as variaveis de "Caracteristicas do Entorno dos Domicilios"
-
-6. Identificar a variavel correta:
-   v05215 = "Esgoto a ceu aberto nos logradouros"
-   v05215_perc = percentual de domicilios com essa condicao no entorno
-
-   ATENCAO: v05215 e indicador de PRESENCA DE PROBLEMA
-   (maior = pior) — diferente das demais variaveis do grupo
-   que medem presenca de infraestrutura positiva (maior = melhor)
+  Identificação de      Invisível --- depende de Calculada e rastreável
+  lacunas               relato                   
 
-7. Filtrar por municipio:
-   Coluna: cd_municipio
-   Valor: 3519071 (Hortolandia-SP)
-
-8. Calcular media ponderada:
-   Peso = coluna v05200_v05230 (total de domicilios do setor)
-   Excluir valores > 100 (dados corrompidos na coluna _perc bruta)
-```
-
-**Variavel analisada**
-- Codigo IBGE: v05215_perc
-- Descricao: Percentual de domicilios cujo entorno possui esgoto a ceu aberto
-- Escala: 0 a 100%
-- Direcao do risco: maior = pior (presenca de problema)
-
-**Resultado para Hortolandia**
-- Media municipal ponderada: 3,4%
-- 9 setores com 100% de esgoto a ceu aberto no entorno
-- ~5.272 domicilios nesses setores
-- ~48.790 domicilios (26,1% do total) com alguma presenca
-
-**Interpretacao tecnica**
-- Nao e media municipal: e analise de distribuicao intraurbana
-- Nao e erro de medicao: e heterogeneidade territorial real
-- Complementa, nao contradiz, o dado SNIS (coleta municipal = 96,4%)
-- SNIS mede ligacao domiciliar a rede coletora
-- IBGE mede presenca visual de esgoto no entorno do logradouro
-- Sao metricas distintas que medem dimensoes distintas do saneamento
-
-**Limitacoes**
-- Variavel refere-se ao entorno, nao ao domicilio individual
-- Dados agregados por setor (nao microdados)
-- Recorte temporal: Censo 2022
-
-**Dado complementar disponivel — Fossa Septica**
-
-Para analisar o tipo de esgotamento sanitario no nivel do domicilio
-(incluindo fossa septica), o dado esta disponivel em arquivo diferente:
-
-```
-Arquivo: Domicilio_SP.zip
-Mesmo FTP:
-https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/
-         Agregados_por_Setores_Censitarios/SP/
-
-Variaveis relevantes (consultar dicionario):
-- Rede geral de esgoto ou pluvial
-- Fossa septica ligada a rede
-- Fossa septica nao ligada a rede (fossa rudimentar)
-- Vala / rio / lago / outro
-
-Hipotese a validar: os mesmos 9 setores com 100% de esgoto
-a ceu aberto (Entorno_SP) devem apresentar alta concentracao
-de fossa septica nao ligada (Domicilio_SP).
-Se confirmado, isso seria dupla evidencia empirica da mesma
-vulnerabilidade territorial.
-```
-
-> "A analise por setor censitario revela desigualdades territoriais
-> invisiveis em indicadores agregados."
-
-Referencia metodologica completa:
-`00_governanca/nota_tecnica_ibge_censo2022_entorno.md`
-
----
-
-## Referencias
-
-- COSTA, M. A.; MARGUTI, B. O. *Atlas da Vulnerabilidade Social nos
-  Municipios Brasileiros*. Brasilia: IPEA, 2015.
-- FUNARI, A. P. et al. *Atualizacao do IVS a partir dos dados da PNAD
-  Continua 2022*. Boletim Regional, Urbano e Ambiental, IPEA, 2024.
-- IBGE. *Censo Demografico 2022 — Caracteristicas do Entorno dos
-  Domicilios, Agregados por Setores Censitarios*. Rio de Janeiro:
-  IBGE, 2023. Variavel v05215 (esgoto a ceu aberto).
-- JANNUZZI, P. M. *Indicadores Sociais no Brasil*. 5. ed. Campinas:
-  Alinea, 2012.
-- OECD. *Handbook on Constructing Composite Indicators*. OECD
-  Publishing, 2008.
-- World Bank. *Whole-of-Government Approaches to Public Sector Reform*.
-
----
-
-## Cross-references
-
-| Documento | Localizacao no repositorio |
-| --- | --- |
-| Nota tecnica IBGE variaveis entorno | `00_governanca/nota_tecnica_ibge_censo2022_entorno.md` |
-| DIM_VARIAVEL_IVS v01r5 | `02_modelagem_logica/dim_variavel_IVS_v01r5.md` |
-| ivs_vs_ivsh_comparativo v05 | `00_governanca/ivs_vs_ivsh_comparativo_v05.md` |
-| DIM_PROGRAMA v05 | `01_modelagem_conceitual/dim_programa_v05.md` |
-| nota_tecnica_fato_ivs_loteamento v04 | `02_modelagem_logica/nota_tecnica_fato_ivs_loteamento_v04.sql` |
-| Planilha origem do dado | `referencias_ipea/censo2022/horto_esgotamento.xlsx` |
-| Ata reuniao SMIDS 17/03/2026 | `00_governanca/ata_reuniao_17_03_2026_v01.pdf` |
-
----
-
-## Log de Alteracoes
-
-| Versao | Data | Alteracoes |
-| --- | --- | --- |
-| v01 | "10/03/2026" | Criacao |
-| v02 | "10/03/2026" | Slide 10a adicionado |
-| v03 | "10/03/2026" | Slide 9 com dados SNIS/SABESP |
-| v04 | "17/03/2026" | Slide 0: Condicoes de Contorno. Nota PPA. |
-| v05 | "18/03/2026" | Slide 0: ponto focal e convenios. |
-| v06 | "18/03/2026" | Slides 22-27: tres camadas, Amanda, arquitetura, antes/depois, camadas territoriais, nova estrutura. |
-| v07 | "18/03/2026" | Slide 0 dividido (0/0A/0B). Duas Hortolandias isolado. Slides 27-28 reescritos. |
-| v08 | "18/03/2026" | Slide Duas Hortolandias: dado real v05215 (9 setores, 100% esgoto a ceu aberto). Slide 9 ajustado. Slide 10: evidencia empirica local. Slide 26: modelo hibrido. Slide de Suporte backup. Nota tecnica IBGE. |
-| v09 | "18/03/2026" | Slide 15A novo: diagnostico operacional SMIDS. Frase de impacto.
-| v10 | "19/03/2026" | Slide de Suporte: caminho exato FTP IBGE para reproduzir dado v05215 adicionado (passo a passo, 8 etapas). Nota sobre dado complementar fossa septica (Domicilio_SP.zip). Diferenca SNIS x IBGE formalizada. Programas: CASA_MULHER_BR e ELES_ELAS adicionados ao Grupo 8.: "Como o sistema funciona hoje" — diagnostico operacional SMIDS, marco/2026. Fonte: entrevista tecnica Caio x Claudia. 6 bullets descritivos (tom nao-critico), 3 consequencias em destaque, frase de impacto "Hoje, a prefeitura atende. Com o Atlas Social, a prefeitura passa a priorizar." Total: 32 slides + 1 backup. |
-
----
-
-*Documento de comunicacao institucional — `00_governanca/`.*  
-*Atlas Social de Hortolandia.*
+  Prestação de contas   Relatório narrativo      Indicador auditável com
+                                                 fonte documentada
+
+  Ciclo de melhoria     Eventual                 Contínuo --- a cada
+                                                 atualização do CadÚnico
+  --------------------- ------------------------ -------------------------
+
+> *\"Não é apenas um painel. É uma infraestrutura de dados para governar
+> com precisão.\"*
+
+**Slide 26 --- Duas camadas territoriais: administrativa × censitária**
+
+*A próxima fronteira técnica do Atlas Social.*
+
+  ---------------- ------------------ ------------------ -----------------
+  **Camada**       **Base**           **Fonte**          **Função**
+
+  Administrativa   Loteamento /       PMH / CRAS         Gestão
+                   Núcleo / RP                           operacional de
+                                                         políticas
+
+  Estatística      Setor censitário   IBGE Censo 2022    Precisão
+                   IBGE                                  científica e
+                                                         comparabilidade
+  ---------------- ------------------ ------------------ -----------------
+
+**O que a camada censitária permite:**
+
+-   Identificar bolsões de vulnerabilidade dentro de um mesmo loteamento
+
+-   Provar que dentro de um núcleo há desigualdade interna
+
+-   Validar ou corrigir percepções locais com base científica
+
+**Evidência já disponível --- dados agregados Censo 2022:**
+
+**Setores com cobertura de esgoto adequado de 29,21% convivem com média
+municipal de 97,59% --- bolsão territorial invisível no agregado
+municipal.**
+
+**LIMITAÇÃO ATUAL: Os microdados do Censo 2022 ainda não foram liberados
+pelo IBGE, sem previsão de data. O cálculo do IVS no nível individual
+por setor censitário aguarda essa liberação.**
+
+> *\"O Atlas Social operará com duas camadas territoriais
+> complementares: a camada administrativa, baseada em loteamentos e
+> núcleos, e a camada estatística, baseada em setores censitários do
+> IBGE.\"*
+
+**Slide 27 --- Uma nova camada de inteligência para Hortolândia**
+
+A TI municipal faz bem o que faz: automatiza processos, desenvolve
+sistemas, sustenta a infraestrutura digital. Essa é a camada
+operacional.
+
+**O Atlas Social ocupa outra camada --- inteligência territorial
+estratégica:**
+
+-   Integra dados de múltiplas secretarias
+
+-   Produz diagnóstico territorial contínuo
+
+-   Orienta alocação de recursos e políticas públicas
+
+-   Comprova resultados com metodologia auditável
+
+**Essa camada ainda não existe formalmente em Hortolândia.**
+
+O que poderia ser: uma estrutura dedicada a inteligência de dados para
+políticas públicas --- vinculada ao planejamento estratégico, com
+interface com todas as secretarias.
+
+> *\"Não precisamos esperar a infraestrutura ideal. Já provamos que é
+> possível começar --- com método, sem promessa, e com resultados que
+> podem ser verificados por qualquer pessoa.\"*
+
+**Referências**
+
+COSTA, M. A.; MARGUTI, B. O. Atlas da Vulnerabilidade Social nos
+Municípios Brasileiros. Brasília: IPEA, 2015.
+
+FUNARI, A. P. et al. Atualização do IVS a partir dos dados da PNAD
+Contínua 2022. Boletim Regional, Urbano e Ambiental, IPEA, 2024.
+
+JANNUZZI, P. M. Indicadores Sociais no Brasil: conceitos, fontes de
+dados e aplicações. 5. ed. Campinas: Alínea, 2012.
+
+OECD. Handbook on Constructing Composite Indicators. OECD Publishing,
+2008.
+
+World Bank. Whole-of-Government Approaches to Public Sector Reform.
