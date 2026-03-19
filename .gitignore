@@ -1,30 +1,57 @@
 # =============================================================================
-# .gitignore — Atlas Social de Hortolândia
+# .gitignore — Atlas Social de Hortolândia (versão segura)
 # =============================================================================
 
-# Banco de dados SQLite — fica local, não sobe para o repositório
-# O banco é gerado a partir dos scripts em 02_modelagem_lógica/
-06_banco_dados/*.db
-06_banco_dados/*.db-shm
-06_banco_dados/*.db-wal
+# -----------------------------------------------------------------------------
+# BANCOS DE DADOS (QUALQUER LOCAL)
+# -----------------------------------------------------------------------------
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
 
-# Arquivos temporários de sistema
+# -----------------------------------------------------------------------------
+# DADOS SENSÍVEIS (MICRODADOS)
+# -----------------------------------------------------------------------------
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+*.json
+*.dbf
+*.txt
+
+# -----------------------------------------------------------------------------
+# DIRETÓRIOS SENSÍVEIS (RECOMENDADO)
+# -----------------------------------------------------------------------------
+dados_brutos/
+dados_sensiveis/
+dados_privados/
+outputs_privados/
+tmp/
+temp/
+cecad/
+
+# -----------------------------------------------------------------------------
+# ARQUIVOS TEMPORÁRIOS DE SISTEMA
+# -----------------------------------------------------------------------------
 Thumbs.db
 desktop.ini
 .DS_Store
 
-# Arquivos temporários de editores
+# -----------------------------------------------------------------------------
+# ARQUIVOS TEMPORÁRIOS DE EDITORES
+# -----------------------------------------------------------------------------
 *.tmp
 *.bak
 *~
 
-# Python
+# -----------------------------------------------------------------------------
+# PYTHON
+# -----------------------------------------------------------------------------
 __pycache__/
 *.pyc
 *.pyo
 .env
-
-# Dados brutos — nunca versionar microdados ou dados pessoais
-*.csv
-*.xlsx
-*.xls
