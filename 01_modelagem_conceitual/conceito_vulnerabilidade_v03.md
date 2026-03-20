@@ -3,7 +3,7 @@
 **Arquivo:** `definicao_vulnerabilidade_v03.md`
 **Localização:** `01_modelagem_conceitual/`
 **Versão:** 03 | **Data:** "20/03/2026"
-**Responsável:** Ailton Vendramini / Claude (Anthropic)
+**Responsável:** Ailton Vendramini / 
 
 **Atualizações v03:**
 - Substituição de "território" por "loteamento ou núcleo" no corpo do texto
