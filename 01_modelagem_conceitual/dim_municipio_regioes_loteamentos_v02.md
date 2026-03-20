@@ -12,7 +12,7 @@
 - Loteamentos de fronteira entre RPs identificados
 - Resumo por Região de Planejamento
 
-**Responsável:** Ailton Vendramini / Claude (Anthropic)  
+**Responsável:** Ailton Vendramini
 **Fonte primária:** `loteamentosregiao.xlsx` — Prefeitura Municipal de Hortolândia  
 **Fonte secundária:** Anexo IV — Plano Diretor 2017–2020  
 **Repositório:** pmh-arquitetura-dados-sociais
