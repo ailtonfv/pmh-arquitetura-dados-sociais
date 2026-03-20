@@ -1,22 +1,20 @@
-[conceito_vulnerabilidade_v02.md](https://github.com/user-attachments/files/26125868/conceito_vulnerabilidade_v02.md)[Uploading concei# Conceito de Vulnerabilidade Social — Atlas Social de Hortolândia
-**Arquivo:** `conceito_vulnerabilidade_v02.md`
+[definicao_vulnerabilidade_v03 (1).md](https://github.com/user-attachments/files/26136211/definicao_vulnerabilidade_v03.1.md)
+# Conceito de Vulnerabilidade Social — Atlas Social de Hortolândia
+**Arquivo:** `definicao_vulnerabilidade_v03.md`
 **Localização:** `01_modelagem_conceitual/`
-**Versão:** 02 | **Data:** "19/03/2026"
+**Versão:** 03 | **Data:** "20/03/2026"
 **Responsável:** Ailton Vendramini / Claude (Anthropic)
 
-**Atualizações v02:**
-- Duas definições distintas: vulnerabilidade contextual (A) e individual (B)
-- Marcações de origem: [GF], [IPEA], [Local]
-- Renda em B marcada como [futuro] com justificativa metodológica completa
-- Distinção domicílio × entorno formalizada
-- Estratégia de triangulação de renda documentada
-- Relação com convênios institucionais explicitada
+**Atualizações v03:**
+- Substituição de "território" por "loteamento ou núcleo" no corpo do texto
+- Seção 5 expandida: renda autodeclarada sem comprovação, verificação via CAGED e limite estrutural da informalidade
+- Subsistema de cobertura CRAS documentado como relação temporal (data_inicio / data_fim)
 
 ---
 
 ## 1. Por que este documento existe
 
-O governo federal opera com definições de vulnerabilidade **fragmentadas por sistema** — cada programa tem seu critério. O CadÚnico usa renda per capita. O SUAS usa fragilização de vínculos. O IVS-IPEA usa índice territorial composto. Nenhum deles, isoladamente, responde à pergunta que a gestão municipal precisa fazer:
+O governo federal opera com definições de vulnerabilidade **fragmentadas por sistema** — cada programa tem seu critério. O CadÚnico usa renda per capita. O SUAS usa fragilização de vínculos. O IVS-IPEA usa índice composto por loteamento. Nenhum deles, isoladamente, responde à pergunta que a gestão municipal precisa fazer:
 
 > *"Quem são as pessoas mais vulneráveis de Hortolândia, onde estão, e o Estado está chegando até elas?"*
 
@@ -44,7 +42,7 @@ O projeto adota duas definições complementares de vulnerabilidade, que operam 
         B é uma decomposição operacional de A.
 ```
 
-O IVS-H (A) aponta o território. O score individual (B) identifica, dentro desse território, as pessoas e famílias prioritárias. Os dois instrumentos se alimentam mutuamente — não são concorrentes.
+O IVS-H (A) aponta o loteamento ou núcleo. O score individual (B) identifica, dentro desse loteamento ou núcleo, as pessoas e famílias prioritárias. Os dois instrumentos se alimentam mutuamente — não são concorrentes.
 
 ### Correspondência entre as dimensões
 
@@ -190,8 +188,8 @@ pelo responsável.
 ### 5.2 O problema da renda autodeclarada
 
 A renda registrada no CadÚnico é **autodeclarada pela família** no
-momento do cadastro ou atualização. Isso cria três problemas
-documentados:
+momento do cadastro ou atualização, **sem exigência de comprovação
+documental**. Isso cria três problemas documentados:
 
 **Subdeclaração deliberada:** A família sabe que declarar renda abaixo
 de ½ SM mantém o acesso a benefícios. O incentivo para subdeclarar é
@@ -208,13 +206,43 @@ de serviços, economia informal — não aparecem na declaração. Em
 Hortolândia, com informalidade coexistindo com polo industrial formal,
 esse gap é estrutural.
 
-### 5.3 Estratégia de triangulação — MVP expandido
+### 5.3 Possibilidade de verificação via CAGED e seu limite estrutural
+
+Uma pergunta legítima é: de posse do CPF da pessoa cadastrada, seria
+possível verificar sua renda real pelo CAGED?
+
+A resposta é **parcialmente sim, mas com limite estrutural decisivo**:
+
+- O CAGED registra admissões e demissões de **emprego formal (CLT)**.
+  Para quem possui vínculo formal, o cruzamento CPF × CAGED permite
+  identificar salário declarado e confirmar ou contestar a renda
+  autodeclarada no CadÚnico.
+
+- **O limite:** a maioria da população vulnerável cadastrada está
+  justamente na **informalidade** — trabalho por diária, bico,
+  autônomo não registrado. Essas pessoas não aparecem no CAGED. O
+  cruzamento retornaria ausência de vínculo — o que não significa
+  ausência de renda, apenas ausência de renda formal registrada.
+
+- Adicionalmente, o acesso ao CAGED não é público direto: exige
+  **convênio com o Ministério do Trabalho e Emprego (MTE)** ou
+  consumo via API, ainda não disponível para o município.
+
+**Conclusão operacional:** o cruzamento CAGED × CPF é válido e
+valioso como validação parcial para o segmento formal — e deve ser
+incluído no roadmap assim que o convênio MTE estiver formalizado.
+Para a população informal, que representa o núcleo mais profundo da
+vulnerabilidade, a renda autodeclarada do CadÚnico permanece como
+melhor fonte disponível. Essa limitação é **estrutural do CadÚnico**,
+não do Atlas Social, e deve ser documentada com transparência.
+
+### 5.4 Estratégia de triangulação — MVP expandido
 
 A solução não é substituir a renda declarada do CadÚnico, mas
 **triangulá-la** com fontes externas:
 
 ```
-Renda declarada CadÚnico (autodeclarada)
+Renda declarada CadÚnico (autodeclarada, sem comprovação)
     +
 Vínculo formal CAGED (existe ou não existe — e qual salário)
     +
@@ -230,13 +258,13 @@ acusação, como alerta de qualidade cadastral.
 
 | Fonte | O que oferece | Limitação |
 |---|---|---|
-| CadÚnico | Renda declarada pela família | Autodeclarada — sujeita a subdeclaração |
+| CadÚnico | Renda declarada pela família | Autodeclarada sem comprovação — sujeita a subdeclaração |
 | CAGED `[GF]` | Renda formal registrada em carteira | Só emprego formal — não captura informalidade |
 | RAIS `[GF]` | Histórico de vínculos formais | Defasagem de até 1 ano |
 | SIBEC `[GF]` | Valor do benefício recebido | Só beneficiários Bolsa Família |
 | BPC/DATAPREV `[GF]` | Valor do BPC pago | Requer convênio INSS |
 
-### 5.4 Dependência de convênios institucionais
+### 5.5 Dependência de convênios institucionais
 
 A triangulação de renda depende diretamente dos convênios federais
 listados na apresentação de março de 2026:
@@ -256,14 +284,50 @@ operacionalmente.
 
 ---
 
-## 6. O que o governo federal define vs. o que o Atlas Social adiciona
+## 6. Cobertura CRAS — Natureza Temporal da Abrangência
+
+O CRAS não define sua área de atuação por fronteira geográfica fixa.
+Sua abrangência é determinada pelo **limite operacional de atendimento**
+— número de famílias referenciadas que a equipe técnica consegue
+acompanhar com qualidade. Quando esse limite é atingido, abre-se uma
+nova unidade para absorver a demanda excedente.
+
+Isso tem consequência direta na modelagem: um loteamento pode ser
+referenciado por um CRAS em determinado período e por outro
+posteriormente. Essa mudança pode levar anos — a abertura de um CRAS
+envolve recursos, espaço físico e equipe — mas ocorre e precisa ser
+registrada.
+
+A relação loteamento → CRAS **não é um atributo fixo da dimensão do
+loteamento**. É uma relação temporal, modelada separadamente:
+
+```
+FATO_ABRANGENCIA_CRAS
+- id_loteamento
+- id_cras
+- data_inicio
+- data_fim        (nulo = vigente)
+- ativo
+```
+
+Essa estrutura garante rastreabilidade histórica sem alterar as
+dimensões. O loteamento não muda — muda quem o atende e quando.
+
+> **Implicação para indicadores:** o cálculo de cobertura e atendimento
+> por loteamento deve sempre referenciar a abrangência vigente na data
+> do atendimento, nunca a configuração atual. Isso é essencial para
+> séries históricas confiáveis.
+
+---
+
+## 7. O que o governo federal define vs. o que o Atlas Social adiciona
 
 | Dimensão | Critério federal existente | Contribuição local `[Local]` | O que perderíamos sem ela |
 |---|---|---|---|
-| Educação | Escolaridade do responsável (CadÚnico) | — | — |
-| Estrutura familiar | Monoparentalidade, dependência de idosos | Alta razão de dependência (>3 dep.) | Famílias numerosas em risco não capturadas |
+| Educação | Escolaridade do responsável (CadÚnico) | --- | --- |
+| Estrutura familiar | Monoparentalidade, dependência de idosos | Alta razão de dependência (mais de 3 dep.) | Famílias numerosas em risco não capturadas |
 | Condições do entorno | Saneamento agregado municipal | v05215 — esgoto a céu aberto por setor / Coabitação | Bolsões internos de privação invisíveis no agregado |
-| Renda | Renda per capita ≤ ½ SM (autodeclarada) | Triangulação CAGED + SIBEC | Subdeclaração e desatualização não detectadas |
+| Renda | Renda per capita menor ou igual a 1/2 SM (autodeclarada, sem comprovação) | Triangulação CAGED + SIBEC | Subdeclaração e desatualização não detectadas |
 | Mobilidade | Não existe critério federal | RT_06 (trabalho fora) / RT_07 (estudo fora) | 58.472 deslocamentos diários de Hortolândia ignorados |
 | Gradação | Elegível / não elegível (binário) | Score com 4 faixas de intensidade | Priorização dentro do universo cadastrado impossível |
 | Temporal | Foto estática | Monitoramento de saída da vulnerabilidade | Impossível medir se as políticas estão funcionando |
@@ -277,25 +341,25 @@ conseguem enxergar na escala do município.
 
 ---
 
-## 7. Score de Vulnerabilidade Individual
+## 8. Score de Vulnerabilidade Individual
 
-### 7.1 Princípio
+### 8.1 Princípio
 
 Cada pessoa recebe um **score** baseado na presença de fatores de risco
 nos eixos disponíveis (educação, estrutura familiar, condições do
 entorno). O score não é julgamento moral — é classificação operacional
 para priorização de política pública.
 
-### 7.2 Classificação por faixa
+### 8.2 Classificação por faixa
 
 | Faixa | Classificação | Implicação operacional |
 |---|---|---|
-| 0 — 1 fator | Baixa vulnerabilidade | Monitoramento preventivo |
-| 2 — 3 fatores | Média vulnerabilidade | Acompanhamento ativo — PAIF |
-| 4 — 5 fatores | Alta vulnerabilidade | Prioridade — PAIF intensivo / PAEFI |
-| 6+ fatores | Vulnerabilidade crítica | Ação imediata — intersetorialidade obrigatória |
+| 0 a 1 fator | Baixa vulnerabilidade | Monitoramento preventivo |
+| 2 a 3 fatores | Média vulnerabilidade | Acompanhamento ativo — PAIF |
+| 4 a 5 fatores | Alta vulnerabilidade | Prioridade — PAIF intensivo / PAEFI |
+| 6 ou mais fatores | Vulnerabilidade crítica | Ação imediata — intersetorialidade obrigatória |
 
-### 7.3 Relação entre A e B
+### 8.3 Relação entre A e B
 
 ```
 IVS-H alto no loteamento (A)
@@ -307,20 +371,20 @@ IVS-H alto no loteamento (A)
 
 ---
 
-## 8. Aplicações
+## 9. Aplicações
 
-### 8.1 Identificação de público prioritário `[GF]` `[Local]`
+### 9.1 Identificação de público prioritário `[GF]` `[Local]`
 Famílias com score elevado em loteamentos com IVS-H crítico são
 candidatas prioritárias a inclusão no PAIF, encaminhamento ao PAEFI,
 acesso a transferência de renda e busca ativa.
 
-### 8.2 Cruzamento com serviços `[Local]`
+### 9.2 Cruzamento com serviços `[Local]`
 O score permite responder: quais famílias vulneráveis **não** estão
 sendo atendidas? Há concentração de casos críticos em loteamentos sem
 cobertura adequada? Quais programas estão alcançando os fatores de
 risco corretos?
 
-### 8.3 Monitoramento de saída da vulnerabilidade `[Local]`
+### 9.3 Monitoramento de saída da vulnerabilidade `[Local]`
 
 **Esta é a aplicação mais inovadora do projeto** — inexistente nos
 índices nacionais, incluindo o IVS-IPEA, que medem vulnerabilidade de
@@ -346,14 +410,14 @@ Isso permite responder:
 
 ---
 
-## 9. Relação com Outros Documentos do Projeto
+## 10. Relação com Outros Documentos do Projeto
 
 | Documento | Relação |
 |---|---|
 | `glossario_conceitual_v01.md` | Definições de Pessoa, Família, Domicílio |
 | `dim_variavel_IVS_v01r5.md` | Especificação técnica das variáveis CH, RT, IU |
-| `ivs_vs_ivsh_comparativo_v05.md` | Comparação IVS-IPEA × IVS-H — eixo A |
-| `ind_densidade_vulnerabilidade_v02.md` | Indicador territorial que agrega o eixo A |
+| `ivs_vs_ivsh_comparativo_v05.md` | Comparação IVS-IPEA x IVS-H — eixo A |
+| `ind_densidade_vulnerabilidade_v02.md` | Indicador de loteamento que agrega o eixo A |
 | `nota_tecnica_ibge_censo2022_entorno.md` | Origem e validação da variável v05215 |
 | `03_indicadores_mvp/README.md` | Posição deste conceito na cadeia analítica |
 
@@ -364,10 +428,10 @@ Isso permite responder:
 | Versão | Data | Alterações |
 |---|---|---|
 | v01 | "19/03/2026" | Criação — conceito, quatro eixos, score, três aplicações |
-| v02 | "19/03/2026" | Reescrita completa. Duas definições A e B. Marcações [GF][IPEA][Local]. Renda separada como seção própria com justificativa de subdeclaração e estratégia de triangulação. Distinção domicílio × entorno formalizada. Tabela comparativa federal × local. |
+| v02 | "19/03/2026" | Reescrita completa. Duas definições A e B. Marcações [GF][IPEA][Local]. Renda separada como seção própria com justificativa de subdeclaração e estratégia de triangulação. Distinção domicílio x entorno formalizada. Tabela comparativa federal x local. |
+| v03 | "20/03/2026" | Substituição de "territorio" por "loteamento ou nucleo" no corpo do texto. Secao 5 expandida: natureza autodeclarada sem comprovacao, limite estrutural do CAGED frente a informalidade, posicionamento como validacao parcial do segmento formal. Nova Secao 6: cobertura CRAS como relacao temporal (FATO_ABRANGENCIA_CRAS). Numeracao das secoes ajustada. |
 
 ---
 
 *Documento técnico vivo — Projeto Atlas Social de Hortolândia*
-*Versão 02 — base conceitual para os indicadores do MVP*
-to_vulnerabilidade_v02.md…]()
+*Versão 03 — base conceitual para os indicadores do MVP*
