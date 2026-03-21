@@ -107,6 +107,32 @@ nos itens 3 e 5.
 *Fechamento gerado ao final da sessão de 19/03/2026.*  
 *Atlas Social de Hortolândia.*
 
+
+| Variável | Dimensão | Fase 0 (IPEA) | Fase 1 (CadÚnico) | Fase 2 (Parcial) | Fase 3 (Completo) | Fonte principal |
+|----------|----------|---------------|-------------------|------------------|-------------------|-----------------|
+| IU_01 — % domicílios sem água/esgoto adequado | Infraestrutura | ✔ | ✖ | (✔) | ✔ | IBGE / SNIS |
+| IU_02 — % domicílios sem coleta de lixo | Infraestrutura | ✔ | ✖ | (✔) | ✔ | IBGE / SNIS |
+| IU_03 — % população em domicílios com baixa densidade/infraestrutura precária | Infraestrutura | ✔ | ✖ | (✔) | ✔ | IBGE |
+| IU_04 — % população em domicílios com mobilidade precária | Infraestrutura | ✔ | ✖ | ✖ | ✔ | IBGE |
+
+| CH_01 — Mortalidade infantil | Capital Humano | ✔ | ✖ | ✖ | ✔ | Saúde (SIM/DATASUS) |
+| CH_02 — Crianças fora da escola | Capital Humano | ✔ | ✖ | (✔) | ✔ | INEP |
+| CH_03 — Gravidez na adolescência | Capital Humano | ✔ | ✖ | ✖ | ✔ | Saúde |
+| CH_04 — Jovens que não estudam nem trabalham | Capital Humano | ✔ | ✖ | (✔) | ✔ | IBGE / CAGED |
+
+| CH_05 — Chefes mulheres sem fundamental com filho menor | Capital Humano | ✔ | ✔ | ✔ | ✔ | CadÚnico |
+| CH_06 — Taxa de analfabetismo | Capital Humano | ✔ | ✔ | ✔ | ✔ | CadÚnico / IBGE |
+| CH_07 — Crianças em domicílios sem adulto com fundamental completo | Capital Humano | ✔ | ✔ | ✔ | ✔ | CadÚnico |
+| CH_08 — Jovens com baixa escolaridade | Capital Humano | ✔ | ✖ | (✔) | ✔ | IBGE |
+
+| RT_01 — % renda per capita ≤ 1/2 SM | Renda/Trabalho | ✔ | ✔ | ✔ | ✔ | CadÚnico |
+| RT_02 — Taxa de desocupação | Renda/Trabalho | ✔ | ✖ | (✔) | ✔ | CAGED / IBGE |
+| RT_03 — Informalidade | Renda/Trabalho | ✔ | ✖ | ✖ | ✔ | IBGE |
+| RT_04 — Dependência de idosos | Renda/Trabalho | ✔ | ✔ | ✔ | ✔ | CadÚnico |
+| RT_05 — Baixa renda domiciliar geral | Renda/Trabalho | ✔ | ✔ | ✔ | ✔ | CadÚnico |
+| RT_06 — Pessoas que trabalham fora do município | Renda/Trabalho | ✔ | ✖ | ✔ | ✔ | IBGE (SIDRA) |
+| RT_07 — Pessoas que estudam fora do município | Renda/Trabalho | ✔ | ✖ | ✔ | ✔ | IBGE (SIDRA) |
+
 | Fase | Nome | Variáveis utilizadas | Fontes de dados | Nível territorial | Objetivo principal | Limitações |
 |------|------|---------------------|-----------------|------------------|-------------------|------------|
 | Fase 0 | Conceitual | 16 (IPEA) | Literatura (IPEA, 2015) | Nacional / Municipal | Definir metodologia e legitimidade científica | Sem aplicação prática local |
