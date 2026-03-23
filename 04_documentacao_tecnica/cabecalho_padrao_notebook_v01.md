@@ -1,4 +1,4 @@
-[cabecalho_padrao_notebook_v01 (1).md](https://github.com/user-attachments/files/26183831/cabecalho_padrao_notebook_v01.1.md)
+[cabecalho_padrao_notebook_v01 (2).md](https://github.com/user-attachments/files/26185812/cabecalho_padrao_notebook_v01.2.md)
 # Cabeçalho Padrão de Notebook — Atlas Social de Hortolândia
 **Versão:** v01  
 **Data:** "23/03/2026"  
@@ -53,6 +53,7 @@ Artefatos que definem a estrutura de dados:
 **Arquivo de entrada:** `/tmp/cecad/tudo.csv` ou `dados/bruto.csv`  
 **Versão do dado:** cadunico_vX_AAAA_MM  
 **Periodo de referência:** CadÚnico dez/2025  
+**Dicionário utilizado:** `dicionario_cadunico_operacional_v02.md`  
 **Banco SQLite:** `hortolandia.db`  
 **⚠️ Risco de schema:** Alto — verificar dicionário antes de nova carga
 
