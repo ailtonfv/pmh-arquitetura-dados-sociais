@@ -1,4 +1,4 @@
-[dicionario_cadunico_operacional_v02 (1).md](https://github.com/user-attachments/files/26185092/dicionario_cadunico_operacional_v02.1.md)[Uploading dic# Dicionário CadÚnico Operacional — Atlas Social de Hortolândia
+[dicionario_cadunico_operacional_v02 (2).md](https://github.com/user-attachments/files/26185475/dicionario_cadunico_operacional_v02.2.md)[Uploading dici# Dicionário CadÚnico Operacional — Atlas Social de Hortolândia
 **Versão:** v02  
 **Data:** "23/03/2026"  
 **Pasta:** `04_documentacao_tecnica/`  
@@ -311,4 +311,4 @@ não pertencem a `fato_variavel_ivs_loteamento`.
 
 *Atlas Social de Hortolândia — Documento Técnico*  
 *"O campo certo, no notebook certo, no momento certo."*
-ionario_cadunico_operacional_v02 (1).md…]()
+onario_cadunico_operacional_v02 (2).md…]()
