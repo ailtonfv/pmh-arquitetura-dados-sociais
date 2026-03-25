@@ -53,12 +53,12 @@ Essa estrutura permite compreender a política socioassistencial como um **proce
 
 O projeto adota uma estrutura inspirada em **Data Lakehouse**, organizada em camadas:
 
-dados/
-├── 01_bruto → dados originais (imutáveis)
-├── 02_limpo → dados tratados (qualidade técnica)
-├── 03_curado → dados prontos para análise
-├── 04_exportacao → arquivos para consumo (Excel, relatórios)
-└── 05_externos → bases auxiliares (IBGE, etc.)
+## dados/
+## ├── 01_bruto → dados originais (imutáveis)
+## ├── 02_limpo → dados tratados (qualidade técnica)
+## ├── 03_curado → dados prontos para análise
+## ├── 04_exportacao → arquivos para consumo (Excel, relatórios)
+## └── 05_externos → bases auxiliares (IBGE, etc.)
 
 
 ### 🔁 Pipeline de dados
