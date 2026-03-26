@@ -1,84 +1,335 @@
-# 📊 Atlas Social de Hortolândia  
+# 📊 Atlas Social de Hortolândia
 Arquitetura de Dados Sociais para Políticas Públicas Municipais
 
-Repositório do projeto **Atlas Social de Hortolândia**, iniciativa de arquitetura de dados sociais aplicada à política socioassistencial do município de Hortolândia – SP.
+Repositório do projeto **Atlas Social de Hortolândia**, iniciativa de
+arquitetura de dados sociais aplicada à política socioassistencial do
+município de Hortolândia – SP (IBGE: 3519071).
 
-O projeto busca estruturar uma **infraestrutura analítica mínima** capaz de compreender e acompanhar a dinâmica da vulnerabilidade social no território municipal, utilizando dados públicos já existentes e respeitando integralmente a legislação de proteção de dados.
+O projeto estrutura uma **infraestrutura analítica mínima** capaz de
+compreender e acompanhar a dinâmica da vulnerabilidade social no
+território municipal, utilizando dados públicos já existentes e
+respeitando integralmente a legislação de proteção de dados (LGPD).
 
 ---
 
 ## 🧠 Contexto
 
-Hortolândia possui aproximadamente **240 mil habitantes** e cerca de **73 mil pessoas inscritas no Cadastro Único** — quase **1 em cada 3 moradores**.
+Hortolândia possui aproximadamente **240 mil habitantes** e cerca de
+**73 mil pessoas inscritas no Cadastro Único** — quase **1 em cada 3
+moradores**.
 
-Apesar da escala da política socioassistencial, os dados disponíveis ainda não permitem responder com precisão perguntas fundamentais para a gestão pública:
+Apesar da escala da política socioassistencial, os dados disponíveis
+ainda não permitem responder com precisão perguntas fundamentais para
+a gestão pública:
 
-- Quem está sendo atendido?  
-- Onde estão as famílias que não estão sendo atendidas?  
-- Quanto tempo as famílias permanecem em situação de vulnerabilidade?  
-- Quantas pessoas conseguem alcançar emancipação social?  
+- Quem está sendo atendido?
+- Onde estão as famílias que não estão sendo atendidas?
+- Quanto tempo as famílias permanecem em situação de vulnerabilidade?
+- Quantas pessoas conseguem alcançar emancipação social?
 
-Este projeto busca estruturar uma **infraestrutura analítica mínima** capaz de responder a essas perguntas de forma sistemática.
+O último dado disponível do IPEA para Hortolândia é de **2010**.
+Este projeto existe para preencher esse vazio de **16 anos**.
 
 ---
 
 ## 🧭 Princípio central
 
-> **A arquitetura de dados deve refletir a política pública — nunca substituí-la.**
+> **A arquitetura de dados deve refletir a política pública —
+> nunca substituí-la.**
 
 A proposta de modelagem:
 
-- não altera fluxos institucionais  
-- não cria novos cadastros  
-- não redefine competências administrativas  
+- não altera fluxos institucionais
+- não cria novos cadastros
+- não redefine competências administrativas
 
-Ela apenas organiza os **dados já existentes**, permitindo uma leitura estratégica, territorial e longitudinal da política socioassistencial municipal.
+Ela apenas organiza os **dados já existentes**, permitindo uma leitura
+estratégica, territorial e longitudinal da política socioassistencial
+municipal.
 
 ---
 
-## 🏗️ Arquitetura analítica do projeto
-
-A lógica analítica do Atlas Social organiza a política pública na seguinte cadeia:
+## 🏗️ Cadeia analítica central
+```
 Pessoa → Família → Domicílio → Loteamento → Programa Social → Serviço → Resultado
+```
 
 A hierarquia territorial adotada é:
+```
 Loteamento → Núcleo (área de abrangência CRAS) → Região de Planejamento
+```
 
-
-Essa estrutura permite compreender a política socioassistencial como um **processo**, e não apenas como registros administrativos isolados.
+Essa estrutura permite compreender a política socioassistencial como
+um **processo**, e não apenas como registros administrativos isolados.
 
 ---
 
 ## 🧱 Arquitetura de dados (pipeline operacional)
 
-O projeto adota uma estrutura inspirada em **Data Lakehouse**, organizada em camadas:
+O projeto adota uma estrutura inspirada em **Data Lakehouse**,
+organizada em camadas:
+```
+dados/
+├── 01_bruto       → dados originais (imutáveis)
+├── 02_limpo       → dados tratados (qualidade técnica)
+├── 03_curado      → dados prontos para análise
+├── 04_exportacao  → arquivos para consumo (Excel, relatórios)
+└── 05_externos    → bases auxiliares (IBGE, etc.)
+```
 
-## dados/
-## ├── 01_bruto → dados originais (imutáveis)
-## ├── 02_limpo → dados tratados (qualidade técnica)
-## ├── 03_curado → dados prontos para análise
-## ├── 04_exportacao → arquivos para consumo (Excel, relatórios)
-## └── 05_externos → bases auxiliares (IBGE, etc.)
+### Pipeline de dados
 
+1. **Ingestão** — dados inseridos em `dados/01_bruto/AAAA_MM/`
+2. **Limpeza** — tratamento técnico → `dados/02_limpo/`
+3. **Curadoria** — seleção de variáveis analíticas → `dados/03_curado/`
+4. **Análise** — realizada via notebooks em `notebooks/`
+5. **Exportação** — resultados consolidados em `outputs/`
 
-### 🔁 Pipeline de dados
+---
 
-1. **Ingestão**  
-   Dados são inseridos em `dados/01_bruto/AAAA_MM/`
+## 📁 Estrutura do projeto (MVP Fase 1)
+```
+cadunico_projeto/
+│
+├── dados/
+│   └── cadunico/
+│       ├── 01_bruto/
+│       │   └── 2025_12/
+│       │       └── cadunico.csv
+│       ├── 02_limpo/
+│       │   └── 2025_12/
+│       │       └── cadunico_limpo.parquet
+│       └── 03_curado/
+│           └── 2025_12/
+│               └── cadunico_ivsh_base.parquet
+│
+├── notebooks/
+│   ├── 01_exploracao_cadunico.ipynb
+│   ├── 02_limpeza_cadunico.ipynb
+│   ├── 03_calculo_variaveis_ivsh.ipynb
+│   └── 04_consolidacao_ivsh_parcial.ipynb
+│
+├── scripts/
+│   ├── limpeza_cadunico.py
+│   └── funcoes_gerais.py
+│
+├── outputs/
+│   ├── tabelas/
+│   └── graficos/
+│
+└── docs/
+    ├── metodologia_ivsh.md
+    └── notas_tecnicas.md
+```
 
-2. **Limpeza**  
-   Tratamento técnico → `dados/02_limpo/`
+> Pastas `sigas/`, `externos/` e `integracao/` diferidas para quando
+> as fontes estiverem disponíveis.
 
-3. **Curadoria**  
-   Seleção de variáveis analíticas (IVS-H) → `dados/03_curado/`
+---
 
-4. **Análise**  
-   Realizada via notebooks em `notebooks/`
+## 📂 Estrutura do repositório GitHub
 
-5. **Exportação**  
-   Resultados consolidados em:
-   - `dados/04_exportacao/`
-   - `outputs/`
+| Diretorio | Conteudo |
+| --- | --- |
+| `00_governanca` | Principios arquitetonicos, fundamentos institucionais e normativos |
+| `01_modelagem_conceitual` | Definicao das entidades centrais da politica social |
+| `02_modelagem_logica` | Esquemas de tabelas, dicionarios de dados e DDLs |
+| `03_indicadores_mvp` | Definicao dos indicadores estruturantes |
+| `04_documentacao_tecnica` | Padroes operacionais (notebooks, nomenclatura, dicionarios) |
+| `05_plano_evolutivo` | Roteiro de evolucao do projeto |
+| `06_banco_dados` | Banco de dados SQLite (nao versionado) |
+| `dados/` | Pipeline de dados (bruto, limpo, curado) |
+| `notebooks/` | Processamento e analise dos dados |
+| `outputs/` | Resultados analiticos (tabelas e graficos) |
+
+---
+
+## 📊 Modelo de dados (visão simplificada)
+
+### Dimensões principais
+
+- Pessoa
+- Família
+- Domicílio
+- Loteamento / Núcleo / Região de Planejamento
+- Programas sociais
+- Unidades de atendimento
+- Normas jurídicas
+- Estruturas de governança
+
+### Tabelas de fatos
+
+- Atendimentos
+- Concessão de benefícios
+- Participação em programas sociais
+- IVS por loteamento (`fato_ivs_loteamento`)
+
+---
+
+## 📈 Metodologia do IVS-H
+
+O projeto replica as **16 variáveis oficiais do IVS/IPEA**, organizadas
+em 3 dimensões, e propõe o **IVS-H**: a mesma estrutura calibrada para
+a realidade local de Hortolândia, com granularidade territorial
+(loteamento) e atualização contínua via CadÚnico.
+
+### Variáveis por dimensão
+
+**Infraestrutura Urbana (IU)**
+- IU_01 — domicilios sem agua ou esgoto adequado
+- IU_02 — domicilios sem coleta de lixo
+- IU_03 — renda baixa com deslocamento prolongado
+
+**Capital Humano (CH)**
+- CH_01 — mortalidade infantil
+- CH_02 — criancas de 0 a 5 anos fora da escola
+- CH_03 — criancas de 6 a 14 anos fora da escola
+- CH_04 — maes adolescentes (10 a 17 anos)
+- CH_05 — maes chefes de familia sem fundamental e com filhos menores
+- CH_06 — analfabetismo
+- CH_07 — criancas sem ensino fundamental completo
+- CH_08 — jovens nem-nem
+
+**Renda e Trabalho (RT)**
+- RT_01 — renda domiciliar per capita baixa
+- RT_02 — desocupacao
+- RT_03 — informalidade
+- RT_04 — idosos em domicilios vulneraveis
+- RT_05 — trabalho infantil
+
+### Pesos por dimensão
+
+| Dimensao | Peso IPEA | Peso IVS-H (hipotese local) |
+| --- | --- | --- |
+| Infraestrutura Urbana | 33% | 15 a 20% |
+| Capital Humano | 33% | 40 a 45% |
+| Renda e Trabalho | 33% | 35 a 40% |
+
+> A calibracao reflete a alta cobertura de infraestrutura urbana e a
+> persistencia de vulnerabilidades em capital humano e renda.
+
+### Abordagem em fases
+
+O IVS-H e construido de forma incremental:
+
+- **Fase 1 — MVP CadUnico**: 5 variaveis disponiveis imediatamente
+- **Fase 2 — Expansao**: variaveis adicionais conforme acesso aos dados
+- **Convergencia**: o modelo converge para as 16 variaveis do IVS/IPEA
+  a medida que as fontes forem disponibilizadas, preservando a
+  estrutura original do indice
+
+---
+
+## 📊 Índice de Pressão Social Territorial — IPST-H
+
+Além do IVS-H, o projeto constrói o **IPST-H (Índice de Pressão
+Social Territorial de Hortolândia)**.
+
+### Conceito
+
+Enquanto o IVS-H mede a **condição de vulnerabilidade**, o IPST-H
+mede a **pressão sobre a rede de atendimento do Estado**.
+
+> "O IVS-H mostra onde está a vulnerabilidade.
+> O IPST-H mostra onde a vulnerabilidade se transforma em
+> pressão sobre o Estado."
+
+### Dimensões de análise
+
+- densidade de familias vulneraveis por loteamento
+- volume de atendimentos realizados
+- capacidade instalada da rede (CRAS, CREAS, OSCs)
+- demanda potencial nao atendida
+
+### Interpretação conjunta
+
+| IVS-H | IPST-H | Significado |
+| --- | --- | --- |
+| Alto | Alto | Alta vulnerabilidade e Estado pressionado |
+| Alto | Baixo | Vulnerabilidade alta, rede ainda absorvendo |
+| Baixo | Alto | Pressao operacional (fluxo, mobilidade, rede insuficiente) |
+| Baixo | Baixo | Situacao estavel |
+
+---
+
+## ⚠️ Governança de dados
+
+- Dados em `01_bruto` sao **imutaveis**
+- Nenhuma analise deve ser feita diretamente sobre dados brutos
+- Cada etapa gera uma nova camada
+- Versionamento por periodo (`AAAA_MM`)
+- Notebooks seguem cabecalho padrao institucional
+
+---
+
+## 🚫 O que este repositório não contém
+
+Por razões legais e éticas, este repositório **não inclui**:
+
+- dados pessoais
+- microdados identificaveis do CadUnico
+- informacoes sensiveis de cidadaos
+- dados operacionais internos
+
+Inclui apenas:
+
+- estruturas de dados
+- documentacao metodologica
+- esquemas analiticos
+- exemplos sinteticos
+
+---
+
+## 🛠️ Tecnologia utilizada (MVP)
+
+| Camada | Tecnologia |
+| --- | --- |
+| Processamento de dados | Python + Pandas |
+| Banco de dados | SQLite |
+| Ambiente analitico | Jupyter Notebook |
+| Versionamento | GitHub |
+| Proxima etapa | PostgreSQL + pipeline ELT |
+
+---
+
+## 🏛️ Contexto institucional
+
+| | |
+| --- | --- |
+| Municipio | Hortolandia - SP (IBGE: 3519071) |
+| Secretaria | Inclusao e Desenvolvimento Social |
+| Responsavel tecnico | Ailton Vendramini |
+| Ano de inicio | 2026 |
+| Fase atual | MVP - estruturacao e validacao |
+
+---
+
+## 🎯 Objetivo de longo prazo
+
+Construir uma **arquitetura de dados sociais replicável para municípios
+brasileiros**, integrando:
+
+- Cadastro Único
+- rede socioassistencial
+- equipamentos públicos
+- organizações da sociedade civil
+- análise territorial da vulnerabilidade
+
+---
+
+## 🧭 Diretriz estratégica
+
+> **"O IVS-H não é apenas um indicador — é uma ferramenta de
+> integração do governo."**
+
+---
+
+## 📚 Referências
+
+- IPEA (2015) — Atlas da Vulnerabilidade Social
+- Kimball, R. — Data Warehouse Toolkit
+- McKinney, W. — Python for Data Analysis
+- Zaharia et al. — Lakehouse Architecture
 
 ---
 Como ficaria a árvore no Jupyter
@@ -215,241 +466,5 @@ Como ficaria a árvore no Jupyter
     └── notas_tecnicas.md
 
 ---
-## 📂 Estrutura do repositório
 
-| Diretório | Conteúdo |
-|---|---|
-| `00_governanca` | Princípios arquitetônicos, fundamentos institucionais e normativos |
-| `01_modelagem_conceitual` | Definição das entidades centrais da política social |
-| `02_modelagem_logica` | Esquemas de tabelas, dicionários de dados e DDLs |
-| `03_indicadores_mvp` | Definição dos indicadores estruturantes |
-| `04_documentacao_tecnica` | Padrões operacionais (notebooks, nomenclatura, dicionários) |
-| `05_plano_evolutivo` | Roteiro de evolução do projeto |
-| `06_banco_dados` | Banco de dados SQLite (não versionado) |
-| `dados/` | Pipeline de dados (bruto → limpo → curado) |
-| `notebooks/` | Processamento e análise dos dados |
-| `outputs/` | Resultados analíticos (tabelas e gráficos) |
-
----
-
-## 📊 Modelo de dados (visão simplificada)
-
-O modelo segue princípios de **modelagem dimensional analítica**.
-
-### Dimensões principais
-
-- Pessoa  
-- Família  
-- Domicílio  
-- Loteamento / Núcleo / Região  
-- Programas sociais  
-- Unidades de atendimento  
-- Normas jurídicas  
-- Estruturas de governança  
-
-### Tabelas de fatos
-
-- Atendimentos  
-- Concessão de benefícios  
-- Participação em programas sociais  
-- IVS por loteamento (`fato_ivs_loteamento`)  
-
-Essas estruturas permitem análises **territoriais, temporais e institucionais** da política pública.
-
----
-## 📈 Metodologia do IVS-H (abordagem em fases)
-
-A construção do IVS-H segue uma estratégia incremental, dividida em fases, com o objetivo de garantir robustez técnica, rastreabilidade e aderência à realidade municipal.
-
-### 🔹 Fase 1 — Reprodução do IVS (base IPEA)
-
-- Utilização das mesmas 16 variáveis do IVS nacional
-- Aplicação inicial com pesos de referência
-- Objetivo: validação metodológica e aderência ao território
-
----
-
-### 🔹 Fase 2 — Calibração local (IVS-H)
-
-- Ajuste de pesos conforme realidade de Hortolândia
-- Ênfase maior em:
-  - capital humano
-  - renda e trabalho
-- Redução relativa do peso de infraestrutura urbana
-
-Objetivo: refletir com maior precisão a vulnerabilidade social local
-
----
-
-### 🔹 Fase 3 — Integração longitudinal
-
-- Inclusão de dimensão temporal
-- Acompanhamento da trajetória das famílias
-- Identificação de permanência ou superação da vulnerabilidade
-
-Objetivo: sair da fotografia estática e avançar para análise de trajetória
-
----
-
-### 🔹 Fase 4 — Integração intersetorial
-
-- Conexão com:
-  - saúde
-  - educação
-  - habitação
-- Consolidação de indicadores transversais
-
-Objetivo: romper silos administrativos e permitir gestão integrada
-
---
-
-
----
-
-## 📈 Índice de Vulnerabilidade Social — IVS-H
-
-O projeto adota o **IVS (IPEA)** como referência metodológica e propõe o **IVS-H**, calibrado à realidade local.
-
-| Dimensão | Peso IPEA | Peso IVS-H (hipótese) |
-|---|---|---|
-| Infraestrutura Urbana | 33% | ~15–20% |
-| Capital Humano | 33% | ~40–45% |
-| Renda e Trabalho | 33% | ~35–40% |
-
-A calibração reflete as especificidades locais, especialmente a alta cobertura de infraestrutura urbana e a persistência de vulnerabilidades estruturais em capital humano e renda.
-
-> Referência: `00_governanca/ivs_vs_ivsh_comparativo_v05.md`
-
----
-## 📊 Índice de Pressão Territorial (IPT-H)
-
-Além do IVS-H, o projeto propõe a construção de um **Índice de Pressão Territorial (IPT-H)**.
-
-### 🎯 Conceito
-
-Enquanto o IVS-H mede a **condição de vulnerabilidade**, o IPT-H mede a **pressão sobre a rede de atendimento**.
-
----
-
-### 🔹 Dimensões de análise
-
-O IPT-H considera:
-
-- densidade de famílias vulneráveis por território
-- volume de atendimentos realizados
-- capacidade instalada da rede (CRAS, CREAS, OSCs)
-- demanda potencial não atendida
-
----
-
-### 🔹 Interpretação
-
-| Situação | Significado |
-|--------|------------|
-| IVS alto + IPT alto | território crítico (alta vulnerabilidade e alta pressão) |
-| IVS alto + IPT baixo | vulnerabilidade oculta (subatendimento) |
-| IVS baixo + IPT alto | possível sobrecarga operacional |
-| IVS baixo + IPT baixo | situação controlada |
-
----
-
-### 🔹 Objetivo estratégico
-
-O IPT-H permite:
-
-- identificar gargalos operacionais
-- orientar alocação de recursos
-- qualificar a gestão territorial da política pública
-
----
-
-> O IVS-H responde: **onde está a vulnerabilidade**  
-> O IPT-H responde: **onde está a pressão sobre o sistema**
-
----
-
-## ⚠️ Governança de dados
-
-- Dados em `01_bruto` são **imutáveis**  
-- Nenhuma análise deve ser feita diretamente sobre dados brutos  
-- Cada etapa gera uma nova camada  
-- Versionamento por período (`AAAA_MM`)  
-- Notebooks seguem cabeçalho padrão institucional  
-
----
-
-## 🚫 O que este repositório **não contém**
-
-Por razões legais e éticas, este repositório **não inclui**:
-
-- dados pessoais  
-- microdados identificáveis do CadÚnico  
-- informações sensíveis de cidadãos  
-- dados operacionais internos  
-
-Inclui apenas:
-
-- estruturas de dados  
-- documentação metodológica  
-- esquemas analíticos  
-- exemplos sintéticos  
-
----
-
-## 🛠️ Tecnologia utilizada (MVP)
-
-| Camada | Tecnologia |
-|---|---|
-| Processamento de dados | Python + Pandas |
-| Banco de dados | SQLite |
-| Ambiente analítico | Jupyter Notebook |
-| Versionamento | GitHub |
-| Próxima etapa | PostgreSQL + pipeline ELT |
-
----
-
-## 🏛️ Contexto institucional
-
-| | |
-|---|---|
-| Município | Hortolândia – SP |
-| Secretaria | Inclusão e Desenvolvimento Social |
-| Responsável técnico | Ailton Vendramini |
-| Ano de início | 2026 |
-| Fase atual | MVP — estruturação e validação |
-
----
-
-## 🎯 Objetivo de longo prazo
-
-Construir uma **arquitetura de dados sociais replicável para municípios brasileiros**, integrando:
-
-- Cadastro Único  
-- rede socioassistencial  
-- equipamentos públicos  
-- organizações da sociedade civil  
-- análise territorial da vulnerabilidade  
-
----
-
-## 🧭 Diretriz estratégica
-
-> **“O IVS-H não é apenas um indicador — é uma ferramenta de integração do governo.”**
-
----
-
-## 📚 Referências
-
-- IPEA (2015) — Atlas da Vulnerabilidade Social  
-- Kimball, R. — Data Warehouse Toolkit  
-- McKinney, W. — Python for Data Analysis  
-- Zaharia et al. — Lakehouse Architecture  
-
----
-
-## 📄 Licença
-
-Projeto institucional público.
-
-Não contém dados pessoais e segue os princípios da **Lei Geral de Proteção de Dados (LGPD)** e boas práticas de **governança de dados no setor público**.
 
