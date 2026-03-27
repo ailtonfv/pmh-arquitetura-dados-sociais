@@ -1,7 +1,6 @@
-[dim_variavel_IVS_v01r9.md](https://github.com/user-attachments/files/26317297/dim_variavel_IVS_v01r9.md)
-# DIM_VARIAVEL_IVS — Variáveis do Índice de Vulnerabilidade Social
+[dim_variavel_IVS_v01r10.md](https://github.com/user-attachments/files/26317409/dim_variavel_IVS_v01r10.md)[Uploading dim_va# DIM_VARIAVEL_IVS — Variáveis do Índice de Vulnerabilidade Social
 
-**Versão:** v01r9  
+**Versão:** v01r10  
 **Data de criação:** "09/03/2026"  
 **Última atualização:** "27/03/2026"  
 **Responsável:** Ailton Vendramini  
@@ -205,21 +204,30 @@ observacoes
 - Universo: mulheres de 10 a 17 anos — Secretaria de Saúde / CadÚnico
 
 **CH_05** *(corrigido em v01r9)*
-- Numerador: famílias cuja responsável é mulher (cod_parentesco_rf_pessoa = 1, sexo feminino), sem ensino fundamental completo, com pelo menos um filho menor de 15 anos no mesmo cod_familiar_fam
-- Denominador: **total de famílias do loteamento na base**
-- Unidade: proporção (0 a 1)
+
+$$CH_{05}(l) = \frac{Fam_{m\tilde{a}e\_resp \,\cap\, sem\_fund \,\cap\, filho<15}(l)}{Fam_{total}(l)} \times 100$$
+
+Onde:
+- $Fam_{m\tilde{a}e\_resp \,\cap\, sem\_fund \,\cap\, filho<15}(l)$ = famílias do loteamento $l$ cuja responsável é mulher (cod_parentesco_rf_pessoa = 1, sexo feminino), sem ensino fundamental completo, com pelo menos um filho menor de 15 anos no mesmo cod_familiar_fam
+- $Fam_{total}(l)$ = total de famílias do loteamento $l$ na base
 - Universo: famílias no CadÚnico
 
 **CH_06**
-- Numerador: pessoas de 15 anos ou mais que não sabem ler nem escrever
-- Denominador: total de pessoas de 15 anos ou mais no loteamento
-- Unidade: proporção (0 a 1)
+
+$$CH_{06}(l) = \frac{Pessoas_{15+\,analfabetas}(l)}{Pessoas_{15+\,total}(l)} \times 100$$
+
+Onde:
+- $Pessoas_{15+\,analfabetas}(l)$ = pessoas com 15 anos ou mais que não sabem ler nem escrever no loteamento $l$
+- $Pessoas_{15+\,total}(l)$ = total de pessoas com 15 anos ou mais no loteamento $l$
 - Universo: população de 15 anos ou mais no CadÚnico / Censo 2022
 
 **CH_07**
-- Numerador: crianças que residem em domicílios onde nenhum morador concluiu o ensino fundamental (agregação por cod_familiar_fam obrigatória antes da marcação individual)
-- Denominador: total de crianças no loteamento
-- Unidade: proporção (0 a 1)
+
+$$CH_{07}(l) = \frac{Criancas_{0\text{-}14\,\cap\,dom.\,sem\,fund.}(l)}{Criancas_{0\text{-}14\,total}(l)} \times 100$$
+
+Onde:
+- $Criancas_{0\text{-}14\,\cap\,dom.\,sem\,fund.}(l)$ = crianças de 0 a 14 anos residentes em domicílios onde nenhum morador concluiu o ensino fundamental (agregação por cod_familiar_fam obrigatória antes da marcação individual)
+- $Criancas_{0\text{-}14\,total}(l)$ = total de crianças de 0 a 14 anos no loteamento $l$
 - Universo: crianças residentes no CadÚnico
 
 **CH_08**
@@ -245,9 +253,12 @@ observacoes
 ### Fórmulas Operacionais — Renda e Trabalho
 
 **RT_01**
-- Numerador: pessoas em domicílios com renda per capita menor ou igual a meio salário mínimo
-- Denominador: total de pessoas no loteamento
-- Unidade: proporção (0 a 1)
+
+$$RT_{01}(l) = \frac{Pessoas_{rpc \leq 0{,}5SM}(l)}{Pessoas_{total}(l)} \times 100$$
+
+Onde:
+- $Pessoas_{rpc \leq 0{,}5SM}(l)$ = pessoas em domicílios com renda per capita menor ou igual a meio salário mínimo no loteamento $l$
+- $Pessoas_{total}(l)$ = total de pessoas no loteamento $l$
 - Universo: população cadastrada no CadÚnico dez/2025
 
 **RT_02**
@@ -263,9 +274,12 @@ observacoes
 - Universo: população ocupada de 18 anos ou mais no CadÚnico
 
 **RT_04** *(corrigido em v01r9)*
-- Numerador: **domicílios** com renda per capita menor ou igual a meio SM e presença de pelo menos um morador com 60 anos ou mais
-- Denominador: **total de domicílios do loteamento na base**
-- Unidade: proporção (0 a 1)
+
+$$RT_{04}(l) = \frac{Dom_{rpc \leq 0{,}5SM \,\cap\, idoso \geq 60}(l)}{Dom_{total}(l)} \times 100$$
+
+Onde:
+- $Dom_{rpc \leq 0{,}5SM \,\cap\, idoso \geq 60}(l)$ = domicílios com renda per capita menor ou igual a meio SM e presença de pelo menos um morador com 60 anos ou mais no loteamento $l$
+- $Dom_{total}(l)$ = total de domicílios do loteamento $l$ na base
 - Universo: domicílios no CadÚnico dez/2025
 
 **RT_05**
@@ -415,8 +429,10 @@ observacoes
 | v01r7 | "22/03/2026" | peso_ipea corrigido para estrutura hierárquica; fórmulas min-max formalizadas; nota de escala CH_01; P10 adicionada |
 | v01r8 | "23/03/2026" | (1) Nota Metodológica reescrita: estrutura explícita Fase 1 / Fase 2 / Fase 3; (2) Princípio adotado alinhado à implementação progressiva; (3) "Agregação Territorial" → "Agregação Espacial"; (4) nota nivel_analise expandida; (5) RT_04: observação com honestidade metodológica; (6) CH_05 e CH_07: notas operacionais explicitadas; (7) Resumo de Disponibilidade com nota Fase 1; (8) título calibração: "Hipótese de Calibração Local (Fase posterior)"; (9) P11 e P12 adicionadas |
 | v01r9 | "27/03/2026" | Duas correções cirúrgicas a partir da formalização das fórmulas MVP (insights.docx, 27/03/2026): (1) **RT_04**: unidade corrigida de Pessoa para Domicílio/Família; numerador corrigido de "pessoas em domicílios onde o principal provedor é idoso" para "domicílios com renda ≤ 0,5 SM e presença de pelo menos um morador com 60+"; denominador corrigido de "total de pessoas" para "total de domicílios do loteamento"; P12 marcada como resolvida. (2) **CH_05**: denominador corrigido de "total de mulheres chefes de família" para "total de famílias do loteamento" — alinhamento com metodologia IPEA. Seção "Resumo das Unidades de Cálculo — Fase 1 MVP" adicionada. |
+| v01r10 | "27/03/2026" | Fórmulas das 5 variáveis do MVP (RT_01, RT_04, CH_05, CH_06, CH_07) reescritas em notação LaTeX com subscritos, intersecções e denominadores explícitos. Demais fórmulas (variáveis Fase 2) mantidas em formato descritivo — LaTeX reservado para as variáveis operacionalmente ativas no MVP. |
 
 ---
 
 *Documento de modelagem conceitual — 01_modelagem_conceitual.*  
 *Uso interno — Atlas Social de Hortolândia.*
+riavel_IVS_v01r10.md…]()
