@@ -1,1 +1,5 @@
-
+	fonte	data	item	pagina	dimensao_ivs	codigo_variavel	resumo	localidade	tipo_evento	gravidade	observacao	cod_loteamento
+1	Tribuna Liberal	2026-03-29	Conserto erosao frente EMEIEF Jd. Amanda III	09	infraestrutura_urbana	IU_01	Reparo de afundamento de solo na Rua Duque de Caxias em frente a escola municipal do Jd. Amanda III	Hortolandia	problema	media	Infraestrutura urbana em loteamento de interesse	351
+2	Tribuna Liberal	2026-03-29	Paulinia - Lei 4685/2026 matricula maes atipicas	09	capital_humano	CH_05	Paulinia sanciona lei de prioridade de matricula para filhos de maes responsaveis por PCD/TEA/doencas raras	Paulinia	politica_publica	media	Interface direta com CH_05; benchmark regional	
+3	Tribuna Liberal	2026-03-29	STF - visao monocular como deficiencia ADI 6850	09	capital_humano	CH_05	STF confirma visao monocular como deficiencia sensorial; garante acesso a concursos publicos e beneficios	Nacional	politica_publica	media	Impacto em PcD; interface com DPP PcD	
+4	Tribuna Liberal	2026-03-29	Ana Perugini - R$ 1.57 mi Centro Inteligencia Social	07	capital_humano	RT_04	Emenda para Centro de Inteligencia Social: convivencia da melhor idade e cursos de qualificacao profissional	Hortolandia	politica_publica	media	Equipamento voltado a idosos; interface direta com RT_04	
