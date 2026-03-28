@@ -1,1 +1,4 @@
-
+	fonte	data	item	pagina	dimensao_ivs	codigo_variavel	resumo	localidade	tipo_evento	gravidade	observacao		cod_loteamento
+1	Tribuna Liberal	2026-03-26	Programa Cuidar	09	capital_humano	CH_04	Entrega de kits de maternidade	 6025 kits desde 2022	Hortolandia	politica_publica	media	Acao institucional SMIDS	
+2	Tribuna Liberal	2026-03-26	Abastecimento BRK	09	infraestrutura_urbana	IU_01	Oscilacao de abastecimento em 14 bairros em 31/03	Hortolandia	problema	media	Cruzar com loteamentos afetados		
+3	Tribuna Liberal	2026-03-26	Idoso encontrado morto	08	renda_trabalho	RT_04	Idoso sozinho em situacao vulneravel	 hipertenso alcoolista	Jd Nova Hortolandia	caso_individual	alta	Caso concreto da variavel RT_04	319
