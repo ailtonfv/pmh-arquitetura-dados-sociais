@@ -1,1 +1,5 @@
-
+	fonte	data	item	pagina	dimensao_ivs	codigo_variavel	resumo	localidade	tipo_evento	gravidade	observacao			cod_loteamento
+1	Tribuna Liberal	2026-03-25	UBS Terras de Santa Maria	s/n	capital_humano	CH_01	Obras da UBS iniciadas	 expansao da rede de saude em loteamentos de crescimento	Hortolandia	infraestrutura	media	Equipamento de saude fora do escopo SMIDS		
+2	Tribuna Liberal	2026-03-25	CAPS Vida Jardim America	s/n	capital_humano	CH_08	CAPS autorizado	 saude mental	 interface futura com PAEFI	Hortolandia	infraestrutura	media	Equipamento de saude fora do escopo SMIDS	
+3	Tribuna Liberal	2026-03-25	PROUNI Hortolandia	s/n	capital_humano	CH_07	Proposta legislativa de acesso ao PROUNI	 impacto potencial em CH_07 e RT_02	Hortolandia	politica_publica	media	Indicacao legislativa - aguarda aprovacao	 monitorar	
+4	Tribuna Liberal	2026-03-25	Gasolina media R$ 6.41	s/n	renda_trabalho	RT_01	Procon fiscaliza postos	 preco medio regional R$ 6,41	Hortolandia	problema	alta	Pressao de custo de vida sobre renda familiar RT_01		
