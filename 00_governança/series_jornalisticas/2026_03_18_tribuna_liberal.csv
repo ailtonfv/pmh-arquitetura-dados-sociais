@@ -1,1 +1,4 @@
-
+	fonte	data	item	pagina	dimensao_ivs	codigo_variavel	resumo	localidade	tipo_evento	gravidade	observacao		cod_loteamento
+1	Tribuna Liberal	2026-03-18	Forum de Empregabilidade	s/n	renda_trabalho	RT_02	Forum Dimas + Maria dos Anjos	 vinculado ao programa EMPREGA_HORTOLANDIA	Hortolandia	politica_publica	media	Dado registrado em dim_programa_v05	
+2	Tribuna Liberal	2026-03-18	Embalixo 5x2	s/n	renda_trabalho	RT_02	110 contratacoes formais	 dado futuro para cruzamento CAGED	Hortolandia	politica_publica	media	Evidencia empirica de insercao produtiva formal	
+3	Tribuna Liberal	2026-03-18	Ministra das Mulheres Jardim Amanda	s/n	capital_humano	CH_04	Visita ao nucleo Amanda	 contexto de vulnerabilidade feminina	Jd Amanda	politica_publica	media	Nucleo mais presente no CadUnico com 10208 registros	
