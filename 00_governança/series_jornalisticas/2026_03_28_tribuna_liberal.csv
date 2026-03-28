@@ -1,1 +1,5 @@
-
+	fonte	data	item	pagina	dimensao_ivs	codigo_variavel	resumo	localidade	tipo_evento	gravidade	observacao	cod_loteamento
+1	Tribuna Liberal	2026-03-28	Parque Jd. Amanda - espaco patinacao	04	multidimensional	SMIDS_EXT	Implantacao de area de patinacao no Parque Socioambiental Jd. Amanda; campo e academia previstos para abril	Hortolandia	infraestrutura	media	Equipamento publico em loteamento de interesse	351
+2	Tribuna Liberal	2026-03-28	ISLU 2025 - Hortolandia 1301a posicao	06	infraestrutura_urbana	IU_02	Hortolandia posicao 1301 indice 0.538 conceito medio no ranking nacional de limpeza urbana; Americana lidera a regiao	Hortolandia	problema	media	Dado auditavel corrobora IU_02	
+3	Tribuna Liberal	2026-03-28	Tentativa de estupro em praca publica	09	multidimensional	SMIDS_EXT	Tentativa de estupro em praca proxima ao Hospital Mario Covas em plena luz do dia; suspeito foragido	Hortolandia	problema	alta	Violencia de genero em espaco publico; interface PAEFI e CRAM	
+4	Tribuna Liberal	2026-03-28	Ana Perugini - R$ 400 mil CRAS Jardim Brasil	07	multidimensional	SMIDS_EXT	Emenda de R$ 400 mil para ampliacao do CRAS Jardim Brasil entre R$ 23.8 mi destinados a Hortolandia	Hortolandia	politica_publica	media	Ampliacao de CRAS relevante para modelagem de cobertura territorial	
