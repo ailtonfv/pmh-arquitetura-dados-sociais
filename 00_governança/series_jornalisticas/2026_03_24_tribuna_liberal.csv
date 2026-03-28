@@ -1,1 +1,4 @@
-
+	fonte	data	item	pagina	dimensao_ivs	codigo_variavel	resumo	localidade	tipo_evento	gravidade	observacao			cod_loteamento
+1	Tribuna Liberal	2026-03-24	Mercado imobiliario +10%	s/n	infraestrutura_urbana	IU_01	Crescimento imobiliario Sumare e Hortolandia	 pressao em novos loteamentos	Hortolandia	problema	media	Indicador de expansao territorial	 impacto em IU_01 e IU_02	
+2	Tribuna Liberal	2026-03-24	Parque Terras de Santa Maria	s/n	infraestrutura_urbana	IU_01	Obras iniciadas	 evento positivo de infraestrutura urbana	Hortolandia	infraestrutura	media	Verificar nome oficial do programa com Sec. Meio Ambiente - pendente		
+3	Tribuna Liberal	2026-03-24	TCE-SP auditorias operacionais 2026	s/n	infraestrutura_urbana	SMIDS_EXT	TCE-SP amplia auditorias em municipios	 argumento institucional para o Atlas Social	Hortolandia	politica_publica	media	Rastreabilidade e evidencia tecnica como resposta ao contexto de auditoria		
