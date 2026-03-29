@@ -1,6 +1,6 @@
-# README — DIM_REGIAO_RMC
+[readme_dim_regiao_rmc_v03.md](https://github.com/user-attachments/files/26332652/readme_dim_regiao_rmc_v03.md)[Uploading readme_dim# README — DIM_REGIAO_RMC
 
-**Versão:** v02  
+**Versão:** v03  
 **Data:** "29/03/2026"  
 **Responsável:** Ailton Vendramini  
 **Repositório:** Atlas-Social-de-Hortolândia / 01_modelagem_conceitual  
@@ -27,9 +27,25 @@ território. Sem o modelo regional, o Atlas Social descreve sintomas.
 Com ele, poderá passar a explicar causas — desde que as hipóteses
 sejam confirmadas pelos dados.
 
+Essas dinâmicas são tratadas como hipóteses estruturais e serão
+validadas empiricamente nas fases subsequentes do projeto.
+
 ---
 
-## 2. Estrutura Prevista
+## 2. Conceito-Chave
+
+**Pressão territorial:** aumento da demanda por serviços públicos e
+infraestrutura decorrente de fluxos populacionais e dinâmicas econômicas
+regionais, independentemente da capacidade fiscal local.
+
+Este conceito é central para o modelo regional: a pressão territorial
+não é produzida apenas pelas condições internas do município — ela é
+também consequência de forças externas que o município não controla mas
+cujos efeitos absorve integralmente.
+
+---
+
+## 3. Estrutura Prevista
 
 ### DIM_REGIAO_RMC
 *conceitual — não implementada*
@@ -83,7 +99,7 @@ ano_referencia
 
 ---
 
-## 3. Hipóteses Centrais a Verificar
+## 4. Hipóteses Centrais a Verificar
 
 | # | Hipótese | Dado necessário | Fonte | status_validacao |
 | --- | --- | --- | --- | --- |
@@ -100,7 +116,7 @@ ano_referencia
 
 ---
 
-## 4. Dependência de Dados
+## 5. Dependência de Dados
 
 | Fonte | O que entrega | Status | Caminho |
 | --- | --- | --- | --- |
@@ -121,7 +137,7 @@ ano_referencia
 
 ---
 
-## 5. Impacto no Modelo
+## 6. Impacto no Modelo
 
 A incorporação do modelo regional transforma o Atlas Social em dois aspectos:
 
@@ -132,12 +148,13 @@ regional.
 
 **Político:** oferece ao município argumento técnico para demandas junto
 ao Estado e à RMC — especialmente no que se refere a financiamento de
-CRAS, habitação social e mobilidade urbana. A vulnerabilidade de
-Hortolândia é, em parte, produzida fora de Hortolândia.
+CRAS, habitação social e mobilidade urbana. A vulnerabilidade observada
+em Hortolândia pode estar parcialmente associada a dinâmicas regionais
+externas ao município.
 
 ---
 
-## 6. Conexão com Instrumentos Existentes
+## 7. Conexão com Instrumentos Existentes
 
 | Instrumento | Conexão |
 | --- | --- |
@@ -147,7 +164,7 @@ Hortolândia é, em parte, produzida fora de Hortolândia.
 
 ---
 
-## 7. Próximos Passos
+## 8. Próximos Passos
 
 1. Incorporar série histórica populacional (IBGE estimativas) em
    `DIM_POPULACAO` assim que estrutura for aprovada
@@ -161,10 +178,12 @@ Hortolândia é, em parte, produzida fora de Hortolândia.
 
 | Versão | Data | Alterações |
 | --- | --- | --- |
-| v01 | "29/03/2026" | Criação — motivação, estrutura conceitual de três dimensões (DIM_REGIAO_RMC, DIM_POPULACAO, DIM_FLUXO_REGIONAL), cinco hipóteses centrais, mapa de dependência de dados. Originado de análise de padrões imobiliários metropolitanos e hipótese de suburbanização da pobreza na RMC. |
-| v02 | "29/03/2026" | Quatro ajustes: (1) Motivação reescrita — tom causal substituído por hipótese estruturada; (2) DIM_POPULACAO: nota técnica de natureza híbrida adicionada, com menção à evolução futura para FATO_POPULACAO_MUNICIPAL; (3) Hipóteses: campo status_validacao adicionado (não testada / em teste / validada / refutada); (4) Dependência de dados: CadÚnico incluído como sensor em tempo quase real, com nota de limitação de cobertura. |
+| v01 | "29/03/2026" | Criação — motivação, estrutura conceitual de três dimensões (DIM_REGIAO_RMC, DIM_POPULACAO, DIM_FLUXO_REGIONAL), cinco hipóteses centrais, mapa de dependência de dados. |
+| v02 | "29/03/2026" | Quatro ajustes: (1) Motivação reescrita — tom causal substituído por hipótese estruturada; (2) DIM_POPULACAO: nota técnica de natureza híbrida; (3) Hipóteses: campo status_validacao adicionado; (4) CadÚnico incluído na tabela de dependência de dados. |
+| v03 | "29/03/2026" | Três ajustes: (1) Motivação: frase de encerramento adicionada — hipóteses estruturais a serem validadas empiricamente; (2) Seção 2 criada — conceito-chave "Pressão territorial" formalizado e nomeado; (3) Impacto político: frase ajustada de afirmação causal para associação hipotética, mantendo força sem antecipar resultado. Numeração das seções atualizada. |
 
 ---
 
 *Documento conceitual — 01_modelagem_conceitual/*  
 *Atlas Social de Hortolândia — uso interno*
+_regiao_rmc_v03.md…]()
