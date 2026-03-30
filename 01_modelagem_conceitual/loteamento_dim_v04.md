@@ -1,11 +1,10 @@
-[dim_municipio_regioes_loteamentos_v03.md](https://github.com/user-attachments/files/26140040/dim_municipio_regioes_loteamentos_v03.md)
-# DIM_MUNICIPIO_REGIOES_LOTEAMENTOS
-**Versão:** v03
-**Data de atualização:** "20/03/2026"
-**Versão anterior:** v02 (05/03/2026)
-**Atualizações v03:**
-- Seção 0 adicionada: princípio arquitetural das três dimensões geográficas
-- Formulação canônica: loteamento como átomo espacial, núcleo como camada de agregação
+[loteamento_dim_v04.md](https://github.com/user-attachments/files/26358947/loteamento_dim_v04.md)[Uploading loteamento_dim_v04# DIM_MUNICIPIO_REGIOES_LOTEAMENTOS
+**Versão:** v04
+**Data de atualização:** "31/03/2026"
+**Versão anterior:** v03 (20/03/2026)
+**Atualizações v04:**
+- Seção 3: nota sobre divergência de nomenclatura SIGAS × codbairro oficial
+- Pendência P08: escopo ampliado — TAB_NORMALIZA_LOCALIDADE deve cobrir variações do SIGAS (padrão Correios via CEP) além das variações do CadÚnico
 
 **Responsável:** Ailton Vendramini
 **Fonte primária:** `loteamentosregiao.xlsx` — Prefeitura Municipal de Hortolândia
@@ -82,13 +81,31 @@ pela Prefeitura de Hortolândia no processo de aprovação cartorial.
 **Regra:** O sistema se guia pelo `codbairro` — nunca pelo nome.
 O nome é atributo de exibição e busca textual.
 
-**Tabela de normalização CadÚnico:**
+**Divergência SIGAS × codbairro — nota arquitetural (v04):**
+
+O sistema municipal de atendimento socioassistencial (SIGAS) utiliza o CEP
+como chave de identificação de loteamentos, adotando o nome de bairro
+conforme o padrão dos Correios. Esse padrão diverge sistematicamente do
+cadastro mobiliário municipal — que é a fonte do `codbairro`.
+
+Exemplos documentados de divergência: grafias com erros de digitação
+migradas de períodos anteriores ao sistema atual (ex.: variações do tipo
+"Jardim Amada" vs. "Jardim Amanda"). Em loteamentos mais recentes, o nome
+dos Correios pode diferir do nome cartorial oficial.
+
+Implicação para o pipeline: qualquer integração entre SIGAS e o modelo do
+Atlas Social **exige normalização via `TAB_NORMALIZA_LOCALIDADE`** — não
+é possível fazer JOIN direto por nome de loteamento entre as duas fontes.
+Ver Pendência P08.
+
+**Tabela de normalização CadÚnico e SIGAS:**
 ```
 TAB_NORMALIZA_LOCALIDADE
-  texto_bruto       "Jd Amanda" | "Jardim Amanda" | "Amanda"
+  texto_bruto       "Jd Amanda" | "Jardim Amanda" | "Amanda" | "Jd. Amada"
+  fonte             CadUnico | SIGAS | Manual
   codbairro         351
   id_loteamento     LOT_351
-  confianca         Alta | Média | Baixa
+  confianca         Alta | Media | Baixa
 ```
 
 ---
@@ -372,7 +389,7 @@ DIM_PESSOA (CPF)
 | P05 | Incorporar Anexo IV Plano Diretor | --- | Resolvida — RPs identificadas no mapa |
 | P06 | Investigar "Taquara Branca" — nome popular sem registro cartorial | Alta | Aberta |
 | P07 | Adicionar CEP e coordenadas geográficas a cada loteamento | Alta | Aberta |
-| P08 | Construir TAB_NORMALIZA_LOCALIDADE para cruzamento com CadÚnico | Alta | Aberta |
+| P08 | Construir TAB_NORMALIZA_LOCALIDADE para cruzamento com CadÚnico e SIGAS — o SIGAS usa padrão Correios via CEP, divergente do codbairro oficial; a tabela deve cobrir variações de ambas as fontes, incluindo erros de digitação históricos migrados do sistema anterior | Alta | Aberta |
 | P09 | Mapear 11 loteamentos de fronteira — confirmar RP correta | Média | Aberta |
 | P10 | Verificar cobertura dos 15 loteamentos aprovados 2021–2025 | Alta | Aberta |
 
@@ -385,7 +402,9 @@ DIM_PESSOA (CPF)
 | v01 | "03/03/2026" | Criação — DIM_REGIAO, DIM_LOTEAMENTO, REL_UNIDADE_LOTEAMENTO. Controle temporal. |
 | v02 | "05/03/2026" | Termo "território" eliminado. DIM_REGIAO renomeada para DIM_REGIAO_PLANEJAMENTO. REL_UNIDADE_LOTEAMENTO renomeada para REL_LOTEAMENTO_NUCLEO com campo setor. codbairro adotado como chave oficial. Plano Diretor incorporado. 141 loteamentos populados. 11 fronteiras identificadas. |
 | v03 | "20/03/2026" | Seção 0 adicionada: princípio arquitetural das três dimensões. Formulação canônica: loteamento como átomo espacial, núcleo como camada de agregação flexível por setor. Simbologia especial removida das tabelas para compatibilidade GitHub. |
+| v04 | "31/03/2026" | Seção 3: nota arquitetural sobre divergência SIGAS x codbairro — SIGAS usa padrão Correios via CEP, gerando nomes divergentes do cadastro mobiliário municipal. TAB_NORMALIZA_LOCALIDADE atualizada com campo `fonte`. Pendência P08 ampliada para cobrir variações do SIGAS além do CadÚnico. |
 
 ---
 
 *Documento de registro interno — Projeto Atlas Social de Hortolândia — março de 2026*
+.md…]()
