@@ -2,7 +2,7 @@
 
 Vulnerabilidade Social e Integração de Políticas Públicas
 
-*Palestra — Março de 2026*
+*Palestra — Abril de 2026*
 
 Versão v11
 
