@@ -471,7 +471,50 @@ Ele torna visível, comparável e acionável o conhecimento que a Secretaria já
 O IVS-H e o IPST-H são instrumentos para que esse conhecimento acumulado — hoje disperso em relatórios, planilhas e memória institucional — passe a orientar decisões de governo em todas as secretarias.
 
 ---
+### Slide 16A — O que muda na prática do CRAS
 
+## Na rotina de quem atende
+
+> *"O IVS-H não muda o que o técnico faz. Muda o que o técnico consegue ver antes de agir."*
+---
+### Situação 1 - Busca ativa com foco
+
+**Antes:**
+A equipe do CRAS define as visitas por percepção, histórico de casos e demanda espontânea.
+
+**Com o IVS-H:**
+O técnico acessa quais loteamentos do seu núcleo concentram mais famílias com renda abaixo de meio salário mínimo, chefia feminina e crianças fora da escola — e prioriza a busca ativa com base nesse mapa.
+
+---
+
+### Situação  2 - Encaminhamento intersetorial com argumento
+
+**Antes:**
+Quando o técnico percebe que uma família precisa de apoio de Saúde ou Educação, o encaminhamento depende de relato verbal e histórico de caso.
+
+**Com o IVS-H:**
+O técnico apresenta o indicador territorial do loteamento e mostra que aquela situação não é isolada — é padrão. O encaminhamento deixa de ser pedido individual e passa a ser argumento coletivo.
+
+---
+
+### Situação 3 — Resposta a perguntas da gestão
+
+**Antes:**
+Quando a coordenação pergunta *"por que esse loteamento demanda tanto?"*, a resposta é qualitativa — baseada na experiência da equipe.
+
+**Com o IVS-H:**
+A resposta é *"porque esse loteamento concentra X% de famílias com renda abaixo de meio salário e Y% de mães chefes de família sem ensino fundamental — os dados mostram isso."*
+
+---
+
+> *"O conhecimento que a rede já tem ganha linguagem técnica compartilhada."*
+
+---
+
+**Nota de posicionamento na palestra:**
+Este slide se encaixa após o Slide 16 ("Vocês já fazem o trabalho mais difícil") — reforça a mesma mensagem com exemplos concretos da rotina.
+
+---
 ### Slide 17 — O papel da tecnologia
 
 A tecnologia não é o objetivo.  
