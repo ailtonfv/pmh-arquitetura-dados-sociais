@@ -1,10 +1,10 @@
-# ATLAS SOCIAL DE HORTOLÂNDIA
+[palestra_abril_2026_v12.md](https://github.com/user-attachments/files/26384505/palestra_abril_2026_v12.md)[Uploading palestra_abr# ATLAS SOCIAL DE HORTOLÂNDIA
 
 Vulnerabilidade Social e Integração de Políticas Públicas
 
 *Palestra — Abril de 2026*
 
-Versão v11
+Versão v12
 
 Ailton Vendramini | Secretaria de Planejamento Estratégico | Hortolândia-SP
 
@@ -39,7 +39,7 @@ Seu valor está em mostrar onde a vulnerabilidade se concentra e como ela se dis
 
 **3. O município não pode ser lido apenas por agregado**  
 Hortolândia possui 141 loteamentos, agrupados em Regiões de Planejamento e organizados, na operação setorial, em núcleos de atendimento.  
-A leitura relevante não é apenas “quantos”, mas “onde”.
+A leitura relevante não é apenas "quantos", mas "onde".
 
 **4. As coberturas setoriais não coincidem — e isso é informação estratégica**  
 Um mesmo loteamento pode pertencer a núcleos distintos conforme o setor público que o atende.  
@@ -122,7 +122,7 @@ Mas, para atingir granularidade analítica plena, algumas fontes exigem convêni
 > *"A rede já conhece muitos casos. O problema é transformar esse conhecimento disperso em leitura territorial comparável e acionável."*
 
 A Secretaria de Inclusão acumula diariamente um conhecimento que poucas áreas possuem: o retrato concreto das famílias mais vulneráveis da cidade.  
-O Atlas Social não pretende “descobrir” o que a rede já sabe.  
+O Atlas Social não pretende "descobrir" o que a rede já sabe.  
 Ele organiza esse conhecimento em linguagem territorial compartilhada, para que possa orientar decisões além dos limites de cada unidade.
 
 ---
@@ -269,18 +269,13 @@ Isso sustenta a manutenção da dimensão de infraestrutura no modelo, com menor
 > *"A vulnerabilidade social não aparece apenas nos cadastros. Ela também deixa rastros públicos no cotidiano da cidade."*
 
 **Evidência exploratória — imprensa local**  
-**Período observado:** 14 a 26 de março de 2026  
-**Base consolidada:** 19 registros estruturados da *Tribuna Liberal*
+**Período observado:** 14 a 31 de março de 2026  
+**Base consolidada:** registros estruturados da *Tribuna Liberal*
 
 #### Distribuição por dimensão IVS
-- **Capital Humano:** 9 ocorrências
-- **Renda e Trabalho:** 6 ocorrências
-- **Infraestrutura Urbana:** 4 ocorrências
-
-#### Leitura inicial
-- maior concentração em **Capital Humano**;
-- **Renda e Trabalho** aparece como segunda pressão recorrente;
-- **Infraestrutura Urbana** permanece presente, mas com menor frequência relativa.
+- **Capital Humano:** maior concentração
+- **Renda e Trabalho:** segunda pressão recorrente
+- **Infraestrutura Urbana:** presente, menor frequência relativa
 
 #### Variáveis mais recorrentes
 - **CH_04 — mães vulneráveis**
@@ -448,7 +443,7 @@ Construído progressivamente com as fontes disponíveis, preservando a âncora m
 
 ### Slide 15 — Um novo olhar sobre a gestão pública
 
-O Atlas Social permite que hoje ainda depende de percepção:
+O Atlas Social permite o que hoje ainda depende de percepção:
 
 - identificar loteamentos com muita demanda e pouca cobertura;
 - separar percepção de evidência;
@@ -471,50 +466,43 @@ Ele torna visível, comparável e acionável o conhecimento que a Secretaria já
 O IVS-H e o IPST-H são instrumentos para que esse conhecimento acumulado — hoje disperso em relatórios, planilhas e memória institucional — passe a orientar decisões de governo em todas as secretarias.
 
 ---
+
 ### Slide 16A — O que muda na prática do CRAS
 
-## Na rotina de quem atende
-
 > *"O IVS-H não muda o que o técnico faz. Muda o que o técnico consegue ver antes de agir."*
----
-### Situação 1 - Busca ativa com foco
 
-**Antes:**
-A equipe do CRAS define as visitas por percepção, histórico de casos e demanda espontânea.
+**Situação 1 — Busca ativa com foco**
 
-**Com o IVS-H:**
+*Antes:*  
+A equipe define as visitas por percepção, histórico de casos e demanda espontânea.
+
+*Com o IVS-H:*  
 O técnico acessa quais loteamentos do seu núcleo concentram mais famílias com renda abaixo de meio salário mínimo, chefia feminina e crianças fora da escola — e prioriza a busca ativa com base nesse mapa.
 
 ---
 
-### Situação  2 - Encaminhamento intersetorial com argumento
+**Situação 2 — Encaminhamento intersetorial com argumento**
 
-**Antes:**
+*Antes:*  
 Quando o técnico percebe que uma família precisa de apoio de Saúde ou Educação, o encaminhamento depende de relato verbal e histórico de caso.
 
-**Com o IVS-H:**
+*Com o IVS-H:*  
 O técnico apresenta o indicador territorial do loteamento e mostra que aquela situação não é isolada — é padrão. O encaminhamento deixa de ser pedido individual e passa a ser argumento coletivo.
 
 ---
 
-### Situação 3 — Resposta a perguntas da gestão
+**Situação 3 — Resposta a perguntas da gestão**
 
-**Antes:**
+*Antes:*  
 Quando a coordenação pergunta *"por que esse loteamento demanda tanto?"*, a resposta é qualitativa — baseada na experiência da equipe.
 
-**Com o IVS-H:**
-A resposta é *"porque esse loteamento concentra X% de famílias com renda abaixo de meio salário e Y% de mães chefes de família sem ensino fundamental — os dados mostram isso."*
-
----
+*Com o IVS-H:*  
+A resposta é: *"porque esse loteamento concentra X% de famílias com renda abaixo de meio salário e Y% de mães chefes de família sem ensino fundamental — os dados mostram isso."*
 
 > *"O conhecimento que a rede já tem ganha linguagem técnica compartilhada."*
 
 ---
 
-**Nota de posicionamento na palestra:**
-Este slide se encaixa após o Slide 16 ("Vocês já fazem o trabalho mais difícil") — reforça a mesma mensagem com exemplos concretos da rotina.
-
----
 ### Slide 17 — O papel da tecnologia
 
 A tecnologia não é o objetivo.  
@@ -717,8 +705,10 @@ World Bank. *Whole-of-Government Approaches to Public Sector Reform*.
 | Versão | Data | Alterações |
 | --- | --- | --- |
 | v11 | "30/03/2026" | Revisão de linguagem oral, reforço das condições de contorno, separação mais nítida entre entrega atual, hipótese e roadmap, substituição de "Estado" por "prefeitura" em trechos centrais, racionalização dos slides conceituais. |
+| v12 | "31/03/2026" | Slide 16A adicionado após Slide 16 — "O que muda na prática do CRAS": três situações concretas da rotina do técnico (busca ativa, encaminhamento intersetorial, resposta à gestão). Número de registros do corpus jornalístico atualizado no Slide 9A para refletir base de 14 a 31 de março. |
 
 ---
 
 *Documento técnico vivo — Projeto Atlas Social de Hortolândia*  
-*Versão 11 — palestra de março de 2026*
+*Versão 12 — palestra de abril de 2026*
+il_2026_v12.md…]()
