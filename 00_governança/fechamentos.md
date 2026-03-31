@@ -1,3 +1,307 @@
+# Fechamento — 31 de março de 2026
+
+**Responsável:** Ailton Vendramini  
+**Repositório:** ailtonfv/Atlas-Social-de-Hortolandia  
+**Sessão:** dia longo — palestra + ajustes de arquivos + séries jornalísticas + 1ª aula Python
+
+---
+
+## 1. Contexto da Sessão
+
+Último dia útil antes do feriado de Páscoa. Semana curta com alta produtividade.
+Dois objetivos principais cumpridos: fechar todos os arquivos atrasados e iniciar
+a formação em Python com dados reais do projeto.
+
+---
+
+## 2. Arquivos Atualizados no Repositório
+
+| Arquivo | Versão | Status | Alteração |
+| --- | --- | --- | --- |
+| `palestra_plan_estrat_07_04_2026_v03.md` | v03 | ✅ GitHub | Palestra para reunião de planejamento estratégico 07/04 |
+| `loteamento_dim_v04.md` | v04 | ✅ GitHub | Nota arquitetural SIGAS × codbairro; TAB_NORMALIZA_LOCALIDADE com campo `fonte`; P08 ampliada |
+| `programa_dim_v08.md` | v08 | ✅ GitHub | CENTROPOP, EMERGENCIAS e FUNDO_EMERG: observacoes enriquecidas com dados operacionais do SIGAS |
+| `rel_programa_indicador_v02.sql` | v02 | ✅ GitHub | Nota arquitetural de governança de acesso ao SIGAS; Query 6 adicionada |
+| `palestra_abril_2026_v12.md` | v12 | ✅ GitHub | Slide 16A adicionado — "O que muda na prática do CRAS" (3 situações concretas da rotina do técnico) |
+
+---
+
+## 3. Séries Jornalísticas — Corpus Atualizado
+
+### 3.1 CSV 31/03/2026 criado
+
+Três registros da Tribuna Liberal de 31/03/2026:
+
+| item | dimensao_ivs | codigo_variavel | tipo_relacao_variavel |
+| --- | --- | --- | --- |
+| Homicídio em madeireira Jd. Amanda II | multidimensional | RT_01 | indireta |
+| Adolescente morre — colisão moto Vila Verde | capital_humano | CH_01 | contextual |
+| Violência doméstica com arma — Parque Santo André | multidimensional | CH_05 | direta |
+
+### 3.2 Nova coluna `tipo_relacao_variavel` adicionada a todos os CSVs
+
+Valores possíveis: `direta` | `indireta` | `contextual`
+
+**Definição operacional:**
+- **direta** → vínculo claro e imediato com a variável IVS; entra na leitura principal
+- **indireta** → sugere padrão quando repetido; não explica sozinho
+- **contextual** → abre hipótese sobre o núcleo; não é vulnerabilidade estrutural
+
+**Regra de relevância:** indireto só ganha força quando vira padrão (≥3 ocorrências no mesmo loteamento)
+
+### 3.3 Classificação automática aplicada
+
+Script `classificar_tipo_relacao.py` executado — todos os 34 registros classificados.
+9 registros revisados manualmente. 1 registro `a_revisar` remanescente a verificar.
+
+### 3.4 Estado do corpus
+
+| Métrica | Valor |
+| --- | --- |
+| Total de registros | 34 |
+| Arquivos CSV | 10 |
+| Período | 14/03/2026 a 31/03/2026 |
+| Diretos | 24 |
+| Contextuais | 6 |
+| Indiretos | 3 |
+| A revisar | 1 |
+
+**Distribuição por dimensão IVS:**
+- capital_humano: 14
+- renda_trabalho: 7
+- infraestrutura_urbana: 6
+- multidimensional: 5
+- SMIDS_EXT: 2
+
+---
+
+## 4. Palestra 07/04/2026 — Planejamento Estratégico
+
+Palestra concluída e commitada como `palestra_plan_estrat_07_04_2026_v03.md`.
+
+**Decisões tomadas:**
+- Respeitou o template do secretário (11 slides estruturados)
+- 10 ajustes políticos aplicados: "linha de trabalho" em vez de "projeto", linguagem de construção coletiva, humildade estratégica, Data Lakehouse presente sem ser nomeado, secretário trazido para dentro da narrativa
+- Frase invisível inserida no Slide 9: "esse esforço só faz sentido se for útil para as secretarias"
+
+---
+
+## 5. Palestra Abril 2026 — Inclusão (v12)
+
+**Ajuste principal:** Slide 16A adicionado após Slide 16.
+Três situações concretas da rotina do técnico do CRAS:
+1. Busca ativa com foco territorial
+2. Encaminhamento intersetorial com argumento técnico
+3. Resposta à gestão com evidência quantitativa
+
+**Frase central do slide:** *"O IVS-H não muda o que o técnico faz. Muda o que o técnico consegue ver antes de agir."*
+
+---
+
+## 6. Levantamento Técnico SIGAS (Ata Caio — 27/03/2026)
+
+Ata lida e processada. Principais achados incorporados aos arquivos:
+
+- SIGAS usa padrão Correios (via CEP) para nomear loteamentos — diverge do codbairro oficial
+- Acesso ao banco exige solicitação formal via DOCS + consulta ao Departamento de Sistemas
+- Parte dos dados tem sigilo profissional (relatórios de evolução/acompanhamento de famílias)
+- SIGAS possui chave própria CMC além do CPF
+- Campos de Educação, Saúde e Processos Judiciais são subutilizados pelos técnicos
+- Georreferenciamento nativo existe mas apresenta inconsistências conhecidas
+- Power BI interno não é considerado confiável pela própria equipe
+
+**7 perguntas encaminhadas ao Caio** para segunda visita ao SIGAS:
+1. Nome completo e geração do CMC
+2. Campos ignorados — obrigatórios ou opcionais? Percentual de preenchimento?
+3. Benefício Eventual Recâmbio — operação e registro de município de destino
+4. `id_atendimento` — sequencial contínuo ou reseta por período/unidade?
+5. Oficinas coletivas — o que fica registrado além da presença?
+6. SGTS — quais secretarias utilizam? Acessível para consulta?
+7. Georreferenciamento — dados brutos de localização preservados no banco?
+
+---
+
+## 7. Discussão Estratégica — SIGAS e Codbairro
+
+**Tema:** Como equacionar a divergência de nomenclatura entre SIGAS e o cadastro mobiliário municipal.
+
+**Opções discutidas:**
+1. Exigir exportação com CEP original preservado (mais viável no curto prazo)
+2. Solicitar campo adicional `codigo_bairro_municipal` no SIGAS
+3. Exigir que o SIGAS adote o cadastro oficial de loteamentos como tabela de referência (mais elegante e correto — linguagem de contrato: "o sistema deve utilizar o cadastro oficial de loteamentos do município como tabela de referência para o campo endereço/bairro")
+
+**Decisão:** munição para o momento oportuno. Solicitação deve partir da Secretaria de Inclusão formalmente ao fornecedor — não do projeto diretamente.
+
+---
+
+## 8. Primeira Aula de Python
+
+**Foco:** dados reais do Atlas Social — séries jornalísticas  
+**Abordagem:** código direto com explicação linha a linha
+
+**Conceitos trabalhados:**
+- `import` — carregar bibliotecas
+- variáveis — guardar valores com nome
+- `r'...'` — raw string para caminhos Windows
+- `glob.glob()` — lupa para encontrar arquivos por padrão
+- `len()` — contar elementos (não tamanho de arquivo)
+- `pd.read_csv()` — carregar CSV como tabela
+- list comprehension — `[... for x in lista]`
+- `pd.concat()` — empilhar múltiplas tabelas
+- `df.head()` — visualizar primeiras linhas
+- `df['coluna'].value_counts()` — contar ocorrências por valor
+- filtragem: `df[df['coluna'] == 'valor']`
+
+**Resultado do exercício:** `df['codigo_variavel'].value_counts()` — executado corretamente de forma autônoma.
+
+**Problema identificado para aula 2:** colunas fantasmas `observacao\t\t\t` em alguns CSVs — causadas por tabulação misturada no campo `observacao`. Correção pendente para próxima sessão.
+
+---
+
+## 9. Pendências para Próxima Sessão
+
+| Pendência | Prioridade |
+| --- | --- |
+| Corrigir colunas fantasmas `observacao\t\t\t` nos CSVs | Alta |
+| Aula 2 Python — limpeza de dados + visualização | Alta |
+| Verificar 1 registro `a_revisar` remanescente no corpus | Média |
+| Aguardar retorno do Caio com 7 respostas sobre SIGAS | Média |
+| Apresentação Inclusão — aguardar Produto 1 calculado (~mid-abril) | Média |
+| Retomar cálculo IVS-H Fase 1 (CH_05, CH_06, CH_07, RT_04) após feriado | Alta |
+
+---
+
+## 10. Observação do Dia
+
+Hoje foi o primeiro dia em que Python deixou de ser abstrato e passou a fazer sentido
+no contexto do projeto. O corpus jornalístico — construído registro a registro nas últimas
+semanas — produziu hoje os primeiros resultados analíticos automatizados.
+
+34 registros. 10 arquivos. Uma tabela consolidada. Um `value_counts()` escrito de forma autônoma.
+
+Isso é o início.
+
+---
+
+*Fechamento gerado em 31/03/2026 — fim do primeiro trimestre de 2026*  
+*Atlas Social de Hortolândia — uso interno*
+
+[fechamento_dia_31_03_2026.md](https://github.com/user-attachments/files/26387115/fechamento_dia_31_03_2026.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [fechamento_dia_22_03_2026.md](https://github.com/user-attachments/files/26169203/fechamento_dia_22_03_2026.md)
 [Uploading fe# Fechamento do Dia — 22/03/2026
 
