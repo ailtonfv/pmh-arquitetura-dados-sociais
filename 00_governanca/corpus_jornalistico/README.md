@@ -2,7 +2,7 @@
 
 ## Evidências Empíricas da Vulnerabilidade Social em Hortolândia
 
-**Versão:** v1.2
+**Versão:** v1.3
 **Data:** 13 de abril de 2026
 **Responsável:** Ailton Vendramini
 **Iniciativa:** Atlas Social de Hortolândia
@@ -11,7 +11,7 @@
 
 ## 🎯 Finalidade
 
-Este documento define a metodologia para estruturação e análise de notícias locais como **evidência empírica da vulnerabilidade social**, compondo uma camada complementar ao IVS-H.
+Este documento estabelece a metodologia para estruturação e análise de notícias locais como **evidência empírica da vulnerabilidade social**, compondo uma camada complementar ao IVS-H.
 
 Seu objetivo é integrar:
 
@@ -22,7 +22,7 @@ Seu objetivo é integrar:
 
 ## 🧠 Arquitetura Conceitual
 
-O modelo adotado baseia-se na separação entre duas camadas analíticas:
+O modelo baseia-se na separação entre duas camadas analíticas:
 
 ### 🔹 IVS-H — Estrutura da Vulnerabilidade
 
@@ -40,11 +40,30 @@ O modelo adotado baseia-se na separação entre duas camadas analíticas:
 
 ---
 
-### 🔹 Integração — IPST-H
+### 🔹 Integração Analítica
 
-A combinação dessas duas camadas permite a construção do:
+```text
+IVS-H
+→ Estrutura da vulnerabilidade
+(dados estruturais e estáveis)
 
-> **IPST-H — Índice de Pressão Social Territorial**
++
+
+Eventos (Corpus jornalístico)
+→ Manifestações da vulnerabilidade
+(dados dinâmicos e contextuais)
+
+=
+
+IPST-H
+→ Pressão social territorial
+```
+
+---
+
+> **O IVS indica onde está a vulnerabilidade.
+> Os eventos mostram onde ela se manifesta.
+> O IPST revela a intensidade dessa pressão no território.**
 
 ---
 
@@ -128,6 +147,51 @@ Campo central da metodologia:
 
 ---
 
+## 📊 Definição de Indicador
+
+> **Indicador é um dado agregado, quantitativo ou mensurável, que descreve um fenômeno social — não um evento isolado.**
+
+---
+
+### ✔️ Características de um indicador
+
+* Expressa quantidade, taxa ou variação
+* Permite comparação no tempo
+* Origina-se de fonte institucional ou consolidada
+
+---
+
+### ✔️ Exemplos
+
+* “94 medidas protetivas em jan–fev”
+* “aumento de 11,9% em relação ao ano anterior”
+
+---
+
+### ❌ Não são indicadores
+
+* homicídios individuais
+* acidentes isolados
+* casos específicos
+
+---
+
+### 🧭 Regra prática
+
+> **Se pode ser representado em gráfico → indicador
+> Se é um caso específico → não é indicador**
+
+---
+
+## 📌 Tipos de Evento
+
+* **Indicador** → dado agregado (ex: volume, taxa, variação)
+* **Problema** → situação negativa recorrente
+* **Caso individual** → evento específico
+* **Política pública** → ação governamental
+
+---
+
 ## 📌 Exemplos Aplicados
 
 ### Indicador agregado — Medidas protetivas
@@ -206,7 +270,7 @@ Essa integração permite identificar:
 
 ## 🧭 Considerações Finais
 
-O corpus jornalístico não substitui indicadores — ele os **completa**.
+O corpus jornalístico não substitui indicadores — ele os **complementa**.
 
 Sua principal contribuição é transformar eventos dispersos em:
 
