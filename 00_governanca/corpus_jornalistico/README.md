@@ -94,46 +94,27 @@ Cada notícia é convertida em um registro estruturado contendo:
 
 ---
 
-## 🔎 Metodologia de Classificação
+🔎 Metodologia de Classificação
+1. Dimensão da Vulnerabilidade
+Infraestrutura Urbana (IU)
+Capital Humano (CH)
+Renda e Trabalho (RT)
+Multidimensional
+2. Tipo de Relação com a Variável
 
-### 1. Dimensão da Vulnerabilidade
+Define como o evento se conecta à estrutura do IVS:
 
-Todo evento deve ser classificado em uma das dimensões:
+Direta → o evento mede a variável IVS
+Proxy → o evento indica fortemente a variável
+Contextual → o evento ocorre em ambiente de vulnerabilidade
+3. Nível de Criticidade
 
-* **Infraestrutura Urbana (IU)**
-* **Capital Humano (CH)**
-* **Renda e Trabalho (RT)**
-* **Multidimensional**
+Define a intensidade do evento no território:
 
----
-
-### 2. Uso do Código de Variável IVS
-
-O campo `codigo_variavel` deve ser utilizado com critério:
-
-* Quando houver correspondência objetiva → uso direto
-* Quando não houver correspondência clara → uso opcional como associação
-
-> ⚠️ Evitar forçar associação direta entre evento e variável IVS.
-
----
-
-### 3. Tipo de Relação com a Variável
-
-Campo central da metodologia:
-
-* **Direta**
-  O evento mede a variável IVS
-
-* **Proxy**
-  O evento indica fortemente a variável
-
-* **Contextual**
-  O evento ocorre em ambiente de vulnerabilidade, sem medir variável específica
-
-* **Alerta**
-  Evento extremo de alto impacto social
-
+Baixa
+Média
+Alta
+Alerta → evento extremo com forte impacto social
 ---
 
 ## 📊 Regras Operacionais
