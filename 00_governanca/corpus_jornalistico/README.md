@@ -2,7 +2,7 @@
 
 ## Evidências Empíricas da Vulnerabilidade Social em Hortolândia
 
-**Versão:** v1.3
+**Versão:** v1.4
 **Data:** 13 de abril de 2026
 **Responsável:** Ailton Vendramini
 **Iniciativa:** Atlas Social de Hortolândia
@@ -34,7 +34,7 @@ O modelo baseia-se na separação entre duas camadas analíticas:
 
 ### 🔹 Corpus Jornalístico — Manifestação da Vulnerabilidade
 
-* Registra eventos reais ocorridos no território
+* Registra eventos reais ocorridos no município
 * Captura situações como violência, crises e ocorrências sociais
 * Representa o **fluxo da vulnerabilidade**
 
@@ -42,14 +42,16 @@ O modelo baseia-se na separação entre duas camadas analíticas:
 
 ### 🔹 Integração Analítica
 
-```text
+```text id="zq6v4c"
 IVS-H
 → Estrutura da vulnerabilidade
+(dados estruturais e estáveis)
 
 +
 
-Eventos
+Eventos (Corpus jornalístico)
 → Manifestações da vulnerabilidade
+(dados dinâmicos e observados)
 
 =
 
@@ -61,7 +63,12 @@ IPSO-H
 
 > **O IVS indica onde está a vulnerabilidade.
 > Os eventos mostram onde ela se manifesta.
-> O IPST revela a intensidade dessa pressão no território.**
+> O IPSO-H revela a intensidade dessa pressão observada.**
+
+---
+
+> **IPSO-H — Índice de Pressão Social Observada de Hortolândia**
+> Representa a intensidade das manifestações empíricas da vulnerabilidade social, captadas por eventos observados no município.
 
 ---
 
@@ -84,35 +91,47 @@ Cada notícia é convertida em um registro estruturado contendo:
 * dimensão IVS
 * código de variável (quando aplicável)
 * tipo de relação com a variável
+* nível de criticidade
 * resumo do evento
 * tipo de evento
 * gravidade
 * polaridade
-* identificação territorial (quando disponível)
+* identificação espacial (quando disponível)
 
 ---
 
-🔎 Metodologia de Classificação
-1. Dimensão da Vulnerabilidade
-Infraestrutura Urbana (IU)
-Capital Humano (CH)
-Renda e Trabalho (RT)
-Multidimensional
-2. Tipo de Relação com a Variável
+## 🔎 Metodologia de Classificação
 
-Define como o evento se conecta à estrutura do IVS:
+### 1. Dimensão da Vulnerabilidade
 
-Direta → o evento mede a variável IVS
-Proxy → o evento indica fortemente a variável
-Contextual → o evento ocorre em ambiente de vulnerabilidade
-3. Nível de Criticidade
+Todo evento deve ser classificado em uma das dimensões:
 
-Define a intensidade do evento no território:
+* **Infraestrutura Urbana (IU)**
+* **Capital Humano (CH)**
+* **Renda e Trabalho (RT)**
+* **Multidimensional**
 
-Baixa
-Média
-Alta
-Alerta → evento extremo com forte impacto social
+---
+
+### 2. Tipo de Relação com a Variável
+
+Define **como o evento se conecta à estrutura do IVS**:
+
+* **Direta** → o evento mede a variável IVS
+* **Proxy** → o evento indica fortemente a variável
+* **Contextual** → o evento ocorre em ambiente de vulnerabilidade
+
+---
+
+### 3. Nível de Criticidade
+
+Define **a intensidade do evento observado**:
+
+* **Baixa**
+* **Média**
+* **Alta**
+* **Alerta** → evento extremo com forte impacto social
+
 ---
 
 ## 📊 Regras Operacionais
@@ -122,7 +141,6 @@ Alerta → evento extremo com forte impacto social
 | Direta          | Obrigatória         |
 | Proxy           | Recomendado         |
 | Contextual      | Opcional            |
-| Alerta          | Opcional            |
 
 ---
 
@@ -164,7 +182,7 @@ Alerta → evento extremo com forte impacto social
 
 ## 📌 Tipos de Evento
 
-* **Indicador** → dado agregado (ex: volume, taxa, variação)
+* **Indicador** → dado agregado
 * **Problema** → situação negativa recorrente
 * **Caso individual** → evento específico
 * **Política pública** → ação governamental
@@ -177,8 +195,8 @@ Alerta → evento extremo com forte impacto social
 
 * Dimensão: Capital Humano
 * Tipo de relação: Proxy
+* Nível de criticidade: Alta
 * Tipo de evento: Indicador
-* Gravidade: Alta
 * Polaridade: Negativa
 
 **Interpretação:**
@@ -190,25 +208,25 @@ Indica fragilidade nas relações familiares e exposição à violência, sem me
 
 * Dimensão: Capital Humano
 * Tipo de relação: Contextual
+* Nível de criticidade: Alta
 * Tipo de evento: Problema
-* Gravidade: Alta
 * Polaridade: Negativa
 
 **Interpretação:**
-Evento que expressa pressão social no território, associado à vulnerabilidade, mas sem correspondência direta com variável IVS.
+Evento que expressa pressão social observada no município.
 
 ---
 
 ### Evento crítico — Violência envolvendo adolescentes
 
 * Dimensão: Capital Humano
-* Tipo de relação: Alerta
+* Tipo de relação: Contextual
+* Nível de criticidade: Alerta
 * Tipo de evento: Caso individual
-* Gravidade: Alta
 * Polaridade: Negativa
 
 **Interpretação:**
-Evento extremo que revela ambiente de vulnerabilidade social, com possíveis conexões múltiplas.
+Evento extremo que revela ambiente de vulnerabilidade social.
 
 ---
 
@@ -228,7 +246,7 @@ Evento mede diretamente variável estrutural do IVS.
 
 * Tendência a registrar eventos extremos
 * Possível viés editorial
-* Cobertura territorial parcial
+* Cobertura parcial do município
 
 > O corpus deve ser interpretado como complemento analítico.
 
@@ -237,11 +255,11 @@ Evento mede diretamente variável estrutural do IVS.
 ## 🔗 Integração com o IVS-H
 
 * **IVS-H** → estrutura da vulnerabilidade
-* **Eventos** → manifestações da vulnerabilidade
+* **Eventos** → manifestações observadas
 
 Essa integração permite identificar:
 
-* territórios com maior pressão social
+* áreas com maior pressão social
 * sinais antecipados de agravamento
 * desconexões entre estrutura e realidade observada
 
@@ -253,7 +271,7 @@ O corpus jornalístico não substitui indicadores — ele os **complementa**.
 
 Sua principal contribuição é transformar eventos dispersos em:
 
-> **evidência estruturada da dinâmica social do território**
+> **evidência estruturada da dinâmica social observada**
 
 ---
 
