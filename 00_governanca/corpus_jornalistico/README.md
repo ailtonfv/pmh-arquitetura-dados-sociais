@@ -45,18 +45,16 @@ O modelo baseia-se na separação entre duas camadas analíticas:
 ```text
 IVS-H
 → Estrutura da vulnerabilidade
-(dados estruturais e estáveis)
 
 +
 
-Eventos (Corpus jornalístico)
+Eventos
 → Manifestações da vulnerabilidade
-(dados dinâmicos e contextuais)
 
 =
 
-IPST-H
-→ Pressão social territorial
+IPSO-H
+→ Pressão social observada
 ```
 
 ---
