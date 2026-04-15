@@ -1,4 +1,4 @@
-[regras_de_classificacao_v03.md](https://github.com/user-attachments/files/26749383/regras_de_classificacao_v03.md)[Uploading # Regras de Classificacao -- Corpus Jornalistico
+# Regras de Classificacao -- Corpus Jornalistico
 **Versao:** v03
 **Data:** "15/04/2026"
 **Responsavel:** Ailton Vendramini
