@@ -1,5 +1,5 @@
 # Regras de Classificação — Corpus Jornalístico
-**Versão:** v05  
+**Versão:** v07  
 **Data:** "16/04/2026"  
 **Responsável:** Ailton Vendramini  
 **Repositório:** Atlas-Social-de-Hortolandia / 00_governanca/corpus_jornalistico/
