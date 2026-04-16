@@ -144,46 +144,39 @@ Uso restrito.
 | Corpus jornalístico | Evidência |
 
 ---
+```mermaid
+flowchart TD
 
-# 📗 9. GUIA RÁPIDO (USER GUIDE)
+A[Evento jornalístico] --> B{Mede diretamente<br>variável IVS?}
 
-## Como classificar um evento
+B -->|Sim| C[direta]
+C --> C1[Preencher codigo_variavel]
+C --> FIM1[FIM]
 
-### Passo 1 — O evento mede vulnerabilidade?
+B -->|Não| D{Há ação do Estado?}
 
-- Sim → `direta`
-- Não → vá para passo 2
+D -->|Sim| E{Já há efeito<br>observável?}
 
----
+E -->|Sim| F[indireta]
+F --> F1[Preencher codigo_variavel<br>se aplicável]
+F --> FIM2[FIM]
 
-### Passo 2 — Há ação do Estado?
+E -->|Não| G[latente]
+G --> G1[Preencher codigo_variavel]
+G --> G2[observacao = impacto_latente]
+G --> FIM3[FIM]
 
-- Sim → `indireta`
-- Não → `contextual`
+D -->|Não| H[contextual]
+H --> H1[codigo_variavel = vazio]
 
----
+H --> I{Dimensão clara?}
 
-### Passo 3 — É política recente?
+I -->|Sim| J[Manter dimensao IVS]
+I -->|Não| K[dimensao = SMIDS_EXT]
 
-- Sim → `latente`
+J --> FIM4[FIM]
+K --> FIM5[FIM]
 
----
-
-### Passo 4 — Há variável IVS clara?
-
-- Sim → preencher `codigo_variavel`
-- Não → deixar vazio
-
----
-
-## Exemplos rápidos
-
-| Evento | Classificação |
-|---|---|
-| Chuva alaga casas | `direta` |
-| Obra de drenagem | `indireta` |
-| Crime | `contextual` |
-| Nova política pública | `latente` |
 
 ---
 
