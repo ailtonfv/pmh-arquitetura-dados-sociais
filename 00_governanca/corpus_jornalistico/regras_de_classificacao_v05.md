@@ -145,10 +145,6 @@ Uso restrito.
 
 ---
 
-👉 Você colocou **um bloco dentro de outro bloco**, e o GitHub não interpreta isso.
-
----
-
 ```markdown
 ```mermaid
 flowchart TD
