@@ -144,6 +144,7 @@ Uso restrito.
 | Corpus jornalístico | Evidência |
 
 ---
+```markdown
 ```mermaid
 flowchart TD
 
@@ -176,25 +177,6 @@ I -->|Não| K[dimensao = SMIDS_EXT]
 
 J --> FIM4[FIM]
 K --> FIM5[FIM]
-
-
----
-
-## Campo observação (padronização)
-
-| Situação | Valor |
-|---|---|
-| Caso individual | `caso_ilustrativo` |
-| Crime sem loteamento | `sinal_SMIDS_EXT` |
-| Política não implementada | `impacto_latente` |
-| Múltiplos loteamentos | `multiplos_loteamentos` |
-
----
-
-## Princípio final
-
-> *"Melhor classificar com consistência do que com perfeição."*
-
 ---
 
 *Arquivo de governança — Atlas Social de Hortolândia*  
