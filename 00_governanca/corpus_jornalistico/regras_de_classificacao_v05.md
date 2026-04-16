@@ -145,6 +145,15 @@ Uso restrito.
 
 ---
 
+👉 Você colocou **um bloco dentro de outro bloco**, e o GitHub não interpreta isso.
+
+---
+
+# ✔ Como corrigir (simples)
+
+Você deve usar **apenas UM bloco**, assim:
+
+```markdown
 ```mermaid
 flowchart TD
 
@@ -177,6 +186,7 @@ I -->|Não| K[dimensao = SMIDS_EXT]
 
 J --> FIM4[FIM]
 K --> FIM5[FIM]
+
 ---
 
 *Arquivo de governança — Atlas Social de Hortolândia*  
