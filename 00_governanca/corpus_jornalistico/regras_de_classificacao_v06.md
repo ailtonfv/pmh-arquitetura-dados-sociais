@@ -144,9 +144,84 @@ Uso restrito.
 | Corpus jornalístico | Evidência |
 
 ---
+
+## 9. Fluxo de Decisao
 <img width="2570" height="3003" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/fa332cfb-088c-4602-863f-593339c7f749" />
 ou
 <img width="2661" height="3003" alt="mermaid-diagram (2)" src="https://github.com/user-attachments/assets/83582364-48fa-4d5c-aa44-5859d81afa47" />
+
+---
+
+## 10. Escopo Geográfico do Corpus
+
+R13 — Delimitação territorial (regra estrutural)
+
+O corpus jornalístico do Atlas Social de Hortolândia não tem como objetivo cobrir integralmente a RMC (Região Metropolitana de Campinas).
+
+O recorte analítico é definido pela relevância para Hortolândia, e não pela abrangência regional da notícia.
+
+---
+
+🎯 Critérios de inclusão
+
+Um evento DEVE ser incluído se atender a pelo menos um dos critérios:
+
+1. Evento ocorrido em Hortolândia
+Independente do tema
+Independentemente da dimensão IVS
+
+✔ Exemplo:
+
+Obra de drenagem no Jardim Novo Ângulo
+Atendimento no CRAS
+Violência em bairro local
+2. Evento ocorrido fora de Hortolândia com impacto direto ou plausível sobre o município
+
+✔ Exemplo:
+
+Hospital Estadual de Sumaré atendendo população de Hortolândia
+Política estadual que afeta repasses ao município
+Mercado de trabalho regional com forte integração (ex: CAGED regional)
+3. Evento regional com potencial analítico para o IVS-H
+
+✔ Critério:
+
+Afeta dinâmica estrutural relevante (saúde, mobilidade, trabalho, assistência)
+
+✔ Exemplo:
+
+Surto epidemiológico regional
+Mudança em política estadual de habitação
+Infraestrutura que altera fluxos pendulares
+🚫 Critérios de exclusão
+
+Um evento NÃO deve ser incluído quando:
+
+Não ocorre em Hortolândia
+Não possui impacto identificável sobre o município
+Não contribui para interpretação das variáveis do IVS-H
+
+✔ Exemplo:
+
+Política municipal de outra cidade sem conexão
+Evento cultural local sem relação com Hortolândia
+Crime isolado em município sem vínculo territorial
+🧠 Regra prática (para uso rápido)
+
+R14 — Pergunta de corte:
+
+“Este evento ajuda a explicar, medir ou antecipar a vulnerabilidade social em Hortolândia?”
+
+Se SIM → incluir
+Se NÃO → descartar
+⚠️ Observação metodológica
+
+O objetivo do corpus não é cobertura jornalística,
+mas sim modelagem analítica da vulnerabilidade social local.
+
+---
+
+“Escopo deliberadamente restrito para garantir profundidade analítica e reprodutibilidade.”
 
 
 ---
