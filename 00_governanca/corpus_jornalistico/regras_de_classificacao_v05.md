@@ -70,8 +70,8 @@ Para fins deste corpus:
 
 > **R11 (regra operacional-chave):**
 >
-> - Se há ação do Estado → `indireta`
-> - Se NÃO há ação do Estado → `contextual`
+> - Se há acao do Estado → `indireta`
+> - Se NÃO há acao do Estado → `contextual`
 
 ---
 
