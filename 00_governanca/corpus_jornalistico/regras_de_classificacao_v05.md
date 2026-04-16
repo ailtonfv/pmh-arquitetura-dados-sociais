@@ -48,7 +48,7 @@ Para fins deste corpus:
 
 ## 2. tipo_relacao_variavel
 
-| Valor | Critério |
+| Valor | Criterio |
 |---|---|
 | `direta` | Mede variável IVS (explícita ou estatisticamente defensável) |
 | `indireta` | Atua sobre a variável (obra, programa, política pública) |
