@@ -144,39 +144,8 @@ Uso restrito.
 | Corpus jornalístico | Evidência |
 
 ---
+<img width="3329" height="2806" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/4cfa2104-3762-4f57-89f7-737fe834f851" />
 
-```markdown
-```mermaid
-flowchart TD
-
-Mede diretamente variável IVS?
-B -->|Sim| C[direta]
-C --> C1[Preencher codigo_variavel]
-C --> FIM1[FIM]
-
-B -->|Não| D{Há ação do Estado?}
-
-D -->|Sim| E{Já há efeito<br>observável?}
-
-E -->|Sim| F[indireta]
-F --> F1[Preencher codigo_variavel<br>se aplicável]
-F --> FIM2[FIM]
-
-E -->|Não| G[latente]
-G --> G1[Preencher codigo_variavel]
-G --> G2[observacao = impacto_latente]
-G --> FIM3[FIM]
-
-D -->|Não| H[contextual]
-H --> H1[codigo_variavel = vazio]
-
-H --> I{Dimensão clara?}
-
-I -->|Sim| J[Manter dimensao IVS]
-I -->|Não| K[dimensao = SMIDS_EXT]
-
-J --> FIM4[FIM]
-K --> FIM5[FIM]
 
 ---
 
