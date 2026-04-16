@@ -146,8 +146,12 @@ Uso restrito.
 ---
 
 ## 9. Fluxo de Decisao
+
 <img width="2570" height="3003" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/fa332cfb-088c-4602-863f-593339c7f749" />
-# ou
+
+
+## ou
+
 <img width="2661" height="3003" alt="mermaid-diagram (2)" src="https://github.com/user-attachments/assets/83582364-48fa-4d5c-aa44-5859d81afa47" />
 
 ---
