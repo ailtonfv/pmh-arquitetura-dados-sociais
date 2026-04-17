@@ -1,6 +1,7 @@
-[dicionario_v02.md](https://github.com/user-attachments/files/26446292/dicionario_v02.md)[Uploading dicionario_v02.md# Dicionário do Corpus Jornalístico
+[dicionario_v03.md](https://github.com/user-attachments/files/26835120/dicionario_v03.md)
+# Dicionário do Corpus Jornalístico
 **Atlas Social de Hortolândia — SMIDS**
-Versão: v02 | Data: 2026-04-02
+Versão: v03 | Data: "17/04/2026"
 
 ---
 
@@ -93,12 +94,29 @@ Valores permitidos:
 | `direta` | Evento mensura ou evidencia a variável IVS diretamente |
 | `indireta` | Evento relaciona-se com a variável por consequência |
 | `contextual` | Evento contextualiza sem relação causal defensável |
+| `latente` | Política com potencial mensurável ainda não observado |
+
+---
+
+### `nivel_criticidade`
+Tipo: string
+Valores permitidos:
+| valor | descrição |
+|---|---|
+| `alta` | Impacto direto relevante na população vulnerável |
+| `media` | Impacto indireto |
+| `baixa` | Ação institucional ou preventiva |
+| `alerta` | Evento crítico — violência, morte, risco grave |
+
+**Nota:** campo renomeado de `gravidade` para `nivel_criticidade` a partir de v03,
+para alinhamento com as regras de classificação (v08).
+O valor `nao_aplicavel` foi removido — todo evento admite classificação de criticidade.
 
 ---
 
 ### `resumo`
 Tipo: string
-Regra: sem acentos; campos separados por `;`; máximo descritivo possível
+Regra: sem acentos; máximo descritivo possível
 
 ---
 
@@ -122,22 +140,59 @@ Valores permitidos:
 
 ---
 
-### `gravidade`
+### `observacao`
 Tipo: string
-Valores permitidos: `alta` | `media` | `baixa` | `nao_aplicavel`
+Regra: **vocabulário controlado — valor único obrigatório.**
+Quando houver mais de uma interpretação possível, usar o valor preponderante.
+Para texto analítico livre, usar o campo `nota_analista`.
+
+Valores permitidos:
+| valor | o que captura |
+|---|---|
+| `sinal_smids_ext` | Evento sem variável IVS mapeável ou sem eixo dominante claro |
+| `multiplos_loteamentos` | Impacto difuso em mais de um loteamento |
+| `impacto_latente` | Efeito futuro não imediato |
+| `impacto_regional_hortolandia` | Evento externo com reflexo local |
+| `aproximacao_variavel` | Indicador substituto de variável IVS não oficial |
+| `caso_ilustrativo` | Evento pontual em loteamento identificado |
+| `interface_ch` | Cruzamento com dimensão Capital Humano |
+| `interface_rt` | Cruzamento com dimensão Renda e Trabalho |
+| `interface_iu` | Cruzamento com dimensão Infraestrutura Urbana |
+| `dado_auditavel` | Fonte com dado mensurável para série temporal |
+| `fora_escopo_smids` | Equipamento ou ação fora do radar SMIDS |
+| `acao_institucional_smids` | Ação direta da secretaria |
+| `duvida_metodologica` | Incerteza sobre classificação ou variável |
+| `tarefa_pendente` | Ação operacional a executar |
+| `contexto_sociopolitico` | Contexto sem impacto IVS direto |
+
+**Regra R15 — Hierarquia de classificação (quando houver ambiguidade):**
+1. Quando não há eixo dominante claro → `sinal_smids_ext`
+2. Quando há número verificável → `dado_auditavel`
+3. Quando é estrutura institucional ou política → `contexto_sociopolitico`
 
 ---
 
-### `observacao`
+### `nota_analista`
 Tipo: string
-Regra: campo livre para anotações metodológicas; sem acentos
+Regra: campo de texto livre sem restrição de vocabulário.
+
+**Uso:**
+- Justificativas de classificação
+- Referências cruzadas entre variáveis
+- Nomes populares de loteamentos
+- Pendências e anotações de processo
+- Contexto narrativo do evento
+
+**Regra:** não é campo analítico — não alimenta indicadores.
+Serve exclusivamente para rastreabilidade e auditoria.
 
 ---
 
 ### `cod_loteamento`
 Tipo: integer ou string
 Chave: `codbairro` da `dim_loteamento`
-Regra: `nao_aplicavel` para eventos de escopo municipal sem loteamento específico
+Regra: `nao_identificado` quando loteamento não for identificável com segurança;
+`nao_aplicavel` para eventos de escopo municipal sem loteamento específico
 
 ---
 
@@ -179,6 +234,11 @@ Valores permitidos:
 ## Changelog
 | versão | data | alteração |
 |---|---|---|
-| v01 | 2026-04-01 | Criação do dicionário; 17 colunas documentadas |
-| v02 | 2026-04-02 | `SMIDS_GOV` promovido de futuro para em uso; `SMIDS_EXT` removido de `dimensao_ivs` com nota de migração; princípio conceitual atualizado |
-…]()
+| v01 | "01/04/2026" | Criação do dicionário; 17 colunas documentadas |
+| v02 | "02/04/2026" | `SMIDS_GOV` promovido de futuro para em uso; `SMIDS_EXT` removido de `dimensao_ivs` com nota de migração; princípio conceitual atualizado |
+| v03 | "17/04/2026" | `observacao` migrado para vocabulário controlado de 15 valores + R15; `nota_analista` adicionado como campo de texto livre; `gravidade` renomeado para `nivel_criticidade` com alinhamento de valores; `latente` adicionado em `tipo_relacao_variavel` |
+
+---
+
+*Arquivo de governança — Atlas Social de Hortolândia*
+*00_governanca/corpus_jornalistico/*
