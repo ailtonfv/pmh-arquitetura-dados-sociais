@@ -1,27 +1,20 @@
-[regras_de_classificacao_v10.md](https://github.com/user-attachments/files/26855445/regras_de_classificacao_v10.md)[Upload# Regras de Classificação — Corpus Jornalístico
-**Versão:** v10  
+[regras_de_classificacao_v10_1.md](https://github.com/user-attachments/files/26859356/regras_de_classificacao_v10_1.md)[Uploa# Regras de Classificação — Corpus Jornalístico
+**Versão:** v10.1  
 **Data:** "18/04/2026"  
 **Responsável:** Ailton Vendramini  
 **Repositório:** Atlas-Social-de-Hortolandia / 00_governanca/corpus_jornalistico/
 
 ---
 
-## Changelog v08 → v10
+## Changelog v10 → v10.1
 
-| Versão | Item | Mudança |
-|---|---|---|
-| v09 | `tipo_camada` | Campo novo — formaliza a natureza analítica do evento |
-| v09 | `PRESSAO_SOCIAL` | Novo valor de `tipo_camada` — fenômenos relevantes fora do IVS clássico |
-| v09 | `entra_ipst` | Campo novo — pipeline direto entre corpus e IPST-H |
-| v09 | R16 | Independência obrigatória entre `dimensao_analitica` e `tipo_camada` |
-| v09 | R17 | `dimensao_analitica` obrigatória salvo evento puramente narrativo |
-| v09 | R18 | Redefinição operacional de `SMIDS_EXT` |
-| v09 | Framework matricial | Formalizado como princípio analítico estruturante |
-| v10 | `papel_no_ciclo` | Campo novo — posição do registro no ciclo de pressão social |
-| v10 | `id_caso_pressao` | Campo novo (opcional) — agrupamento temático de ciclos |
-| v10 | R19 | Uso restrito de `nao_aplicavel` |
-| v10 | Fluxo de decisão | Reorganizado em três camadas estruturais |
-| v10 | Arquitetura de ciclo | Formalizada em três níveis: corpus, tabela de vínculo, tabela agregada |
+| Item | Mudança |
+|---|---|
+| R20 | Regra nova — agravamento com base interna à matéria |
+| R21 | Regra nova — violência letal nunca contextual |
+| R22 | Regra nova — GOVERNANCA só é "resposta" se houver pressão identificável |
+| R23 | Regra nova — PRESSAO_SOCIAL deve sempre ser potencialmente agregável em série |
+| Nota conceitual | Registro formal de candidato a tipo_camada futuro: PRESSAO_INSTITUCIONAL |
 
 ---
 
@@ -55,7 +48,7 @@ A Camada 3 não pode ser respondida sem que a Camada 1 esteja resolvida.
 
 ---
 
-## 0.2 Framework Matricial
+## 0.2 Framework Matricial — Princípio Analítico Estruturante
 
 O corpus é estruturado como uma **matriz analítica de dois eixos ortogonais**:
 
@@ -122,6 +115,10 @@ ENTRADA
 O evento ocorre em Hortolândia ou tem impacto sobre o município? (R14)
     NÃO → descartar
     SIM ↓
+    Ocorreu em Hortolândia?
+        SIM → municipio = Hortolândia | localidade = loteamento/bairro
+        NÃO → municipio = origem | localidade = Regional
+               observacao = impacto_regional_hortolandia
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 CAMADA 1 — Classificação estrutural
@@ -145,6 +142,8 @@ Existe mensuração objetiva? (R01)
     NÃO → aplicar R11 (simplificação)
               ação do Estado → indireta
               sem ação       → contextual
+
+⚠ R21: violência letal → tipo_relacao nunca contextual
     ↓
 
 Classificar observacao → R15 (hierarquia obrigatória)
@@ -161,10 +160,12 @@ Este evento participa de um ciclo de pressão? → papel_no_ciclo (R19)
     tipo_camada = PRESSAO_SOCIAL?
         → SEMPRE emergencia ou agravamento
         → NUNCA nao_aplicavel
+        → R20: agravamento válido mesmo sem histórico no corpus
+               se a própria matéria documenta progressão
 
     tipo_camada = GOVERNANCA?
-        → responde a pressão identificada? → resposta
-        → estrutural, sem gatilho?         → nao_aplicavel
+        → R22: só é "resposta" se houver pressão identificável
+        → estrutural, sem gatilho? → nao_aplicavel
 
     tipo_camada = CONTEXTO ou IVS?
         → verificar impacto social
@@ -243,6 +244,12 @@ Natureza analítica do evento. **Campo obrigatório.**
   - ação do Estado → `indireta`
   - sem ação do Estado → `contextual`
 
+> **R21 — Violência letal nunca contextual**
+>
+> Eventos envolvendo violência com morte, arma de fogo ou risco grave à integridade física são sempre `direta` ou `indireta` — nunca `contextual`.
+>
+> Violência letal é mensurável, tem série histórica possível e impacto direto sobre a população vulnerável.
+
 ---
 
 ## 5. dimensao_analitica
@@ -250,15 +257,10 @@ Natureza analítica do evento. **Campo obrigatório.**
 > **R16 — Independência entre camada e dimensão**
 >
 > `dimensao_analitica` deve ser preenchido sempre que houver impacto social identificável, independentemente do `tipo_camada`.
->
-> A dimensão representa o **eixo de impacto**. O tipo de camada representa a **natureza analítica**. Os dois campos são ortogonais e igualmente obrigatórios.
 
 > **R17 — Obrigatoriedade**
 >
 > `dimensao_analitica = vazio` permitido apenas quando o evento for puramente narrativo, sem impacto em nenhuma dimensão da vida social.
->
-> Critério: *"Este evento afeta algum grupo de pessoas em alguma dimensão da vida social?"*
-> SIM → obrigatório | NÃO → vazio permitido
 
 ---
 
@@ -341,6 +343,24 @@ Posição do registro no ciclo de pressão social. **Campo obrigatório.**
 >
 > É proibido seu uso como substituto de incerteza analítica ou ausência de classificação.
 
+### R20 — Agravamento com base interna
+
+> Um evento pode ser classificado como `agravamento` quando a **própria matéria documenta progressão mensurável no tempo**, mesmo na ausência de registros anteriores no corpus.
+>
+> O histórico interno à matéria é evidência suficiente para classificar a tendência.
+
+### R22 — GOVERNANCA e o critério de resposta
+
+> `GOVERNANCA` só recebe `papel_no_ciclo = resposta` quando houver **pressão social identificável** como gatilho da ação estatal.
+>
+> Ações estruturais, preventivas ou de rotina sem evento detonador → `papel_no_ciclo = nao_aplicavel`.
+
+### R23 — Agregabilidade de PRESSAO_SOCIAL
+
+> Todo registro classificado como `PRESSAO_SOCIAL` deve ser potencialmente **agregável em série temporal**.
+>
+> Se o fenômeno não puder ser contado, comparado ou rastreado ao longo do tempo, reavaliar a classificação para `CONTEXTO`.
+
 ### Regra de ouro
 
 *"Este evento pode estar ligado a um problema social que surge, evolui ou é respondido?"*
@@ -352,7 +372,7 @@ Posição do registro no ciclo de pressão social. **Campo obrigatório.**
 | `tipo_camada` | `papel_no_ciclo` |
 |---|---|
 | `PRESSAO_SOCIAL` | **SEMPRE** `emergencia` ou `agravamento` — **NUNCA** `nao_aplicavel` |
-| `GOVERNANCA` | `resposta` (se reativa) ou `nao_aplicavel` (se estrutural) |
+| `GOVERNANCA` | `resposta` (se reativa, R22) ou `nao_aplicavel` (se estrutural) |
 | `CONTEXTO` | verificar impacto — geralmente `nao_aplicavel` |
 | `IVS` | verificar impacto — geralmente `nao_aplicavel` |
 
@@ -439,7 +459,7 @@ Em "16/04/2026", confirmado que o CadÚnico opera com CEP, não com `codbairro`.
 
 ## 19. Limite do Corpus como Instrumento de Desfecho
 
-> **R20 — Limite do corpus**
+> **R20 (desfecho) — Limite do corpus**
 >
 > O corpus jornalístico não é fonte confiável para inferir resolução de fenômenos sociais. A ausência de registros não equivale a desfecho positivo.
 >
@@ -460,7 +480,22 @@ Complementar ao `observacao`. Sem restrição de vocabulário.
 
 ---
 
-## 21. Schema Completo v10
+## 21. Nota Conceitual — Candidato a tipo_camada Futuro
+
+> **PRESSAO_INSTITUCIONAL — registro prospectivo**
+>
+> Eventos que atacam diretamente o aparato institucional do Estado (invasões a órgãos públicos, sabotagem de processos administrativos, ataques a equipamentos de gestão pública) constituem categoria analítica distinta da `PRESSAO_SOCIAL` clássica.
+>
+> - `PRESSAO_SOCIAL` → pressiona a população vulnerável
+> - `PRESSAO_INSTITUCIONAL` → pressiona a capacidade do Estado de responder
+>
+> **Tratamento atual:** classificar como `PRESSAO_SOCIAL + observacao = sinal_smids_ext`, com `nota_analista` registrando o caráter institucional do evento.
+>
+> **Condição de promoção:** criar `PRESSAO_INSTITUCIONAL` como valor formal quando houver série suficiente de eventos desta natureza no corpus.
+
+---
+
+## 22. Schema Completo v10.1
 
 | Campo | Função | Camada | Obrigatório |
 |---|---|---|---|
@@ -487,7 +522,7 @@ Complementar ao `observacao`. Sem restrição de vocabulário.
 
 ---
 
-## 22. Exemplo de Aplicação — Feminicídios (31/12/2025)
+## 23. Exemplo de Aplicação — Feminicídios (31/12/2025)
 
 Registro canônico — exercitou R01, R04, R11 (descartada), R15, R16, R18, R19 em sequência.
 
@@ -502,20 +537,22 @@ Registro canônico — exercitou R01, R04, R11 (descartada), R15, R16, R18, R19 
 | `papel_no_ciclo` | `emergencia` | R19 — PRESSAO_SOCIAL nunca é nao_aplicavel |
 | `id_caso_pressao` | `CH_VIOLENCIA_GENERO_2025` | agrupamento temático |
 | `entra_ipst` | `sim` | PRESSAO_SOCIAL + alerta + dado_auditavel |
-| `nota_analista` | "Evento com mensuração clara de violência de gênero na RMC, com concentração em Hortolândia. Embora não exista variável IVS direta, o fenômeno possui forte correlação com dimensões de capital humano e estrutura familiar. Avaliar futura criação de proxy para violência doméstica no IVS-H." | rastreabilidade |
-
-> **Lição metodológica:**
-> O corpus está capturando o **limite empírico do IVS-IPEA**. Cada registro `PRESSAO_SOCIAL + alerta + dado_auditavel` é evidência para o argumento do IVS-H como modelo que supera o IPEA localmente.
 
 ---
 
-## 23. Distinção conceitual
+## 24. Distinção conceitual
 
 | Instrumento | Função |
 |---|---|
 | `rel_programa_variavel_ivs` | Teoria |
 | Corpus jornalístico | Evidência |
 | `FATO_CICLO_PRESSAO_SOCIAL` | Derivação analítica |
+
+---
+
+*Arquivo de governança — Atlas Social de Hortolândia*  
+*00_governanca/corpus_jornalistico/*
+ding regras_de_classificacao_v10_1.md…]()
 
 ---
 
@@ -527,4 +564,4 @@ Registro canônico — exercitou R01, R04, R11 (descartada), R15, R16, R18, R19 
 
 *Arquivo de governança — Atlas Social de Hortolândia*  
 *00_governanca/corpus_jornalistico/*
-ing regras_de_classificacao_v10.md…]()
+ing regras_de_classificacao_v10.1md…]()
