@@ -518,7 +518,9 @@ Registro canônico — exercitou R01, R04, R11 (descartada), R15, R16, R18, R19 
 | `FATO_CICLO_PRESSAO_SOCIAL` | Derivação analítica |
 
 ---
-<img width="1342" height="2969" alt="fluxo_v10" src="https://github.com/user-attachments/assets/b85e2bf6-1632-4a73-990d-3b4034971c1b" />
+
+<img width="1194" height="3373" alt="fluxo_v10_v2" src="https://github.com/user-attachments/assets/f82a0694-039e-4b54-a476-06c22a214322" />
+
 
 
 ---
