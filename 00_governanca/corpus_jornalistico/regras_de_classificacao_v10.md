@@ -518,7 +518,7 @@ Registro canônico — exercitou R01, R04, R11 (descartada), R15, R16, R18, R19 
 | `FATO_CICLO_PRESSAO_SOCIAL` | Derivação analítica |
 
 ---
-
+´´´
 flowchart TD
     A([EVENTO JORNALÍSTICO]) --> B
 
@@ -590,7 +590,7 @@ flowchart TD
     style C stroke:#e74c3c,fill:#fadbd8
     style M stroke:#27ae60,fill:#d5f5e3
     style J1a stroke:#e74c3c,fill:#fadbd8
-
+´´´
 
 ---
 
