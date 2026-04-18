@@ -1,277 +1,220 @@
+[README_corpus_v1_5.md](https://github.com/user-attachments/files/26859621/README_corpus_v1_5.md)
 # CORPUS JORNALÍSTICO
 
 ## Evidências Empíricas da Vulnerabilidade Social em Hortolândia
 
-**Versão:** v1.4
-**Data:** 13 de abril de 2026
-**Responsável:** Ailton Vendramini
-**Iniciativa:** Atlas Social de Hortolândia
+**Versão:** v1.5  
+**Data:** "18/04/2026"  
+**Responsável:** Ailton Vendramini  
+**Iniciativa:** Atlas Social de Hortolândia  
+**Regras de classificação:** `regras_de_classificacao_v10_1.md`
 
 ---
 
 ## 🎯 Finalidade
 
-Este documento estabelece a metodologia para estruturação e análise de notícias locais como **evidência empírica da vulnerabilidade social**, compondo uma camada complementar ao IVS-H.
+Este documento descreve a metodologia para estruturação e análise de notícias locais como **evidência empírica da vulnerabilidade social**, compondo uma camada complementar ao IVS-H.
 
 Seu objetivo é integrar:
 
-* **dados estruturais** (indicadores oficiais);
-* **eventos reais observados no município**.
+* **dados estruturais** — indicadores oficiais (IVS-H, CadÚnico, IBGE)
+* **eventos reais observados no município** — corpus jornalístico
 
 ---
 
 ## 🧠 Arquitetura Conceitual
 
-O modelo baseia-se na separação entre duas camadas analíticas:
-
-### 🔹 IVS-H — Estrutura da Vulnerabilidade
-
-* Mede condições sociais estruturais
-* Baseado em dados como CadÚnico, IBGE e CAGED
-* Representa o **estoque de vulnerabilidade**
-
----
-
-### 🔹 Corpus Jornalístico — Manifestação da Vulnerabilidade
-
-* Registra eventos reais ocorridos no município
-* Captura situações como violência, crises e ocorrências sociais
-* Representa o **fluxo da vulnerabilidade**
-
----
-
-### 🔹 Integração Analítica
-
-```text id="zq6v4c"
+```
 IVS-H
 → Estrutura da vulnerabilidade
-(dados estruturais e estáveis)
+→ Dados estruturais e estáveis
 
 +
 
-Eventos (Corpus jornalístico)
-→ Manifestações da vulnerabilidade
-(dados dinâmicos e observados)
+Corpus Jornalístico
+→ Manifestações e pressões da vulnerabilidade
+→ Dados dinâmicos e observados
 
 =
 
-IPSO-H
-→ Pressão social observada
+IPST-H
+→ Índice de Pressão Social Territorial de Hortolândia
+→ Onde a vulnerabilidade se transforma em pressão sobre o Estado
 ```
 
----
-
-> **O IVS indica onde está a vulnerabilidade.
-> Os eventos mostram onde ela se manifesta.
-> O IPSO-H revela a intensidade dessa pressão observada.**
+> **O IVS-H mostra onde está a vulnerabilidade.**
+> **O IPST-H mostra onde a vulnerabilidade se transforma em pressão sobre o Estado.**
 
 ---
 
-> **IPSO-H — Índice de Pressão Social Observada de Hortolândia**
-> Representa a intensidade das manifestações empíricas da vulnerabilidade social, captadas por eventos observados no município.
+## 🧱 Framework de Três Camadas Analíticas
+
+Todo registro percorre três camadas de decisão em sequência:
+
+### Camada 1 — Classificação Estrutural
+> *O que é este evento e onde impacta?*
+
+| Campo | Valores |
+|---|---|
+| `tipo_camada` | `IVS` \| `GOVERNANCA` \| `PRESSAO_SOCIAL` \| `CONTEXTO` |
+| `dimensao_analitica` | `capital_humano` \| `infraestrutura_urbana` \| `renda_trabalho` |
+
+### Camada 2 — Qualificação Analítica
+> *Como este evento se relaciona com o modelo?*
+
+| Campo | Valores |
+|---|---|
+| `tipo_relacao_variavel` | `direta` \| `indireta` \| `contextual` \| `latente` |
+| `codigo_variavel` | código IVS \| `GOV_MUNICIPAL` \| `SMIDS_EXT` |
+| `observacao` | vocabulário controlado (15 valores) |
+
+### Camada 3 — Integração Dinâmica
+> *Como este evento se conecta ao território ao longo do tempo?*
+
+| Campo | Valores |
+|---|---|
+| `papel_no_ciclo` | `emergencia` \| `resposta` \| `agravamento` \| `sinal_desfecho` \| `nao_aplicavel` |
+| `id_caso_pressao` | agrupamento temático (opcional) |
+| `entra_ipst` | `sim` \| `avaliar` \| `nao` |
+
+---
+
+## 📊 Matriz Analítica
+
+O corpus é estruturado como uma matriz de dois eixos ortogonais:
+
+| | `capital_humano` | `infraestrutura_urbana` | `renda_trabalho` |
+|---|---|---|---|
+| `IVS` | analfabetismo | saneamento inadequado | desocupação |
+| `PRESSAO_SOCIAL` | feminicídio | enchente | informalidade |
+| `GOVERNANCA` | programa social | Tapa-Buraco | DECOLA |
+| `CONTEXTO` | editorial sobre família | onda de calor | carga tributária |
+
+> **Células vazias são informação** — indicam ausência de cobertura ou de atuação do Estado.
+
+---
+
+## 🔎 tipo_camada — Natureza do Evento
+
+| Valor | Critério |
+|---|---|
+| `IVS` | Mede ou aproxima variável das 16 do IVS/IPEA |
+| `GOVERNANCA` | Ação direta do Estado (municipal, estadual ou federal) |
+| `PRESSAO_SOCIAL` | Fenômeno relevante, mensurável, fora das 16 variáveis IVS |
+| `CONTEXTO` | Pano de fundo sem impacto social identificável direto |
+
+> **Princípio:** `codigo_variavel` identifica o universo analítico de referência. `tipo_camada` especifica a natureza do registro dentro desse universo.
+
+---
+
+## 🔎 tipo_relacao_variavel
+
+| Valor | Critério |
+|---|---|
+| `direta` | Mede variável IVS (explícita ou estatisticamente defensável) |
+| `indireta` | Atua sobre a variável (obra, programa, política pública) |
+| `contextual` | Descreve contexto sem atuação direta |
+| `latente` | Política com potencial mensurável ainda não observado |
+
+> **Regra R21:** violência letal nunca é `contextual` — sempre `direta` ou `indireta`.
+
+---
+
+## 🔎 codigo_variavel
+
+| Situação | Preenchimento |
+|---|---|
+| Variável IVS mensurável | Código (ex: `CH_06`, `RT_01`) |
+| Sem variável IVS | vazio |
+| Governança | `GOV_MUNICIPAL`, `GOV_ESTADUAL`, `GOV_FEDERAL` |
+| PRESSAO_SOCIAL ou CONTEXTO | `SMIDS_EXT` |
+
+> **SMIDS_EXT** designa eventos analiticamente relevantes que não correspondem nem ao IVS clássico nem à governança. Não é gaveta residual — é categoria robusta que exige `tipo_camada`, `dimensao_analitica`, `observacao` e `entra_ipst` preenchidos.
+
+---
+
+## 🔎 papel_no_ciclo — Ciclo de Pressão Social
+
+O corpus registra a posição de cada evento no ciclo:
+
+```
+PRESSAO_SOCIAL aparece
+    ↓ emergencia
+Estado responde
+    ↓ resposta
+Pressão persiste ou volta
+    ↓ agravamento
+Indício de melhora
+    ↓ sinal_desfecho
+```
+
+> **Regra R22:** `GOVERNANCA` só recebe `papel_no_ciclo = resposta` quando há pressão identificável como gatilho. Ações estruturais e preventivas → `nao_aplicavel`.
+
+> **Regra R20:** `agravamento` é válido mesmo sem histórico no corpus, quando a própria matéria documenta progressão mensurável.
 
 ---
 
 ## ⚠️ Princípio Fundamental
 
-> **Eventos jornalísticos não medem diretamente o IVS-H.**
+> *"IVS mede. Governança e SMIDS_EXT explicam."*
 
-Eles devem ser interpretados como:
-
-> **evidências de pressão social associadas às dimensões da vulnerabilidade**
+> *"O corpus não é o lugar onde o ciclo se resolve. É o lugar onde o ciclo começa a ser visível."*
 
 ---
 
-## 🧱 Estrutura dos Registros
+## 📌 Schema Completo dos Registros
 
-Cada notícia é convertida em um registro estruturado contendo:
-
-* fonte
-* data
-* dimensão IVS
-* código de variável (quando aplicável)
-* tipo de relação com a variável
-* nível de criticidade
-* resumo do evento
-* tipo de evento
-* gravidade
-* polaridade
-* identificação espacial (quando disponível)
-
----
-
-## 🔎 Metodologia de Classificação
-
-### 1. Dimensão da Vulnerabilidade
-
-Todo evento deve ser classificado em uma das dimensões:
-
-* **Infraestrutura Urbana (IU)**
-* **Capital Humano (CH)**
-* **Renda e Trabalho (RT)**
-* **Multidimensional**
-
----
-
-### 2. Tipo de Relação com a Variável
-
-Define **como o evento se conecta à estrutura do IVS**:
-
-* **Direta** → o evento mede a variável IVS
-* **Proxy** → o evento indica fortemente a variável
-* **Contextual** → o evento ocorre em ambiente de vulnerabilidade
-
----
-
-### 3. Nível de Criticidade
-
-Define **a intensidade do evento observado**:
-
-* **Baixa**
-* **Média**
-* **Alta**
-* **Alerta** → evento extremo com forte impacto social
-
----
-
-## 📊 Regras Operacionais
-
-| Tipo de relação | Uso da variável IVS |
-| --------------- | ------------------- |
-| Direta          | Obrigatória         |
-| Proxy           | Recomendado         |
-| Contextual      | Opcional            |
-
----
-
-## 📊 Definição de Indicador
-
-> **Indicador é um dado agregado, quantitativo ou mensurável, que descreve um fenômeno social — não um evento isolado.**
-
----
-
-### ✔️ Características de um indicador
-
-* Expressa quantidade, taxa ou variação
-* Permite comparação no tempo
-* Origina-se de fonte institucional ou consolidada
-
----
-
-### ✔️ Exemplos
-
-* “94 medidas protetivas em jan–fev”
-* “aumento de 11,9% em relação ao ano anterior”
-
----
-
-### ❌ Não são indicadores
-
-* homicídios individuais
-* acidentes isolados
-* casos específicos
-
----
-
-### 🧭 Regra prática
-
-> **Se pode ser representado em gráfico → indicador
-> Se é um caso específico → não é indicador**
-
----
-
-## 📌 Tipos de Evento
-
-* **Indicador** → dado agregado
-* **Problema** → situação negativa recorrente
-* **Caso individual** → evento específico
-* **Política pública** → ação governamental
-
----
-
-## 📌 Exemplos Aplicados
-
-### Indicador agregado — Medidas protetivas
-
-* Dimensão: Capital Humano
-* Tipo de relação: Proxy
-* Nível de criticidade: Alta
-* Tipo de evento: Indicador
-* Polaridade: Negativa
-
-**Interpretação:**
-Indica fragilidade nas relações familiares e exposição à violência, sem medir diretamente uma variável do IVS.
-
----
-
-### Evento de violência urbana — Homicídio
-
-* Dimensão: Capital Humano
-* Tipo de relação: Contextual
-* Nível de criticidade: Alta
-* Tipo de evento: Problema
-* Polaridade: Negativa
-
-**Interpretação:**
-Evento que expressa pressão social observada no município.
-
----
-
-### Evento crítico — Violência envolvendo adolescentes
-
-* Dimensão: Capital Humano
-* Tipo de relação: Contextual
-* Nível de criticidade: Alerta
-* Tipo de evento: Caso individual
-* Polaridade: Negativa
-
-**Interpretação:**
-Evento extremo que revela ambiente de vulnerabilidade social.
-
----
-
-### Indicador direto — Exemplo hipotético
-
-* Dimensão: Capital Humano
-* Variável: Analfabetismo
-* Tipo de relação: Direta
-* Tipo de evento: Indicador
-
-**Interpretação:**
-Evento mede diretamente variável estrutural do IVS.
+| Campo | Camada | Obrigatório |
+|---|---|---|
+| `id_evento` | — | sim |
+| `data_publicacao` | — | sim |
+| `fonte` | — | sim |
+| `titulo` | — | sim |
+| `pagina` | — | sim |
+| `municipio` | — | sim |
+| `localidade` | — | sim |
+| `tipo_camada` | 1 | sim |
+| `dimensao_analitica` | 1 | sim (salvo narrativo puro) |
+| `tipo_relacao_variavel` | 2 | sim |
+| `codigo_variavel` | 2 | sim |
+| `nivel_criticidade` | 2 | sim |
+| `observacao` | 2 | sim |
+| `aproximacao_variavel` | 2 | não |
+| `nota_analista` | 2 | não |
+| `cod_loteamento` | — | sim |
+| `nivel_confianca_loteamento` | — | sim |
+| `papel_no_ciclo` | 3 | sim |
+| `id_caso_pressao` | 3 | não |
+| `entra_ipst` | 3 | sim |
 
 ---
 
 ## ⚠️ Limitações
 
-* Tendência a registrar eventos extremos
-* Possível viés editorial
+* Tendência a registrar eventos extremos (viés de negatividade)
 * Cobertura parcial do município
+* Desfecho não observável diretamente — inferido por triangulação com CadÚnico e IVS-H
 
-> O corpus deve ser interpretado como complemento analítico.
-
----
-
-## 🔗 Integração com o IVS-H
-
-* **IVS-H** → estrutura da vulnerabilidade
-* **Eventos** → manifestações observadas
-
-Essa integração permite identificar:
-
-* áreas com maior pressão social
-* sinais antecipados de agravamento
-* desconexões entre estrutura e realidade observada
+> O corpus deve ser interpretado como complemento analítico, não como instrumento de conclusão.
 
 ---
 
-## 🧭 Considerações Finais
+## 🔗 Integração com o IVS-H e IPST-H
 
-O corpus jornalístico não substitui indicadores — ele os **complementa**.
+| Instrumento | Função |
+|---|---|
+| IVS-H | Estrutura da vulnerabilidade (estoque) |
+| Corpus jornalístico | Manifestações observadas (fluxo) |
+| IPST-H | Pressão sobre o Estado (derivado) |
 
-Sua principal contribuição é transformar eventos dispersos em:
+Registros `PRESSAO_SOCIAL + alerta + dado_auditavel` são candidatos naturais a variáveis do IPST-H.
 
-> **evidência estruturada da dinâmica social observada**
+---
+
+## 📚 Documentação Relacionada
+
+* `regras_de_classificacao_v10_1.md` — regras operacionais completas
+* `series_jornalisticas/` — arquivos CSV por edição
 
 ---
 
