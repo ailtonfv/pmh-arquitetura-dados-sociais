@@ -55,6 +55,18 @@ Para o MVP (Fase 1), o IVS-H será calculado com base na metodologia original do
 > 🔎 Detalhamento técnico completo: `01_modelagem_conceitual/dim_variavel_IVS_v01r7.md`
 
 ---
+Na Fase 1, o IVS-H será calculado exclusivamente com variáveis disponíveis no CadÚnico, garantindo execução imediata com dados reais.
+
+Variáveis incluídas:
+- RT_01 — renda per capita ≤ 1/2 SM
+- RT_04 — baixa renda + presença de idoso
+- CH_05 — mães chefes com baixa escolaridade
+- CH_06 — analfabetismo (15+)
+- CH_07 — baixa escolaridade no domicílio
+
+As demais variáveis serão incorporadas progressivamente nas fases seguintes, conforme integração com bases externas (IBGE, CAGED, Saúde e Educação).
+
+---
 
 ## Resumo Executivo por Dimensão
 
