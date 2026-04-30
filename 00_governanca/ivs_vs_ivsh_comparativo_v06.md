@@ -1,3 +1,163 @@
+# IVS × IVS-H — Comparativo das 16 Variáveis de Vulnerabilidade Social
+
+**Arquivo:** `00_governanca/ivs_vs_ivsh_comparativo_v05.md`
+**Versão:** v06
+**Data:** "30/04/2026"
+**Responsável:** Ailton Vendramini
+**Repositório:** Atlas-Social-de-Hortolândia
+**Fonte metodológica:** COSTA, MA; MARGUTI, BO. *Atlas da Vulnerabilidade Social nos Municípios Brasileiros*. Brasília: IPEA, 2015.
+**Referência metodológica adicional:** NARDO, M. et al. *Manual sobre Construção de Indicadores Compostos*. Paris: OCDE, 2008.
+
+> **IVS-H:** ocorrência local — hipóteses iniciais, a validar com dados reais do CadÚnico dez/2025 e Censo 2022.
+
+---
+
+## ⚠️ Nota Metodológica — Fase do Projeto
+
+Este documento apresenta a proposta de calibração do IVS-H com base em hipóteses estruturais locais.
+
+**Para o MVP (Fase 1), o índice será calculado utilizando exatamente a ponderação original do IVS/IPEA**, garantindo:
+
+* comparabilidade nacional
+* consistência metodológica
+* execução rápida com dados reais
+
+A calibração de pesos apresentada neste documento será aplicada na Fase 2, após validação empírica com dados do CadÚnico e Censo 2022.
+
+> ⚠️ Variáveis derivadas do CadÚnico devem ser interpretadas como representativas da população cadastrada, e não da população total do município. A extrapolação para o conjunto da cidade requer validação com fontes censitárias (IBGE).
+
+---
+
+## Nota Arquitetural — Dois Índices Complementares
+
+O Atlas Social de Hortolândia opera com dois índices distintos:
+
+**IVS-H (Índice de Vulnerabilidade Social de Hortolândia)**
+Adota como referência as 16 variáveis do IVS/IPEA, com implementação progressiva:
+
+* **Fase 1 (MVP):** variáveis disponíveis no CadÚnico
+* **Fase 2:** incorporação de IBGE, CAGED, Saúde, Educação
+* **Fase final:** replicação integral do IVS/IPEA
+
+**IPST-H (Índice de Pressão Social de Hortolândia)**
+Índice municipal complementar, voltado à pressão sobre o Estado.
+
+> *"O IVS mostra onde está a vulnerabilidade. O IPST-H mostra onde a vulnerabilidade se transforma em pressão sobre o Estado."*
+
+---
+
+## Resumo Executivo por Dimensão
+
+| Dimensão              | Variáveis | Peso IPEA | Peso IVS-H (hipótese) | Implicação estratégica                       |
+| --------------------- | --------- | --------- | --------------------- | -------------------------------------------- |
+| Infraestrutura Urbana | 3         | 33%       | ~15–20%               | Alta cobertura — baixo poder discriminatório |
+| Capital Humano        | 8         | 33%       | ~40–45%               | Reprodução da vulnerabilidade                |
+| Renda e Trabalho      | 5         | 33%       | ~35–40%               | Principal tensão socioeconômica              |
+
+> 💡 Interpretação executiva: a vulnerabilidade em Hortolândia está menos associada à infraestrutura e mais à dinâmica socioeconômica das famílias.
+
+---
+
+## Linha de Base Empírica — IVS IPEA
+
+(Conteúdo mantido — sem alterações estruturais)
+
+---
+
+## Dimensão 3 — Renda e Trabalho (trecho ajustado)
+
+| N  | Código | Variável                                                                                                    | Fonte Municipal | Peso IPEA | Peso IVS-H | Observação                                                                                                                                                                        |
+| -- | ------ | ----------------------------------------------------------------------------------------------------------- | --------------- | --------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 15 | RT_04  | % pessoas em domicílios com renda menor ou igual a meio SM e com presença de pelo menos um idoso (≥60 anos) | CadÚnico        | 6,25%     | ~8%        | Captura famílias de baixa renda com presença de idoso, sinalizando maior necessidade de cuidados e pressão sobre serviços públicos. Não pressupõe dependência econômica do idoso. |
+
+---
+
+## Nota de Interpretação
+
+O IVS-H não deve ser interpretado apenas como um indicador descritivo, mas como um instrumento de priorização de políticas públicas.
+
+Cada variável indica não apenas a presença de vulnerabilidade, mas sua natureza, permitindo direcionar ações específicas por dimensão:
+
+* educação
+* trabalho
+* assistência
+* saúde
+
+---
+
+## Disponibilidade das Variáveis
+
+(Conteúdo mantido)
+
+---
+
+## Conclusão Estratégica
+
+O IVS-H representa uma evolução operacional do IVS tradicional, permitindo:
+
+* maior granularidade
+* maior frequência analítica
+* maior aplicabilidade na gestão pública
+
+> O índice não apenas identifica vulnerabilidade, mas orienta decisões.
+
+---
+
+## Log de Alterações
+
+| Versão | Data       | Alterações                                                                        |
+| ------ | ---------- | --------------------------------------------------------------------------------- |
+| v06    | 30/04/2026 | Ajuste conceitual do RT_04; inclusão de nota interpretativa; reforço metodológico |
+
+---
+
+*Documento de comunicação institucional — uso interno*
+*Atlas Social de Hortolândia*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+xxxxxxxxxxxxxxxxxxxxx
+
+
 [ivs_vs_ivsh_comparativo_v05 (3).md](https://github.com/user-attachments/files/26192471/ivs_vs_ivsh_comparativo_v05.3.md)
 # IVS × IVS-H — Comparativo das 16 Variáveis de Vulnerabilidade Social
 
