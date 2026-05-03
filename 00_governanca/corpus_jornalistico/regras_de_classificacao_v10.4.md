@@ -1,6 +1,8 @@
-[regras_de_classificacao_v10.3 (1).md](https://github.com/user-attachments/files/27317607/regras_de_classificacao_v10.3.1.md)[regras_de_classificacao_v10.2.md](https://github.com/user-attachments/files/26866862/regras_de_classificacao_v10.2.md)
+---
+
+[regras_de_classificacao_v10.4 (1).md](https://github.com/user-attachments/files/27318304/regras_de_classificacao_v10.4.1.md)
 # Regras de Classificação — Corpus Jornalístico
-**Versão:** v10.3  
+**Versão:** v10.4  
 **Data:** "03/05/2026"  
 **Responsável:** Ailton Vendramini  
 **Repositório:** Atlas-Social-de-Hortolandia / 00_governanca/corpus_jornalistico/
@@ -13,13 +15,15 @@
 
 ---
 
-## Changelog v10.2 → v10.3
+## Changelog v10.3 → v10.4
 
 | Item | Mudança |
 |---|---|
-| R27 | Regra nova — definição operacional explícita do escopo geográfico do corpus |
-| Seção 16 | Reescrita completa — escopo geográfico passa de sugestão a critério vinculante |
-| Motivação | Classificação empírica de 03/05/2026 revelou ambiguidade na fronteira entre eventos regionais relevantes e eventos de outros municípios sem vínculo comprovável com Hortolândia |
+| Seção 0.5 | Nova — arquitetura dos três instrumentos: IVS-H / IPST-H / IPSO-H |
+| Seção 12 | `entra_ipst` redefinido: alimenta o IPSO-H, não o IPST-H |
+| Seção 0 | Princípio central atualizado com a tríade analítica |
+| Nota de migração | Campo `entra_ipst` mantém nome no CSV para preservar dados existentes |
+| Motivação | Decisão de 03/05/2026: corpus reposicionado como camada qualitativa autônoma (IPSO-H), separada metodologicamente do IPST-H |
 
 ---
 
@@ -28,6 +32,8 @@
 > *"IVS mede. Governança e SMIDS_EXT explicam."*
 
 > *"O corpus não é o lugar onde o ciclo se resolve. É o lugar onde o ciclo começa a ser visível."*
+
+> *"Dado explica. Narrativa convence."*
 
 ---
 
@@ -89,10 +95,10 @@ Nível A — Corpus jornalístico
 
 Nível B — FATO_CICLO_PRESSAO_SOCIAL (tabela derivada)
     Agrupamento de eventos relacionados
-    Função: ligar pressão e resposta, organizar janelas temporais, preparar IPST-H
+    Função: ligar pressão e resposta, organizar janelas temporais, preparar IPSO-H
 
 Nível C — Painel gerencial
-    Leitura agregada por território e dimensão
+    Leitura agregada por dimensão e ciclo
     Função: mostrar status do ciclo (ativa, em_resposta, atenuada, recorrente)
 ```
 
@@ -107,6 +113,66 @@ Nível C — Painel gerencial
 - União → `GOV_FEDERAL`
 
 > **R00:** Ação direta da Prefeitura → `GOV_MUNICIPAL`.
+
+---
+
+## 0.5 Arquitetura dos Três Instrumentos *(NOVO v10.4)*
+
+O Atlas Social de Hortolândia opera com três instrumentos analíticos distintos e complementares. Eles **não se substituem** e **não se mesclam metodologicamente**.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  IVS-H                                                      │
+│  Índice de Vulnerabilidade Social — Hortolândia             │
+│  Pergunta: onde está a vulnerabilidade?                     │
+│  Base: CadÚnico, IBGE, dados estruturais                    │
+│  Natureza: quantitativa, estrutural, comparável             │
+└─────────────────────────────────────────────────────────────┘
+                           ↕ interface narrativa
+┌─────────────────────────────────────────────────────────────┐
+│  IPST-H                                                     │
+│  Índice de Pressão Social Territorial — Hortolândia         │
+│  Pergunta: onde há pressão mensurável sobre o Estado?       │
+│  Base: dados administrativos, fluxos de atendimento         │
+│  Natureza: quantitativa, operacional, mensurável            │
+└─────────────────────────────────────────────────────────────┘
+                           ↕ interface narrativa
+┌─────────────────────────────────────────────────────────────┐
+│  IPSO-H                                                     │
+│  Índice de Pressão Social Observada — Hortolândia           │
+│  Pergunta: o que está acontecendo agora?                    │
+│  Base: corpus jornalístico estruturado (Tribuna Liberal)    │
+│  Natureza: qualitativa, narrativa, temporal                 │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Separação metodológica obrigatória
+
+> **O corpus jornalístico não compõe diretamente o cálculo do IPST-H.**
+>
+> Sua contribuição é qualitativa e narrativa — não estatística.
+> Misturar as duas metodologias geraria subjetividade no índice, perda de credibilidade técnica e dificuldade de replicação.
+
+### Como os três instrumentos se integram
+
+| Instrumento | Função no Atlas | Integração |
+|---|---|---|
+| IVS-H | Estrutura da vulnerabilidade | Fornece contexto estrutural para leitura dos ciclos |
+| IPST-H | Pressão mensurável sobre o Estado | Quantifica o que o IPSO-H observa qualitativamente |
+| IPSO-H | Narrativa da pressão em tempo real | Abre ciclos, orienta leituras, fundamenta apresentações |
+
+### Usos legítimos do IPSO-H
+
+- Abertura de apresentações institucionais: *"Nas últimas semanas, observamos…"*
+- Validação narrativa de indicadores: *"O aumento de RT_01 é consistente com eventos recentes…"*
+- Argumento de pressão institucional: *"Há recorrência de ciclos sem resposta articulada do Estado…"*
+- Linha do tempo de ciclos: emergência → agravamento → resposta → persistência
+
+### O que o IPSO-H não faz
+
+> ❌ Não alimenta fórmulas do IPST-H
+> ❌ Não substitui dados administrativos
+> ❌ Não produz índices numéricos comparáveis
 
 ---
 
@@ -187,7 +253,10 @@ Pertence a ciclo temático? → id_caso_pressao (opcional)
     ex: CH_VIOLENCIA_GENERO_2025
     ↓
 
-Entra no IPST-H? → entra_ipst (R24)
+Entra no IPSO-H? → entra_ipst (R24)
+    ⚠ Nota de nomenclatura: o campo chama-se entra_ipst nos CSVs
+      por razões de compatibilidade com dados existentes.
+      Seu significado correto a partir de v10.4 é: entra no IPSO-H.
 
     CONDIÇÃO A:
         PRESSAO_SOCIAL + nivel_criticidade = alerta + dado_auditavel
@@ -227,12 +296,8 @@ Natureza analítica do evento. **Campo obrigatório.**
 | `CONTEXTO` | Pano de fundo sem impacto social identificável direto |
 
 > **Distinção entre `PRESSAO_SOCIAL` e `CONTEXTO`:**
-> - `PRESSAO_SOCIAL` → mensurável, com potencial de série histórica, candidato ao IPST-H
+> - `PRESSAO_SOCIAL` → mensurável, com potencial de série histórica, candidato ao IPSO-H
 > - `CONTEXTO` → narrativo, sem métrica defensável
-
-> **Relação entre `codigo_variavel` e `tipo_camada`:**
-> `codigo_variavel` identifica o **universo analítico de referência**.
-> `tipo_camada` especifica a **natureza do registro dentro desse universo**.
 
 ### Arquitetura lógica
 
@@ -256,12 +321,6 @@ Natureza analítica do evento. **Campo obrigatório.**
 > - afeta um conjunto de indivíduos — não apenas casos isolados
 > - possui potencial de recorrência
 > - altera condições de vida, segurança, renda ou mobilidade de forma identificável
->
-> **Eventos individuais são aceitos apenas quando:**
-> 1. representam proxy documentado de fenômeno coletivo, ou
-> 2. possuem recorrência já registrada no corpus
->
-> Caso contrário → reclassificar para `CONTEXTO`
 >
 > **Pergunta de corte (R25):**
 > *"Este evento representa um caso de algo que acontece repetidamente, ou é episódio isolado sem efeito sistêmico?"*
@@ -292,8 +351,6 @@ Natureza analítica do evento. **Campo obrigatório.**
 > **R21 — Violência letal nunca contextual**
 >
 > Eventos envolvendo violência com morte, arma de fogo ou risco grave à integridade física são sempre `direta` ou `indireta` — nunca `contextual`.
->
-> Violência letal é mensurável, tem série histórica possível e impacto direto sobre a população vulnerável.
 
 ---
 
@@ -385,26 +442,14 @@ Posição do registro no ciclo de pressão social. **Campo obrigatório.**
 ### R19 — Uso restrito de `nao_aplicavel`
 
 > `nao_aplicavel` deve ser utilizado apenas quando o registro **não participa, por natureza, de nenhum ciclo de pressão social identificável**.
->
-> É proibido seu uso como substituto de incerteza analítica ou ausência de classificação.
 
 ### R20 — Agravamento com base interna
 
 > Um evento pode ser classificado como `agravamento` quando a **própria matéria documenta progressão mensurável no tempo**, mesmo na ausência de registros anteriores no corpus.
->
-> O histórico interno à matéria é evidência suficiente para classificar a tendência.
 
 ### R22 — GOVERNANCA e o critério de resposta
 
 > `GOVERNANCA` só recebe `papel_no_ciclo = resposta` quando houver **pressão social identificável** como gatilho da ação estatal.
->
-> Ações estruturais, preventivas ou de rotina sem evento detonador → `papel_no_ciclo = nao_aplicavel`.
-
-### Regra de ouro
-
-*"Este evento pode estar ligado a um problema social que surge, evolui ou é respondido?"*
-- SIM → nunca usar `nao_aplicavel`
-- NÃO → pode usar `nao_aplicavel`
 
 ### Tabela de referência rápida
 
@@ -424,20 +469,22 @@ Campo opcional. Agrupa registros que pertencem ao mesmo ciclo temático.
 **Formato sugerido:** `[DIMENSAO]_[TEMA]_[ANO]`
 Exemplo: `CH_VIOLENCIA_GENERO_2025`
 
-> Preenchido → corpus sugere relação entre registros
-> Vazio → camada analítica infere a relação posteriormente
-
 ---
 
-## 12. entra_ipst
+## 12. entra_ipst — Entrada no IPSO-H *(redefinido v10.4)*
+
+> ⚠️ **Nota de nomenclatura:**
+> O campo mantém o nome `entra_ipst` nos arquivos CSV por compatibilidade com os dados já coletados.
+> A partir de v10.4, seu significado correto é: **este evento entra no IPSO-H** (Pressão Social Observada), não no IPST-H (Pressão Social Territorial).
+> São instrumentos distintos. Ver Seção 0.5.
 
 | Valor | Critério |
 |---|---|
-| `sim` | Atende Condição A ou Condição B (ver abaixo) |
+| `sim` | Atende Condição A ou Condição B |
 | `avaliar` | Atende parcialmente uma das condições |
 | `nao` | Não atende nenhuma condição — aplicar R24 |
 
-### Condições de entrada no IPST-H
+### Condições de entrada no IPSO-H
 
 **Condição A — Evento crítico:**
 ```
@@ -456,17 +503,8 @@ PRESSAO_SOCIAL
 → entra_ipst = sim
 ```
 
-> A Condição B permite entrada de fenômenos que não atingem `alerta` mas possuem efeito coletivo mensurável e recorrente — como reajustes tarifários, inflação local ou pressão sobre mobilidade urbana.
+### R24 — Critério de exclusão do IPSO-H
 
-### R24 — Critério de exclusão do IPST-H
-
-> Um evento deve receber `entra_ipst = nao` quando satisfizer **todas** as seguintes condições:
->
-> 1. Não é potencialmente agregável em série temporal (R23)
-> 2. Não afeta diretamente a população em escala coletiva (R25)
-> 3. Representa evento pontual, criminal ou administrativo sem efeito sistêmico
-> 4. Não possui possibilidade de construção de indicador contínuo
->
 > **Pergunta de corte (R24):**
 > *"Este fenômeno pode ser transformado em um indicador mensal, trimestral ou anual?"*
 > - SIM → `avaliar` ou `sim`
@@ -506,72 +544,43 @@ PRESSAO_SOCIAL
 
 > **R13:** O recorte analítico é definido pela relevância para Hortolândia, não pela abrangência regional da notícia.
 
----
+### R27 — Definição operacional do escopo geográfico
 
-### R27 — Definição operacional do escopo geográfico *(NOVO v10.3)*
+> **O corpus registra exclusivamente eventos que se enquadrem em um dos três casos abaixo. Fora desses casos, o evento deve ser descartado sem classificação.**
 
-> **O corpus do Atlas Social de Hortolândia registra exclusivamente eventos que se enquadrem em um dos três casos abaixo. Fora desses casos, o evento deve ser descartado sem classificação.**
+**CASO 1 — Evento ocorrido em Hortolândia**
+O evento aconteceu dentro dos limites do município.
 
----
+**CASO 2 — Evento externo com impacto direto e identificável sobre Hortolândia**
+O efeito sobre Hortolândia é **explícito na matéria** ou **tecnicamente demonstrável**.
 
-#### CASO 1 — Evento ocorrido em Hortolândia
+**CASO 3 — Evento de Hortolândia com impacto identificável na região**
+O evento originou-se em Hortolândia e produz efeitos em outros municípios.
 
-O evento aconteceu dentro dos limites do município de Hortolândia.
-
-> Inclui: ocorrências, ações de governo, programas, infraestrutura, violência, saúde, educação e qualquer fenômeno social situado no município.
-
----
-
-#### CASO 2 — Evento externo com impacto direto e identificável sobre Hortolândia
-
-O evento ocorreu em outro município ou instância, mas seu efeito sobre Hortolândia é **explícito na matéria** ou **tecnicamente demonstrável**.
-
-> Inclui: crises hídricas regionais que afetam o abastecimento local, epidemias confirmadas em Hortolândia, operações policiais interestaduais com alvos no município, decisões federais ou estaduais com consequência direta para a população local.
-
-> **Não inclui:** dados de outros municípios apresentados sem vínculo explícito com Hortolândia, mesmo que pertençam à mesma região metropolitana.
-
----
-
-#### CASO 3 — Evento de Hortolândia com impacto identificável na região
-
-O evento originou-se em Hortolândia e produz efeitos mensuráveis ou identificáveis em outros municípios da região.
-
-> Inclui: surtos com origem em Hortolândia que se expandem, ações do município com repercussão regional, operações conjuntas com origem local.
-
----
-
-#### O que NÃO entra no corpus — lista de exclusão definitiva
-
-Os itens abaixo são descartados independentemente de sua relevância temática:
+#### O que NÃO entra — lista de exclusão definitiva
 
 | Tipo de conteúdo | Motivo |
 |---|---|
-| Eventos de outros municípios sem vínculo comprovável com Hortolândia | Não atende nenhum dos três casos |
-| Artigos de opinião, colunas acadêmicas ou editoriais sem referência local | Sem ancoragem territorial em Hortolândia |
-| Dados regionais onde Hortolândia não aparece como afetada | Relevância regional não equivale a relevância local |
-| Notícias de interesse geral sem dimensão social local identificável | Fora do escopo do Atlas Social |
-| Eventos de municípios vizinhos com mera proximidade geográfica | Proximidade não é impacto |
-
----
+| Eventos de outros municípios sem vínculo comprovável | Não atende nenhum dos três casos |
+| Artigos de opinião ou editoriais sem referência local | Sem ancoragem territorial em Hortolândia |
+| Dados regionais onde Hortolândia não aparece como afetada | Relevância regional ≠ relevância local |
+| Eventos de municípios vizinhos com mera proximidade geográfica | Proximidade ≠ impacto |
 
 #### Pergunta de corte — R27
 
 > *"Este evento ocorreu em Hortolândia, ou seu impacto sobre Hortolândia é explícito e identificável?"*
->
-> - **SIM** → prosseguir para R14 e fluxo de classificação
-> - **NÃO** → **descartar imediatamente**
-
----
+> - **SIM** → prosseguir para R14
+> - **NÃO** → descartar imediatamente
 
 #### Relação entre R13, R14 e R27
 
 | Regra | Função |
 |---|---|
 | R13 | Princípio geral: relevância para Hortolândia define o escopo |
-| R14 | Pergunta de corte analítica: o evento explica, mede ou antecipa vulnerabilidade? |
-| R27 | Critério operacional: define os três casos válidos e a lista de exclusão |
+| R14 | Pergunta analítica: o evento explica, mede ou antecipa vulnerabilidade? |
+| R27 | Critério operacional: três casos válidos + lista de exclusão |
 
-> R27 é aplicada **antes** de R14. Um evento que não passa por R27 não chega a R14.
+> R27 é aplicada **antes** de R14.
 
 ---
 
@@ -580,11 +589,6 @@ Os itens abaixo são descartados independentemente de sua relevância temática:
 > **R14 — Pergunta de corte analítica:**
 > *"Este evento ajuda a explicar, medir ou antecipar a vulnerabilidade social em Hortolândia?"*
 > SIM → incluir | NÃO → descartar
-
-**Incluir quando** (após aprovação em R27):
-1. Evento ocorrido em Hortolândia
-2. Evento externo com impacto direto ou plausível sobre o município
-3. Evento regional com potencial analítico para o IVS-H
 
 ---
 
@@ -596,11 +600,13 @@ Em "16/04/2026", confirmado que o CadÚnico opera com CEP, não com `codbairro`.
 - `nivel_confianca_loteamento` → obrigatório
 - `nota_analista` → registrar nomes populares e referências territoriais relevantes
 
+> **Nota:** o CEP do CadÚnico identifica a pessoa vulnerável, não o endereço do evento jornalístico. São universos distintos — não há linkage possível entre corpus e CadÚnico por CEP.
+
 ---
 
 ## 19. Limite do Corpus como Instrumento de Desfecho
 
-> **R26 — Limite do corpus** *(renomeado de R20-desfecho para eliminar conflito com R20-agravamento)*
+> **R26**
 >
 > O corpus jornalístico não é fonte confiável para inferir resolução de fenômenos sociais. A ausência de registros não equivale a desfecho positivo.
 >
@@ -615,7 +621,7 @@ Em "16/04/2026", confirmado que o CadÚnico opera com CEP, não com `codbairro`.
 
 Complementar ao `observacao`. Sem restrição de vocabulário.
 
-**Uso:** justificativas, referências cruzadas, nomes populares de loteamentos, pendências, candidatos a variáveis do IPST-H ou fases futuras do IVS-H.
+**Uso:** justificativas, referências cruzadas, nomes populares de loteamentos, pendências.
 
 **Regra:** não alimenta indicadores. Serve exclusivamente para rastreabilidade e auditoria.
 
@@ -625,18 +631,15 @@ Complementar ao `observacao`. Sem restrição de vocabulário.
 
 > **PRESSAO_INSTITUCIONAL — registro prospectivo**
 >
-> Eventos que atacam diretamente o aparato institucional do Estado (invasões a órgãos públicos, sabotagem de processos administrativos, ataques a equipamentos de gestão pública) constituem categoria analítica distinta da `PRESSAO_SOCIAL` clássica.
+> Eventos que atacam diretamente o aparato institucional do Estado constituem categoria analítica distinta da `PRESSAO_SOCIAL` clássica.
 >
-> - `PRESSAO_SOCIAL` → pressiona a população vulnerável
-> - `PRESSAO_INSTITUCIONAL` → pressiona a capacidade do Estado de responder
+> **Tratamento atual:** classificar como `PRESSAO_SOCIAL + observacao = sinal_smids_ext`, com `nota_analista` registrando o caráter institucional.
 >
-> **Tratamento atual:** classificar como `PRESSAO_SOCIAL + observacao = sinal_smids_ext`, com `nota_analista` registrando o caráter institucional do evento.
->
-> **Condição de promoção:** criar `PRESSAO_INSTITUCIONAL` como valor formal quando houver série suficiente de eventos desta natureza no corpus.
+> **Condição de promoção:** criar `PRESSAO_INSTITUCIONAL` como valor formal quando houver série suficiente no corpus.
 
 ---
 
-## 22. Schema Completo v10.3
+## 22. Schema Completo v10.4
 
 | Campo | Função | Camada | Obrigatório |
 |---|---|---|---|
@@ -659,55 +662,42 @@ Complementar ao `observacao`. Sem restrição de vocabulário.
 | `nivel_confianca_loteamento` | alto, medio, baixo | — | sim |
 | `papel_no_ciclo` | emergencia, resposta, agravamento, sinal_desfecho, nao_aplicavel | 3 | sim |
 | `id_caso_pressao` | Agrupamento temático do ciclo | 3 | não |
-| `entra_ipst` | sim, avaliar, nao | 3 | sim |
+| `entra_ipst` | Entrada no IPSO-H (sim, avaliar, nao) — ver Seção 12 | 3 | sim |
 
 ---
 
 ## 23. Exemplo de Aplicação — Feminicídios (31/12/2025)
 
-Registro canônico — exercitou R01, R04, R11 (descartada), R15, R16, R18, R19 em sequência.
-
 | Campo | Valor | Regra |
 |---|---|---|
 | `tipo_camada` | `PRESSAO_SOCIAL` | fenômeno mensurável fora das 16 variáveis IVS |
-| `dimensao_analitica` | `capital_humano` | R16 — obrigatório independente da camada |
-| `tipo_relacao_variavel` | `direta` | R01 — número verificável, série histórica possível |
-| `codigo_variavel` | `SMIDS_EXT` | R18 — PRESSAO_SOCIAL → SMIDS_EXT |
-| `nivel_criticidade` | `alerta` | morte + risco social grave + impacto direto |
-| `observacao` | `dado_auditavel` | R15 — número verificável tem precedência |
-| `papel_no_ciclo` | `emergencia` | R19 — PRESSAO_SOCIAL nunca é nao_aplicavel |
+| `dimensao_analitica` | `capital_humano` | R16 |
+| `tipo_relacao_variavel` | `direta` | R01 |
+| `codigo_variavel` | `SMIDS_EXT` | R18 |
+| `nivel_criticidade` | `alerta` | morte + risco social grave |
+| `observacao` | `dado_auditavel` | R15 |
+| `papel_no_ciclo` | `emergencia` | R19 |
 | `id_caso_pressao` | `CH_VIOLENCIA_GENERO_2025` | agrupamento temático |
-| `entra_ipst` | `sim` | Condição A — PRESSAO_SOCIAL + alerta + dado_auditavel |
+| `entra_ipst` | `sim` | Condição A — entra no IPSO-H |
 
 ---
 
 ## 24. Exemplo de Aplicação — R27 em contraste (03/05/2026)
 
-Três casos que motivaram a criação de R27:
-
 | Campo | Sumaré 70,9% informalidade | Artigo interseccionalidade USP | Meningite 24 casos regionais |
 |---|---|---|---|
 | Passa R27? | **não** | **não** | **sim** |
-| Motivo | Dado de Sumaré sem vínculo explícito com Hortolândia | Artigo acadêmico sobre São Paulo, sem referência local | Hortolândia lidera com 10 casos — impacto direto confirmado |
+| Motivo | Dado de Sumaré sem vínculo explícito | Artigo acadêmico sobre SP | Hortolândia lidera com 10 casos |
 | Ação | descartar | descartar | classificar |
-
-> **Leitura analítica:**
-> Proximidade geográfica (Sumaré é município vizinho) não equivale a impacto sobre Hortolândia.
-> Relevância temática (informalidade é variável RT_03) não equivale a ancoragem territorial.
-> R27 separa **dado relevante sobre o município** de **dado relevante sobre o tema**.
 
 ---
 
-## 25. Exemplo de Aplicação — R24 e R25 em contraste (dez/2025–jan/2026)
+## 25. Exemplo de Aplicação — R24 em contraste (dez/2025–jan/2026)
 
 | Campo | E13 — Açougue Jd. Amanda | E18 — Tarifa transporte |
 |---|---|---|
-| `tipo_camada` | `PRESSAO_SOCIAL` | `IVS` |
-| `dimensao_analitica` | `capital_humano` | `infraestrutura_urbana` |
-| `nivel_criticidade` | `alta` | `media` |
-| `observacao` | `dado_auditavel` | `dado_auditavel` |
 | `entra_ipst` | `nao` | `sim` |
-| Motivo | Evento pontual, criminal, sem efeito sistêmico (R24) | Impacto coletivo, recorrente, proxy IU_03 (Condição B) |
+| Motivo | Evento pontual, criminal, sem efeito sistêmico | Impacto coletivo, recorrente, proxy IU_03 |
 
 ---
 
@@ -716,8 +706,9 @@ Três casos que motivaram a criação de R27:
 | Instrumento | Função |
 |---|---|
 | `rel_programa_variavel_ivs` | Teoria |
-| Corpus jornalístico | Evidência |
+| Corpus jornalístico / IPSO-H | Evidência narrativa |
 | `FATO_CICLO_PRESSAO_SOCIAL` | Derivação analítica |
+| IPST-H | Índice quantitativo de pressão territorial |
 
 ---
 
@@ -745,10 +736,10 @@ Três casos que motivaram a criação de R27:
 | R21 | Violência letal nunca contextual | 4 |
 | R22 | GOVERNANCA só é "resposta" se houver pressão identificável | 10 |
 | R23 | PRESSAO_SOCIAL deve ser potencialmente agregável em série | 3 |
-| R24 | Critério explícito de exclusão do IPST-H | 12 |
+| R24 | Critério de exclusão do IPSO-H | 12 |
 | R25 | Pressão social coletiva — definição operacional | 3 |
 | R26 | Limite do corpus como instrumento de desfecho | 19 |
-| R27 | **[NOVO]** Definição operacional do escopo geográfico — três casos válidos + lista de exclusão | 16 |
+| R27 | Definição operacional do escopo geográfico | 16 |
 
 ---
 
@@ -756,16 +747,13 @@ Três casos que motivaram a criação de R27:
 
 | Versão | Data | Alterações principais |
 |---|---|---|
-| v10.0 | anterior | Schema base — tipo_camada, dimensao_analitica, observacao |
-| v10.1 | anterior | Quatro colunas novas: papel_no_ciclo, id_caso_pressao, entra_ipst, dimensao_analitica obrigatória |
-| v10.2 | "19/04/2026" | R24 (exclusão IPST-H), R25 (pressão coletiva), R26 (renomeação desfecho) |
-| v10.3 | "03/05/2026" | R27 (escopo geográfico operacional), Seção 16 reescrita, Exemplo 24 adicionado |
+| v10.0 | anterior | Schema base |
+| v10.1 | anterior | papel_no_ciclo, id_caso_pressao, entra_ipst, dimensao_analitica obrigatória |
+| v10.2 | "19/04/2026" | R24, R25, R26 |
+| v10.3 | "03/05/2026" | R27 — escopo geográfico operacional |
+| v10.4 | "03/05/2026" | Seção 0.5 — tríade IVS-H / IPST-H / IPSO-H; entra_ipst redefinido como entrada no IPSO-H; nota de separação metodológica; nota sobre CEP/CadÚnico |
 
 ---
 
 *Arquivo de governança — Atlas Social de Hortolândia*  
 *00_governanca/corpus_jornalistico/*
-ing regras_de_classificacao_v10.3 (1).md…]()
-
-
----
