@@ -1,7 +1,7 @@
 [regras_de_classificacao_v10.2.md](https://github.com/user-attachments/files/26866862/regras_de_classificacao_v10.2.md)
 # Regras de Classificação — Corpus Jornalístico
-**Versão:** v10.2  
-**Data:** "19/04/2026"  
+**Versão:** v10.3  
+**Data:** "03/05/2026"  
 **Responsável:** Ailton Vendramini  
 **Repositório:** Atlas-Social-de-Hortolandia / 00_governanca/corpus_jornalistico/
 
