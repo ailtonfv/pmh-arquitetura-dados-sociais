@@ -1,4 +1,4 @@
-[palestra_maio_2026_v14.md](https://github.com/user-attachments/files/27319407/palestra_maio_2026_v14.md)
+[palestra_maio_2026_v14 (1).md](https://github.com/user-attachments/files/27319494/palestra_maio_2026_v14.1.md)
 # Palestra — Atlas Social de Hortolândia (v14)
 
 **Versão:** v14  
@@ -73,7 +73,42 @@ Neste momento, o índice está sendo implementado de forma progressiva, com base
 
 ---
 
-## 6. Onde está a vulnerabilidade — o que o IVCAD revela
+## 6. Os instrumentos — o que estamos medindo e por quê
+
+Para organizar a leitura da vulnerabilidade, utilizamos quatro instrumentos complementares. Cada um responde a uma pergunta diferente.
+
+---
+
+**IVS — Índice de Vulnerabilidade Social (IPEA)**
+*Pergunta: onde está a vulnerabilidade no Brasil?*
+Modelo nacional com 16 variáveis em três dimensões: Infraestrutura Urbana, Capital Humano e Renda e Trabalho. Permite comparar Hortolândia com outros municípios e acompanhar a evolução histórica desde 2000.
+
+---
+
+**IVS-H — Índice de Vulnerabilidade Social de Hortolândia**
+*Pergunta: onde está a vulnerabilidade dentro do município?*
+As mesmas 16 variáveis do IPEA aplicadas ao CadÚnico local. Permite descer do nível municipal para o nível de loteamento — identificando quais territórios concentram maior vulnerabilidade estrutural.
+
+---
+
+**IVCAD — Índice de Vulnerabilidade das Famílias do CadÚnico**
+*Pergunta: qual é o perfil de quem já está cadastrado?*
+Modelo federal com 6 dimensões e 40 indicadores, focado exclusivamente no público do CadÚnico. Revela as dimensões mais críticas dentro do universo já atendido pelas políticas públicas.
+
+---
+
+**IPSO-H — Índice de Pressão Social Observada de Hortolândia**
+*Pergunta: o que está acontecendo agora?*
+Instrumento próprio construído a partir da classificação sistemática de matérias jornalísticas locais. Captura sinais emergentes que ainda não aparecem nos dados estruturais — funciona como sensor qualitativo da realidade social em tempo real.
+
+---
+
+> Esses quatro instrumentos não se substituem — se complementam.
+> **O IVS-H mostra a estrutura. O IVCAD mostra o perfil. O IPSO-H mostra o movimento.**
+
+---
+
+## 7. Onde está a vulnerabilidade — o que o IVCAD revela
 
 A distribuição etária do CadÚnico nos dá o primeiro sinal:
 
@@ -100,7 +135,7 @@ Renda insuficiente para cobrir necessidades básicas, mesmo entre famílias com 
 
 ---
 
-## 7. Complemento analítico — IPSO-H
+## 8. Complemento analítico — IPSO-H
 
 Além das bases estruturadas, construímos o **IPSO-H — Pressão Social Observada de Hortolândia**.
 
@@ -114,7 +149,7 @@ O IPSO-H não é um índice — é um **sensor qualitativo da realidade social**
 
 ---
 
-## 8. O que falta para avançar
+## 9. O que falta para avançar
 
 Para aprofundar essa análise, são necessárias integrações adicionais:
 
@@ -126,7 +161,7 @@ Essas integrações aumentam a precisão e permitem direcionar melhor os recurso
 
 ---
 
-## 9. Caminho estruturado
+## 10. Caminho estruturado
 
 O projeto segue uma lógica progressiva:
 
@@ -138,7 +173,7 @@ O objetivo não é construir um modelo perfeito, mas um modelo **útil e aplicá
 
 ---
 
-## 10. Encerramento
+## 11. Encerramento
 
 O Atlas Social não é apenas um projeto de dados.
 
