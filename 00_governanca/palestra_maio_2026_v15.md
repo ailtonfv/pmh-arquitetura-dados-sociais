@@ -1,5 +1,4 @@
-[palestra_maio_2026_v15.md](https://github.com/user-attachments/files/27362578/palestra_maio_2026_v15.md)
-# Palestra — Atlas Social de Hortolândia (v15)
+[palestra_maio_2026_v15 (1).md](https://github.com/user-attachments/files/27362789/palestra_maio_2026_v15.1.md)[Uploading# Palestra — Atlas Social de Hortolândia (v15)
 
 **Versão:** v15
 **Data:** Maio/2026
@@ -80,13 +79,7 @@ Cada um responde a uma pergunta diferente — e nenhum substitui o outro.
 
 ---
 
-> 📊 **[FIGURA — Os cinco instrumentos do Atlas Social]**
->
-> *(inserir figura interativa gerada em 04/05/2026)*
->
-> Camada de referência: **IVS/IPEA** — onde está a vulnerabilidade no Brasil?
-> Camada municipal: **IVS-H** (estrutura) + **IVCAD** (perfil do cadastrado)
-> Camada operacional: **IPST-H** (pressão sobre o Estado) + **IPSO-H** (o que está acontecendo agora)
+![Os cinco instrumentos do Atlas Social de Hortolândia](figuras/cinco_instrumentos_atlas_social.svg)
 
 ---
 
@@ -220,3 +213,4 @@ Porque, no final,
 ---
 
 *Atlas Social de Hortolândia — SMIDS / Maio 2026*
+ palestra_maio_2026_v15 (1).md…]()
