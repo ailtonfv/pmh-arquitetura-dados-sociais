@@ -1,12 +1,12 @@
-[arquitetura_dados_IVS_IBGE_Horto_v10.md](https://github.com/user-attachments/files/26060132/arquitetura_dados_IVS_IBGE_Horto_v10.md)
-| v10 | "17/03/2026" | Ajuste 1: Seção 2.1 (nova) — mobilidade pendular como variável proxy de RT; inconsistência do log v09 (referência a Seção 3.3.1 inexistente) corrigida. Ajuste 2: fórmula da Seção 5.1 corrigida — IU_mobilidade removida de IU; mobilidade consolidada exclusivamente em RT (RT_mobilidade_pendular_saida e RT_mobilidade_pendular_longa); nota metodológica de posição única adicionada. Ajuste 3: título da Seção 3 ampliado — "Base Municipal Inicial do IVS-H"; nota de escopo adicionada listando fontes complementares (SIDRA, CadÚnico, CAGED, BigQuery/IPEA, favelas, populações específicas). Ajuste 4: nota metodológica formal sobre Camada 3 — populações específicas não compõem o escore IVS-H; funcionam como camada de interpretação e priorização territorial; cruzamento com IVS-H por loteamento revela territórios com dupla prioridade. |
+[arquitetura_dados_IVS_IBGE_Horto_v11.md](https://github.com/user-attachments/files/27355456/arquitetura_dados_IVS_IBGE_Horto_v11.md)
+| v11 | "04/05/2026" | Seção 9 atualizada — status das ações pós-execução do tratamento CadÚnico (RTB_002); CadÚnico 2025_12 confirmado: 72.424 registros, 211 colunas; RT_01 calculado em ~60,5% das famílias cadastradas; bloqueio de linkage endereço→loteamento registrado como dependência crítica (pendência Sandra/Cláudia/Jesus José); nota metodológica sobre RT_01 como proxy de população cadastrada; referência cruzada ao IPST-H como índice complementar ao IVS-H. |
 
 *Documento de governança — 00_governanca/*
 *Atlas Social de Hortolândia — uso interno*
 
 # Arquitetura de Obtenção de Dados — IVS / IBGE / Hortolândia
-**Versão:** v10
-**Data:** "17/03/2026"
+**Versão:** v11
+**Data:** "04/05/2026"
 **Responsável:** Ailton Vendramini
 **Repositório:** Atlas-Social-de-Hortolândia / 00_governanca
 **Origem:** Pesquisa documental — `arquitetura_obtencao_de_dados_IVS.docx`
@@ -147,6 +147,28 @@ O IVS-H é um índice composto destinado a:
 > Ele transforma dados dispersos em secretarias num único indicador territorial
 > que permite ao prefeito e às secretarias convergirem em torno da mesma realidade.
 
+### 1.5 Índice Complementar — IPST-H
+
+O IVS-H opera em par com o **IPST-H** (Índice de Pressão Social Territorial de Hortolândia):
+
+| Índice | O que mede | Unidade de referência |
+|--------|------------|-----------------------|
+| IVS-H | Vulnerabilidade estrutural da população | Loteamento / núcleo / RP |
+| IPST-H | Pressão sobre o Estado — sobrecarga da rede, lacunas de cobertura | Loteamento / núcleo / RP |
+
+> "O IVS mostra onde está a vulnerabilidade. O IPST-H mostra onde ela se transforma em pressão sobre o Estado."
+
+Os dois índices geram uma matriz de interpretação conjunta:
+
+| IVS | IPST | Interpretação |
+|-----|------|---------------|
+| Alto | Alto | Alta vulnerabilidade + Estado pressionado |
+| Alto | Baixo | Vulnerabilidade alta, rede ainda absorvendo |
+| Baixo | Alto | Pressão operacional (fluxo / mobilidade / rede insuficiente) |
+| Baixo | Baixo | Situação estável |
+
+> Detalhamento do IPST-H: `01_modelagem_conceitual/ipst_h_modelo_v01.md` (a produzir).
+
 ---
 
 ## 2. O que o Censo 2022 fornece para o IVS-H
@@ -209,10 +231,52 @@ Arquivos disponíveis em `filtrado_hortolandia/`.
 > BigQuery/IPEA, tabelas de favelas e comunidades urbanas, e dados de populações
 > específicas (TEA, quilombola, indígena). Ver pipeline completo na Seção 5.
 
-> **Confirmado em 13/03/2026:** a renda domiciliar per capita por setor censitário
+> **Confirmado em "13/03/2026":** a renda domiciliar per capita por setor censitário
 > **não está publicada pelo IBGE** no Censo 2022 até esta data.
 > **Decisão:** RT_01 (renda per capita menor ou igual a 1/2 SM) terá o
 > **CadÚnico como fonte primária confirmada** para o IVS-H.
+
+---
+
+## 3.1 CadÚnico como Fonte Primária — Estado Atual (Fase 1 MVP)
+
+**Referência:** Notebook `RTB_002` — `02_tratamento_cadunico.ipynb`
+**Data da última execução:** "21/04/2026"
+**Período de referência:** `2025_12`
+
+| atributo | valor confirmado |
+|----------|-----------------|
+| Registros totais | **72.424** indivíduos |
+| Colunas disponíveis | **211** variáveis |
+| Camada de entrada | `dados/cadunico/01_bruto/2025_12/cadunico.csv` |
+| Camada de saída | `dados/cadunico/02_limpo/2025_12/cadunico_limpo.csv` |
+
+**RT_01 — resultado preliminar:**
+
+| variável | resultado | observação |
+|----------|-----------|------------|
+| RT_01 (renda per capita ≤ 1/2 SM) | **~60,5%** das famílias cadastradas | Calculado sobre população registrada no CadÚnico |
+
+> **Nota metodológica — RT_01 como proxy de população cadastrada:**
+> O IVS-H Fase 1 mede vulnerabilidade da **população registrada no CadÚnico**, não da
+> população total do município. Isso não é limitação — é vantagem operacional:
+> toda pessoa flaggada pelo índice já está dentro do alcance da política municipal.
+> A cobertura do CadÚnico em relação à população total é variável de contexto,
+> não componente do índice.
+
+**Bloqueio crítico — linkage endereço → loteamento:**
+
+O cálculo do IVS-H por loteamento (granularidade territorial do Produto 2) está
+bloqueado pela ausência da tabela de correspondência **CEP → `cod_loteamento`**.
+
+| pendência | responsável | status |
+|-----------|-------------|--------|
+| Exportação de CEP do CadÚnico | Sandra (Inclusão) | pendente |
+| Alinhamento `endereço → id_loteamento` | Cláudia / Jesus José | pendente |
+| DE-PARA CEP → `cod_loteamento` | Arthur (SIG) | pendente |
+
+> Enquanto o linkage não estiver resolvido, o IVS-H Fase 1 pode ser calculado
+> apenas no nível municipal (agregado), não por loteamento.
 
 ---
 
@@ -253,7 +317,7 @@ variaveis_ivsh/
         ↓  cálculo do índice composto
 IVS-H
   ├─ ivsh_municipio.csv
-  └─ ivsh_loteamento.csv
+  └─ ivsh_loteamento.csv          ← bloqueado por linkage endereço→loteamento
 
 referencias_ipea/
   └─ ivs_ipea_hortolandia/
@@ -282,7 +346,7 @@ Onde:
 | w1, w2, w3 | pesos das dimensões | — | definidos em `pesos/pesos_IVS_H/` |
 
 > Os pesos do IVS-H são calibrados à realidade local de Hortolândia.
-> A justificativa empírica para cada peso está em `ivs_vs_ivsh_comparativo_v04.md`.
+> A justificativa empírica para cada peso está em `ivs_vs_ivsh_comparativo_v08.md`.
 > Os pesos do IPEA (1/3 cada) são preservados na pasta `pesos/pesos_IVS_oficial/`
 > como referência para garantir comparabilidade nacional.
 
@@ -302,7 +366,7 @@ RT = média ponderada (RT_renda_pc, RT_ocupacao, RT_informalidade, RT_idosos,
 > e custo de acesso ao emprego — fenômenos de renda e trabalho, não atributos
 > físicos da cidade. Essa posição é mantida em todo o projeto.
 >
-> Especificação completa e fechada das variáveis: `dim_variavel_IVS_v01r4.md` (a produzir).
+> Especificação completa e fechada das variáveis: `dim_variavel_IVS_v01r7.md`.
 
 ---
 
@@ -444,7 +508,6 @@ agregado e os aglomerados subnormais:
 | Taxa de escolarização TEA — 15-17 anos | **100%** vs 84,5% geral |
 
 > O TEA não integra o cálculo do IVS-H — é camada analítica complementar.
-> Ver subseções 6.2.1 a 6.2.4 na v07 (dados completos preservados).
 
 ---
 
@@ -524,14 +587,18 @@ pode ser comprovado.
 
 | # | Ação | Responsável | Status |
 |---|------|-------------|--------|
-| 1 | Baixar os 7 arquivos IBGE | Ailton (Debian) | concluído "12/03/2026" |
-| 2 | Obter IVS IPEA 2000/2010 via BigQuery | Ailton (Debian) | concluído "13/03/2026" |
-| 3 | Aplicar filtro 3519071 e gerar filtrado_hortolandia/ | Ailton (Debian) | concluído "12/03/2026" |
-| 4 | Verificar dicionário domicilio1/2/3 — IU_agua, IU_esgoto, IU_lixo | Ailton + Claude | pendente |
-| 5 | Mapear variáveis IBGE para dim_variavel_IVS_v01r4.md | Ailton + Claude | pendente |
-| 6 | Definir pesos IVS-H em pesos/pesos_IVS_H/ | Ailton + Claude | pendente |
-| 7 | Popular schema_IVS.sql com dados reais | Ailton (Debian) | aguarda 4 e 5 |
-| 8 | Incluir campos temporais (data_referencia, fonte_calculo, tipo_ivs, versao_calculo) no DDL das tabelas fato | Ailton (Debian) | pendente — aguarda criação das tabelas |
+| 1 | Baixar os 7 arquivos IBGE | Ailton (Debian) | ✅ concluído "12/03/2026" |
+| 2 | Obter IVS IPEA 2000/2010 via BigQuery | Ailton (Debian) | ✅ concluído "13/03/2026" |
+| 3 | Aplicar filtro 3519071 e gerar filtrado_hortolandia/ | Ailton (Debian) | ✅ concluído "12/03/2026" |
+| 4 | Carregar e validar CadÚnico 2025_12 (RTB_002) | Ailton (Windows) | ✅ concluído "21/04/2026" — 72.424 registros, 211 colunas |
+| 5 | Calcular RT_01 sobre CadÚnico | Ailton (Windows) | ✅ concluído — ~60,5% das famílias cadastradas |
+| 6 | Resolver linkage endereço → loteamento (DE-PARA CEP → cod_loteamento) | Sandra / Cláudia / Jesus José | 🔴 bloqueio crítico — pendente |
+| 7 | Verificar dicionário domicilio1/2/3 — IU_agua, IU_esgoto, IU_lixo | Ailton + Claude | pendente |
+| 8 | Mapear variáveis IBGE para dim_variavel_IVS_v01r4.md | Ailton + Claude | pendente |
+| 9 | Definir pesos IVS-H em pesos/pesos_IVS_H/ | Ailton + Claude | pendente |
+| 10 | Popular schema_IVS.sql com dados reais | Ailton (Debian) | aguarda 6 e 7 |
+| 11 | Incluir campos temporais (data_referencia, fonte_calculo, tipo_ivs, versao_calculo) no DDL das tabelas fato | Ailton (Debian) | pendente — aguarda criação das tabelas |
+| 12 | Calcular IVS-H Fase 1 por loteamento (5 variáveis CadÚnico) | Ailton (Windows) | 🔴 bloqueado — depende de #6 |
 
 ---
 
@@ -548,8 +615,11 @@ pode ser comprovado.
 | v07 | "16/03/2026" | Seção 6.2: diagnóstico TEA — 2.806 pessoas, 2.347 domicílios, escolarização 100% (15-17 anos) |
 | v08 | "17/03/2026" | Seção 6.1.6: população indígena — 255 pessoas (vs 6 quilombolas); 10 em aglomerados; Camada 3 atualizada. Seção 6.1.7 (nova): aglomerados subnormais — IU_esgoto discrimina no território (29% cobertura vs 97,6% municipal); decisão de manter variável com nota de poder discriminatório territorial. Seção 8 (nova): Decisão Arquitetural — Dimensão Temporal das Tabelas Fato; 5 campos obrigatórios nas tabelas fato (data_referencia, ano_referencia, fonte_calculo, tipo_ivs, versao_calculo); nota metodológica sobre microdados Censo 2022 registrada formalmente. Seção 8 anterior renomeada para Seção 9; passo 8 adicionado. |
 | v09 | "17/03/2026" | Seção 1.4 (nova): Função do IVS-H. Seção 5.1 (nova): fórmula formal IVS_H = w1*IU + w2*CH + w3*RT. Seção 0: unidade primária de análise declarada. Seção 6.2: posicionamento TEA reforçado. **Nota:** o log desta versão referenciava uma Seção 3.3.1 que não foi inserida no corpo — inconsistência corrigida na v10. |
+| v10 | "17/03/2026" | Ajuste 1: Seção 2.1 (nova) — mobilidade pendular como variável proxy de RT; inconsistência do log v09 corrigida. Ajuste 2: fórmula da Seção 5.1 corrigida — IU_mobilidade removida de IU; mobilidade consolidada exclusivamente em RT. Ajuste 3: título da Seção 3 ampliado. Ajuste 4: nota metodológica formal sobre Camada 3. |
+| v11 | "04/05/2026" | Seção 1.5 (nova): IPST-H como índice complementar — tabela de dois índices e matriz de interpretação conjunta; referência ao documento futuro `ipst_h_modelo_v01.md`. Seção 3.1 (nova): CadÚnico como fonte primária — estado atual Fase 1 MVP: 72.424 registros confirmados (RTB_002, "21/04/2026"); RT_01 ~60,5%; nota metodológica sobre proxy de população cadastrada; tabela de bloqueios críticos (Sandra / Cláudia / Jesus José). Seção 5: pipeline atualizado — nota de bloqueio em ivsh_loteamento.csv. Seção 5.1: referência ao comparativo atualizada para v08. Seção 9 (Próximos Passos): itens 1–3 marcados como concluídos; itens 4–5 adicionados como concluídos; item 6 marcado como bloqueio crítico; itens 7–11 renumerados; item 12 adicionado como bloqueado. |
 
 ---
 
 *Documento de governança — 00_governanca/*
 *Atlas Social de Hortolândia — uso interno*
+
