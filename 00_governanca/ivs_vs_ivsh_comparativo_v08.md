@@ -1,4 +1,4 @@
-[ivs_vs_ivsh_comparativo_v08.md](https://github.com/user-attachments/files/27355573/ivs_vs_ivsh_comparativo_v08.md)
+[ivs_vs_ivsh_comparativo_v08 (1).md](https://github.com/user-attachments/files/27360642/ivs_vs_ivsh_comparativo_v08.1.md)
 # IVS × IVS-H — Comparativo das 16 Variáveis de Vulnerabilidade Social
 
 **Arquivo:** `00_governanca/ivs_vs_ivsh_comparativo_v08.md`
@@ -20,16 +20,21 @@ garantindo comparabilidade nacional e execução imediata.
 
 ---
 
-## Nota Arquitetural — Dois Índices Complementares
+## Nota Arquitetural — Três Instrumentos Complementares
 
-| Índice | O que mede | Relação |
-|--------|------------|---------|
-| **IVS-H** | Vulnerabilidade estrutural da população | Diagnóstico territorial |
-| **IPST-H** | Pressão sobre o Estado — sobrecarga da rede, lacunas de cobertura | Diagnóstico operacional |
+| Instrumento | O que mede | Base | Natureza |
+|-------------|------------|------|----------|
+| **IVS-H** | Vulnerabilidade estrutural da população | CadÚnico + IBGE | Quantitativo |
+| **IPST-H** | Pressão mensurável sobre o Estado — sobrecarga da rede, lacunas de cobertura | Dados administrativos | Quantitativo |
+| **IPSO-H** | Pressão social observada — o que está acontecendo agora | Corpus jornalístico (Tribuna Liberal) | Qualitativo / narrativo |
 
-> "O IVS mostra onde está a vulnerabilidade. O IPST-H mostra onde ela se transforma em pressão sobre o Estado."
+> "O IVS mostra onde está a vulnerabilidade. O IPST-H mostra onde ela se transforma em pressão
+> mensurável sobre o Estado. O IPSO-H mostra o que está acontecendo agora."
 
-**Matriz de interpretação conjunta:**
+**Os três instrumentos não se mesclam metodologicamente.** A integração é narrativa:
+o IPSO-H valida qualitativamente o que o IVS-H e o IPST-H medem em bases quantitativas.
+
+**Matriz de interpretação — IVS-H × IPST-H:**
 
 | IVS | IPST | Interpretação |
 |-----|------|---------------|
@@ -38,8 +43,9 @@ garantindo comparabilidade nacional e execução imediata.
 | Baixo | Alto | Pressão operacional (fluxo / mobilidade / rede insuficiente) |
 | Baixo | Baixo | Situação estável |
 
-> Detalhamento técnico de fontes e pipeline: `arquitetura_dados_IVS_IBGE_Horto_v11.md`.
-> Detalhamento técnico das variáveis: `01_modelagem_conceitual/dim_variavel_IVS_v01r7.md`.
+> IPST-H: `01_modelagem_conceitual/ipst_h_modelo_v01.md` (a produzir).
+> IPSO-H: `00_governanca/corpus_jornalistico/README_corpus_v1.5.md`.
+> Detalhamento técnico de fontes: `arquitetura_dados_IVS_IBGE_Horto_v11.md`.
 
 ---
 
@@ -150,7 +156,7 @@ O IVS-H permite:
 - orientar **qual política** aplicar (dimensão)
 
 > O índice não apenas mede vulnerabilidade — orienta decisão.
-> O IVS-H sozinho é diagnóstico. O IVS-H + IPST-H é gestão.
+> O IVS-H sozinho é diagnóstico. O IVS-H + IPST-H é gestão. O IVS-H + IPST-H + IPSO-H é inteligência institucional.
 
 ---
 
@@ -160,5 +166,4 @@ O IVS-H permite:
 |--------|------|------------|
 | v01–v06 | "03/2026" | Versões iniciais — estruturação das variáveis e pesos |
 | v07 | "30/04/2026" | Inclusão da lista completa das 16 variáveis; ajuste RT_04; nota IPST-H; reforço institucional |
-| v08 | "04/05/2026" | Tabela de variáveis expandida — colunas Fonte IVS-H / Fase / Status adicionadas a todas as 3 dimensões; RT_01 com resultado confirmado (~60,5%); estado da Fase 1 MVP formalizado — 5 variáveis identificadas, bloqueio de linkage registrado; tabela de Fase 1 por loteamento vs municipal; nota sobre mobilidade pendular como complemento RT; referência cruzada para v11 do arquivo de arquitetura; pesos IPEA explicitados na tabela de resumo executivo. |
-
+| v08 | "04/05/2026" | Tabela de variáveis expandida — colunas Fonte IVS-H / Fase / Status adicionadas a todas as 3 dimensões; RT_01 com resultado confirmado (~60,5%); estado da Fase 1 MVP formalizado; **arquitetura de três instrumentos** (IVS-H / IPST-H / IPSO-H) — separação metodológica obrigatória, matriz IVS-H × IPST-H, referência ao README_corpus_v1.5.md; conclusão estratégica atualizada. |
