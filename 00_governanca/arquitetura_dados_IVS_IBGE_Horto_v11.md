@@ -1,4 +1,4 @@
-[arquitetura_dados_IVS_IBGE_Horto_v11.md](https://github.com/user-attachments/files/27355456/arquitetura_dados_IVS_IBGE_Horto_v11.md)
+[arquitetura_dados_IVS_IBGE_Horto_v11 (1).md](https://github.com/user-attachments/files/27360713/arquitetura_dados_IVS_IBGE_Horto_v11.1.md)
 | v11 | "04/05/2026" | Seção 9 atualizada — status das ações pós-execução do tratamento CadÚnico (RTB_002); CadÚnico 2025_12 confirmado: 72.424 registros, 211 colunas; RT_01 calculado em ~60,5% das famílias cadastradas; bloqueio de linkage endereço→loteamento registrado como dependência crítica (pendência Sandra/Cláudia/Jesus José); nota metodológica sobre RT_01 como proxy de população cadastrada; referência cruzada ao IPST-H como índice complementar ao IVS-H. |
 
 *Documento de governança — 00_governanca/*
@@ -147,18 +147,24 @@ O IVS-H é um índice composto destinado a:
 > Ele transforma dados dispersos em secretarias num único indicador territorial
 > que permite ao prefeito e às secretarias convergirem em torno da mesma realidade.
 
-### 1.5 Índice Complementar — IPST-H
+### 1.5 Três Instrumentos Complementares do Atlas Social
 
-O IVS-H opera em par com o **IPST-H** (Índice de Pressão Social Territorial de Hortolândia):
+O IVS-H integra uma arquitetura de três instrumentos distintos — metodologicamente separados,
+narrativamente complementares:
 
-| Índice | O que mede | Unidade de referência |
-|--------|------------|-----------------------|
-| IVS-H | Vulnerabilidade estrutural da população | Loteamento / núcleo / RP |
-| IPST-H | Pressão sobre o Estado — sobrecarga da rede, lacunas de cobertura | Loteamento / núcleo / RP |
+| Instrumento | O que mede | Base | Natureza |
+|-------------|------------|------|----------|
+| **IVS-H** | Vulnerabilidade estrutural da população | CadÚnico + IBGE | Quantitativo |
+| **IPST-H** | Pressão mensurável sobre o Estado — sobrecarga da rede, lacunas de cobertura | Dados administrativos | Quantitativo |
+| **IPSO-H** | Pressão social observada — o que está acontecendo agora | Corpus jornalístico (Tribuna Liberal) | Qualitativo / narrativo |
 
-> "O IVS mostra onde está a vulnerabilidade. O IPST-H mostra onde ela se transforma em pressão sobre o Estado."
+> "O IVS mostra onde está a vulnerabilidade. O IPST-H mostra onde ela se transforma em pressão
+> mensurável sobre o Estado. O IPSO-H mostra o que está acontecendo agora."
 
-Os dois índices geram uma matriz de interpretação conjunta:
+**Os três instrumentos não se mesclam metodologicamente.** A integração entre eles é narrativa:
+o IPSO-H abre apresentações e valida qualitativamente o que o IVS-H e o IPST-H medem.
+
+**Matriz de interpretação — IVS-H × IPST-H:**
 
 | IVS | IPST | Interpretação |
 |-----|------|---------------|
@@ -167,7 +173,8 @@ Os dois índices geram uma matriz de interpretação conjunta:
 | Baixo | Alto | Pressão operacional (fluxo / mobilidade / rede insuficiente) |
 | Baixo | Baixo | Situação estável |
 
-> Detalhamento do IPST-H: `01_modelagem_conceitual/ipst_h_modelo_v01.md` (a produzir).
+> IPST-H: `01_modelagem_conceitual/ipst_h_modelo_v01.md` (a produzir).
+> IPSO-H: `00_governanca/corpus_jornalistico/README_corpus_v1.5.md`.
 
 ---
 
@@ -616,10 +623,9 @@ pode ser comprovado.
 | v08 | "17/03/2026" | Seção 6.1.6: população indígena — 255 pessoas (vs 6 quilombolas); 10 em aglomerados; Camada 3 atualizada. Seção 6.1.7 (nova): aglomerados subnormais — IU_esgoto discrimina no território (29% cobertura vs 97,6% municipal); decisão de manter variável com nota de poder discriminatório territorial. Seção 8 (nova): Decisão Arquitetural — Dimensão Temporal das Tabelas Fato; 5 campos obrigatórios nas tabelas fato (data_referencia, ano_referencia, fonte_calculo, tipo_ivs, versao_calculo); nota metodológica sobre microdados Censo 2022 registrada formalmente. Seção 8 anterior renomeada para Seção 9; passo 8 adicionado. |
 | v09 | "17/03/2026" | Seção 1.4 (nova): Função do IVS-H. Seção 5.1 (nova): fórmula formal IVS_H = w1*IU + w2*CH + w3*RT. Seção 0: unidade primária de análise declarada. Seção 6.2: posicionamento TEA reforçado. **Nota:** o log desta versão referenciava uma Seção 3.3.1 que não foi inserida no corpo — inconsistência corrigida na v10. |
 | v10 | "17/03/2026" | Ajuste 1: Seção 2.1 (nova) — mobilidade pendular como variável proxy de RT; inconsistência do log v09 corrigida. Ajuste 2: fórmula da Seção 5.1 corrigida — IU_mobilidade removida de IU; mobilidade consolidada exclusivamente em RT. Ajuste 3: título da Seção 3 ampliado. Ajuste 4: nota metodológica formal sobre Camada 3. |
-| v11 | "04/05/2026" | Seção 1.5 (nova): IPST-H como índice complementar — tabela de dois índices e matriz de interpretação conjunta; referência ao documento futuro `ipst_h_modelo_v01.md`. Seção 3.1 (nova): CadÚnico como fonte primária — estado atual Fase 1 MVP: 72.424 registros confirmados (RTB_002, "21/04/2026"); RT_01 ~60,5%; nota metodológica sobre proxy de população cadastrada; tabela de bloqueios críticos (Sandra / Cláudia / Jesus José). Seção 5: pipeline atualizado — nota de bloqueio em ivsh_loteamento.csv. Seção 5.1: referência ao comparativo atualizada para v08. Seção 9 (Próximos Passos): itens 1–3 marcados como concluídos; itens 4–5 adicionados como concluídos; item 6 marcado como bloqueio crítico; itens 7–11 renumerados; item 12 adicionado como bloqueado. |
+| v11 | "04/05/2026" | Seção 1.5 (nova): arquitetura de três instrumentos complementares (IVS-H / IPST-H / IPSO-H) — tabela comparativa, natureza de cada instrumento, separação metodológica obrigatória, matriz IVS-H × IPST-H, referências cruzadas. Seção 3.1 (nova): CadÚnico como fonte primária — estado atual Fase 1 MVP: 72.424 registros confirmados (RTB_002, "21/04/2026"); RT_01 ~60,5%; nota metodológica sobre proxy de população cadastrada; tabela de bloqueios críticos (Sandra / Cláudia / Jesus José). Seção 5: pipeline atualizado — nota de bloqueio em ivsh_loteamento.csv. Seção 5.1: referência ao comparativo atualizada para v08. Seção 9 (Próximos Passos): itens 1–3 marcados como concluídos; itens 4–5 adicionados como concluídos; item 6 marcado como bloqueio crítico; itens 7–11 renumerados; item 12 adicionado como bloqueado. |
 
 ---
 
 *Documento de governança — 00_governanca/*
 *Atlas Social de Hortolândia — uso interno*
-
