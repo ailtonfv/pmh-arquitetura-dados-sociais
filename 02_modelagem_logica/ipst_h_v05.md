@@ -1,6 +1,7 @@
+[ipst_h_v05.md](https://github.com/user-attachments/files/27362277/ipst_h_v05.md)
 # IPST-H — Índice de Pressão Social Territorial de Hortolândia
 
-**Versão:** v04
+**Versão:** v05
 **Data:** "04/05/2026"
 **Responsável:** Ailton Vendramini
 **Projeto:** Atlas Social de Hortolândia
@@ -131,11 +132,84 @@ O IPST-H será construído em três etapas — nunca pulando etapas:
 
 | Etapa | O que produz | Condição de avanço |
 |-------|--------------|-------------------|
-| **1 — Sinais (MVP)** | 2–3 indicadores: volume de atendimentos, crescimento mensal, concentração por tipo | Confirmar que os dados existem, são acessíveis e formam série |
+| **1 — Sinais (MVP)** | 3 indicadores operacionais de fluxo — ver Seção 3.1 | Confirmar que os dados existem, são acessíveis e formam série |
 | **2 — Painel de Pressão** | Séries temporais, variação %, sazonalidade, comparação entre núcleos | Instrumento gerencial operacional — sem índice ainda |
 | **3 — Índice (condicional)** | Fórmula fechada com pesos validados | Mínimo 12 meses de série + aprovação metodológica documentada |
 
 > ⚠️ Não vamos começar pelo índice. Vamos começar pelos sinais.
+
+---
+
+### 3.1 MVP — Três Indicadores Operacionais de Fluxo
+
+**Decisão de "04/05/2026".**
+Os três indicadores abaixo são o primeiro entregável do IPST-H.
+Juntos respondem: *"o sistema está dando conta — e a situação está piorando ou melhorando?"*
+
+| Indicador | Nome de apresentação | O que mostra |
+|-----------|---------------------|--------------|
+| TA | Capacidade de resposta | Se o sistema consegue atender a demanda que chega |
+| CD | Tendência da pressão | Se a pressão está aumentando ou diminuindo |
+| TME | Tempo de espera do cidadão | Onde há fila / gargalo |
+
+---
+
+#### TA — Taxa de Atendimento
+
+```
+TA = Atendimentos realizados no período
+     ─────────────────────────────────────
+     Demandas registradas no período
+```
+
+| Leitura | Interpretação |
+|---------|---------------|
+| TA ≈ 1 | Sistema acompanhando a demanda |
+| TA < 1 | Pressão acumulando — déficit de atendimento |
+
+**Fonte:** CRAS / CREAS / SIGAS — registros de entrada e atendimento.
+
+---
+
+#### CD — Crescimento da Demanda
+
+```
+CD = Demandas(t) − Demandas(t−1)
+     ────────────────────────────
+          Demandas(t−1)
+```
+
+| Leitura | Interpretação |
+|---------|---------------|
+| CD > 0 | Pressão crescendo |
+| CD < 0 | Pressão aliviando |
+
+**Fonte:** mesma base do TA — série mensal é suficiente.
+
+---
+
+#### TME — Tempo Médio de Espera
+
+```
+TME = Σ (data do atendimento − data da solicitação)
+      ──────────────────────────────────────────────
+                  nº de atendimentos
+```
+
+| Leitura | Interpretação |
+|---------|---------------|
+| TME alto | Fila longa / gargalo estrutural |
+| TME baixo | Fluxo mais eficiente |
+
+**Fonte:** SIGAS — registros com data de entrada e data de atendimento.
+
+---
+
+**Dependência crítica:** os três indicadores dependem dos dados do SIGAS.
+Responsável pelo acesso: Caio. Status: 7 respostas pendentes.
+
+> Fallback: os indicadores podem ser iniciados com planilhas manuais dos
+> CRAS, desde que contenham data de solicitação e data de atendimento.
 
 ---
 
@@ -197,6 +271,9 @@ responder à demanda.
 > território exige resposta intersetorial que a assistência social
 > sozinha não consegue prover.
 
+> **Nota de correspondência MVP:** TA antecipa SR_01/SR_04; TME antecipa SR_05;
+> CD é indicador temporal transversal sem equivalente direto nos eixos.
+
 ---
 
 ### Eixo 3 — Lacunas de Cobertura (LC)
@@ -212,10 +289,10 @@ atendimento efetivamente realizado.
 | LC_04 | Famílias sem acompanhamento | Famílias em alta vulnerabilidade sem contato registrado nos últimos 6 meses | CadÚnico / SIGAS | Médio prazo |
 | LC_05 | Cobertura OSC | % da demanda atendida por organizações conveniadas | DIM_OSC / PMH | Médio prazo |
 
-> **LC_01 é o indicador mais imediatamente disponível e mais revelador.**
-> Cruza CadÚnico × FATO_ATENDIMENTO para mapear, por loteamento, a fila
-> invisível — famílias cadastradas como vulneráveis ainda não alcançadas
-> pela rede. É o primeiro entregável analítico do MVP.
+> **LC_01 é o indicador mais revelador da Fase 2:**
+> cruza CadÚnico × FATO_ATENDIMENTO para mapear, por loteamento,
+> a fila invisível — famílias cadastradas como vulneráveis ainda não
+> alcançadas pela rede.
 
 ---
 
@@ -234,8 +311,7 @@ IPST-H = (PT × w1) + (SR × w2) + (LC × w3)
 | Lacunas de Cobertura | 30% | Complementa a pressão operacional |
 
 > Pesos são hipótese inicial — recalibrados após análise empírica de
-> variância entre loteamentos. Pesos fixos prematuros viram dogma;
-> pesos calibrados viram evidência.
+> variância entre loteamentos.
 
 ### Normalização
 
@@ -252,7 +328,21 @@ Metodologia: OECD (NARDO et al., 2008).
 
 > **Regra de ouro:** índice completo no papel. Índice mínimo na prática.
 
-### Fase 1 — MVP (executável agora)
+### Fase 1 — MVP Operacional (TA + CD + TME)
+
+Ver definição completa na **Seção 3.1**.
+
+| Indicador | Fonte | Dependência |
+|-----------|-------|-------------|
+| TA — Taxa de Atendimento | SIGAS / planilhas CRAS | Caio (SIGAS) ou coordenadores |
+| CD — Crescimento da Demanda | mesma base do TA | idem |
+| TME — Tempo Médio de Espera | SIGAS (data entrada + data atendimento) | Caio (SIGAS) |
+
+**Resultado:** painel de pressão operacional mensal — sem índice, com valor gerencial imediato.
+
+### Fase 2 — MVP Territorial (PT + LC)
+
+Quando disponível o linkage endereço → loteamento:
 
 | Código | Indicador | Eixo |
 |--------|-----------|------|
@@ -262,15 +352,11 @@ Metodologia: OECD (NARDO et al., 2008).
 | PT_04 | Alta complexidade familiar | PT |
 | LC_01 | Gap de cobertura | LC |
 
-**Resultado:** IPST-H v0.1 — leitura imediata de pressão e lacuna por loteamento.
+**Resultado:** IPST-H v0.2 — leitura de pressão e lacuna por loteamento.
 
-### Fase 2 — Expansão
+### Fase 3 — Expansão
 
-Adicionar quando disponíveis:
-
-- SR_01, SR_04
-- LC_02
-- PT_05, PT_06
+Adicionar quando disponíveis: SR_01, SR_04, LC_02, PT_05, PT_06.
 
 ### Nota de horizonte
 
@@ -294,28 +380,18 @@ FATO_IPST_LOTEAMENTO
 └── data_calculo
 ```
 
-**Dependências:**
-
-```
-FATO_IPST_LOTEAMENTO
-├── DIM_LOTEAMENTO
-├── DIM_FAMILIA
-├── FATO_ATENDIMENTO
-└── DIM_OSC
-```
-
 ---
 
 ## 9. Produtos Analíticos
 
-**Ranking por loteamento** — lista ordenada pelo IPST-H (0–1), com
-comparação entre períodos.
+**Painel MVP Fase 1** — TA, CD e TME por unidade (CRAS / CREAS), série mensal.
+Três métricas, uma linha do tempo, uma leitura gerencial.
 
-**Mapa de pressão** — visualização por loteamento, combinada com o
-mapa do IVS-H para leitura conjunta dos dois índices.
+**Ranking por loteamento** — lista ordenada pelo IPST-H (0–1). Disponível na Fase 2.
 
-**Painel executivo** — top 10 loteamentos sob maior pressão, evolução
-por eixo, cobertura por rede, cruzamento IVS-H × IPST-H por núcleo.
+**Mapa de pressão** — visualização por loteamento, combinada com o mapa do IVS-H.
+
+**Painel executivo** — top 10 loteamentos sob maior pressão, cruzamento IVS-H × IPST-H.
 
 ---
 
@@ -325,8 +401,9 @@ por eixo, cobertura por rede, cruzamento IVS-H × IPST-H por núcleo.
 |-----------|---------|-----------|
 | CadÚnico ≠ população total | Famílias não cadastradas ficam invisíveis | Busca ativa + atualização cadastral contínua |
 | Renda autodeclarada | Possível subestimação da vulnerabilidade real | Cruzamento com CAGED quando disponível |
-| PT_05 e PT_06 dependem de SIDRA | Deslocamento intermunicipal aguarda dados IBGE | Implementadas na Fase 2 |
+| PT_05 e PT_06 dependem de SIDRA | Deslocamento aguarda dados IBGE | Implementadas na Fase 3 |
 | SR e LC parciais no MVP | Eixos 2 e 3 incompletos na versão inicial | Expansão progressiva conforme dados |
+| TA/CD/TME dependem do SIGAS | MVP Fase 1 bloqueado sem acesso ao SIGAS | Planilhas manuais dos CRAS como fallback |
 
 ---
 
@@ -343,8 +420,9 @@ por eixo, cobertura por rede, cruzamento IVS-H × IPST-H por núcleo.
 
 | Versão | Descrição |
 |--------|-----------|
-| v0.1 | MVP — PT_01 a PT_04 + LC_01 |
-| v0.2 | Expansão — SR e LC completos |
+| v0.1 | MVP Operacional — TA + CD + TME (Fase 1) |
+| v0.2 | MVP Territorial — PT_01 a PT_04 + LC_01 (Fase 2) |
+| v0.3 | Expansão — SR e LC completos (Fase 3) |
 | v1.0 | Completo — todos os eixos, dados IBGE integrados |
 
 ---
@@ -366,10 +444,11 @@ OECD. *Handbook on Constructing Composite Indicators*. OECD Publishing,
 
 | Versão | Data | Alterações |
 |--------|------|------------|
-| v01 | "22/03/2026" | Criação — posicionamento metodológico completo; 3 eixos com 16 variáveis; fórmula, pesos e normalização; estratégia em fases; modelo de dados |
-| v02 | "22/03/2026" | Eixo 2 renomeado para "Pressão Operacional sobre a Rede". PT_01 redefinido com denominador domicílios Censo 2022. Seção 3 criada. Pesos: de fixos para hipótese inicial. Frase síntese atualizada. |
-| v03 | "23/03/2026" | Estrutura compactada e reorganizada. Nome completo preservado: "Índice de Pressão Social Territorial". Pasta corrigida: `01_modelagem_conceitual/`. |
-| v04 | "04/05/2026" | Tabela de posicionamento expandida para três instrumentos (IVS-H / IPST-H / IPSO-H) com colunas Natureza / Base / O que responde. Seção 3 reescrita — "Escopo e Restrições Metodológicas": critério único de entrada (mensurável + recorrente + auditável); tabela o que entra / não entra; distinção IPST-H ≠ "IVS 2.0" preservada formalmente; trajetória em 3 etapas (Sinais → Painel → Índice) com condições de avanço. Frase estruturante atualizada para incluir IPSO-H. |
+| v01 | "22/03/2026" | Criação — posicionamento metodológico completo; 3 eixos; fórmula, pesos e normalização; estratégia em fases; modelo de dados |
+| v02 | "22/03/2026" | Eixo 2 renomeado. PT_01 redefinido. Pesos: hipótese inicial. |
+| v03 | "23/03/2026" | Estrutura compactada. Pasta corrigida: `01_modelagem_conceitual/`. |
+| v04 | "04/05/2026" | Três instrumentos (IVS-H / IPST-H / IPSO-H). Seção 3: escopo e restrições metodológicas; critério único de entrada; trajetória em 3 etapas. |
+| v05 | "04/05/2026" | Seção 3.1 (nova): MVP dos três indicadores operacionais de fluxo — TA, CD, TME; fórmulas, leituras, fontes; dependência SIGAS/Caio; fallback planilhas manuais. Seção 7 reestruturada: Fase 1 (MVP Operacional), Fase 2 (MVP Territorial), Fase 3 (Expansão). Seção 9: painel MVP Fase 1 adicionado. Seção 10: limitação TA/CD/TME adicionada. Seção 11: versionamento atualizado v0.1 a v1.0. Nota de correspondência MVP nos eixos SR. |
 
 ---
 
