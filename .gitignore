@@ -43,3 +43,22 @@ __pycache__/
 # RELATÓRIOS GERADOS — VALIDAÇÃO DO CORPUS
 # -----------------------------------------------------------------------------
 outputs/validacao_corpus_v10_5/
+
+# -----------------------------------------------------------------------------
+# LISTAS OPERACIONAIS POR FAMÍLIA — LGPD (NÃO VERSIONAR)
+# -----------------------------------------------------------------------------
+# Arquivos específicos já identificados
+outputs/pvse/2025_12/prior10_listaA_elegiveis.csv
+outputs/pvse/2025_12/prior10_listaB_busca_ativa.csv
+outputs/pvse/2025_12/renda_elevada_verificacao_campo.csv
+outputs/pvse/2025_12/rt05_busca_ativa.csv
+outputs/pvse/2025_12/rtb030_familias_por_faixa_renda.csv
+
+# Convenções futuras restritas a listas familiares ou nominativas
+outputs/**/*_listaA_elegiveis.csv
+outputs/**/*_listaB_busca_ativa.csv
+outputs/**/*_busca_ativa.csv
+outputs/**/*_verificacao_campo.csv
+outputs/**/*_familias_por_faixa_renda.csv
+outputs/**/*lista_operacional*.csv
+outputs/**/*lista_familiar*.csv
