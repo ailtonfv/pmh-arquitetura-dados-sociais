@@ -62,3 +62,22 @@ outputs/**/*_verificacao_campo.csv
 outputs/**/*_familias_por_faixa_renda.csv
 outputs/**/*lista_operacional*.csv
 outputs/**/*lista_familiar*.csv
+
+# Áreas de trabalho e dependências regeneráveis
+.codex_qa/
+.codex_*_work/
+node_modules/
+**/.pydeps/
+
+# Renderização e QA local
+qa_*/
+lo_profile*/
+**/qa_pages*/
+**/qa_render*/
+**/*_render/
+**/*_renders/
+*.inspect.ndjson
+*.layout.json
+
+# Auditorias temporárias
+tmp_auditoria_*/
